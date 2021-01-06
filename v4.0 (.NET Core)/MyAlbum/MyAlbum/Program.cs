@@ -58,7 +58,15 @@ namespace MyAlbum
                 }
                 
                 album.Save(outputName);
-                Process.Start(outputName);
+
+                
+                var psi = new ProcessStartInfo
+                {
+                    FileName = outputName,
+                    UseShellExecute = true
+                };
+                Process.Start(psi);
+                //Process.Start(outputName);
 
 #if DEBUG
                 Console.WriteLine("Press any key to close...");
