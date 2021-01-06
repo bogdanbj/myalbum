@@ -1,0 +1,2 @@
+# myalbum
+Stamp album generator
