@@ -3,6 +3,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>MyAlbum</AssemblyName>
+    <RootNamespace>MyAlbum</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
