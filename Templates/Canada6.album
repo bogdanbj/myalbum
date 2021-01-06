@@ -1,0 +1,1674 @@
+﻿<MyAlbum ver="3.0">
+	<styles>
+		<!-- BORDER
+			type: none, single, double, white ace, custom
+			width: line1, space, line2
+			padding: top, right, bottom, left
+			-->
+			<border style="stamp_frame" default="true" border_type="double" width="0.4, 0.3, 0.1" margin="0,0,0,0" padding="3, 3, 3, 3" color="48,48,48" background-color="255,255,255" />
+			<border style="page_border" default="false" border_type="double" width="0.5, 0.5, 0.2" margin="0,0,0,0" padding="0, 6, 0, 6" />
+			<border style="white_ace_page" default="false" border_type="white_ace_page" margin="0,0,0,0" padding="3, 3, 3, 3" color="67,143,189" background-color="255,255,255" />
+			<border style="white_ace_stamp" default="false" border_type="white_ace_stamp" width="0.2, 0.9, 0.2" margin="0,0,0,0" padding="3, 3, 3, 3" background-color="255,255,255" />
+		<!-- TEXT
+			font_size: double
+			font_style: bold, bolditalic, italic, regular, strikeout, underline
+			align: left, center, right
+			valign: top, center, bottom
+			-->
+			<text style="text_default" default="true" align="left" font_name="Century Gothic" font_size="8"/>
+			<text style="story" justify="true" align="center" font_name="Folio" font_size="7"/>
+			<text style="italic" justify="true" align="center" font_name="Garamond" font_size="8" font_style="italic"/>
+			<text style="headline" justify="false" align="center" font_name="Stymie Becker Light" font_size="16" margin="2,0"/>
+			<text style="date" justify="true" align="center" font_name="Lubalin Graph" font_size="8" font_style="bold"/>
+			<text style="title" align="center" font_name="Stymie Becker Light" font_size="10"/>
+			<text style="inside" align="center" font_name="Stymie Becker Light" font_size="6" width="80%"/>
+			<text style="footer_left" justify="true" align="left" font_name="Garamond" font_size="8" font_style="italic" />
+			<text style="footer_center" justify="true" align="center" font_name="Garamond" font_size="10" font_style="italic" width="80%" margin="0,0,2,0" />
+			<text style="footer_right" justify="true" align="right" font_name="Garamond" font_size="8" font_style="italic" margin="0,0,2,0" />
+		<!-- ESCAPE CHARACTERS
+			ampersand (&) is escaped to &amp; 
+			double quotes (") are escaped to &quot; 
+			single quotes (') are escaped to &apos; 
+			less than (<) is escaped to &lt; 
+			greater than (>) is escaped to &gt;
+			-->
+		<!-- IMAGE
+			-->
+			<image style="stamp_image" default="true" color="false" />
+		<!-- STAMP
+			-->
+			<stamp style="stamp_default" default="true" vspace="1">
+				<border style="stamp_frame" />
+				<!--border style="white_ace_stamp" /-->
+				<image style="image_default" margin="2,2,2,2" />
+				<title style="title" />
+				<inside1 style="inside" />
+				<inside2 style="inside" />
+				<inside3 style="inside" />
+				<footer1 style="footer_left" />
+				<footer2 style="footer_center" />
+				<footer3 style="footer_right" />
+			</stamp>
+		<!-- ROW
+			spacing: FS (fixed space), ES (equal spacing), JS (justified spacing)
+			-->
+			<row style="stamp_FS" default="true" align="center" valign="center" spacing-mode="FS" space="6" />
+			<row style="page_header" default="false" align="center" valign="top" spacing-mode="FS" space="8" bgcolor="255, 32, 32" />
+		<!-- COLUMN
+			-->
+			<column style="default_column" default="true" align="center" space="1"/>
+		<!-- PAGE
+			orientation: portrait, landscape
+			size: letter, A4
+			margin: top, right, bottom, left
+			-->
+			<!-- color="48,48,48" -->
+			<page style="cover" default="false" orientation="portrait" size="letter" margin="7,7,7,7" color="48,48,48" vspace="1">
+				<banner file_name="" />
+				<border style="page_border" />
+			</page>
+			<page style="portrait" default="true" orientation="portrait" size="letter" margin="7,7,7,7" color="48,48,48" vspace="1">
+				<banner file_name="" />
+				<border style="page_border" />
+				<row style="page_header">
+				  <text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
+				</row>
+				<row height="10" />
+			</page>
+			<page style="landscape" default="false" orientation="landscape" size="letter" margin="7,7,7,7" color="48,48,48" vspace="1">
+				<banner file_name="" />
+				<border style="page_border" />
+				<row style="page_header" rotate="true">
+					<text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
+				</row>
+				<row rotate="true">
+					<image absolute="true" align="left" valign="top" file_name="Pictures\Canada-Post-Logo.png" x="20" y="20" height="32" width="32" stretched="true"></image>
+				</row>
+			</page>
+	</styles>
+
+	<!-- Cover -->	
+		<page style="cover" no="1" title="Cover">
+			<row height="110" />
+			<row>
+				<text style="headline" font_size="36" font_style="italic">1 9 8 4  -  2 0 1 0</text>
+			</row>
+			</page>
+			.
+	<!-- 1984 -->
+		<page no="2" title="Commemorative 1984">
+			<row height="10" />
+
+			<row space="20" valign="bottom">
+				<column width="36" rem="Yellowknife" >
+					<text style="headline">YELLOWKNIFE</text>
+					<text style="date">1984</text>
+					<stamp width="30" height="36" title="" image="" i1="32c" i2="" i3="S 1009" f1="" f2="Gold mine head frame in pan" f3="" />
+					<text style="story" width="40">The stamp issued on 15 May 1984, commemorates the 50th anniversary of the gold mining community living in the city of Yellowknife, capital of Northwest Territories.\n</text>
+				</column>
+				<column width="36" rem="Tall Ships">
+					<text style="headline">TALL SHIPS</text>
+					<text style="date">1984</text>
+					<stamp width="30" height="40" title="" image="" i1="32c" i2="" i3="S 1012" f1="" f2="Tall Ships regatta" f3="" />
+					<text style="story" width="40">Over 85 of majestic two, three and four-masted ships dropped anchor in St. Lawrence River in Quebec City honouring the 450th anniversary of Jacques Cartier's first voyage to North America.</text>
+				</column>
+				<column width="36" rem="Canadian Red Cross">
+					<text style="headline">RED CROSS</text>
+					<text style="date">1984</text>
+					<stamp width="30" height="36" title="" image="" i1="32c" i2="" i3="S 1009" f1="" f2="Meritorious Service Medal" f3="" />
+					<text style="story" width="40">In recognition of their invaluable contribution, Canada Post issued this stamp featuring the medal awarded by The Canadian Red Cross Society for long-standing and meritorious voluntary service.</text>
+				</column>
+			</row>
+
+			<row height="10" />
+
+			<row space="14"  valign="bottom">
+				<column width="46" rem="Montreal Symphony" >
+					<text style="headline">MONTREAL SYMPHONY</text>
+					<text style="date">1984</text>
+					<stamp width="40" height="24" title="" image="" i1="32c" i2="" i3="S 1010" f1="" f2="Orchestra concert" f3="" />
+					<text style="story" width="40">The Montreal Symphony Orchestra, one of the largest principal orchestras in Canada, was founded in 1934 in the middle of the Great Depression by enthusiastic Quebec musicians.</text>
+				</column>
+				<column width="36" rem="Treffle Berthiaume">
+					<text style="headline">TREFFLÉ BERTHIAUME</text>
+					<text style="date">1984</text>
+					<stamp width="26" height="40" title="" image="" i1="32c" i2="" i3="S 1044" f1="" f2="Trefflé Berthiaume" f3="" />
+					<text style="story" width="40">Trefflé Berthiaume (1848-1915), was a Canadian newspaperman and politician. As the owner of the Montreal newspaper "La Presse" he championed many social causes, including improved conditions for workers and aid to children and the needy.</text>
+				</column>
+				<column width="46" rem="United Empire Loyalists" >
+					<text style="headline">UNITED EMPIRE LOYALISTS</text>
+					<text style="date">1984</text>
+					<stamp width="40" height="24" title="" image="" i1="32c" i2="" i3="S 1028" f1="" f2="Loyalists and British flag" f3="" />
+					<text style="story" width="40">Approximately 100,000 Loyalists fled the United Stated, at the end of American Revolution, about half of them in Canada contributing substantially to the pioneering efforts.\n</text>
+				</column>
+			</row>
+			</page>
+			.		
+		<page no="3" title="Commemorative 1984">
+			<row height="10"/>
+
+			<row space="8" rem="St. Lawrence Seaway">
+				<column width="46">
+					<text style="headline">ST. LAWRENCE SEAWAY</text>
+					<text style="date">1984</text>
+				</column>
+				<stamp width="56" height="26" title="" image="" i1="32c" i2="" i3="S 1015" f1="" f2="The navigable waterway of St. Lawrence Seaway" f3="" />
+				<stamp width="40" height="25" title="" image="" i1="20c" i2="" i3="S 2091(US)" f1="" f2="Joint issue with US" f3="" />
+			</row>
+			<row>
+				<text style="story" width="170">The St. Lawrence River connects the Atlantic Ocean to the farthest reaches of Lake Superior, 3750 km away and 200 m above sea level. The joint effort of Canada and the United States created 2,000 MW in electrical power and replaced the existing "fourteen foot" waterway by a channel nine metres deep with half the locks previously needed. The Seaway was officially opened on 26 June 1959.</text>
+			</row>
+
+			<row height="20"/>
+
+			<row space="16" rem="Jaques Cartier">
+				<column width="46">
+					<text style="headline">JACQUES CARTIER</text>
+					<text style="date">1984</text>
+				</column>
+				<stamp width="40" height="26" title="" image="" i1="32c" i2="" i3="S 1011" f1="" f2="Cartier and ship" f3="" />
+				<stamp width="40" height="26" title="" image="" i1="2.00 Fr" i2="" i3="S 1923(Fr)" f1="" f2="Joint issue with France" f3="" />
+			</row>
+			<row>
+				<text style="story" width="170">The stamps jointly issued by Canada and France commemorates the 450th anniversary of Jacques Cartier's first voyage to Canada. Cartier left Saint-Malo, France, on 20 April 1534 with two ships and 61 men and returned on 5 September 1534. During this voyage Cartier charted the Gulf of Saint Lawrence and tied relations with Iroquoian-Huron peoples.</text>
+			</row>
+
+			<row height="20"/>
+			
+			<row space="16" rem="Papal Visit">
+				<column width="46">
+					<text style="headline">PAPAL VISIT</text>
+					<text style="date">1984</text>
+				</column>
+				<stamp width="40" height="24" title="" image="" i1="32c" i2="" i3="S 1030" f1="" f2="Papal coat-of-arms and map" f3="" />
+				<stamp width="40" height="24" title="" image="" i1="64c" i2="" i3="S 1031" f1="" f2="Papal coat-of-arms and map" f3="" />
+			</row>
+			<row space="8">
+				<text style="story" width="170">This issue commemorates the visit of Pope John Paul II in Canada in September 1984. The stamps feature the Pope personal coats of arms: a blue shield quartered by a gold cross with the letter M, all surmounted by ancient symbols of the papacy: the triple crown and the keys of St. Peter.</text>
+			</row>
+			</page>
+			.	
+		<page no="4" title="Canada Day 1984">
+			<row height="10" />
+
+			<row valign="bottom" space="15">
+				<column width="46" space="3" align="left">
+					<stamp width="27" height="40" title="" image="" i1="32c" i2="" i3="S 1023" f1="" f2="Nova Scotia" f3="" />
+					<stamp width="40" height="27" title="" image="" i1="32c" i2="" i3="S 1016" f1="" f2="New Bunswick" f3="" />
+					<stamp width="40" height="27" title="" image="" i1="32c" i2="" i3="S 1019" f1="" f2="Quebec" f3="" />
+					<stamp width="40" height="27" title="" image="" i1="32c" i2="" i3="S 1022" f1="" f2="Prince Edward Island" f3="" />
+				</column>
+				<column width="46" space="3">
+					<row>
+						<column>
+							<text style="headline">CANADA DAY</text>
+							<text style="date">1984</text>
+						</column>
+					</row>
+					<stamp width="40" height="27" title="" image="" i1="32c" i2="" i3="S 1017" f1="" f2="British Columbia" f3="" />
+					<stamp width="40" height="27" title="" image="" i1="32c" i2="" i3="S 1020" f1="" f2="Manitoba" f3="" />
+					<stamp width="40" height="27" title="" image="" i1="32c" i2="" i3="S 1023" f1="" f2="Saskatchewan" f3="" />
+					<stamp width="40" height="27" title="" image="" i1="32c" i2="" i3="S 1026" f1="" f2="Newfoundland" f3="" />
+				</column>
+				<column width="46" space="3" align="right">
+					<stamp width="27" height="40" title="" image="" i1="32c" i2="" i3="S 1027" f1="" f2="Ontario" f3="" />
+					<stamp width="40" height="27" title="" image="" i1="32c" i2="" i3="S 1018" f1="" f2="Yukon Territory" f3="" />
+					<stamp width="40" height="27" title="" image="" i1="32c" i2="" i3="S 1021" f1="" f2="Alberta" f3="" />
+					<stamp width="40" height="27" title="" image="" i1="32c" i2="" i3="S 1025" f1="" f2="Nortwest Territories" f3="" />
+				</column>
+			</row>
+			</page>
+			.
+		<page no="5" title="Canada Day 1984 - Miniature Sheet">
+			<row height="10" />
+
+			<row height="20" />
+
+			<row>
+				<stamp width="138" height="124" title="" image="" i1="12 x 32c" i2="" i3="S 1027a" f1="" f2="Paintings by Jean Paul Lemieux" f3="" />
+			</row>
+			<row height="4" />
+			<row>
+				<text style="story" width="130">A vision of Canada by one of her most respected and talented artists is the theme of the 1984 Canada Day miniature sheet. This year's commemorative sheet reproduces the work of the Quebec artist as part of the celebrations marking the 450th anniversary of Jacques Cartier's arrival in Canada. The Canada Day stamps feature twelve paintings, which were conceived as a set, giving the artist's interpretation of the provinces and territories of Canada.</text>
+			</row>
+			</page>
+			.
+		<page no="6" title="Commemorative 1984">
+			<row height="10" />
+			
+			<row space="40" valign="top">
+				<column width="36" rem="New Brunswick Bicentennial" >
+					<text style="headline">NEW BRUNSWICK BICENTENNIAL</text>
+					<text style="date">1984</text>
+					<stamp width="30" height="36" title="" image="" i1="32c" i2="" i3="S 1014" f1="" f2="'Lymphad' sailing vessels" f3="" />
+					<text style="story" width="40">The stamp commemorates 200 years since the creation of the "Colony of New Brunswick". The Scottish Lymphads represent shipbuilding, one of the province's main industries throughout much of its history.</text>
+					<!--text style="story" width="40">In 1784 the British Gouvernment decided to divide Nova Scotia and create the new province New Brunswick. The display of oared galleys evokes a long seafared tradition and is also found on the porvincial flag and coat-of-arms.</text-->
+				</column>
+				<column width="36" rem="Roman Catholic Church" >
+					<text style="headline">ROMAN CATHOLIC CHURCH</text>
+					<text style="date">1984</text>
+					<stamp width="30" height="36" title="" image="" i1="32c" i2="" i3="S 1029" f1="" f2="Basilica of St. John's,\nNewfoundland" f3="" />
+					<text style="story" width="40">The arrival of Father James O'Donnell, a Franciscan, in 1784 marked the formal establishment of the English-speaking Roman Catholic Church in Newfoundland and in North America.</text>
+				</column>
+			</row>
+
+			<row height="15" />
+			
+			<row rem="Christmas" >
+				<column width="36">
+					<text style="headline">CHRISTMAS</text>
+					<text style="date">1984</text>
+					<row space="10" valign="bottom" >
+						<stamp width="33" height="30" title="" image="" i1="32c" i2="" i3="S 1040" f1="" f2="L'Annonciation,\nby Jean Dallaire" f3="" />
+						<stamp width="33" height="30" title="" image="" i1="37c" i2="" i3="S 1041" f1="" f2="The Three Kings,\nby Simone Bouchard" f3="" />
+						<stamp width="33" height="30" title="" image="" i1="64c" i2="" i3="S 1042" f1="" f2="Snow in Bethlehem,\nby David Milne" f3="" />
+					</row>
+					<text style="story" width="130">Religious painting filled a pressing need for church decoration in the seventeenth century. In the eighteenth and nineteenth centuries, painters moved away from religious themes, and in the twentieth century their works were enlivened by various fashionable styles. But the Christmas theme still returns with freshness and spontaneity, as we can see from these paintings by Canadian artists.</text>
+				</column>
+			</row>
+		 </page>
+		 .		
+		<page no="7" title="Canadian Lighthouses" style="landscape" >
+			<row height="10" />
+
+			<row space="16" rem="Canadian Lighthouses">
+				<column width="100">
+					<text style="headline">CANADIAN LIGHTHOUSES</text>
+				</column>
+			</row>
+
+			<row height="10" />
+
+			<row space="15" valign="bottom">
+				<column width="86" space="5" align="left">
+					<row>
+						<column width="86">
+							<text style="date">1984</text>
+							<stamp width="80" height="48" title="" image="" i1="32c" i2="" i3="S 1032-1035" f1="" f2="Historic Lighthouses" f3="" />
+						</column>
+					</row>
+					<row>
+						<column width="78">
+							<text style="date">1985</text>
+							<stamp width="72" height="60" title="" image="" i1="34c" i2="" i3="S 1063-1066" f1="" f2="Modern Lighthouses" f3="" />
+						</column>
+						<column width="2" />
+					</row>
+				</column>
+				<column width="114">
+					<text style="story" width="114" align="left">Today's lighthouses warn sailors of shoals and dangerous shorelines under all weather conditions. Day and night, rain or shine, these stations stand out from their surroundings with contrasting forms and colours, making their presence known by powerful beacons and foghorns. Many also emit radio or radar signals.\n\nIn 1984, on the occasion of the 250th anniversary of the completion of Louisbourg, the first Canadian lighthouse, Canada Post initiated a two-years series dedicated to the Canadian lighthouses. The stamps issued in 1984 feature the oldest lighthouses on the East Coast, the St. Lawrence River, the Great Lakes, and the West Coast while the 1985 issue illustrates four modern navigational aid stations. </text>
+					<row height="10" />
+					<text style="date">1985</text>
+					<stamp width="108" height="90" title="" image="" i1="" i2="" i3="S 1066b" f1="" f2="" f3="" />
+				</column>
+				<column width="0" />
+			</row>
+
+			<row space="14">
+			</row>
+
+			<row space="14">
+			</row>
+			</page>
+	<!-- 1985 -->
+		<page no="8" title="Commemorative 1985">
+			<row height="10" />
+
+			<row space="20" valign="bottom">
+				<column width="36" rem="International Youth Year" >
+					<text style="headline">INTERNATIONAL YOUTH YEAR</text>
+					<text style="date">1985</text>
+					<stamp width="40" height="24" i1="32c" i2="S 1045" f2="Heart and Arrow, Jeans" />
+					<text style="story" width="40">The United Nations proclaimed 1985 International Youth Year to raise the awareness of the problems encountered by young people.</text>
+				</column>
+				<column width="36" rem="Canadians in Space">
+					<text style="headline">CANADIANS IN SPACE</text>
+					<text style="date">1985</text>
+					<stamp width="30" height="36" i1="32c" i2="S 1046" f2="Astronaut and Control Panel" />
+					<text style="story" width="40">The space debut of the first Canadian astronaut took place on 5 October 1984. During his eight-day voyage in space, Marc Garneau carried out several experiments that were divided into three main categories: space technology, space sciences, and life sciences.</text>
+				</column>
+				<column width="36" rem="Gabriel Dumont">
+					<text style="headline">GABRIEL DUMONT</text>
+					<text style="date">1985</text>
+					<stamp width="40" height="24" i1="32c" i2="S 1049" f2="Dumont and Battle of Batoche"  />
+					<text style="story" width="40">Dumont was the military leader of the Métis during their opposition to the Canadian government's system of colonizing the west.</text>
+				</column>
+			</row>
+
+			<row height="20" />
+
+			<row space="20"  valign="bottom">
+				<column width="-6" />
+				<column width="78" rem="Canadians Feminists" >
+					<text style="headline">\nCANADIANS FEMINISTS</text>
+					<text style="date">1985</text>
+					<stamp width="72" height="30" i1="32c" i2="S 1010" />
+					<row margin="0,0,0,0" space="0">
+						<text style="footer_center" width="40">Emily Murphy</text>
+						<text style="footer_center" width="40">Thérèse Casgrain</text>
+					</row>
+					<text style="story" width="80">Emily Murphy (1868–1933) became in 1916 the first female magistrate in Canada, and in the British Empire. She is best known for her contributions to Canadian feminism, specifically to the question of whether women were "persons" under Canadian law. Thérèse Casgrain (1896–1981) led the women's suffrage movement in Quebec prior to World War I. She founded the Provincial Franchise Committee in 1921 and campaigned for women's rights and for the right to vote in Quebec elections.</text>
+				</column>
+				<column width="70" rem="The Montreal Museum of Fine Arts">
+					<text style="headline">THE MONTREAL MUSEUM OF FINE ARTS</text>
+					<text style="date">1985</text>
+					<stamp width="36" height="30" i1="34c" i2="S 1076" />
+					<text style="footer_center" width="50" margin="0,0,2,0" >The Old Holton House, Montreal</text>
+					<text style="story" width="40">This stamp issued in celebration of 125 year of The Montreal Museum of Fine Arts, depicts "The Old Holton House, Montreal" a painting by James Wilson Morrice (1865-1942) in its original frame on a background reminiscent of an art gallery wall.</text>
+				</column>
+			</row>
+			</page>
+			.		
+		<page no="9" title="Commemorative 1985">
+			<row height="10" />
+
+			<row space="20" valign="bottom">
+				<column width="36" rem="Louis Hebert" >
+					<text style="headline">LOUIS HEBERT</text>
+					<text style="date">1985</text>
+					<stamp width="24" height="40" i1="34c" i2="S 1060" f2="Louis Hébert and\nApothecary objects" />
+					<text style="story" width="40">Louis Hébert (c. 1575 – January 1627) is widely considered to be the first Canadian apothecary as well as the first European to farm in Canada. He arrived to Acadia in 1606, along with Samuel Champlain.</text>
+				</column>
+				<column width="36" rem="Inter-Parliamentary Union Conference">
+					<text style="headline">INTER-PARLIAMENTARY UNION CONFERENCE</text>
+					<text style="date">1985</text>
+					<stamp width="30" height="36" i1="42c" i2="S 1061" f2="Stylized map over\nParliament Buildings" />
+					<text style="story" width="44">The Union, an international association of members of parliament, strives to promote personal contact between members of all parliaments. Its 74th Conference was held on 2-7 September 1985, in Ottawa.</text>
+				</column>
+				<column width="36" rem="Canadian Girl Guides">
+					<text style="headline">CANADIAN GIRL GUIDES</text>
+					<text style="date">1985</text>
+					<stamp width="24" height="40" i1="34c" i2="S 1062" f2="Girl Guide and\nBrownie" />
+					<text style="story" width="40">With its 275,000 members, the Girl Guides of Canada - Guides du Canada is the largest organization for girls and women in the country. This postage stamp marks the 75th anniversary of its foundation. </text>
+				</column>
+			</row>
+
+			<row height="15" />
+
+			<row>
+				<column width="150" rem="Christmas, Santa Claus Parade" >
+					<text style="headline" margin="2,0,0,0">CHRISTMAS, SANTA CLAUS PARADE</text>
+					<text style="date">1985</text>
+				</column>
+			</row>
+			<row height="2" />
+
+			<row space="6"  valign="top">
+				<column width="42" space="5">
+					<stamp width="36" height="30" i1="34c" i2="S 1067" />
+					<stamp width="36" height="30" i1="39c" i2="S 1068" />
+				</column>
+				<column width="42" space="5">
+					<stamp width="36" height="30" i1="68c" i2="S 1069" />
+					<stamp width="36" height="31" i1="32c" i2="S 1070" />
+				</column>
+				<column width="42">
+					<text style="story" width="65" align="left" margin="10,0,0,0">Each year, children all across Canada grow impatient and eager as the day of the Santa Claus Parade draws near. This exciting, colourful event means that Christmas will soon be here. This year's Christmas stamps recall this beloved Canadian tradition.\n\nThe paintings commissioned for this year's Christmas stamps take an onlooker's point of view in showing scenes of a typical parade winding through the city. Painted by Toronto artist Barbara Carroll, their bright colour and naive style seem most appropriate for an event whose principal aim is to delight the children.</text>
+				</column>
+			</row>
+			</page>
+			.		
+		<page no="10" title="Houses of Parliament">
+			<row height="10" />
+
+			<row space="20" valign="bottom">
+				<column width="150" rem="Queen Elizabeth II" >
+					<text style="headline">HOUSES OF PARLIAMENT</text>
+					<text style="date">1985-1990</text>
+				</column>
+			</row>
+			
+			<row height="10" />
+			<row space="6" valign="bottom">
+				<stamp width="24" height="20" title="" image="" i1="34c" i2="" i3="S 925" f1="" f2="" f3="" />
+				<stamp width="24" height="20" title="" image="" i1="36c" i2="" i3="S 926B" f1="" f2="" f3="" />
+				<stamp width="24" height="20" title="" image="" i1="37c" i2="" i3="S 1163" f1="" f2="" f3="" />
+				<stamp width="26" height="22" title="" image="" i1="38c" i2="" i3="S 1165" f1="" f2="" f3="" />
+			</row>
+
+			<row height="6" />
+			<row space="20" valign="bottom">
+				<text style="headline" font_size="12">BOOKLET STAMPS</text>
+			</row>
+			<row space="6" valign="bottom">
+				<stamp width="24" height="20" title="" image="" i1="1c" i2="lime green" i3="S 938" f1="" f2="East Block" f3="" />
+				<stamp width="24" height="20" title="" image="" i1="2c" i2="deep green" i3="S 939" f1="" f2="West Block" f3="" />
+				<stamp width="24" height="20" title="" image="" i1="5c" i2="dark brown" i3="S 941" f1="" f2="" f3="" />
+				<stamp width="24" height="20" title="" image="" i1="6c" i2="henna brown" i3="S 942" f1="" f2="" f3="" />
+				<stamp width="24" height="20" title="" image="" i1="6c" i2="purple" i3="S 1186" f1="" f2="" f3="" />
+			</row>
+			<row height="5" />
+			<row space="6" valign="bottom">
+				<stamp width="24" height="20" title="" image="" i1="34c" i2="deep slate blue" i3="S 947" f1="" f2="Library" f3="" />
+				<stamp width="24" height="20" title="" image="" i1="36c" i2="dark lilac rose" i3="S 948" f1="" f2="" f3="" />
+				<stamp width="24" height="20" title="" image="" i1="37c" i2="blue" i3="S 1187" f1="" f2="" f3="" />
+				<stamp width="24" height="20" title="" image="" i1="38c" i2="blue" i3="S 1188" f1="" f2="" f3="" />
+			</row>		
+
+			<row height="6" />
+			<row space="20" valign="bottom">
+				<text style="headline" font_size="12">COIL STAMPS</text>
+			</row>
+			<row space="6" valign="bottom">
+				<stamp width="24" height="40" title="" image="" i1="34c" i2="dull red brown" i3="S 952pa" f1="" f2="" f3="" />
+				<stamp width="24" height="40" title="" image="" i1="36c" i2="dark red" i3="S 953pa" f1="" f2="" f3="" />
+				<stamp width="24" height="40" title="" image="" i1="37c" i2="blue" i3="S 1194pa" f1="" f2="" f3="" />
+				<stamp width="24" height="40" title="" image="" i1="38c" i2="dark green" i3="S 1194Apa" f1="" f2="" f3="" />
+			</row>
+			
+			<!--
+			<row height="20" />
+			<row>
+				<text style="story" width="110">Royal portraits have been favourite stamp designs since the world's first adhesive postage stamp was issued by Great Britain on May 6, 1840 - the famous Penny Black, featuring a youthful portrait of Queen Victoria. This elegant portrait was captured by internationally renowned Canadian photographer Yousuf Krash and set against  lush backgrounds. The Queen is distinguished as the only person who can be honoured on a Canadian stamp while she is still living.</text>
+			</row>
+			-->
+			</page>
+			.
+	<!-- 1986 -->
+		<page no="11" title="1988 Olympic Winter Games">
+			<row height="10" />
+
+			<row space="20" valign="bottom">
+				<column width="150" rem="International Youth Year" >
+					<text style="headline">1988 OLYMPIC WINTER GAMES</text>
+					<text style="date">1986-1988</text>
+				</column>
+			</row>
+			<row height="15" />
+			<row space="10">
+					<stamp width="30" height="32" i1="36c" i2="S 1130" f2="Speed Skating" />
+					<stamp width="56" height="29" i1="34c" i2="S 1077" f2="Map" />
+					<stamp width="30" height="32" i1="42c" i2="S 1131" f2="Bobsleight" />
+			</row>
+			<row space="10">
+					<stamp width="60" height="32" i1="2x34c" i2="S 1112a" />
+					<stamp width="60" height="32" i1="2x36c" i2="S 1153a" />
+			</row>
+			<row margin="0,0,2,0" space="0">
+				<column width="3" />
+				<text style="footer_center" width="30">Ice Hockey</text>
+				<text style="footer_center" width="30">Biathlon</text>
+				<column width="3" />
+				<column width="10" />
+				<column width="3" />
+				<text style="footer_center" width="30">Ski Jumping</text>
+				<text style="footer_center" width="30">Cross-country Skiing</text>
+				<column width="3" />
+			</row>
+			<row space="10">
+					<stamp width="30" height="32" i1="43c" i2="S 1197" />
+					<stamp width="60" height="32" i1="2x37c" i2="S 1196a" />
+					<stamp width="30" height="32" i1="74c" i2="S 1198" />
+			</row>
+			<row margin="0,0,2,0" space="0">
+				<column width="3" />
+				<text style="footer_center" width="30">Figure Skating</text>
+				<column width="3" />
+				<column width="10" />
+				<column width="3" />
+				<text style="footer_center" width="30">Alpine Skiing</text>
+				<text style="footer_center" width="30">Curling</text>
+				<column width="3" />
+				<column width="10" />
+				<column width="3" />
+				<text style="footer_center" width="30">Luge</text>
+				<column width="3" />
+			</row>
+			<row height="10" />
+			<row space="20" valign="bottom">
+				<text style="story" width="150">The city of Calgary, Alberta, served as host to the XV Olympic Winter Games from February 13 to 28, 1988. Almost 2,500 athletes from more than 40 countries competed in tests of skill and endurance in ten Olympic disciplines and three demonstration sports. Alpine skiers challenged Mount Allan in the Kananaskis County wilderness, while the cross-country skiing and biathlon took place at the Canmore Nordic Centre, situated close to Banff National Park. The other competitions took place in Calgary at Canada Olympic Park, the Olympic Saddlehome, and the Olympic Oval.</text>
+			</row>
+			</page>
+			.		
+		<page no="12" title="Commemorative 1986 : Expo 86">
+			<row height="10" />
+
+			<row height="-5" />
+			<row valign="center" space="14">
+				<column width="46" rem="Expo 86">
+					<text style="headline">EXPO 86</text>
+					<text style="date" margin="0,0,5,0">1986</text>
+				</column>
+				<stamp width="24" height="40" i1="34c" i2="S 1092" f2="Expo Centre" />
+				<column width="46" rem="International Youth Year">
+					<text style="story" margin="10,0,0,0">54 nations, more than 30 corporations, and over 22 million people from six continents attended EXPO 86, held in Vancouver from May 2 to October 13, 1986. EXPO 86 commemorated the centennial of two major Canadian events: the founding of Vancouver, and the arrival of Canada's first transcontinental train on the west coast.</text>
+				</column>
+			</row>
+			<!--row height="2" /-->
+			<row valign="bottom">
+				<stamp width="40" height="24" i1="34c" i2="S 1078" f2="Canada Pavilion" />
+				<stamp width="40" height="24" i1="39c" i2="S 1079" f2="Communications" />
+				<stamp width="40" height="24" i1="68c" i2="S 1093" f2="Transportaion"  />
+			</row>
+
+			<row height="15" />
+
+			<row space="0" valign="bottom">
+				<column width="88">
+					<text style="headline">CANADIAN PERSONALITIES</text>
+					<text style="date">1986</text>
+				</column>
+				<column width="10" />
+				<column width="52">
+					<text style="headline">CANADIAN FORCES POSTAL SERVICE</text>
+					<text style="date">1986</text>
+				</column>
+			</row>
+			<row space="0" valign="bottom">
+				<column width="40" rem="Philippe Aubert de Gaspe">
+					<stamp width="24" height="40" i1="34c" i2="S 1090"/>
+					<text style="footer_center" width="40" margin="0,0,2,0" >Philippe Aubert de Gaspé</text>
+					<text style="story" width="40">Author Philippe Aubert de Gaspé is remembered primarily for his novel Les Anciens Canadiens. First published in 1862, the work describes life in French Canada in the eighteenth and nineteenth centuries.\n</text>
+				</column>
+				<column width="8"/>
+				<column width="40" rem="Molly Brant">
+					<stamp width="30" height="36" i1="34c" i2="S 1091" f2="Molly Brant" />
+					<text style="story" width="40">Molly Brant, was the undisputed leader of the Six Nations Matrons, an influential group of Iroquois women. The stamp depicts three facets of the heroine's life : Molly Brant as Iroquois, Loyalist, and European.\n</text>
+				</column>
+				<column width="10" />
+				<column width="62" rem="Canadian Forces Postal Service">
+					<stamp width="36" height="30" i1="32c" i2="S 1046" f2="Soldiers Handling Mail" />
+					<text style="story" width="40">Field Marshal Bernard Montgomery believed that his soldiers would do anything he asked as long as they got "mail from home, the newspapers, and... plenty of tea". The stamp celebrates 75 years of the Canadian Forces Postal Service.</text>
+				</column>
+			</row>
+			</page>
+			.		
+		<page no="13" title="Commemorative 1986">
+			<row height="10" />
+
+			<row space="10" valign="top" rem="Birds of Canada">
+				<column width="72">
+					<row space="0" margin="0,0,-2,0">
+						<text style="footer_center" width="36">Great Blue Heron</text>
+						<text style="footer_center" width="36">Snow Goose</text>
+					</row>
+					<stamp width="72" height="60" i1="4x34c" i2="S 1098a" />
+					<row space="0" margin="0,0,2,0">
+						<text style="footer_center" width="36">Great Horned Owl</text>
+						<text style="footer_center" width="36">Spruce Grouse</text>
+					</row>
+				</column>
+				<column width="64" align="left">
+					<text style="headline" align="left" margin="10,0,2,0">BIRDS OF CANADA</text>
+					<text style="date" align="left">1986</text>
+					<text style="story" align="left" margin="5,0,0,0">As a result of its size and diversity of environments, Canada provides habitats for a great variety of birds. Among the larger and better-known birds are: the Great Blue Heron - a tall and stately wader; the Great Horned Owl - a powerful and ferocious nocturnal hunter; the Spruce Grouse - a species almost exclusively Canadian in range and so tame it is known as the "fool hen"; and the Snow Goose - a large, snow-white migrant, which breeds in the high Arctic.\nThe stapms were issued in honour of the XIX International Ornithological Congress, in Ottawa, June 22 to 29.</text>
+				</column>
+			</row>
+
+			<row height="20" />
+
+			<row space="10"  valign="bottom">
+				<column width="46" rem="Canadian Broadcasting Corporation" >
+					<text style="headline">CANADIAN BROADCASTING CORPORATION</text>
+					<text style="date">1986</text>
+					<stamp width="40" height="24" i1="34c" i2="S 1103" f2="CBC logo over 5 regions of Canada\n"/>
+					<text style="story" width="40">The Mackenzie King government created the Canadian Broadcasting Corporation (CBC) in 1936. Today, 50 years later, anyone who owns a radio or television can judge the Corporation's success.\n</text>
+				</column>
+				<column width="46" rem="UN: International Year of Peace">
+					<text style="headline">INTERNATIONAL YEAR OF PEACE</text>
+					<text style="date">1986</text>
+					<stamp width="36" height="30" i1="34c" i2="S 1110" f2="Symbolic dove protecting the earth\n"/>
+					<text style="story" width="40">The International Year of Peace focused on peace as a pre-condition for development and social progress as a requirement for the implementation of human rights as well as the satisfaction of human needs.</text>
+				</column>
+				<column width="46" rem="John Molson">
+					<text style="headline">JOHN MOLSON\n</text>
+					<text style="date">1986</text>
+					<stamp width="40" height="24" i1="34c" i2="S 1117" f2="John Molson and his main achievements"/>
+					<text style="story" width="40">John Molson (1763–1836) was a major entrepreneur in Canada. His brewery business branched into banking, hotels, a theatre, foundry. Later Molson built Canada's first steamship and financed Canada's first railway.</text>
+				</column>
+			</row>
+			</page>
+			.		
+		<page no="14" title="Commemorative 1986">
+			<row height="10" />
+
+			<row space="20"  valign="bottom">
+				<column width="86" rem="Peacemakers of the Prairies">
+					<text style="headline">PEACEMAKERS OF THE PRAIRIES</text>
+					<text style="date">1986</text>
+					<stamp width="80" height="24" i1="2x34c" i2="S 1109a" />
+					<row space="0" margin="0,0,2,0">
+						<text style="footer_center" width="40">Chief Crowfoot (1830-1890)</text>
+						<text  style="footer_center" width="40">James F. Macleod (1836-1894)</text>
+					</row>
+					<text style="story" width="80">The explosive conditions on the southwestern prairies in the 1870s could have led to war. Two men of great stature, Crowfoot and James Macleod, preserved the peace. The complex association of Crowfoot and Macleod has been captured in this pair of se tenant stamp which connect opposing portraits of the two men on a common background.</text>
+				</column>
+			</row>
+
+			<row height="20" />
+
+			<row rem="Christmas - Angel" >
+				<column width="150">
+					<text style="headline">CHRISTMAS - ANGELS</text>
+					<text style="date">1986</text>
+					<row space="24" valign="bottom" >
+						<stamp width="24" height="40" i1="34c" i2="S 1113" />
+						<stamp width="24" height="40" i1="39c" i2="S 1114" />
+						<stamp width="24" height="40" i1="68c" i2="S 1115" />
+					</row>
+					<row height="5" />
+					<row space="10" valign="center">
+						<stamp width="72" height="26" i1="29c" i2="S 1116" />
+						<text style="story" width="50">This year's Christmas stamp feature angels, an integral part of the Christmas story. "And in the sixth month the angel Gabriel was sent from God... To a virgin... and the virgin's name was Mary... And the angel said unto her, 'Fear not, Mary: for thou has found favour with God. And, behold, thou shalt conceive in thy womb, and bring forth a son, and shalt call his name Jesus'." </text>
+					</row>
+				</column>
+			</row>
+
+			</page>
+			.		
+		<page no="15" title="Canada Day - Science and Technology 1986-88">
+			<row height="10" />
+
+			<row>
+				<text style="headline">CANADA DAY - SCIENCE AND TECHNOLOGY</text>
+			</row>
+			<row height="5" />
+			<row space="10"  valign="top">
+				<column width="66">
+					<row space="0" margin="0,0,-2,0">
+						<column width="3"/>
+						<text style="footer_center" width="30">Rotary Snowplow</text>
+						<text style="footer_center" width="30">Canadarm</text>
+						<column width="3"/>
+					</row>
+					<stamp width="60" height="75" i1="4x34c" i2="S 1102a" />
+					<row space="0" margin=",0,2,0">
+						<column width="3"/>
+						<text style="footer_center" width="30">Anti-Gravity\nFlying Suit</text>
+						<text style="footer_center" width="30">Variable Pitch\nPropeller</text>
+						<column width="3"/>
+					</row>
+				</column>
+				<column width="70">
+					<row height="5" />
+					<text style="headline" font_size="12" align="left">CANADIAN INNOVATIONS IN TRANSPORTATION</text>
+					<text style="date" margin="0,0,5,0" align="left">1986</text>
+					<text style="story" align="left">Many Canadians innovations in the field of transportation arose to meet the demands of the Canadian environment. In 1869, Dr. J.W. Elliott, a Toronto dentist, invented the rotary snowplow to keep railways operating during Canadian winters. Reflecting the importance of aviation in such a vast country, Wallace Turnbull of Rothesay, New Brunswick, invented the variable-pitch propeller in the early 1920s, and Dr. Wilbur Franks of Toronto invented the anti-gravity flight suit in the late 1930s. Canadians have also embraced space technology, as can be seen by the development of the Canadarm by the National Research Council and Spar Aerospace Ltd.</text>
+				</column>
+			</row>
+			<row space="10"  valign="top">
+				<column width="70">
+					<row height="10" />
+					<text style="headline" font_size="12" align="right">CANADIAN INNOVATIONS IN COMMUNICATIONS</text>
+					<text style="date" margin="0,0,5,0" align="right">1987</text>
+					<text style="story" align="right" >Considering Canada's vastness, it is not surprising that we are a leader in communications and that many innovations in the field were developed in this country. In 1900 Reginald Aubrey Fessenden broadcast the human voice for the first time. In 1838 Charles Fenerty, produced the world's finest usable paper from wood after observed wasps chewing wood to produce paper for their nest. On 30 October 1869, Georges-Édouard Desbarats and William Leggo published for the first time a photograph using half-tone engraving. In 1852 Frederick Newton Gisborne laid North America's first undersea cable, between New Brunswick and Prince Edward Island. He also took the first practical steps forward laying a cable between North America and Europe.</text>
+				</column>
+				<column width="66">
+					<row space="0" margin="0,0,-2,0">
+						<column width="3"/>
+						<text style="footer_center" width="30">R. A. Fessenden,\nAM Radio (1900)</text>
+						<text style="footer_center" width="30">C. Fenerty,\nnewsprint pulp (1838)</text>
+						<column width="3"/>
+					</row>
+					<stamp width="60" height="75" i1="4x36c" i2="S 1138a" />
+					<row space="0" margin="0,0,2,0">
+						<column width="0"/>
+						<text style="footer_center" width="33">G.E. Desbarats,W. Leggo,\nhalf-tone engraving (1869)</text>
+						<text style="footer_center" width="33">F.N. Gisborne,\nundersea cable (1852)</text>
+						<column width="0"/>
+					</row>
+				</column>
+			</row>
+			</page>
+			.		
+		<page no="16" title="Canada Day - Science and Technology 1986-88">
+			<row height="10" />
+
+			<row>
+				<text style="headline">CANADA DAY - SCIENCE AND TECHNOLOGY</text>
+			</row>
+			<row height="5" />
+			<row space="10"  valign="top">
+				<column width="70">
+					<row height="10" />
+					<text style="headline" font_size="12" align="right">CANADIAN INNOVATIONS IN ENERGY, FOOD, RESEARCH\nAND MEDICINE</text>
+					<text style="date" margin="0,0,5,0" align="right">1988</text>
+					<text style="story" align="right">Canadian scientists have helped to banish the darkness, to feed people better, to view the smallest objects, and to cure once fatal diseases. To satisfy demands for a better lighting source, Abraham Gesner (1797-1864) produced kerosene by distilling petroleum. Kerosene  is still used today, notably as fuel for jet aircraft. In 1903 Charles Saunders began crossing two wheat varieties. The resulting strain, greatly facilitated agriculture on the Prairies. The electron microscope generates a picture by using a beam of electrons - rather than light - to illuminate an object. It can magnify images up to one million time their true size. Cobalt 60 replaced Radium in therapy against cancer. It is 300 times more powerful and 6000 times less expensive.</text>
+				</column>
+				<column width="54">
+					<row space="0" margin="0,0,-2,0">
+						<column width="0"/>
+						<text style="footer_center" width="27">Kerosene,\n(1846)</text>
+						<text style="footer_center" width="27">Marquis Wheat,\n(1909)</text>
+						<column width="0"/>
+					</row>
+					<stamp width="48" height="76" i1="4x37c" i2="S 1209a" />
+					<row space="0" margin="0,0,2,0">
+						<column width="0"/>
+						<text style="footer_center" width="27">Electron Microscope,\n(1938)</text>
+						<text style="footer_center" width="27">Cobalt Therapy,\n(1951)</text>
+						<column width="0"/>
+					</row>
+				</column>
+			</row>
+			</page>
+			.		
+		<page no="17" title="Exploration of Canada 1986-89">
+			<row height="10" />
+
+			<row>
+				<text style="headline">EXPLORATION OF CANADA</text>
+			</row>
+			<row height="5" />
+			<row space="10"  valign="bottom">
+				<column width="86">
+					<row space="0" valign="bottom" margin="0,0,3,0">
+						<text style="headline" font_size="12" width="27">DISCOVERERS</text>
+						<column width="3" />
+						<text style="date" margin="0,0,2,0" width="7">1986</text>
+					</row>
+					<row space="0" margin="0,0,-2,0">
+						<column width="3"/>
+						<text style="footer_center" width="40">The Vikings</text>
+						<text style="footer_center" width="40">The First People</text>
+						<column width="3"/>
+					</row>
+					<stamp width="80" height="56" i1="4x34c" i2="S 1107a" />
+					<row space="0" margin="0,0,2,0">
+						<column width="3"/>
+						<text style="footer_center" width="40">Henry Hudson</text>
+						<text style="footer_center" width="40">John Cabot</text>
+						<column width="3"/>
+					</row>
+				</column>
+				<column width="76">
+					<text style="story" align="left">These four stamps, the first in a series, honour discoverers of Canada who stand in the forefront of those who have risked everything to discover the unknown.</text>
+					<text style="story" align="left">Some 12,000 years ago, Canada's first explorers arrived here from Siberia, via Alaska. As the huge glaciers covering much of Canada retreated, these first people and their descendants discovered and occupied the entire continent.</text>
+					<text style="story" align="left">Medieval Norsemen travelled westward to Iceland and Greenland, and then on to the Arctic Islands and Newfoundland, where they founded the first known European settlement in North America in about 1000 A.D.</text>
+					<text style="story" align="left">In 1497 and 1498, John Cabot (Giovanni Caboto), a Genoese navigator in the service of England, searched for Asia in the northwest Atlantic. Although he failed to find Asia, he did help prove the existence of a previously unknown continent.</text>
+					<text style="story" align="left" margin="0,0,10,0">Seeking the elusive Northwest Passage to Asia in 1610, Henry Hudson led the way through the dangerous Hudson Strait into Hudson Bay, a major pathway to the North American hinterland.</text>
+				</column>
+			</row>
+			<row height="10" />
+			<row space="10"  valign="bottom">
+				<column width="76">
+					<text style="story" align="right">The explorers of New France introduced Europeans to the Canadians Indians, outlined the geography of Central Canada and found the way west.</text>
+					<text style="story" align="right">In 1659, Radisson and Des Groseilliers set out for the "pays d'en haut" (hinterland). Geographic information gained from their conversations with the Lake Superior Indians led to the creation of the Hudson's Bay Company.</text>
+					<text style="story" align="right">Brûlé arrived at Quebec in 1608. In 1610 Samuel de Champlain sent him to live with the Huron and to learn their language. He became the first European to shoot the Lachine rapids and to set eyes on Lakes Huron, Ontario, Superior and Erie.</text>
+					<text style="story" align="right">In 1615, Champlain brought Recollet missionaries to New France. Jesuits and Sulpicians, followed later. Their detailed reports were a gold mine of information for both contemporaries and historians.</text>
+					<text style="story" align="right" margin="0,0,10,0">In 1672 the Governor of New France commissioned Joliet, fur trader, organist and former candidate for the priesthood, to lead an expedition to the Mississippi River. He and Father Marquette, a Jesuit fluent in six Indian languages, discovered the Mississippi in 1673 and determined that it flowed south, not west.</text>
+				</column>
+				<column width="86">
+					<row space="0" valign="bottom" margin="0,0,3,0">
+						<text style="headline" font_size="12" width="31">INVESTIGATORS</text>
+						<column width="3" />
+						<text style="date" margin="0,0,2,0" width="7">1987</text>
+					</row>
+					<row space="0" margin="0,0,-2,0">
+						<column width="3"/>
+						<text style="footer_center" width="40">Mission in the wilderness</text>
+						<text style="footer_center" width="40">Father Marquette with Jolliet</text>
+						<column width="3"/>
+					</row>
+					<stamp width="80" height="56" i1="4x34c" i2="S 1129a" />
+					<row space="0" margin="0,0,2,0">
+						<column width="3"/>
+						<text style="footer_center" width="40">Brule near Lake Superior</text>
+						<text style="footer_center" width="40">Radisson and Des Groseilliers</text>
+						<column width="3"/>
+					</row>
+				</column>
+			</row>
+			</page>
+			.		
+		<page no="18" title="Exploration of Canada 1986-89">
+			<row height="10" />
+
+			<row>
+				<text style="headline">EXPLORATION OF CANADA</text>
+			</row>
+			<row height="5" />
+			<row space="10"  valign="bottom">
+				<column width="76">
+					<text style="story" align="right">In the 18th century, new scientific equipment allowed explorers to survey land and sea with greater accuracy than ever before. Some of George Vancouver's maps, in fact, are still in use today.</text>
+					<text style="story" align="right">Henday was one of the first European men to explore the interior of the Canadian northwest. He met with several Natives tribes and tried to persuade them into trading with the Company on Hudson Bay.</text>
+					<text style="story" align="right">Trained as map-maker under Captain James Cook, Vancouver undertook a round-the-world voyage from 1791 to 1795, covering 105,000 kilometres. He surveyed the west coast from 30° to 60° N.</text>
+					<text style="story" align="right">As a partner in the North West Company, Fraser led an expedition in 1805 to explore the Upper Peace River and establish trading posts. In 1808, he explored the river that was later to bear his name.</text>
+					<text style="story" align="right" margin="0,0,15,0">An explorer and avid hunter, Palliser headed the "Palliser Expedition" which, from 1857 to 1861, explored the plains north of the 49th parallel and the passes through the Rockies.</text>
+				</column>
+				<column width="86">
+					<row space="0" valign="bottom" margin="0,0,3,0">
+						<text style="headline" font_size="12" width="27">RECOGNIZERS</text>
+						<column width="3" />
+						<text style="date" margin="0,0,2,0" width="7">1988</text>
+					</row>
+					<row space="0" margin="0,0,-2,0">
+						<column width="3"/>
+						<text style="footer_center" width="40">Anthony Henday</text>
+						<text style="footer_center" width="40">George Vancouver</text>
+						<column width="3"/>
+					</row>
+					<stamp width="80" height="56" i1="4x34c" i2="S 1107a" />
+					<row space="0" margin="0,0,2,0">
+						<column width="3"/>
+						<text style="footer_center" width="40">Simon Fraser</text>
+						<text style="footer_center" width="40">John Palliser</text>
+						<column width="3"/>
+					</row>
+				</column>
+			</row>
+			<row height="10" />
+			<row space="10"  valign="bottom">
+				<column width="86">
+					<row space="0" valign="bottom" margin="0,0,3,0">
+						<text style="headline" font_size="12" width="27">REALIZERS</text>
+						<column width="3" />
+						<text style="date" margin="0,0,2,0" width="7">1989</text>
+					</row>
+					<row space="0" margin="0,0,-2,0">
+						<column width="3"/>
+						<text style="footer_center" width="40">Matonabbee</text>
+						<text style="footer_center" width="40">Sir John Franklin</text>
+						<column width="3"/>
+					</row>
+					<stamp width="80" height="56" i1="4x34c" i2="S 1129a" />
+					<row space="0" margin="0,0,2,0">
+						<column width="3"/>
+						<text style="footer_center" width="40">Joseph Burr Tyrrell</text>
+						<text style="footer_center" width="40">Vilhjalmur Stefansson</text>
+						<column width="3"/>
+					</row>
+				</column>
+				<column width="76">
+					<text style="story" align="left">Even today, the Canadian North can appear remote and forbidding. The last four explorers in the Exploration stamp series traversed lands and waters where few now dare to venture.</text>
+					<text style="story" align="left">Matonabbee was a famous Chipewyan Indian Leader. Strong personal qualities, added to his knowledge of the English language and of the land, made him one of the best guides. He led Samuel Hearne's expedition of 1770-72 to the Coppermine River.</text>
+					<text style="story" align="left">In 1845 Franklin left England with two ships and 129 men in search of the famed Northwest Passage. Although lead poisoning caused by tinned food led to their premature death, many feel Franklin had, indeed, discovered the Northwest Passage before he died.</text>
+					<text style="story" align="left">In 1893, J.B. Tyrell, a geologist with the Geological Survey of Canada, set out to explore the Barren Lands. His party of eight barely survived, but brought back important scientific information about glaciation in North America.</text>
+					<text style="story" align="left" margin="0,0,10,0">Stefansson's Arctic explorations between 1906 and 1918 led to the development of the "friendly Arctic" theory, which maintained that adopting the native way of life made the Arctic a hospitable place.</text>
+				</column>
+			</row>
+			</page>
+			.		
+		<page no="19" title="Exploration of Canada 1986-89">
+			<row height="10" />
+
+			<row>
+				<text style="headline">EXPLORATION OF CANADA</text>
+			</row>
+			<row height="50" />
+			<row space="10"  valign="top">
+				<stamp width="119" height="83" i1="4x34c" i2="S 1107b" />
+			</row>
+			<row height="2" />
+			<row>
+				<text style="story" width="150">The souvenir sheet publicizes CAPEX 87 held June 13-21, 1987 in Toronto</text>
+			</row>
+			</page>
+			.		
+	<!-- 1987 -->
+		<page no="20" title="CAPEX 87 - Postal Offices">
+			<row height="10" />
+
+			<row space="6" valign="bottom">
+				<stamp width="40" height="24" i1="34c" i2="S 1122" f2="Toronto's First Post Office" />
+				<column width="40" rem="International Youth Year" >
+					<text style="headline">CAPEX '87</text>
+					<text style="date" margin="0,0,25,0" >1987</text>
+				</column>
+				<stamp width="40" height="24" i1="36c" i2="S 1123" f2="Nelson-Miramichi Post Office" />
+			</row>
+			<row height="5" />
+			<row space="20">
+				<stamp width="40" height="24" i1="42c" i2="S 1124" f2="Saint-Ours Post Office" />
+				<stamp width="40" height="24" i1="72c" i2="S 1125" f2="Battleford Post Office" />
+			</row>
+			<row height="5" />
+			<row>
+				<stamp width="155" height="91.5" i2="S 1125A"/>
+			</row>
+
+			<row height="2" />
+
+			<row>
+				<text style="story" width="150">These stamps and souvenir sheet were issued on June 12, 1987 to commemorate CAPEX 87, the international philatelic exhibition held in Toronto June 13-21, 1987. The stamps depict the post offices of Nelson-Miramichi, New Brunswick, Saint-Ours, Quebec, and Battleford, Saskatchewan, as examples of some of the different forms of post office architecture that may be found in Canada. John Mardon designed these three stamps as well as the one showing Toronto's first post office, issued earlier in 1987.</text>
+			</row>
+			</page>
+			.		
+		<page no="21" title="Commemoratives : Volunteers Week">
+			<row height="0" />
+
+			<row height="10" />
+			<row space="10" valign="bottom">
+				<column width="52" rem="Volunteers" >
+					<text style="headline">VOLUNTEERS WEEK</text>
+					<text style="date">1987</text>
+					<stamp width="48" height="26" title="" image="" i1="36c" i2="" i3="S 1132" f1="" f2="Volunteers" f3="" />
+					<text style="story" width="45">The stamp designed by Will Davies salutes the contribution to society of Canadian volunteers. It was issued on April 13, 1987. Volunteer programs suggested in the design include working with youth, and the aged, hospital-related tasks, counseling, and other types of community work.</text>
+				</column>
+				<column width="36" rem="Air Canada" >
+					<text style="headline">AIR CANADA</text>
+					<text style="date">1987</text>
+					<stamp width="30" height="36" title="" image="" i1="36c" i2="" i3="S 1145" f1="" f2="Boeing 767 and globe" f3="" />
+					<text style="story" width="45">The first commercial flight of Trans Canada Airlines (now Air Canada) took place on September 1st, 1937, between Vancouver and Seattle. The present network of the airline extends across the globe. Derrick Carter and Debbie Adams designed this stamp, issued September 1, 1987.</text>
+				</column>
+				<column width="36" rem="Engineering" >
+					<text style="headline">ENGINEERING</text>
+					<text style="date">1987</text>
+					<stamp width="48" height="26" title="" image="" i1="36c" i2="" i3="S 1134" f1="" f2="Engineering symbols" f3="" />
+					<text style="story" width="45">Issued on May 19, 1987, this stamp marks the 100th anniversary of the Engineering Institute of Canada. the adhesive was printed by lithography in eight colours, the largest number of colours for a single Canadian postage stamp. Different elements in the design symbolize areas of engineering.</text>
+				</column>
+			</row>
+			
+			<row height="30" />
+			<row space="10" valign="center">
+				<column width="60" rem="Canadian Charter of Rights and Freedoms" >
+					<text style="headline" align="right">CHARTER\nOF RIGHTS\nAND FREEDOMS</text>
+					<text style="date" align="right" margin="0,0,5,0">1987</text>
+				</column>
+				<stamp width="30" height="48" title="" image="" i1="36c" i2="" i3="S 1133" f1="" f2="Canada's Coat-of-arms" f3="" />
+				<column width="45">
+					<text style="story" align="left" >The Canadian Charter of Rights and Freedoms came into effect on April 17, 1982, with the signing into law of the Constitution Act by the Queen. It was established to protect the fundamental rights and freedoms of Canadians. the stamp, printed in lithography, was issued on April 15, 1987.</text>
+				</column>
+				<column width="0" />
+			</row>
+			</page>
+		<page no="22" title="Commemoratives: Canadian Steamships">
+			<row height="10" />
+
+			<row space="6" valign="bottom">
+				<column width="100" rem="Canadian Steamships" >
+					<text style="headline">CANADIAN STEAMSHIPS</text>
+					<text style="date">1987</text>
+					<stamp width="96" height="26" title="" image="" i1="2 x 36c" i2="" i3="S 1140a" f1="" f2="" f3="" />
+					<row space="0" margin="0,0,2,0">
+						<column width="3"/>
+						<text style="footer_center" width="40">"Segwun", 1887</text>
+						<text style="footer_center" width="56">"Princess Marguerite", 1948</text>
+						<column width="3"/>
+					</row>
+					<text style="story" width="96">The "Segwun" is North America's oldest operational steamship. Fabricated in 1887 and rebuilt in 1925 she still cruises Ontario's Muskoka Lakes, each year gaining renown for her beauty and elegance. The "Princess Marguerite", is a coastal steamer launched in 1984. Currently owned by the British Columbia Steamship Company since 1975, the vessel presently cruises between Victoria and Seattle. The design of the stamps convey the contrast in scale between the Segwun, a small inland steamer constructed mostly of wood, and the massive all steel steamship, the Princess Marguerite. Both paintings capture the mood and feeling of the vessels in operation.</text>
+				</column>
+			</row>
+
+			<row height="10" />
+			<row space="6" valign="bottom">
+				<column width="96" rem="Shipwrecks" >
+					<text style="headline">SHIPWRECKS</text>
+					<text style="date">1987</text>
+					<row space="0" margin="0,0,-2,0">
+						<text style="footer_center" width="49">"Hamilton", figurehead</text>
+						<column width="3"/>
+						<text style="footer_center" width="34">"San Juan",hull</text>
+					</row>
+					<stamp width="80" height="52" title="" image="" i1="4 x 36c" i2="" i3="S 1144a" f1="" f2="" f3="" />
+					<row space="0" margin="0,0,0,0">
+						<text style="footer_center" width="43">"Breadalbane", wheel</text>
+						<column width="3" />
+						<text style="footer_center" width="40">"Ericsson", bell</text>
+					</row>
+					<text style="story" width="96">Preserved in the cold and murky depths, shipwrecks are messengers from some of the most fascinating eras of Canada's past. The objects depicted by each stamp are evidence of that ship's passage through Canadian waters. The designer, has linked these elements visually by symbolically incorporating the reference grid used in archeological investigations. In the background can be seen the air bubbles so familiar to enthusiasts of the spectacular activity of underwater exploration.</text>
+				</column>
+			</row>
+			</page>
+			.
+		<page no="23" title="Christmas">
+			<row height="10" />
+
+			<row space="14" valign="top">
+				<column width="36" rem="Quebec Summit" >
+					<text style="headline">QUEBEC SUMMIT</text>
+					<text style="date">1987</text>
+					<stamp width="31" height="40" title="" image="" i1="36c" i2="" i3="S 1146" f1="" f2="Quebec Summit symbol" f3="" />
+					<text style="story" width="45">The stamp commemorates the second summit of Heads of State and Heads of Government using French as a Common Language took place in Quebec September 2-4, 1987. The symbol of the Summit, takes its colours from the flags of the countries participating.</text>
+				</column>
+				<column width="36" rem="Grey Cup" >
+					<text style="headline">GREY CUP</text>
+					<text style="date">1987</text>
+					<stamp width="24" height="40" title="" image="" i1="36c" i2="" i3="S 1154" f1="" f2="Grey Cup and football" f3="" />
+					<text style="story" width="45">The Grey Cup, emblematic to professional football supremacy, dates back to 1909, when the Governor General Earl Grey donated a trophy "for the amateur rugby football championship in Canada." This stamp was printed in lithography and issued on November 20, 1987, to mark the 75th Grey Cup game.</text>
+				</column>
+				<column width="36" rem="Commonwealth Meeting" >
+					<text style="headline">COMMONWEALTH MEETING</text>
+					<text style="date">1987</text>
+					<stamp width="31" height="40" title="" image="" i1="36c" i2="" i3="S 1147" f1="" f2="Commonwealth emblem" f3="" />
+					<text style="story" width="45">The ninth Commonwealth heads of Government Meeting took place in Vancouver October 13-17, 1987. These meetings are held every two years. The Commonwealth which evolved out of British Empire, is a voluntary association of independent states that consult in their common interest.</text>
+				</column>
+			</row>
+
+			<row height="15"/>
+			<row rem="Christmas - Plants" >
+				<column width="150">
+					<row background-color="255,255,255" space="0"> 
+						<text style="date" width="11" align="right">1987  - </text>
+						<text style="headline" width="56">CHRISTMAS - PLANTS</text>
+						<text style="date" width="11" align="left"> -  1987</text>
+					</row>
+					<row space="15" valign="bottom" >
+						<stamp width="30" height="36" title="" image="" i1="36c" i2="" i3="S 1148" f1="" f2="Poinsettia" f3="" />
+						<stamp width="30" height="36" title="" image="" i1="42c" i2="" i3="S 1149" f1="" f2="Holly Wreath" f3="" />
+						<stamp width="30" height="36" title="" image="" i1="72c" i2="" i3="S 1150" f1="" f2="Mistletoe, Tree" f3="" />
+					</row>
+					<row height="1" />
+					<row space="10" valign="center">
+						<!--text style="story" width="56">Claude A. Simard designed these stamps, which were printed by the lithography process and issued in November 2, 1987. The 31c booklet stamp, with its bar code, was for use on greeting card envelopes with a printed postal code matrix, and offered a lower than usual mailing rate.</text-->
+						<text style="story" width="56">Québec painter Claude A. Simard, who has a keen interest in horticulture, has chosen an original way to illustrate the annual Christmas stamp series. By deftly combining the warm reds, greens and golds of traditional Christmas plants and accessories, he has managed to infuse each stamp with the festive atmosphere of the holidays.</text>
+						<stamp width="40" height="25" title="" image="" i1="31c" i2="" i3="S 1151" f1="" f2="Gifts under Tree" f3="" />
+					</row>
+				</column>
+			</row>
+			<row space="6" valign="bottom">
+			</row>
+			</page>
+			.
+	<!-- 1988 -->
+		<page no="24" title="Mammal Definitives">
+			<row height="10" />
+
+			<row space="20" valign="bottom">
+				<column width="150" rem="Mammal Definitives" >
+					<text style="headline">MAMMAL DEFINITIVES</text>
+					<text style="date">1988-1990</text>
+				</column>
+			</row>
+
+			<row height="10" />
+			<row space="20" valign="bottom">
+				<text style="headline" font_size="12">LOW VALUES</text>
+			</row>
+			<row space="10" valign="bottom">
+				<!-- Low values -->
+				<stamp width="26" height="22" title="" image="" i1="1c" i2="" i3="S 1155" f1="" f2="Flying Squirel" f3="" />
+				<stamp width="26" height="22" title="" image="" i1="2c" i2="" i3="S 1156" f1="" f2="Porcupine" f3="" />
+				<stamp width="26" height="22" title="" image="" i1="3c" i2="" i3="S 1157" f1="" f2="Muskrat" f3="" />
+				<stamp width="26" height="22" title="" image="" i1="5c" i2="" i3="S 1158" f1="" f2="Varying Hare" f3="" />
+			</row>			
+			<row space="10" valign="bottom">
+				<stamp width="26" height="22" title="" image="" i1="6c" i2="" i3="S 1159" f1="" f2="Red Fox" f3="" />
+				<stamp width="26" height="22" title="" image="" i1="10c" i2="" i3="S 1160" f1="" f2="Skunk" f3="" />
+				<stamp width="26" height="22" title="" image="" i1="25c" i2="" i3="S 1161" f1="" f2="Beaver" f3="" />
+			</row>			
+
+			<row height="10" />
+			<row space="20" valign="bottom">
+				<text style="headline" font_size="12">USA RATE</text>
+			</row>
+			<row space="0" valign="bottom">
+				<!-- USA Rate -->
+				<column width="1" />
+				<stamp width="30" height="24" title="" image="" i1="43c" i2="" i3="S 1170" f1="" f2="Lynx" f3="" />
+				<column width="11" />
+				<stamp width="32" height="26" title="" image="" i1="44c" i2="" i3="S 1171" f1="" f2="Atlantic Walrus" f3="" />
+			</row>			
+			<row space="10" valign="bottom">
+				<stamp width="32" height="26" title="" image="" i1="45c" i2="" i3="S 1172" f1="" f2="Pronghorn" f3="" />
+				<stamp width="32" height="26" title="" image="" i1="46c" i2="" i3="S 1172A" f1="" f2="Wolverine" f3="" />
+			</row>		
+			</page>
+			.
+		<page no="25" title="Mammal Definitives">
+			<row height="10" />
+
+			<row space="20" valign="bottom">
+				<column width="150" rem="Mammal Definitives" >
+					<text style="headline">MAMMAL DEFINITIVES</text>
+					<text style="date">1988-1990</text>
+				</column>
+			</row>
+
+			<row height="6" />
+			<row space="20" valign="bottom">
+				<text style="headline" font_size="12">OWERWEIGHT DOMESTIC RATE DEFINITIVES</text>
+			</row>
+			<row space="00" valign="bottom">
+				<!-- Overweight Domestic Rate -->
+				<column width="1" />
+				<stamp width="30" height="24" title="" image="" i1="57c" i2="" i3="S 1173" f1="" f2="Killer Whale" f3="" />
+				<column width="11" />
+				<stamp width="32" height="26" title="" image="" i1="59c" i2="" i3="S 1174" f1="" f2="Musk Ox" f3="" />
+			</row>			
+			<row space="10" valign="bottom">
+				<stamp width="32" height="26" title="" image="" i1="61c" i2="" i3="S 1175" f1="" f2="Timber Wolf" f3="" />
+				<stamp width="32" height="26" title="" image="" i1="63c" i2="" i3="S 1176" f1="" f2="Harbor Porpoise" f3="" />
+			</row>			
+
+
+			<row height="6" />
+			<row space="20" valign="bottom">
+				<text style="headline" font_size="12">INTERNATIONAL RATE DEFINITIVES</text>
+			</row>
+			<row space="0" valign="bottom">
+				<!-- International Rate -->
+				<column width="1" />
+				<stamp width="30" height="24" title="" image="" i1="74c" i2="" i3="S 1177" f1="" f2="Wapiti" f3="" />
+				<column width="11" />
+				<stamp width="32" height="26" title="" image="" i1="76c" i2="" i3="S 1178" f1="" f2="Grizzly Bear" f3="" />
+			</row>			
+			<row space="10" valign="bottom">
+				<stamp width="32" height="26" title="" image="" i1="78c" i2="" i3="S 1179" f1="" f2="Beluga Whale" f3="" />
+				<stamp width="32" height="26" title="" image="" i1="80c" i2="" i3="S 1180" f1="" f2="Peary Caribou" f3="" />
+			</row>			
+			</page>
+			.
+		<page no="26" title="Flag over...">
+			<row height="10" />
+
+			<row space="20" valign="bottom">
+				<column width="150" rem="Flag over..." >
+					<text style="headline">FLAG OVER...</text>
+					<text style="date">1989-2000</text>
+				</column>
+			</row>
+			
+			<row height="20" />
+			<row space="8" valign="bottom">
+				<stamp width="22" height="26" title="" image="" i1="39c" i2="" i3="S 1166" f1="" f2="Clouds" f3="" />
+				<stamp width="22" height="26" title="" image="" i1="40c" i2="" i3="S 1169" f1="" f2="Mountains" f3="" />
+				<stamp width="22" height="26" title="" image="" i1="42c" i2="" i3="S 1356" f1="" f2="Hills" f3="" />
+				<stamp width="22" height="26" title="" image="" i1="43c" i2="" i3="S 1359" f1="" f2="Field" f3="" />
+				<stamp width="22" height="26" title="" image="" i1="35c" i2="22x26" i3="S 1361" f1="" f2="Building" f3="" />
+			</row>
+			<row height="2" />
+			<row space="10" valign="bottom">
+				<stamp width="20" height="24" title="" image="" i1="45c" i2="20x24" i3="S 1362" f1="" f2="Building" f3="" />
+				<stamp width="20" height="24" title="" image="" i1="46c" i2="" i3="S 1682" f1="" f2="Iceberg" f3="" />
+				<stamp width="20" height="24" title="" image="" i1="46c" i2="self-adhesive" i3="S 1698" f1="" f2="Iceberg\n(self-adhesive)" f3="" />
+				<stamp width="20" height="24" title="" image="" i1="47c" i2="" i3="S 1700" f1="" f2="Inukshuk" f3="" />
+			</row>		
+
+			<row height="15" />
+			<row space="20" valign="bottom">
+				<text style="headline" font_size="12">BOOKLET ISSUES</text>
+			</row>
+			<row space="10" valign="bottom">
+				<stamp width="24" height="20" title="" image="" i1="1c" i2="" i3="S 1184" f1="" f2="" f3="" />
+				<stamp width="24" height="20" title="" image="" i1="5c" i2="" i3="S 1185" f1="" f2="" f3="" />
+				<stamp width="24" height="20" title="" image="" i1="39c" i2="" i3="S 1189" f1="" f2="" f3="" />
+				<stamp width="24" height="20" title="" image="" i1="40c" i2="" i3="S 1190" f1="" f2="" f3="" />
+			</row>			
+			
+			<row height="15" />
+			<row>
+				<text style="story" width="150">Replacing the Parliament Buildings theme of recent years, Canada introduced its flag as the subject of basic first class domestic rate definitives starting with "Flag over Clouds" on December 28, 1989. The single colour coil stamps were produced by steel engraving; the others were printed by multicolor lithography.</text>
+			</row>
+			</page>
+			.
+		<page no="27" title="Flag over...">
+			<row height="10" />
+
+			<row space="20" valign="bottom">
+				<column width="150" rem="Flag over..." >
+					<text style="headline">FLAG OVER...</text>
+					<text style="date">1989-2000</text>
+				</column>
+			</row>
+			
+			<row height="10" />
+			<row space="20" valign="bottom">
+				<text style="headline" font_size="12">"QUICK STICK" BOOKLET ISSUES</text>
+			</row>
+
+			<row height="20" />
+			<row space="12" valign="bottom">
+				<stamp width="36" height="30" title="" image="" i1="38c" i2="" i3="S 1191" f1="" f2="Forest" f3="" />
+				<stamp width="36" height="30" title="" image="" i1="39c" i2="" i3="S 1192" f1="" f2="Prairie" f3="" />
+				<stamp width="36" height="30" title="" image="" i1="40c" i2="" i3="S 1193" f1="" f2="Seacoast" f3="" />
+			</row>
+			<row height="12" />
+			<row space="10" valign="bottom">
+				<stamp width="36" height="30" title="" image="" i1="42c" i2="" i3="S 1388" f1="" f2="Mountains" f3="" />
+				<stamp width="36" height="30" title="" image="" i1="43c" i2="" i3="S 1389" f1="" f2="Shoreline" f3="" />
+			</row>
+			</page>
+			.
+		<page no="28" title="Flag over...">
+			<row height="10" />
+
+			<row space="20" valign="bottom">
+				<column width="150" rem="Flag over..." >
+					<text style="headline">FLAG OVER...</text>
+					<text style="date">1989-2000</text>
+				</column>
+			</row>
+			
+			<row height="10" />
+			<row space="20" valign="bottom">
+				<text style="headline" font_size="12">COIL ISSUES</text>
+			</row>
+
+			<row height="15" />
+			<row space="15" valign="bottom">
+				<stamp width="24" height="40" title="" image="" i1="39c" i2="" i3="S 1194Bpa" f1="" f2="" f3="" />
+				<stamp width="24" height="40" title="" image="" i1="40c" i2="" i3="S 1194Cpa" f1="" f2="" f3="" />
+				<stamp width="24" height="40" title="" image="" i1="42c" i2="" i3="S 1394pa" f1="" f2="" f3="" />
+			</row>
+			<row height="15" />
+			<row space="15" valign="bottom">
+				<stamp width="24" height="40" title="" image="" i1="43c" i2="" i3="S 1395pa" f1="" f2="" f3="" />
+				<stamp width="24" height="40" title="" image="" i1="45c" i2="" i3="S 1396pa" f1="" f2="" f3="" />
+				<stamp width="24" height="40" title="" image="" i1="46c" i2="" i3="S 1695pa" f1="" f2="" f3="" />
+			</row>
+			</page>
+			.
+		<page no="29" title="Architecture">
+			<row height="10" />
+
+			<row space="20" valign="bottom">
+				<column width="150" rem="Architecture" >
+					<text style="headline">ARCHITECTURE</text>
+					<text style="date">1989-1998</text>
+				</column>
+			</row>
+			
+			<row height="10" />
+			<row space="20" valign="bottom">
+				<text style="headline" font_size="12">HIGH-VALUE DEFINITIVES</text>
+			</row>
+
+			<row height="15" />
+			<row space="8" valign="bottom">
+				<stamp width="48" height="30" title="" image="" i1="$1" i2="" i3="S 1181" f1="" f2="Runimede Library, Toronto" f3="" />
+				<stamp width="48" height="30" title="" image="" i1="$2" i2="" i3="S 1182" f1="" f2="McAdam Railway Station, NB" f3="" />
+				<stamp width="48" height="30" title="" image="" i1="$5" i2="" i3="S 1183" f1="" f2="Bonsecours Market, Montreal, QC" f3="" />
+			</row>
+			<row height="15" />
+			<row space="8" valign="bottom">
+				<stamp width="48" height="40" title="" image="" i1="$1" i2="" i3="S 1375" f1="" f2="Court House, Yorkton, SK" f3="" />
+				<stamp width="48" height="40" title="" image="" i1="$2" i2="" i3="S 1376" f1="" f2="Provincial Normal School, Truro, NS" f3="" />
+				<stamp width="48" height="40" title="" image="" i1="$5" i2="" i3="S 1378" f1="" f2="Public Library, Victoria , BC" f3="" />
+			</row>
+			</page>
+			.
+		<page no="30" title="Masterpieces of Canadian Art">
+			<row height="10" />
+
+			<row space="20" valign="bottom">
+				<column width="150" rem="Masterpieces of Canadian Art" >
+					<text style="headline">MASTERPIECES OF CANADIAN ART</text>
+					<text style="date">1988-2002</text>
+				</column>
+			</row>
+			
+			<row height="0" />
+			<row space="10" valign="bottom">
+				<stamp width="40" height="48" title="" image="" i1="50c" i2="" i3="S 1203" f1="" f2='"The Young Reader" by Ozias Leduc' f3="" />
+				<stamp width="40" height="48" title="" image="" i1="50c" i2="" i3="S 1241" f1="" f2='"Ceremonnial Frontlet"' f3="" />
+				<stamp width="40" height="48" title="" image="" i1="50c" i2="" i3="S 1271" f1="" f2='"The West Wind" by Tom Thompson' f3="" />
+			</row>
+			<row height="6" />
+			<row space="10" valign="bottom">
+				<stamp width="40" height="48" title="" image="" i1="50c" i2="" i3="S 1310" f1="" f2='"Forest, British Columbia"\nby Emily Carr' f3="" />
+				<stamp width="40" height="48" title="" image="" i1="50c" i2="" i3="S 1419" f1="" f2='"Red Nasturtiums" by David Milne' f3="" />
+			</row>
+			<row height="2" />
+			<row space="10" valign="bottom">
+				<stamp width="40" height="48" title="" image="" i1="86c" i2="" i3="S 1466" f1="" f2='Drawing for "The Owl"\nby Kenojuak Ashevak' f3="" />
+				<stamp width="40" height="48" title="" image="" i1="88c" i2="" i3="S 1516" f1="" f2='"Vera 1931" by Frederick H. Varley' f3="" />
+				<stamp width="40" height="48" title="" image="" i1="88c" i2="" i3="S 1545" f1="" f2='"Floraison" by Alfred Pellan' f3="" />
+			</row>
+			</page>
+			.
+		<page no="31" title="Masterpieces of Canadian Art">
+			<row height="10" />
+
+			<row space="20" valign="bottom">
+				<column width="150" rem="Masterpieces of Canadian Art" >
+					<text style="headline">MASTERPIECES OF CANADIAN ART</text>
+					<text style="date">1988-2002</text>
+				</column>
+			</row>
+			
+			<row height="0" />
+			<row space="10" valign="bottom">
+				<stamp width="40" height="48" title="" image="" i1="90c" i2="" i3="S 1602" f1="" f2='"The Spirit of Haida Gwaii"\nby Bill Reid' f3="" />
+				<stamp width="40" height="48" title="" image="" i1="90c" i2="" i3="S 1635" f1="" f2='"York Boat on Lake Winnipeg"\nby Walter Joseph Phillips' f3="" />
+			</row>
+			<row height="2" />
+			<row space="10" valign="bottom">
+				<stamp width="40" height="48" title="" image="" i1="90c" i2="" i3="S 1754" f1="" f2='"The Farmer&apos;s Family"\nby Bruno Bonak' f3="" />
+				<stamp width="40" height="48" title="" image="" i1="95c" i2="" i3="S 1800" f1="" f2='"Coq Licorne" by Jean D&apos;allaire' f3="" />
+				<stamp width="40" height="48" title="" image="" i1="95c" i2="" i3="S 1863" f1="" f2='"The Artist at Niagara"\nby Cornelius Krieghoff' f3="" />
+			</row>
+			<row height="2" />
+			<row space="10" valign="bottom">
+				<stamp width="40" height="48" title="" image="" i1="50c" i2="" i3="S 1203" f1="" f2='"The Space Between Column #21"\nby Jack Leonard Shadbolt' f3="" />
+				<stamp width="40" height="48" title="" image="" i1="50c" i2="" i3="S 1203" f1="" f2='"Church and Horse"\nby David Alexander Colville' f3="" />
+			</row>
+			</page>
+			.
+		<page no="32" title="Commemorative 1988">
+			<row height="20" />
+
+			<row valign="top" rem="Wildlife conservation">
+				<column width="46">
+					<row height="4" />
+					<text style="headline" align="right">WILDLIFE CONSERVATION</text>
+					<text style="date" align="right">1988</text>
+				</column>
+				<column width="64">
+					<stamp width="64" height="30" i1="2 x 37c" i2="S 1205a" f2=""/>
+					<row space="0" margin="0,0,2,0">
+						<text style="footer_center" width="32">Duck landing</text>
+						<text style="footer_center" width="32">Moose feeding</text>
+					</row>
+				</column>
+				<column width="54" rem="Wildlife conservation">
+					<row height="4" />
+					<text style="story" >Two anniversaries in the field of wildlife and habitat are marked by these stamps issued on June 1, 1988: The 100th anniversary of the birth of Grey Owl (Archibald Belaney), one of Canada's most famous conservationists; and the 50th anniversary of Ducks Unlimited Canada, a conservation group which works to protect waterfowl breeding grounds.</text>
+				</column>
+			</row>
+
+
+			<row space="0"  valign="bottom">
+				<column width="10" />
+				<column width="66" rem="Butterflies">
+					<text style="headline">CANADIAN BUTTERFLIES</text>
+					<text style="date">1988</text>
+					<row space="0" margin="0,0,-2,0">
+						<text style="footer_center" width="30">Short-tailed Swallowtail</text>
+						<text style="footer_center" width="30">Northern Blue</text>
+					</row>
+					<stamp width="60" height="80" i1="4x37c" i2="S 1213a" f2=""/>
+					<row space="0" margin="0,0,2,0">
+						<text style="footer_center" width="26">Maucoun's Arctic</text>
+						<text style="footer_center" width="34">Canadian Tiger Swallowtail</text>
+					</row>
+				</column>
+				<column width="20" />
+				<column width="80" rem="Dogs of Canada">
+					<text style="headline">DOGS OF CANADA</text>
+					<text style="date">1988</text>
+					<row space="0" margin="0,0,-2,0">
+						<text style="footer_center" width="40">Tahltan Bear Dog</text>
+						<text style="footer_center" width="40">N.S. Duck Tolling Retriever</text>
+					</row>
+					<stamp width="80" height="60" i1="4x37c" i2="S 1220a" f2=""/>
+					<row space="0" margin="0,0,2,0">
+						<text style="footer_center" width="40">Canadian Eskimo Dog</text>
+						<text style="footer_center" width="40">Newfoundland</text>
+					</row>
+				</column>
+			</row>
+
+			<row space="0"  valign="top">
+				<!--column width="6" /-->
+				<column width="3" />
+				<column width="80" rem="Butterflies">
+					<text style="story">Butterflies symbolize the short-lived but intense joys of the Canadian summer. There are over 20,000 known species of the butterfly of which 272 exist in Canada. Canadian varieties have wing spans from less than 2.5 cm to 7.5 cm. and the life cycles range from a few weeks to two years. These four stamps were issued in conjunction with the 18th International Congress of Entomology held in July 1988 in Vancouver, B.C. </text>
+				</column>
+				<column width="16" />
+				<column width="80" rem="Butterflies">
+					<text style="story">Issued to celebrate the centennial of the Canadian Kennel Club, these stamps feature four dogs breads native to Canada. Because of their good temperament and skills, these breeds may be working dogs or pets. Each dog is shown in a setting typical of its place of origin in Canada.
+					</text>
+				</column>
+				<column width="3" />
+			</row>
+			</page>
+			.
+		<page no="33" title="Commemorative 1988">
+			<row height="10" />
+
+			<row valign="top" rem="Les Forges Du Saint-maurice">
+				<column width="46">
+					<row height="4" />
+					<text style="headline" align="right">LES FORGES DU SAINT-MAURICE</text>
+					<text style="date" align="right">1988</text>
+				</column>
+				<column width="36">
+					<stamp width="30" height="36" i1="37c" i2="S 1216" f2="Ironworks blast furnace"/>
+				</column>
+				<column width="50">
+					<row height="6" />
+					<text style="story">Les Forges du Saint-Maurice, now a National Historic Site of Canada near Trois-Rivières, Quebec, operated virtually continuously for 150 years between 1738 and 1883. At its high it employed about 100 craftsman (most originally from Burgundy) and 300-400 labourers. The abundant natural resources found on the territory of the Forges ensured the profitability of the iron-smelting company.</text>
+				</column>
+			</row>
+
+			<row height="6" />
+
+			<row space="0"  valign="bottom">
+				<column width="54" rem="St. John's centennial">
+					<text style="headline">ST. JOHN'S CENTENNIAL</text>
+					<text style="date">1988</text>
+					<stamp width="40" height="26" i1="37c" i2="S 1214" f2="St. John's Harbour"/>
+				</column>
+				<column width="25">
+				</column>
+				<column width="54" rem="4-H clubs">
+					<text style="headline">4-H CLUBS</text>
+					<text style="date">1988</text>
+					<stamp width="40" height="26" i1="37c" i2="S 1215" f2="Rural scene and 4-H project"/>
+				</column>
+			</row>
+			<row space="0"  valign="top">
+				<column width="50" rem="St. John's centennial">
+					<text style="story" width="50">St. John's is the capital and the largest city in Newfoundland and Labrador. St. John's was incorporated as a city in 1888, yet is considered by some to be the oldest English-founded city in North America. Its name has been attributed to the feast day of John the Baptist, when John Cabot was believed to have sailed into the harbour in 1497.</text>
+				</column>
+				<column width="29">
+				</column>
+				<column width="50" rem="4-H clubs">
+					<text style="story" width="50">4-H is a global network of youth organizations in over 50 countries. Members pledge to put their Heads to clearer thinking, Hearts to greater loyalty, Hands to larger service and Health to better living. In Canada, the first club was organized in Roland, Manitoba in 1913. Today, the organization counts more than 25,000 members, aged 6-25, and 7,700 volunteers across the country.</text>
+				</column>
+			</row>
+
+			<row height="15" />
+
+			<row valign="bottom" rem="Baseball in Canada">
+				<column width="50">
+					<text style="story">The stamp was issued to commemorate the 150th anniversary of the first recorded baseball game in Canada. This game was played in Beachville (in Upper Canada, now Ontario), on 4 June 1838 as part of the celebration marking the government's 1837 victory in the Upper Canada Rebellion. The Beachville game was played a year earlier than the more publicized first Hall of Fame Game held at Cooperstown, New York.</text>
+					<row height="4" />
+				</column>
+				<column width="30">
+					<stamp width="24" height="40" i1="37c" i2="S 1221" f2=""/>
+					<text style="footer-center" width="35" align="center">Ball, Glove and Diamond</text>
+				</column>
+				<column width="36">
+					<text style="headline" align="left">BASEBALL IN CANADA</text>
+					<text style="date" align="left">1988</text>
+					<row height="18" />
+				</column>
+			</row>
+			</page>
+			.
+		<page no="34" title="Commemorative 1988">
+			<row height="10" />
+			<row valign="bottom" space="0" rem="">
+				
+				<column width="5" />
+				<column width="46" rem="Charles Inglis">
+					<text style="headline">CHARLES INGLIS</text>
+					<text style="date">1988</text>
+					<stamp width="40" height="30" i1="37c" i2="S 1226" f2="Charles Inglis"/>
+				</column>
+				<column width="18" />
+				<column width="98" rem="Canadian Personalities">
+					<text style="headline">CANADIAN PERSONALITIES</text>
+					<text style="date">1988</text>
+					<row valign="bottom" space="0">
+						<stamp width="40" height="26" i1="37c" i2="S 1227" f2="Francis Ann Hopkins"/>
+						<column width="6" />
+						<column width="5" />
+						<stamp width="30" height="36" i1="37c" i2="S 1228" f2="Angus Walters"/>
+						<column width="5" />
+					</row>
+				</column>
+
+			</row>
+
+			<row valign="top" space="0" rem="story text">
+				<column width="5" />
+				<text style="story" width="46">Born in Ireland and educated at Oxford, Charles Inglis (1734-1816) was Canada's first Anglican Bishop He was the founder of an Academy at Windsor, Nova Scotia which has evolved into Kings-Edgehill School and the University of King's College at Halifax.</text>
+				<column width="18" />
+				<text style="story" width="46">Francis Ann Hopkins (1838-1918), often accompanied her husband, a Hudson's Bay Company official in his western business trips. These journeys inspired Francis Ann's best paintings as it is  "Canoe Manned by Voyageurs" depicted in this stamp.</text>
+				<column width="6" />
+				<text style="story" width="46">From 1921 to 1942, Angus Walters (1882-1968) was the captain of the "Bluenose", the schooner that was known as the queen of the North Atlantic fishing fleet. The vessel won five international and many Canadian races over the years.</text>
+			</row>
+
+			<row height="20" />
+
+			<row rem="Christmas - Icons" >
+				<column width="150">
+					<row space="0"> 
+						<text style="date" width="11" align="right">1988  - </text>
+						<text style="headline" width="56">CHRISTMAS - ICONS</text>
+						<text style="date" width="11" align="left"> -  1988</text>
+					</row>
+					<row space="8" valign="bottom" >
+						<stamp width="30" height="36" i1="37c" i2="S 1222" f2="Madonna and Child"/>
+						<stamp width="30" height="36" i1="43c" i2="S 1223" f2="Madonna and Child"/>
+						<stamp width="30" height="36" i1="74c" i2="S 1224" f2="Madonna and Child"/>
+					</row>
+					<row height="1" />
+					<row space="10" valign="center">
+						<stamp width="40" height="26" i1="32c" i2="S 1225" f2="Nativity"/>
+						<text style="story" width="68">Icons are works of liturgical art which illustrate Biblical stories. This year's Christmas stamps were issued in conjunction with the millennium of Christianity in the Ukraine. Each stamp depicts an icon from different tradition of the Eastern Church.</text>
+					</row>
+				</column>
+			</row>
+			<row valign="top" rem="">
+					
+					<!-- Canadian Personalities -->
+					<!-- Christmas -->
+					
+			</row>
+			</page>
+			.
+	<!-- 1989 -->
+		<page no="35" title="SMALL CRAFT 1989-91">
+			<row height="10" />
+
+			<row>
+				<text style="headline">SMALL CRAFT</text>
+			</row>
+			<row height="5" />
+			<row space="10"  valign="top">
+				<column width="86">
+					<text style="headline" font_size="12">NATIVE BOATS</text>
+					<text style="date">1989</text>
+					<row space="0" margin="0,0,-2,0">
+						<column width="3"/>
+						<text style="footer_center" width="40">Inuit kayak</text>
+						<text style="footer_center" width="40">Micmac canoe</text>
+						<column width="3"/>
+					</row>
+					<stamp width="80" height="52" i1="4x38c" i2="S 1232a" />
+					<row space="0" margin="0,0,2,0">
+						<column width="3"/>
+						<text style="footer_center" width="40">Chipewyan canoe</text>
+						<text style="footer_center" width="40">Haida canoe</text>
+						<column width="3"/>
+					</row>
+				</column>
+
+				<column width="86">
+					<text style="headline" font_size="12">WORK BOATS</text>
+					<text style="date">1990</text>
+					<row space="0" margin="0,0,-2,0">
+						<column width="3"/>
+						<text style="footer_center" width="40">Dory</text>
+						<text style="footer_center" width="40">Pointer</text>
+						<column width="3"/>
+					</row>
+					<stamp width="80" height="52" i1="4x39c" i2="S 1269a" />
+					<row space="0" margin="0,0,2,0">
+						<column width="3"/>
+						<text style="footer_center" width="40">York Boat</text>
+						<text style="footer_center" width="40">North Canoe</text>
+						<column width="3"/>
+					</row>
+				</column>
+			</row>
+			<row height="10" />
+			<row space="10"  valign="top">
+				<column width="86">
+					<text style="headline" font_size="12">PLEASURE BOATS</text>
+					<text style="date">1991</text>
+					<row space="0" margin="0,0,-2,0">
+						<column width="3"/>
+						<text style="footer_center" width="40">Verchere rowboat</text>
+						<text style="footer_center" width="40">Touring kayak</text>
+						<column width="3"/>
+					</row>
+					<stamp width="80" height="52" i1="4x40c" i2="S 1320a" />
+					<row space="0" margin="0,0,2,0">
+						<column width="3"/>
+						<text style="footer_center" width="40">Sailing dinghy</text>
+						<text style="footer_center" width="40">Cadar strip canoe</text>
+						<column width="3"/>
+					</row>
+				</column>
+				
+				<column width="86">
+					<row height="17" />
+					<text style="story" align="left">Canada's extensive coasts and vast maze of rivers and lakes encouraged the development of many different types of boats by Native People. These craft provided mobility where it was otherwise practically impossible to travel. The first four stamps in the three-years series picture the Native craft as first seen by the Europeans. The environments where each boat would characteristically be found form a backdrop for the small craft depicted.</text>
+					<text style="story" align="left">In recognition of the important role played by work boasts during Canada's early history, Canada Post is issuing a second set of four in the series on small craft. These stamps feature a fishing boat called the dory; the pointer or "lumberman's batteau"; the North canoe which was used by traders and explorers; and the Hudson's Bay Company's York boat.</text>
+					<text style="story" align="left">The third and final set of stamps in the Small Craft series - Pleasure Craft - is issued on July 18, 1991. While the first two sets in the series focussed on boats as essential modes of transportation and commerce, this last segment displays how boats have evolved into a recreational pastime for millions of Canadians. As Canada is bounded by three oceans and is blessed with a large network of inland and rivers, it is not surprising that the mode of transportation which originally opened up this vast country to the Voyageurs is now a pleasurable sporting activity.</text>
+				</column>
+			</row>
+			</page>
+			.		
+		<page no="36" title="Commemorative 1989">
+			<row height="10" />
+			<row valign="top" space="10" rem="Early Canadian photographers">
+				<column width="46">
+					<row height="4" />
+					<text style="headline" align="right">CANADA DAY - EARLY CANADIAN PHOTOGRAPHERS</text>
+					<text style="date" align="right">1989</text>
+				</column>
+				<column width="46">
+					<stamp width="40" height="30" i1="38c" i2="S 1237" f2="William Notman (1826-1891)"/>
+				</column>
+				<column width="46">
+					<row height="6" />
+					<text style="story">Canada Post celebrates the 150th anniversary of the first photograph ever taken by a Canadian, by issuing four commemorative stamps featuring pioneering Canadian photographers.</text>
+				</column>
+			</row>
+			<row height="4"/>
+			<row valign="bottom" space="10" rem="">
+				<stamp width="40" height="30" i1="38c" i2="S 1238" f2="W. Hanson Boorne (1859-1945)"/>
+				<stamp width="40" height="30" i1="38c" i2="S 1239" f2="Alexander Henderson (1831-1913)"/>
+				<stamp width="40" height="30" i1="38c" i2="S 1240" f2="Jules-Ernest Livernois(1851-1933)"/>
+			</row>
+
+
+			<row height="20" />
+
+			<row valign="bottom" space="0" rem="">
+				<column width="98" rem="Canadian Poets">
+					<text style="headline">CANADIAN POETS</text>
+					<text style="date">1989</text>
+					<row valign="bottom" space="15">
+						<stamp width="36" height="30" i1="38c" i2="S 1243" f2="Louis Frechette"/>
+						<stamp width="36" height="30" i1="38c" i2="S 1244" f2="Archibald Lampman"/>
+					</row>
+					<text style="story">Issued to honor the the 150th birth anniversary of French Canadian's poet laureate, Louis-Honoré Fréchette (1839-1908), famous for his patriotic verse and grandiose style. Archibald Lampman (1861-1899), best known for his nature poetry, was a postal employee in Ottawa for the most of his working life.The stamps  illustrate each poet's portrait, placed in a background setting reflective of each poet's work.</text>
+				</column>
+			</row>
+			</page>
+			.
+		<page no="37" title="Commemorative 1989">
+			<row height="10" />
+			<row valign="top" space="16" rem="Mushrooms">
+				<column width="80">
+					<row valign="top">
+						<stamp width="30" height="36" i1="38c" i2="S 1245" f2="Clavulinopsis fusiformis"/>
+						<stamp width="30" height="36" i1="38c" i2="S 1246" f2="Boletus mirabilis"/>
+					</row>
+					<row valign="top">
+						<stamp width="30" height="36" i1="38c" i2="S 1247" f2="Cantharellus cinnabarinus"/>
+						<stamp width="30" height="36" i1="38c" i2="S 1248" f2="Marchella esculenta"/>
+					</row>
+				</column>
+				<column width="60">
+					<row height="10"/>
+					<text style="headline">MUSHROOMS</text>
+					<text style="date">1989</text>
+					<text style="story">The four commemorative stamps featuring musrooms which can be found in Canada are issued in conjunction with the conventions being held in Toronto this summer, by both the Mycological Society of America, and the American Institute of Biological Sciences.</text>
+				</column>
+			</row>
+
+
+			<row height="20" />
+
+			<row valign="bottom" space="0" rem="">
+				<column width="98" rem="Canadian Poets">
+					<text style="headline">CANADIAN POETS</text>
+					<text style="date">1989</text>
+					<row valign="bottom" space="15">
+						<stamp width="36" height="30" i1="38c" i2="S 1243" f2="Louis Frechette"/>
+						<stamp width="36" height="30" i1="38c" i2="S 1244" f2="Archibald Lampman"/>
+					</row>
+					<text style="story">Issued to honor the the 150th birth anniversary of French Canadian's poet laureate, Louis-Honoré Fréchette (1839-1908), famous for his patriotic verse and grandiose style. Archibald Lampman (1861-1899), best known for his nature poetry, was a postal employee in Ottawa for the most of his working life.The stamps  illustrate each poet's portrait, placed in a background setting reflective of each poet's work.</text>
+				</column>
+			</row>
+			</page>
+			.
+</MyAlbum>

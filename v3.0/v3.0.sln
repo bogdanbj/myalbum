@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAlbum3", "MyAlbum3\MyAlbum3.csproj", "{0F9A5350-6B9A-4D76-855A-2F28C3A23BB6}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MyAlbum3Setup", "MyAlbum3Setup\MyAlbum3Setup.vdproj", "{B971666E-5265-42EE-B7A0-C605E65F5EB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F9A5350-6B9A-4D76-855A-2F28C3A23BB6}.Debug|x86.ActiveCfg = Debug|x86
+		{0F9A5350-6B9A-4D76-855A-2F28C3A23BB6}.Debug|x86.Build.0 = Debug|x86
+		{0F9A5350-6B9A-4D76-855A-2F28C3A23BB6}.Release|x86.ActiveCfg = Release|x86
+		{0F9A5350-6B9A-4D76-855A-2F28C3A23BB6}.Release|x86.Build.0 = Release|x86
+		{B971666E-5265-42EE-B7A0-C605E65F5EB9}.Debug|x86.ActiveCfg = Debug
+		{B971666E-5265-42EE-B7A0-C605E65F5EB9}.Debug|x86.Build.0 = Debug
+		{B971666E-5265-42EE-B7A0-C605E65F5EB9}.Release|x86.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

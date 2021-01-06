@@ -1,0 +1,289 @@
+<MyAlbum ver="3.0">
+	<styles>
+		<!-- BORDER
+			type: none, single, double, white ace, custom
+			width: line1, space, line2
+			padding: top, right, bottom, left
+			-->
+			<border style="stamp_frame" default="true" border_type="double" width="0.4, 0.3, 0.1" margin="0,0,0,0" padding="3, 3, 3, 3" color="48,48,48"  background-color="255,255,255" />
+			<border style="page_border" default="false" border_type="double" width="0.5, 0.5, 0.2" margin="0,0,0,0" padding="0, 6, 0, 6" />
+			<border style="white_ace_page" default="false" border_type="white_ace_page" margin="0,0,0,0" padding="3, 3, 3, 3" color="67,143,189" background-color="255,255,255" />
+			<border style="white_ace_stamp" default="false" border_type="white_ace_stamp" width="0.2, 0.9, 0.2" margin="0,0,0,0" padding="3, 3, 3, 3" color="48, 48, 48" background-color="255,255,255" />
+		<!-- TEXT
+			font_size: double
+			font_style: bold, bolditalic, italic, regular, strikeout, underline
+			align: left, center, right
+			valign: top, center, bottom
+			-->
+			<text style="text_default" default="true" align="left" font_name="Century Gothic" font_size="8"/>
+			<text style="story" justify="true" align="center" font_name="Folio" font_size="7"/>
+			<text style="italic" justify="true" align="center" font_name="Garamond" font_size="8" font_style="italic"/>
+			<text style="headline" justify="false" align="center" font_name="Stymie Becker Light" font_size="16" margin="2,0"/>
+			<text style="date" justify="true" align="center" font_name="Lubalin Graph" font_size="8" font_style="bold"/>
+			<text style="title" align="center" font_name="Stymie Becker Light" font_size="10"/>
+			<text style="inside" align="center" font_name="Stymie Becker Light" font_size="6" width="80%"/>
+			<text style="footer_left" justify="true" align="left" font_name="Garamond" font_size="8" font_style="italic" />
+			<text style="footer_center" justify="true" align="center" font_name="Garamond" font_size="10" font_style="italic" width="80%" margin="0,0,2,0" />
+			<text style="footer_right" justify="true" align="right" font_name="Garamond" font_size="8" font_style="italic" margin="0,0,2,0" />
+		<!-- IMAGE
+			-->
+			<image style="stamp_image" default="true" color="false" />
+		<!-- STAMP
+			-->
+			<stamp style="stamp_default" default="true" vspace="1">
+				<border style="stamp_frame" />
+				<!--border style="white_ace_stamp" /-->
+				<image style="image_default" margin="2,2,2,2" />
+				<title style="title" />
+				<inside1 style="inside" />
+				<inside2 style="inside" />
+				<inside3 style="inside" />
+				<footer1 style="footer_left" />
+				<footer2 style="footer_center" />
+				<footer3 style="footer_right" />
+			</stamp>
+		<!-- ROW
+			spacing: FS (fixed space), ES (equal spacing), JS (justified spacing)
+			-->
+			<row style="stamp_FS" default="true" align="center" valign="center" spacing-mode="FS" space="10" />
+			<row style="page_header" default="false" align="center" valign="top" spacing-mode="FS" space="8" bgcolor="255, 32, 32" />
+		<!-- COLUMN
+			-->
+			<column style="default_column" default="true" align="center" space="1"/>
+		<!-- PAGE
+			orientation: portrait, landscape
+			size: letter, A4
+			margin: top, right, bottom, left
+			-->
+			<page style="cover" default="false" orientation="portrait" size="letter" margin="7,7,7,7"  color="48,48,48" vspace="1">
+				<banner file_name="" />
+				<border style="page_border" />
+			</page>
+			<page style="portrait" default="true" orientation="portrait" size="letter" margin="7,7,7,7"  color="48,48,48" vspace="1">
+				<banner file_name="" />
+				<border style="page_border" />
+				<row style="page_header">
+				  <text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
+				</row>
+			</page>
+			<page style="landscape" default="false" orientation="landscape" size="letter" margin="7,7,7,7"  color="48,48,48" vspace="1">
+				<banner file_name="" />
+				<border style="page_border" />
+				<row style="page_header" rotate="true">
+					<text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
+				</row>
+				<row rotate="true">
+					<image absolute="true" align="left" valign="top" file_name="Pictures\Canada-Post-Logo.png" x="20" y="20" height="32" width="32" stretched="true"></image>
+				</row>
+			</page>
+	</styles>
+
+	<!-- Page 1: Heritage 2003 -->	
+		<page style="portrait" no="1" title="Heritage">
+			<row height="20" />
+
+			<row >
+				<text style="headline">Heritage</text>
+			</row>
+			<row>
+				<text style="date">June 2003</text>
+			</row>
+
+			<row height="20" />
+			<row valign="top">
+				<stamp width="86" height="54" title="" image="" i1="" i2="" i3="" f1="" f2="" f3="" />
+				<column width="60" rem="Comfy Red Chair">
+					<text style="story" align="left" margin="7,0,0,0">Issued for Canada Day 2003 (July 1st), this card was only available in Canada.  Starbucks commissioned renowned Canadian designer and illustrator Andrew Lewis to create artwork that captures and celebrates the spirit and beauty of Canada.  His inspiration came from their history of exploration and adventure - a history of overcoming obstacles in traversing vast distances - a history that propels them even today.</text>
+				</column>
+			</row>
+			<row height="20" />
+			<row>
+				<stamp width="120" height="82" title="" image="" i1="" i2="" i3="" f1="" f2="" f3="" />
+			</row>
+			<row height="1" />
+			<row>
+				<text style="story" width="100">This is the matching sleeve with the same image on ther front as the Starbucks card, and the wording "Celebrate our heritage over coffee". Inside are the To: From: and Amount: fields.</text>
+			</row>
+			</page>
+			.
+	<!-- Page 2 -->	
+		<page style="portrait" no="2" title="">
+			<row height="20" />
+			<row valign="top">
+				<stamp width="86" height="54" title="" image="" i1="" i2="" i3="" f1="" f2="" f3="" />
+				<column width="60" rem="Comfy Red Chair" >
+					<text style="headline" align="left" margin="3,0,0,0">Comfy Red Chair</text>
+					<text style="date" align="left" margin="0,0,5,0">2004</text>
+					<text style="story" width="60" align="left">Starbucks released the "Comfy Red Chair" Card in the fall of 2004, replacing the Classic Core Card used since the inception of the Starbucks card in 2001.\nWith Canada's large French population, it was only a matter of time before a bilingual card was made.</text>
+				</column>
+			</row>
+			<row height="15" />
+			<row valign="top">
+				<column width="60" rem="Coffee as Art" >
+					<text style="headline" align="right" margin="3,0,0,0">Coffee as Art</text>
+					<text style="date" align="right" margin="0,0,5,0">October 2006</text>
+					<text style="story" width="60" align="right">The title "Coffee as Art" is reflecting the beauty of the artful, handcrafted approach to coffee. Similar designs from the past inspired this design from the three "Double-Shot" designs from Taiwan, Germany and the United States.</text>
+				</column>
+				<stamp width="86" height="54" title="" image="" i1="" i2="" i3="" f1="" f2="" f3="" />
+			</row>
+			<row height="15" />
+			<row valign="top">
+				<stamp width="86" height="54" title="" image="" i1="" i2="" i3="" f1="" f2="" f3="" />
+				<column width="60" rem="Twilight Retreat" >
+					<text style="headline" align="left" margin="3,0,0,0">Twilight Retreat</text>
+					<text style="date" align="left" margin="0,0,5,0">September 2007</text>
+					<text style="story" width="60" align="left">This Card is the epitome of what we do at Starbucks and portrayed in a very colorful Starbucks Card. It shows two people in comfy green chairs, chatting and enjoying their coffee. This Card also has a painting texture on the reverse, a first for any Starbucks Card.</text>
+				</column>
+			</row>
+			</page>
+			.
+	<!-- Page 3 -->	
+		<page style="portrait" no="3" title="">
+			<row height="20" />
+			<row valign="top">
+				<column width="60" rem="Mini (RED)" >
+					<text style="headline" align="right" margin="3,0,0,0">Mini a.k.a Green</text>
+					<text style="date" align="right" margin="0,0,5,0">June 16th, 2009</text>
+					<text style="story" width="60" align="right">Released in North America, June 16th, 2009 is the first official* key chain Starbucks Card called "On the Go" or "Mini". Some have called it the "green" card. At the initial release, Canada had the same version as the United States; however, a new version was made for Canada sometime later in the year with French only on the reverse.</text>
+				</column>
+				<stamp width="70" height="41.5" title="" image="" i1="" i2="" i3="" f1="" f2="" f3="" />
+			</row>
+			<row height="15" />
+			<row>
+				<text style="headline">(RED)</text>
+			</row>
+			<row>
+				<text style="date">November 2009</text>
+			</row>
+			<row height="5" />
+			<row valign="center">
+				<stamp width="86" height="54" title="" image="" i1="" i2="" i3="" f1="" f2="" f3="" />
+				<stamp width="70" height="41.5" title="" image="" i1="" i2="" i3="" f1="" f2="" f3="" />
+			</row>
+			<row height="5" />
+			<row valign="top">
+				<text style="story" width="160" align="center">Starbucks is a partner of Product Red, an organization co-founded by rock singer Bono. The idea is simply to raise money to help our African friends dyeing of AIDS. The design is of African Native Tapestry and is the same design as the Red Mini Card released for North America in November 2009,.</text>
+			</row>
+			</page>
+			.
+	<!-- Page 4 -->	
+		<page style="portrait" no="4" title="Christmas 2009">
+			<row height="20" />
+			<row>
+			<text style="story"></text>
+			</row>
+			<row valign="top">
+				<stamp width="86" height="54" title="" image="" i1="" i2="" i3="" f1="" f2="" f3="" />
+				<column width="60" rem="Wish" >
+					<text style="headline" align="left" margin="3,0,0,0">Wish</text>
+					<text style="date" align="left" margin="0,0,5,0">November 2009</text>
+					<text style="story" width="60" align="left">Released in Canada the first week of November 2009, are the two new Christmas/Holiday Starbucks Cards for the season.\nThe first is "Wish", or officially "Holiday Wish", a Christmas ornament with the wording "wish" with a red background and subtle pine tree. \nNOTE: This is the first time the image of the Card has an overlay into the clear part of the Card (notice the pine needles under the Starbucks sirens eye).</text>
+				</column>
+			</row>
+			<row height="15" />
+			<row valign="top">
+				<column width="60" rem="Winter Dog Walking" >
+					<text style="headline" align="right" margin="3,0,0,0">Winter Dog Walking</text>
+					<text style="date" align="right" margin="0,0,5,0">November 2009</text>
+					<text style="story" width="60" align="right">The second is "Winter Dog Walking" also known as "Winter Urban Dog", a scene you might see in a large city, people coming and going in winter attire. In the foreground is a woman walking a small dog, wrapped in his own knitted winter coat.</text>
+				</column>
+				<stamp width="86" height="54" title="" image="" i1="" i2="" i3="" f1="" f2="" f3="" />
+			</row>
+			</page>
+			.
+	<!-- Page 4b -->	
+		<page style="portrait" no="4b" title="Christmas 2009">
+			<row height="20" />
+			<!--
+			<row>
+				<text style="story" width="180">Released in Canada the first week of November 2009, are the two new Christmas/Holiday Starbucks Cards for the season.</text>
+			</row>
+			<row height="4" />
+			-->
+			<row valign="top" space="6">
+				<column width="92" rem="Wish" >
+					<text style="headline" margin="0,0,0,0">Wish</text>
+					<text style="date" margin="0,0,2,0">November 2009</text>
+					<stamp width="86" height="54" title="" image="" i1="" i2="" i3="" f1="" f2="" f3="" />
+					<text style="story" width="90" align="left">Released in Canada the first week of November 2009, are the two new Christmas/Holiday Starbucks Cards for the season. \nThe first is "Wish", or officially "Holiday Wish", a Christmas ornament with the wording "wish" with a red background and subtle pine tree. \nNOTE: This is the first time the image of the Card has an overlay into the clear part of the Card (notice the pine needles under the Starbucks sirens eye).</text>
+				</column>
+				<column width="92" rem="Winter Dog Walking" >
+					<text style="headline" margin="0,0,0,0">Winter Dog Walking</text>
+					<text style="date" margin="0,0,2,0">November 2009</text>
+					<stamp width="86" height="54" title="" image="" i1="" i2="" i3="" f1="" f2="" f3="" />
+					<text style="story" width="90">The second is "Winter Dog Walking" also known as "Winter Urban Dog", a scene you might see in a large city, people coming and going in winter attire. In the foreground is a woman walking a small dog, wrapped in his own knitted winter coat.</text>
+				</column>
+			</row>
+			<row height="15" />
+			<row valign="top">
+				<stamp width="86" height="54" title="" image="" i1="" i2="" i3="" f1="" f2="" f3="" />
+				<column width="60" rem="Twilight Retreat" >
+					<text style="story" width="60" align="left">These sleeves were made and released in North America and are designed to promote two products. First, it looks best as a Starbucks Card sleeve (as shown), but it has a second use too. With the promotion of VIA, the new "instant" coffee packets, the 3 pack slides nicely into the pocket for another gift giving idea. \n\nIt was first believed that this Sleeve was only available in Canada, but we've found that stores in the United States also have them. NOTE: There was an instruction on the sleeve package to store managers that this sleeve cannot be re-ordered once they are gone. \n\nThis is an interesting Sleeve, and resembles a couple of South Korea designs. This one resembles a white "gift box" with a red bow design on the front.  The Sleeve closes with the red bows in a lock. \n\nOn the inside (left-side), it reads, "I wish for YOU to FEEL at HOME everywhere." and on the right side of the folder, the words "To." and "From."    In the center of the sleeve, there is a pocket for the Starbucks Wish Card to be inserted. On the back of the Sleeve, the Starbucks logo is featured, and states that the sleeve was made with recycled fibers (which is printed in both English and French) and the usual 2009 Starbucks Coffee Company copyright</text>
+				</column>
+			</row>
+			</page>
+			.
+	<!-- Page 4c -->	
+		<page style="landscape" no="4c" title="Christmas 2009">
+			<row height="20" />
+			<row>
+				<column width="100">
+					<text style="story" width="90">Released in Canada the first week of November 2009, are the two new Christmas/Holiday Starbucks Cards for the season.</text>
+					
+					<row width="100" space="4" align="bottom">
+						<column width="25">
+							<text style="headline" align="right">Wish</text>
+						</column>
+						<column width="30">
+						<text style="date" align="left">November 2009</text>
+						</column>
+					</row>
+					<stamp width="86" height="54" title="" image="" i1="" i2="" i3="" f1="" f2="" f3="" />
+					
+					<row height="4" />
+
+					<row width="100" space="4" align="bottom">
+						<column width="50">
+							<text style="headline" align="right">Winter Dog Walking</text>
+						</column>
+						<column width="30">
+						<text style="date" align="left">November 2009</text>
+						</column>
+					</row>
+					<stamp width="86" height="54" title="" image="" i1="" i2="" i3="" f1="" f2="" f3="" />
+				</column>	
+
+				<column width="100">
+					<text style="story" width="90" align="left">The first is "Wish", or officially "Holiday Wish", a Christmas ornament with the wording "wish" with a red background and subtle pine tree. \nNOTE: This is the first time the image of the Card has an overlay into the clear part of the Card (notice the pine needles under the Starbucks sirens eye).</text>
+					<text style="story" width="90">The second is "Winter Dog Walking" also known as "Winter Urban Dog", a scene you might see in a large city, people coming and going in winter attire. In the foreground is a woman walking a small dog, wrapped in his own knitted winter coat.</text>
+				</column>
+			</row>
+
+			<row height="15" />
+			<row valign="top">
+				<stamp width="86" height="54" title="" image="" i1="" i2="" i3="" f1="" f2="" f3="" />
+				<column width="60" rem="Twilight Retreat" >
+					<text style="story" width="60" align="left">These sleeves were made and released in North America and are designed to promote two products. First, it looks best as a Starbucks Card sleeve (as shown), but it has a second use too. With the promotion of VIA, the new "instant" coffee packets, the 3 pack slides nicely into the pocket for another gift giving idea. \n\nIt was first believed that this Sleeve was only available in Canada, but we've found that stores in the United States also have them. NOTE: There was an instruction on the sleeve package to store managers that this sleeve cannot be re-ordered once they are gone. \n\nThis is an interesting Sleeve, and resembles a couple of South Korea designs. This one resembles a white "gift box" with a red bow design on the front.  The Sleeve closes with the red bows in a lock. \n\nOn the inside (left-side), it reads, "I wish for YOU to FEEL at HOME everywhere." and on the right side of the folder, the words "To." and "From."    In the center of the sleeve, there is a pocket for the Starbucks Wish Card to be inserted. On the back of the Sleeve, the Starbucks logo is featured, and states that the sleeve was made with recycled fibers (which is printed in both English and French) and the usual 2009 Starbucks Coffee Company copyright</text>
+				</column>
+			</row>
+			</page>
+			.
+	<!-- Page Landscape -->	
+		<!--
+		<page style="landscape" no="1" title="Cover">
+			<row height="10" />
+			<row space="10" valign="top">
+				<stamp width="86" height="54" title="" image="" i1="" i2="" i3="" f1="Comfy Red Chair" f2="" f3="2004" />
+				<stamp width="86" height="54" title="" image="" i1="" i2="" i3="" f1="Coffee as Art" f2="" f3="October 2004" />
+			</row>
+			<row height="0" />
+			<row space="10" valign="top">
+				<stamp width="86" height="54" title="" image="" i1="" i2="" i3="" f1="Twilight Retreat" f2="" f3="September 2007" />
+				<stamp width="86" height="54" title="" image="" i1="" i2="" i3="" f1="RED" f2="" f3="November 2009" />
+			</row>
+			</page>
+			-->
+			.
+
+
+</MyAlbum>

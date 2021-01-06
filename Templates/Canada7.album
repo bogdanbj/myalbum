@@ -1,0 +1,134 @@
+﻿<!--=============================-->
+<!--  Canada7 - Multi-year sets	 -->
+<!--=============================-->
+<MyAlbum ver="3.0">
+	<styles>
+		<!-- BORDER
+			type: none, single, double, white ace, custom
+			width: line1, space, line2
+			padding: top, right, bottom, left
+			-->
+			<border style="stamp_frame" default="true" border_type="double" width="0.4, 0.3, 0.1" margin="0,0,0,0" padding="3, 3, 3, 3" color="48,48,48"  background-color="255,255,255" />
+			<border style="page_border" default="false" border_type="double" width="0.5, 0.5, 0.2" margin="0,0,0,0" padding="0, 6, 0, 6" />
+			<border style="white_ace_page" default="false" border_type="white_ace_page" margin="0,0,0,0" padding="3, 3, 3, 3" color="67,143,189" background-color="255,255,255" />
+			<border style="white_ace_stamp" default="false" border_type="white_ace_stamp" width="0.2, 0.9, 0.2" margin="0,0,0,0" padding="3, 3, 3, 3" color="48, 48, 48" background-color="255,255,255" />
+		<!-- TEXT
+			font_size: double
+			font_style: bold, bolditalic, italic, regular, strikeout, underline
+			align: left, center, right
+			valign: top, center, bottom
+			-->
+			<text style="text_default" default="true" align="left" font_name="Century Gothic" font_size="8"/>
+			<text style="story" justify="true" align="center" font_name="Folio" font_size="10"/>
+			<text style="italic" justify="true" align="center" font_name="Garamond" font_size="8" font_style="italic"/>
+			<text style="headline" justify="false" align="center" font_name="Stymie Becker Light" font_size="16"/>
+			<text style="date" justify="true" align="center" font_name="Lubalin Graph" font_size="10" font_style="bold"/>
+			<text style="title" align="center" font_name="Stymie Becker Light" font_size="10"/>
+			<text style="inside" align="center" font_name="Stymie Becker Light" font_size="6" width="80%"/>
+			<text style="footer_left" justify="true" align="left" font_name="Garamond" font_size="8" font_style="italic" margin="0,0,2,0" />
+			<text style="footer_center" justify="true" align="center" font_name="Garamond" font_size="10" font_style="italic" width="80%" margin="0,0,2,0" />
+			<text style="footer_right" justify="true" align="right" font_name="Garamond" font_size="8" font_style="italic" margin="0,0,2,0" />
+		<!-- IMAGE
+			-->
+			<image style="stamp_image" default="true" color="false" />
+		<!-- STAMP
+			-->
+			<stamp style="stamp_default" default="true" vspace="1">
+				<border style="stamp_frame" />
+				<!--border style="white_ace_stamp" /-->
+				<image style="image_default" margin="2,2,2,2" />
+				<title style="title" />
+				<inside1 style="inside" />
+				<inside2 style="inside" />
+				<inside3 style="inside" />
+				<footer1 style="footer_left" />
+				<footer2 style="footer_center" />
+				<footer3 style="footer_right" />
+			</stamp>
+		<!-- ROW
+			spacing: FS (fixed space), ES (equal spacing), JS (justified spacing)
+			-->
+			<row style="stamp_FS" default="true" align="center" valign="center" spacing-mode="FS" space="6" />
+			<row style="page_header" default="false" align="center" valign="top" spacing-mode="FS" space="8" />
+		<!-- COLUMN
+			-->
+			<column style="default_column" default="true" align="center" space="1"/>
+		<!-- PAGE
+			orientation: portrait, landscape
+			size: letter, A4
+			margin: top, right, bottom, left
+			-->
+			<page style="cover" default="false" orientation="portrait" size="letter" margin="7,7,7,7"  color="48,48,48" vspace="1">
+				<banner file_name="" />
+				<border style="page_border" />
+			</page>
+			<page style="portrait" default="true" orientation="portrait" size="letter" margin="7,7,7,7"  color="48,48,48" vspace="1">
+				<banner file_name="" />
+				<border style="page_border" />
+				<row style="page_header">
+				<text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
+				</row>
+				<row height="10" />
+			</page>
+			<page style="landscape" default="false" orientation="landscape" size="letter" margin="7,7,7,7"  color="48,48,48" vspace="1">
+				<banner file_name="" />
+				<border style="page_border" />
+				<row style="page_header" rotate="true">
+					<text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
+				</row>
+				<row rotate="true">
+					<image absolute="true" align="left" valign="top" file_name="Pictures\Canada-Post-Logo.png" x="20" y="20" height="32" width="32" stretched="true"></image>
+				</row>
+			</page>
+	</styles>
+
+	<page style="cover" no="1" title="Cover">
+    <row height="110" />
+    <row>
+      <text style="headline" font_size="36" font_style="italic">Multi-Year Sets</text>
+    </row>
+  </page>
+
+	<page no="2" title="Fruit Tree Definitives 1991">
+    <row height="10" />
+
+		<row space="16" rem="Fruit Tree Definitives">
+      <column width="150">
+				<text style="headline">FRUIT TREE DEFINITIVES</text>
+				<text style="date">1991-1995</text>
+      </column>
+    </row>
+
+		<row>
+				<stamp width="32" height="26" title="" image="" i1="48c" i2="" i3="S 1363" f1="" f2="McIntosh Apple" f3="" />
+				<stamp width="32" height="26" title="" image="" i1="49c" i2="" i3="S 1364" f1="" f2="Delicious Apple" f3="" />
+				<stamp width="32" height="26" title="" image="" i1="50c" i2="" i3="S 1365" f1="" f2="Snow Apple" f3="" />
+    </row>
+		<row>
+				<stamp width="32" height="26" title="" image="" i1="52c" i2="" i3="S 1366" f1="" f2="Gravenstein Apple" f3="" />
+				<stamp width="32" height="26" title="" image="" i1="65c" i2="" i3="S 1367" f1="" f2="Black Walnut" f3="" />
+				<stamp width="32" height="26" title="" image="" i1="67c" i2="" i3="S 1368" f1="" f2="Beaked Hazelnut" f3="" />
+				<stamp width="32" height="26" title="" image="" i1="69c" i2="" i3="S 1369" f1="" f2="Shagbark Hickory" f3="" />
+    </row>
+		<row>
+				<stamp width="32" height="26" title="" image="" i1="71c" i2="" i3="S 1370" f1="" f2="American Chestnut" f3="" />
+				<stamp width="32" height="26" title="" image="" i1="84c" i2="" i3="S 1371" f1="" f2="Stanley Plum" f3="" />
+				<stamp width="32" height="26" title="" image="" i1="86c" i2="" i3="S 1372" f1="" f2="Bartlet Pear" f3="" />
+    </row>
+		<row>
+				<stamp width="32" height="26" title="" image="" i1="88c" i2="" i3="S 1373" f1="" f2="Westcot Apricot" f3="" />
+				<stamp width="32" height="26" title="" image="" i1="90c" i2="" i3="S 1374" f1="" f2="Elberta Peach" f3="" />
+    </row>
+
+    <row height="5" />
+
+		<row>
+				<text style="story" width="155">To replace the Canadian mammals definitive set first introduced in 1988, a new series of medium-value definitive stamps featuring fruit trees in Canada made its debut on December 27, 1991.</text>
+    </row>
+  </page>
+
+	<!--
+	<page />
+	-->
+
+</MyAlbum>

@@ -1,0 +1,1493 @@
+###################################################################################
+# sample AlbumEasy file. (c) 2005 Bundu Technology Ltd.
+# ---------------------------------------------------------------------------------
+# Note: the # character is used for comments, any text following the # is
+#       ignored.
+#
+# All measurements are in millimeters, except for font sizes which are points.
+###################################################################################
+
+
+# ---------------------------------------------------------------------------------
+# First setup the page elements that are common to all pages in this album.
+# ---------------------------------------------------------------------------------
+
+ALBUM_PAGES_SIZE	 (Letter)				# Letter, A4
+#ALBUM_PAGES_MARGINS	 (25.0, 7.0, 7.0, 7.0)			# Top, Right, Bottom, Left
+ALBUM_PAGES_MARGINS	 (7.0, 7.0, 7.0, 7.0)			# Top, Right, Bottom, Left
+ALBUM_PAGES_BORDER	 (0.5, 0.1, 0.5)			# Exterior, Interior, Space
+ALBUM_PAGE_TITLE_FONT	 (Calibri, 12, bold+italic)		# Bold, Italic, Regular, Underline, Strikeout
+ALBUM_PAGES_TITLE	 (C   A   N   A   D   A)
+ALBUM_PAGES_SPACING	 (6.0, 6.0, 1.0)			# LeftIndent, RightIndent, VerticalSpacing
+
+#DEFAULT_STAMP_VSPACING	  (1)					# the space between title and stamp frame
+#DEFAULT_STAMP_TITLE_FONT (Calibri, 10, cold+underline)
+#DEFAULT_STAMP_TEXT_FONT  (Calibri,  6, regular)
+#DEFAULT_STAMP_BORDER	  (0.4, 0.1, 0.3)			# Exterion, Interion, Space
+
+# ---------------------------------------------------------------------------------
+# Page 1 - Cover
+# ---------------------------------------------------------------------------------
+
+PAGE_START							# LAND(scape), PORT(rait)
+
+SPACE (75)
+FONT (Calibri, 36, italic)
+PAGE_TEXT_CENTRE (C  A  N  A  D  A)
+SPACE(20)
+PAGE_TEXT_CENTRE (1 9 1 7  -  1 9 4 6)
+
+
+# ---------------------------------------------------------------------------------
+# Page 2 - 50th anniv. of the Canadian Confederation. (1917)
+# ---------------------------------------------------------------------------------
+
+PAGE_START							
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (50th anniv. of the Canadian Confederation (1917))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (Despite the effort put forth by Canada during the First World War, the fiftieth anniversary of Confederation on 1st July, 1867, did not pass unnoticed in 1917. As part of the program adopted for the occasion, the Dominion Cabinet approved on 13th June, the issuance of a special 3-cent stamp to commemorate the anniversary. "The Fathers of Confederation" from a photograph of the original oil painting by Robert Harris, C.M.G., R.C.A., formerly in the Railway Committee Room of the Centre Block, Parliament Building, Ottawa. It was destroyed by fire on 3rd February, 1916.)
+PAGE_TEXT (The painting is not shown in its entirety. Eight members of the group of the original work were omitted from the stamp for reasons of space and balance in design. The omission was rectified when the subject was again used for the 2-cent stamp of the Confederation issue of 1927. The view through the windows is of the scenery and shipping on the St. Lawrence River from the old Parliament Buildings at Quebec. In the middle foreground the items are two maps rolled under a stool. A light overcoat lying on it serves as an effective composition.)
+
+SPACE(40)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD("The Fathers of Confederation", 38, 26, 3, , The Fathers of Confederation, 3c, brown, S 135, , September 1917)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 3 - 60th year of the Canadian Confederation. (1927)		
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (60th year of the Canadian Confederation (1927))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (During the summer of 1927, the celebration of the Diamond Jubilee of Confederation was fittingly carried out. A committee appointed by the government in connection with the celebrations suggested a special issue of postage stamps to commemorate the occasion. The subjects of these commemorative stamps centred around the statesmen and the events they commemorated. The stamps were bilingual with the words "Postes" and "Post." )
+
+SPACE(10)
+ROW_START (ES, CEN, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Sir John A. Macdonald, 22, 26, 3, , Macdonald, 1c, orange, S 141, , 29 June\, 1927)
+  STAMP_ADD("The Fathers of Confederation", 38, 26, 3, , The Fathers of Confederation, 2c, green, S 142, , June 1927)
+  STAMP_ADD(Sir Wilfrid Laurier, 22, 26, 3, , Laurier, 5c, violet, S 144, , 29 June\, 1927)
+ROW_END
+
+SPACE(10)
+ROW_START (ES, CEN, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Parliament Building at Ottawa, 38, 26, 3, , Parliament Building, 3c, brown carmine, S 143, , June 1927)
+  STAMP_ADD(Map of Canada, 38, 26, 3, , Map of Canada, 12c, dark blue, S 145, , 29 June\, 1927)
+ROW_END
+
+SPACE(15)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Special Delivery ~)
+FONT (Calibri, 10, italic)
+SPACE(2)
+ROW_START (ES, TOP, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Five Stages of Mail Transportation, 26, 38, 3, images\E3-Special Delivery.jpg, Special Delivery, 20c, orange, S E3, , June 1927)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 4 - 60th year of the Canadian Confederation. (1927)		
+# ---------------------------------------------------------------------------------
+
+PAGE_START 
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (60th year of the Canadian Confederation (1927))
+
+SPACE (20)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Portrait of Sir John Alexander Macdonald, G.C.B.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT(Sir John A. Macdonald was born in Glasgow, Scotland, in 1815 and came to Canada in 1820. He entered Parliament in 1844, and in 1864 he took part in the conference on the proposal to confederate the provinces of British North America. After the conference agreed upon a basis of union, a committee went to London in 1866 to co-operate with the British government in drafting the British North America Act. Subsequently the act came into force on 1st July, 1867. The day since designated as Dominion Day is annually observed as the birthday of Canada. Sir John became the first prime minister of the Dominion of Canada. He died in June, 1891, and was buried in Cataraqui Cemetery in Kingston, Ontario. )
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT ("The Fathers of Confederation," from a photograph of an original oil painting by Robert Harris, C.M.G.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT(This subject was also used for the 3 cent brown of the Confederation Issue of 1917. Additional portions of the original painting adding eight delegates to the group are shown in this stamp. The figure of Sir John A. Macdonald stands in the centre, and is his second appearance on Canadian postage stamp issues of 1927.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (The Parliament Buildings at Ottawa.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT(The Centre Block of the Federal Parliament Buildings, situated on Parliament Hill, overlooks the Ottawa River. The building contains the House of Commons, the Senate, and parliamentary offices. The Peace Tower, dominating the building, contains the impressive Memorial Chamber which commemorates Canada's dead in two World Wars. At the rear of the building is the Parliamentary Library.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Portrait of Sir Wilfrid Laurier.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT(Sir Wilfrid Laurier was born in 1841, in the village of St. Lin, Quebec. He entered the federal Parliament in 1874, and in 1877 became a member of the Dominion cabinet and prime minister in 1896. In 1897 Queen Victoria knighted him while he was attending the ceremonies in connection with the Diamond Jubilee of her accession to the throne. He died during the winter of 1919, and was buried in Notre Dame Cemetery, Ottawa.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Map of Canada, showing the political boundaries in 1867 and 1927.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT(The Dominion of Canada formed in 1867 by the confederation of Nova Scotia, New Brunswick, Quebec, and Ontario, is shown against a lighter background map of Canada of 1927. The map gives an idea of the vast enlargement of territory extending from the Atlantic to the Pacific.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Special Delivery, Five stages of mail transportation in Canada.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT(In conjunction with the Confederation Commemorative Issue of 1927, the Post Office Department issued a Commemorative Special Delivery stamp of particular interest. Five stages of mail transportation in Canada, from a drawing by a staff artist of the Canadian Bank Note Company Limited. Through a Gothic arcade, five different methods of mail transportation are shown: a nounted mail courier, a dog-train, an express train, an ocean liner and two biplanes. These appear against a background revealing something of Canada's vastness, beauty and diversity. The mountain peak is a free rendering of Mount Cathedral, in Yoho National Park, Alberta. The stretch of land in the foreground suggests the Canadian prairies with the snow typifying the northern areas. The water is the great St. Lawrence waterway, and the train represents Canada's extensive transcontinental railway systems. The words "Canada P.O." appear finely engraved across the mail bag carried by the horse in the foreground.)
+
+
+# ---------------------------------------------------------------------------------
+# Page 5 - Canadian Statemen, Historical Issue (1927)				
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Canadian Statemen, Historical Issue (1927))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (In response to a widespread feeling that a series of stamps depicting some of the principal Canadian statesmen should be brought out, the Department prepared, between February and July, 1926, three special postage stamps. The designs featured portraits of The Honourable Thomas D'Arcy McGee, Sir Wilfrid Laurier, Sir John A. Macdonald, Robert Baldwin, and Sir Louis Lafontaine. They were not issued, however, until the following year when the Diamond Jubilee of Confederation occurred. The stamps were released on 29th June, 1927, the same date as the Confederation series.)
+
+SPACE(20)
+ROW_START (ES, CEN, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Thomas d'Arcy McGee, 22, 26, 3, , McGee, 5c, violet, S 146, , June 1927)
+ROW_END
+
+SPACE(10)
+ROW_START (ES, CEN, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Laurier and Macdonald, 38, 26, 3, , Laurier and Macdonald, 12c, green, S 147, , June 1927)
+  STAMP_ADD(Baldwin and Lafontaine, 38, 26, 3, , Baldwin and Lafontaine, 20c, brown carmine, S 148, , June 1927)
+ROW_END
+
+# ---------------------------------------------------------------------------------
+# Page 6 - Canadian Statemen, Historical Issue (1927)				
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Canadian Statemen, Historical Issue (1927))
+
+SPACE(30)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Portrait of Hon. Thomas D'Arcy McGee.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT(Born in Ireland in 1825, he emigrated early in life to the United States where he became a journalist. Later, he went to London as parliamentary correspondent. Although he had been intensely anti-British, he changed his opinions and advocated a staunch adherence to British rule. He came to Canada in 1857 and in 1858 entered Parliament where he supported the union of the British provinces in North America. In 1862, he became a cabinet minister, and lived to see Confederation accomplished. He was assassinated on 6th April, 1868, on his return home from a session of the House of Commons in Ottawa.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Portraits of sir Wilfrid Laurier (1841-1919) and Sir John A. Macdonald (1815-1891))
+FONT (Calibri, 10, italic)
+PAGE_TEXT(Sir Wilfrid Laurier was born in 1841, in the village of St. Lin, Quebec. He entered the federal Parliament in 1874, and in 1877 became a member of the Dominion cabinet and prime minister in 1896. In 1897 Queen Victoria knighted him while he was attending the ceremonies in connection with the Diamond Jubilee of her accession to the throne. He died during the winter of 1919, and was buried in Notre Dame Cemetery, Ottawa. Sir John A. Macdonald was born in Glasgow, Scotland, in 1815 and came to Canada in 1820. He entered Parliament in 1844, and in 1864 he took part in the conference on the proposal to confederate the provinces of British North America. After the conference agreed upon a basis of union, a committee went to London in 1866 to co-operate with the British government in drafting the British North America Act. Subsequently the act came into force on 1st July, 1867. The day since designated as Dominion Day is annually observed as the birthday of Canada. Sir John became the first prime minister of the Dominion of Canada. He died in June, 1891, and was buried in Cataraqui Cemetery in Kingston, Ontario.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Portraits of Hon. Robert Baldwin (1804-1858) and Sir Louis-Hippolyte Lafontaine (1807-1864).)
+FONT (Calibri, 10, italic)
+PAGE_TEXT(Baldwin and Lafontaine were leaders in Upper and Lower Canada, respectively, in the long struggle for representative government. They were advocates of constitutional methods of reform as opposed to armed force. Baldwin was born in the town of York, now Toronto, in 1804. At the age of twenty-five he entered the legislature for Upper Canada. He was a lawyer by profession, and a moderate reformer. After the union of Upper and Lower Canada, he became a member of the executive council and joined Lafontaine in the promotion of national unity. He died in 1858. Lafontaine was born in Boucherville, Quebec in 1807. He was admitted to the bar in 1829, then elected in the following year to the assembly in Lower Canada. At first he opposed the union of Upper and Lower Canada, but later favoured it. He was associated with Baldwin in the struggle for responsible government. In 1854, Queen Victoria knighted him; he died in 1864.)
+
+
+# ---------------------------------------------------------------------------------
+# Page 7 - King George V, Scroll Issue (1928-29)						
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (King George V, Scroll Issue (1928-29))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (Since the regular issue postage stamp designs had not been changed for sixteen years, the Department decided in 1928 to issue a new definite series featuring a contemporary portrait of His Majesty King George V. Accordingly the Post Office Department instructed the Canadian Bank Note Company to prepare a new series of lower denominations with portraits of the sovereign. The harmony of the designs did not prevent showing the denominations in large figures, easy to read. Scroll work replaced the crowns on the design, and the stamps were bilingual with the words "postes" and "post." Portrait of His Majesty King George V taken from a photograph by the studio of Lafayette, London. Originally engraved for the Dominion of Canada dollar note, the portrait was re-engraved in a smaller size for the new issue of postage stamps.)
+
+SPACE(15)
+ROW_START (FS, CEN, 12, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , KGV, 1c, orange, S 149, , October 1928)
+  STAMP_ADD(, 22, 26, 3, , KGV, 2c, green, S 150, , October 1928)
+  STAMP_ADD(, 22, 26, 3, , KGV, 3c, dark carmine, S 151, , December 1928)
+  STAMP_ADD(, 22, 26, 3, , KGV, 4c, bister, S 152, , August 1929)
+ROW_END
+SPACE(5)
+ROW_START (FS, CEN, 12, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , KGV, 5c, deep violet, S 153, , December 1928)
+  STAMP_ADD(, 22, 26, 3, , KGV, 8c, blue, S 154, , December 1928)
+ROW_END
+
+SPACE(15)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Coil Stamps ~)
+FONT (Calibri, 10, italic)
+SPACE(2)
+ROW_START (ES, TOP, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 44, 26, 3, , KGV coil, 1c, orange, S 160pa, , )
+  STAMP_ADD(, 44, 26, 3, , KGV coil, 2c, gren, S 161pa, , )
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 8 - King George V, Scroll Issue (1928-29)						
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (King George V, Scroll Issue (1928-29))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (Commencing with the issue of 1928, the Post Office Department for the first time utilized its higher value stamps with regular issue for the purpose of depicting Canadian scenes of geographical and industrial interest from coast to coast. This was a significant event in the development of Canadian postage stamps as a medium of information about Canada. The first stamps released under this new policy showed wide diversity of subjects. They ranged from the internationally famous fishing schooner Bluenose, on the Atlantic Coast, to scenic Mount Hurd in British Columbia. The scheme met with instant public approval. The Department has continued scenic stamps in each regular issue since 1928. With a few exceptions of commemorative issues prior to 1928, Canadian postage stamps portrayed the royal family.)
+
+SPACE(10)
+ROW_START (FS, CEN, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Mount Hurd, 38, 26, 3, , Mount Hurd, 10c, green, S 155, , May 1928)
+  STAMP_ADD(Quebeq Bridge, 38, 26, 3, , Quebeq Bridge, 12c, gray, S 156, , Jan 1929)
+  STAMP_ADD(Harvesting Wheat, 38, 26, 3, images\0157 - Harvesting Wheat.jpg, Harvesting Wheat, 20c, dark carmine, S 157, , Jan 1929)
+ROW_END
+SPACE(5)
+ROW_START (FS, CEN, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Shooner "Bluenose", 38, 26, 3, images\0158 - Shooner Bluenose.jpg, Shooner "Bluenose", 50c, dark blue, S 158, , Jan 1929)
+  STAMP_ADD(Parliament Building, 38, 26, 3, images\0159 - Parliament Building.jpg, Parliament Building, $1, olive green, S 159, , Jan 1929)
+ROW_END
+
+SPACE(15)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Air Post ~)
+FONT (Calibri, 10, italic)
+SPACE(2)
+ROW_START (ES, TOP, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Allegory of Flight, 38, 26, 3, , Allegory of Flight, 5c, brown olive, S C1, , september 1928)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 9 - King George V, Scroll Issue (1928-29)						
+# ---------------------------------------------------------------------------------
+
+PAGE_START 
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (King George V, Scroll Issue (1928-29))
+
+SPACE (10)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (A vignette, "The Ice-crowned Monarch of the Rockies," from an original watercolour painting by Frederick Marlett Bell-Smith, R.C.A.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The painting shows Mount Hurd, (named after Major Hurd, the engineer and explorer), in the Ottertail Range of the Rocky Mountains in British Columbia, and in a panel at each side of the stamp is a totem pole. This design depicts the natural beauty of Canada and its interesting folklore. The totem poles are reproductions from a Canadian government photograph of one owned by the Gitksan tribe, a people of the Skeena River. The pole is located in the Upper Skeena valley at a small place called Kitwanga, an Indian name meaning Place of the Rabbit. The Indian name of the totem pole is Spesanish, meaning Half-Bear Den. The pole stands nineteen feet in height.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (A view of the Quebec Cantilever Bridge engraved from a photograph.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (One of the major engineering achievements of its kind, it spans the St. Lawrence River near Quebec. After seven years of construction, it was completed in 1918. It is over half a mile in length, with the main span of 1800 feet. This design was chosen to emphasize achievements in engineering and transportation.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Harvesting the wheat crop in Western Canada.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The scene shows a western homestead near the foothills of the Rocky Mountains, and horse-drawn equipment typical of grain-growing on a small scale. A transcontinental train, with mountain scenery in the distance, forms the background of the scene. This stamps typifies the agricultural industry of Western Canada.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (The Canadian fishing schooner, Bluenose, racing off Halifax Harbour, a composite picture made from photographs taken in 1922 by W. R. MacAskill, of Halifax, Nova Scotia.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The schooner was built in 1920-21, at Lunenburg, Nova Scotia, by Messrs. Smith and Rhuland, to the designs of W. J. Roue, of Halifax, and launched in March, 1921. Essentially a practical fishing boat, the schooner was also designed to uphold the Bluenose racing supremacy on the Atlantic seaboard. That she achieved her promoters' ambition is proved by the fact that she decisively defeated every competitor of her class. She never lost a series of races. The owners of the Bluenose were honoured in 1935 by having their schooner present when King George V reviewed the British Fleet at Spithead. In selecting this design, the Department gave world-wide publicity to three important phases of Nova Scotian life and industry: fisheries, ship- building, and seamanship.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (The Parliament Buildings in Ottawa)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The Centre Block of the Federal Parliament Buildings located on Parliament Hill, overlooks the Ottawa River. John L. Pearson designed the buildings, which were constructed in 1917-1922. These replaced the original structure destroyed by fire on 3rd February, 1916. The building including the Senate and House of Commons also contains numerous committee rooms and parliamentary offices. the lofty Peace Tower dominating the Centre Block contains the impressive Memorial chamber that honours the war dead of Canada.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Air Post, Allegory of Flight)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (In conjunction with the regular sovereign and pictorial issue of 1928, the Department issued Canada's first airmail stamp. The inauguration of official airmail services and the necessity of providing a means of readily identifying airmail made this step necessary. This first officially issued airmail stamp of Canada was symbolic and pictorial in character. It was released at a time of intensive activity in Canadian airmail development when service was reaching from the Atlantic to the Pacific, and into the far northern regions. An allegory of flight, from a drawing by a staff artist of the Canadian Bank Note Company, Limited. Two winged figures, symbolic of flight, are poised against a globe representing the northern half of the western hemisphere, on which is indicated in shaded outline a map of Canada. The subject is classical and has been treated with a geographical background.)
+
+ 
+# ---------------------------------------------------------------------------------
+# Page 10 - King George V, Arch Issue (1930-31)						
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (King George V, Arch Issue (1930-31))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (From 1st April, 1930, the contract for the manufacture of Canadian postage stamps and postal stationery was awarded to the British North American Bank Note Company, Limited, Ottawa. This is an old- established firm which had not manufactured Canadian postage stamps since March, 1897. This change of contract necessitated the issue of completely new, regular series of stamps with the identical portraits of King George V on all the lower denominations.)
+PAGE_TEXT (Changes in the International postal rates, effective 1930, required colour revisions of the 1-cent, 2-cent, 5-cent and 8-cent denominations.)
+#PAGE_TEXT (To replace the 3-cent provisional stamps of 24th June, 1931, two new regular-issue stamps were needed. The former 2-cent red-colour stamp could no longer be reprinted in the same colour since the Universal Postal Union agreements required a red-coloured stamp to pay the first-class rate on one-ounce letters.)
+#PAGE_TEXT (The change in the letter rate postage on 1st July, 1931 found the Post Office Department with a considerable surplus stock of 2-cent red postage stamps of the 1930 issue. A surcharge raising the value to three cents was printed to avoid waste. The British American Bank Note Company was instructed to overprint the surplus stock with a four-line surcharge. Sheets manufactured by the Company but not turned over to the Post Office Department, in addition to sheets returned by the Department, were surcharged in this way. The overprinting appeared in such a manner as to obliterate the numerals of value and to indicate clearly the new value, but without obliterating the subject on the stamp.)
+
+SPACE(20)
+ROW_START (FS, CEN, 12, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , KGV, 1c, orange, S 162, , July 1930)
+  STAMP_ADD(, 22, 26, 3, , KGV, 1c, deep green, S 163, , December 1930)
+  STAMP_ADD(, 22, 26, 3, , KGV, 2c, dull green, S 164, , June 1930)
+  STAMP_ADD(, 22, 26, 3, , KGV, 2c, dull red, S 165, , November 1930)
+ROW_END
+SPACE(5)
+ROW_START (FS, CEN, 12, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , KGV, 2c, dark brown, S 166, , July 1931)
+  STAMP_ADD(, 22, 26, 3, , KGV, 3c, deep red, S 167, , July 1931)
+  STAMP_ADD(, 22, 26, 3, , KGV, 4c, yellow bister, S 168, , November 1931)
+  STAMP_ADD(, 22, 26, 3, , KGV, 5c, dull violet, S 169, , June 1930)
+ROW_END
+SPACE(5)
+ROW_START (FS, CEN, 12, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , KGV, 5c, dull blue, S 170, , November 1930)
+  STAMP_ADD(, 22, 26, 3, , KGV, 8c, dark blue, S 171, , August 1930)
+  STAMP_ADD(, 22, 26, 3, , KGV, 8c, red orange, S 172, , November 1930)
+  STAMP_ADD(, 22, 26, 3, , KGV, 3c/2c, deep red, S 191, , June 1932)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 11 - King George V, Arch Issue (1930-31)						
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (King George V, Arch Issue (1930-31))
+
+SPACE (30)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Coil Stamps ~)
+FONT (Calibri, 10, italic)
+
+SPACE(10)
+ROW_START (FS, CEN, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 44, 26, 3, , KGV coil, 1c, orange, S 178pa, , July 1930)
+  STAMP_ADD(, 44, 26, 3, , KGV coil, 1c, deep green, S 179pa, , December 1930)
+ROW_END
+SPACE(5)
+ROW_START (FS, CEN, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 44, 26, 3, , KGV coil, 2c, dull green, S 180pa, , June 1930)
+  STAMP_ADD(, 44, 26, 3, , KGV coil, 2c, deep red, S 181pa, , November 1930)
+ROW_END
+SPACE(5)
+ROW_START (FS, CEN, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 44, 26, 3, , KGV coil, 2c, dark brown, S 182pa, , July 1931)
+  STAMP_ADD(, 44, 26, 3, , KGV coil, 3c, deep red, S 183pa, , July 1931)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 12 - King George V, Arch Issue (1930-31)						
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (King George V, Arch Issue (1930-31))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (As a result of the change of the postage stamp contract of 1st April, 1930, the Deparment required a new series of stamps of the higher denominations. The policy of depicting representative phases of the character of Canada was continued in the designs for this series. When the public complained about the large size of the 10-cent stamps, the Department reverted to the single-size for this denomination.)
+
+SPACE(10)
+ROW_START (FS, CEN, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Library of Parliament, 22, 26, 3, , Library of Parliament, 10c, olive green, S 173, , September 1930)
+ROW_END
+SPACE(-25)
+ROW_START (FS, CEN, 48, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(The Citadel at Quebeq, 38, 26, 3, , The Citadel at Quebeq, 12c, gray black, S 174, , December 1930)
+  STAMP_ADD(Harvesting Wheat, 38, 26, 3, , Harvesting Wheat, 20c, brown red, S 175, , December 1930)
+ROW_END
+SPACE(5)
+ROW_START (FS, CEN, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Museum at Grand Pre, 38, 26, 3, images\0176 - Grand Pre.jpg, Grand Pre, 50c, dull blue, S 176, , December 1930)
+  STAMP_ADD(Mt. Edith Cavell, 38, 26, 3, images\0177 - Mt. Edith Cavell.jpg, Mt. Edith Cavell, $1, dark olive green, S 177, , December 1930)
+ROW_END
+
+SPACE(15)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Air Post ~)
+FONT (Calibri, 10, italic)
+SPACE(2)
+ROW_START (ES, TOP, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Allegory-Air Mail Circles Globe, 38, 26, 3, ,  Allegory-Air Mail Circles Globe, 5c, brown olive, S C1, , September 1928)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 13 - King George V, Arch Issue (1930-31)						
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (King George V, Arch Issue (1930-31))
+
+SPACE (10)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (The Library of Parliament, Ottawa.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (This was the only part of the central building saved from the fire of February, 1916. The design draws attention to Canada's cultural development.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (View of the Citadel at Quebec.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (This scene shows the fortress from the St. Lawrence River; Dufferin Terrace appears on the right, the Lower Town at the foot of the cliff, and Cape Diamond at the left. The scene recalls an era when a continuous stream of adventurers and pioneers travelled past the great fortress in search of new homes and opportunities in the New World.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Harvesting the wheat crop in Western Canada.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The scene shows a western homestead near the foothills of the Rocky Mountains, and horse-drawn equipment typical of grain-growing on a small scale. A transcontinental train, with mountain scenery in the distance, forms the background of the scene. This stamps typifies the agricultural industry of Western Canada.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (View of Grand Pre, Nova Scotia the home of Evangeline, heroine of Longfellow's famous poem of that name.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The view is a composite one, taken from photographs, and shows the museum, statue of Evangeline, and the ancient well, grouped together for pictorial effect. The grounds and buildings are maintained as a national shrine of Acadian relics.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Mount Edith Cavell)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (Mount Edith Cavell, in the Rocky Mountains at Jasper, Alberta, emphasizes Canada's natural beauty. The mountain, more than 11 000 feet elevation, was named in memory of the heroic English nurse executed by the German military authorities in Belgium on 13th October, 1915.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Air Post, Allegory, "Airmail Encircles the Globe" from a drawing by a staff artist of the British American Bank Note Company, Limited.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The figure of Mercury, mythical winged messenger of the gods, symbolizing airmail, is shown, with a scroll in his hand, against a globe outlining the western hemisphere. The design symbolizes the speed in postal communication by air post.)
+
+ 
+# ---------------------------------------------------------------------------------
+# Page 14 - Sir George Etienne Cartier (1931) & Air mail surcharged(1932)						
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Sir George Etienne Cartier (1931))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The Post Office Department prepared the Cartier design to replace the pictorial stamp, Library of Parliament, of the 1930 issue. )
+
+SPACE(10)
+ROW_START (FS, CEN, 12, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Sir George Etienne Cartier, 22, 26, 3, , Etienne, 10c, dark green, S 190, , September 1931)
+ROW_END
+
+SPACE (25)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Air Post (1932))
+
+SPACE (5)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (A change in the airmail rate of postage required the use of a 6-cent airmail stamp. The surcharge, fully legible, did not obscure the postage stamp design, although it obliterated the original denomination numerals.)
+
+SPACE(10)
+ROW_START (FS, CEN, 12, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Allegory of Flight\, surcharged, 38, 26, 3, , Allegory of Flight\, surcharged, 6c/5c, brown olive, S C3, , February 1932)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 15 - Imperial Economic Conference, Ottawa (1932)						
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Imperial Economic Conference, Ottawa (1932))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The Imperial Economic Conference took place in Ottawa during July and August, 1932. Representatives attended from various parts of the British Commonwealth. The purpose of the delegates was to discuss and adjust questions of vital importance not only to the people of Canada and to those of the Empire generally, but also to the world at large. Canada commemorated the occasion under its short title, Ottawa Conference, by the issuance of four special postage stamps, on 12th July, 1932.)
+#PAGE_TEXT (The Imperial Economic Conference took place in Ottawa during July and August, 1932. Representatives attended from various parts of the British Commonwealth. The purpose of the delegates was to discuss and adjust questions of vital importance not only to the people of Canada and to those of the Empire generally, but also to the world at large. Canada commemorated the occasion under its short title, Ottawa Conference, by the issuance of four special postage stamps, on 12th July, 1932. The series included a surcharge of the 5-cent brown Airmail stamps of the 1930 issue.)
+#PAGE_TEXT (At the time of the Imperial Economic Conference of 1932, the Post Office Department, in co-operation with the military, naval, and civil aviation authorities, conducted a series of experimental airmail flights between Bradore Bay, on the Strait of Belle Isle, and Ottawa, via Montreal. The purpose of the flights was to demonstrate the time-saving qualities of airmail service with fast trans-Atlantic steamers using the St. Lawrence route to Europe. To mark the inaugural flight and further commemorate the Ottawa Conference, the Post Office Department arranged to surcharge to 6-cents a quantity of the 5-cent, brown, airmail stamps of the 1930 issue. This surcharge did not obscure the postage stamp design. The four blue horizontal bars obliterated the original figures of value.)
+
+SPACE(20)
+ROW_START (FS, TOP, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Allegory of British Empire, 38, 26, 3, , Allegory of British Empire, 13c, deep green, S 194, , July 1932)
+ROW_END
+SPACE(-25)
+ROW_START (FS, TOP, 64, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(King George V, 22, 26, 3, , KGV, 3c, deep red, S 192, , July 1932)
+  STAMP_ADD(Edward\, Prince of Wales, 22, 26, 3, , Edward\, Prince of Wales, 5c, dull blue, S 193, , July 1932)
+ROW_END
+
+SPACE(15)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Air Post ~)
+FONT (Calibri, 10, italic)
+SPACE(2)
+ROW_START (ES, TOP, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Allegory-Air Mail Circles Globe\, surcharged, 38, 26, 3, ,  Allegory-Air Mail Circles Globe, 6c/5c, brown olive, S C4, , July 1932)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 16 - King George V, Medallion Issue (1932)						
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (King George V, Medallion Issue (1932))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (In response to a general demand for a new and more suitable postage stamp design portraying King George V, the Post Office Department decided to adopt a medallion motif formerly used for the 3-cent stamp of the Ottawa Conference issue of 12th July, 1932.)
+
+SPACE(15)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , KGV, 1c, dark green, S 195, , December 1932)
+  STAMP_ADD(, 22, 26, 3, , KGV, 2c, black brown, S 196, , December 1932)
+ROW_END
+SPACE(5)
+ROW_START (FS, TOP, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , KGV, 3c, deep red, S 197, , December 1932)
+  STAMP_ADD(, 22, 26, 3, , KGV, 4c, ocher, S 198, , December 1932)
+  STAMP_ADD(, 22, 26, 3, , KGV, 5c, dark blue, S 199, , December 1932)
+  STAMP_ADD(, 22, 26, 3, , KGV, 6c, red orange, S 200, , December 1932)
+ROW_END
+SPACE(15)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(The Citadel at Quebec, 38, 26, 3, , The Citadel at Quebec, 13c, dull violet, S 201, , December 1932)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 17 - King George V, Medallion Issue (1932)						
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (King George V, Medallion Issue (1932))
+
+SPACE(35)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Coil Stamps ~)
+FONT (Calibri, 10, italic)
+SPACE(15)
+ROW_START (FS, TOP, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 44, 26, 3, , KGV coil, 1c, dark green, S 205pa, , )
+  STAMP_ADD(, 44, 26, 3, , KGV coil, 2c, black brown, S 206pa, , )
+ROW_END
+SPACE(5)
+ROW_START (FS, TOP, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 44, 26, 3, , KGV coil, 3c, deep red, S 207pa, , )
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 18 - (1933)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Meeting of the Executive Committee of the UPU at Ottawa (1933))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The "Commission preparatoire" or World's Executive Committee of the International Postal Union held its sessions in Ottawa from 18th May to 28th June, 1933. This committee was constituted after World War I to deal with innumerable problems of international postal service arising after that upheaval. The Commission performed a valuable service in simplifying objectives by reducing the agenda of the various World Postal Congresses to the minimum.)
+#PAGE_TEXT (The British American Bank Note Company received instructions to manufacture and overprint a quantity of the 20-cent red stamp with a four-line inscription in blue reading: "World's Grain Exhibition and Conference Regina, 1933." View of the Canadian prairies, showing grain harvesting by tractor, with grain elevators in the distance.)
+
+SPACE (10)
+ROW_START (FS, CEN, 12, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Parliament Buildings\, Ottawa, 46, 29, 3, , Parliament Buildings, 5c, dark blue, S 202, , May 1933)
+ROW_END
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (World's Grain Exhibition and Conference at Regina (1933))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The World's Grain Exhibition and Conference held at Regina, Saskatchewan, from 24th July to 5th August, 1933, was an event of considerable importance. The Department agreed that the event should be commemorated by the issuance of a postage stamp depicting some phase of Canada's great grain-growing industry. The Post Office Department, unable to prepare an entirely new issue, decided to overprint a quantity of the 20-cent red pictorial stamp first issued on 4th December, 1930.)
+
+SPACE (10)
+ROW_START (FS, CEN, 12, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Harvesting Wheat\, overprinted, 38, 26, 3, , Harvesting Wheat\, overprinted, 20c,  brown red, S 203, , July 1933)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 19 - (1933-34)						
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Centenary of first Trans-Atlantic passage under steam all the way (1933))
+
+SPACE (5)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The achievements of the Canadian steamship Royal William were commemorated by the issuance of a special 5-cent postage stamp in 1933. This ship was designed by James Goudie and built at Quebec by John S. Campbell and George Black. The first seagoing steamship built in Canada, the Royal William was steam-propelled, with sails as a secondary means of propulsion. It was launched on 29th April, 1831. When she visited Boston on 17th June, 1832, the Royal William was the first seagoing steamer to fly the British flag in a United States port. In addition, it was the first steamship built for fostering intercolonial trade between ports in British North America. It crossed the Atlantic in 1833. Eventually Spanish interests purchased the ship but it came to an inglorious end at Bordeaux, France, in 1840, when her engines were removed.)
+
+SPACE(10)
+ROW_START (FS, CEN, 12, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Steamship Royal William, 44, 28, 3, , Steamship Royal William, 5c, dark blue, S 204, , August 1933)
+ROW_END
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Landing of Jacques Cartier, 400th anniv. (1934))
+
+SPACE (5)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (On the 1st July, 1934, a special 3-cent stamp commemorated the four- hundredth anniversary of the discovery of Canada by the famous French navigator, Jacques Cartier. Jacques Cartier's first voyage penetrated the Gulf of St. Lawrence as far as Gaspé. His discoveries during that voyage and his subsequent exploration opened the great St. Lawrence seaway to navigation and led the way to the settlement of the rich lands along the river. This intrepid explorer, who made his first discoveries with two ships of smaller combined tonnage than a modern Grand Banks fishing schooner, set sail from St. Malo in France on 20th April, 1534, and landed at Gaspé on 24th July, 1534. Here he erected a large cross in the name of the King of France, thus establishing the claim of his sovereign to the territory.)
+
+SPACE (10)
+ROW_START (FS, CEN, 12, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Cartier's Arrival at Quebec, 31, 42, 3, , Cartier's Arrival at Quebec, 3c,  blue, S 208, , July 1934)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 20 - Emigration of the United Empire Loyalists from the US to Canada, 150th anniv. (1934)						
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Emigration of the United Empire Loyalists from the US to Canada, 150th anniv. (1934))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (In 1934 Canada commemorated the 150th anniversary of the completion of the United Empire Loyalists' immigration to Canada by issuing a special 10-cent postage stamp. Dominion Day, 1st July, 1934, was a suitable day for its release. At the close of the American War of Independence, many persons residing in the newly created United States of America remained loyal to the British Crown. They accordingly emigrated to Canada, commencing about the time of the evacuation of Boston by General Howe in March, 1776. The full tide of Loyalist immigration to Canada, however, did not take place until the evacuation of New York by the British in 1783. In the spring and summer of 1784 the great majority of the Loyalists within the limits of what is now the Province of Quebec moved to Upper Canada, now the Province of Ontario. Many settled along the Bay of Quinte and as far as Niagara. The influx into what is now New Brunswick resulted in the settlement of that province, and its separation from Nova Scotia. Against a background of cross-hatchings, the central vignette shows a sculpture of a family group of father, mother, and two children dressed in the costumes of the Revolutionary period. The March Brothers of Teddington, England, created this work of art known as the United Empire Loyalists' Monument. Flanked by the trees of Prince's Square, it stands in front of the Court House in Hamilton, Ontario. On either side of the centre design are depicted the figures of Britannia and a Mohawk Indian, both surmounted by a crown and the Union Jack. Britannia is intended to personify the British Empire and to illustrate further the allegiance to the Empire of the Loyalists of British ancestry; the Mohawk Indian commemorates the part played in the Loyalist migrations by those Indians who elected to remain loyal to the British.)
+
+SPACE(40)
+ROW_START (FS, CEN, 12, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Group from Loyalists Monument\, Hamilton\, ON, 38, 26, 3, , Loyalists Monument, 10c, olive green, S 209, , August 1934)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 21 - 150th anniv. of the founding of the Province of New Brunswick. (1934)						
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (150th anniv. of the founding of the Province of New Brunswick. (1934))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The 150th anniversary of the founding of the Province of New Brunswick by King George III in 1784, was commemorated in 1934 by the issuance of a special 2-cent stamp. New Brunswick separated from Nova Scotia in 1784. The issue went on sale on the 16th August, 1934, to coincide with celebrations which took place in New Brunswick in commemoration of the sesquincentennial anniversary. Great Seal of the Province of New Brunswick. The original seal is believed to be no longer in existence. With letters patent dated 21st February, 1785, it was forwarded to Thomas Carleton, Governor of the colony, from the Court of St. James. The basic design on the obverse was the same on all great seals granted the colony by succeeding monarchs on their accession to the throne. A description follows: "A representation of a ship sailing up a river, on the borders of which is a new settlement with lofty pines on each side, destined to Naval purposes...." The Latin inscription, SIGILL PROVINCIA NOV" BRUNS, means, "Seal of the Province of New Brunswick." The motto, SPEM REDUXIT, "It brings back hope," relates to the circumstances involved in the establishment of the colony. When the stamps were required, no impression of the original seal could be found. As the only copy available in Ottawa was derived from the seal granted by Queen Victoria it was used in designing the same as the original Great Seal of King George III.)
+
+SPACE (40)
+ROW_START (FS, CEN, 12, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(New Brunswick Seal, 31, 35, 3, , New Brunswick Seal, 2c,  brown, S 210, , August 1934)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 22 - 25th Anniv. of the Accession to the Throne of King George V (1935)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (25th Anniv. of the Accession to the Throne of King George V (1935))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (On 6th May, 1935, King George V celebrated the twenty-fifth anniversary of his accession to the throne in 1910. To commemorate this Silver Jubilee, Canada joined with the other countries of the Commonwealth to honour the sovereign, himself a keen philatelist, by the issue of six special postage stamps.)
+PAGE_TEXT (View of the Royal Yacht Britannia, from a painting by A. J. W. Burgess. Originally built in 1893 for King Edward VII, then Prince of Wales, the Britannia became a sensation in the yachting world. In all, through nearly half a century of racing life, Britannia won 231 first prizes and 129 others out of a total of 625 starts. )
+
+SPACE(25)
+ROW_START (FS, TOP, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Princess Elizabeth, 22, 26, 3, , Princess Elizabeth, 1c, green, S 211, , May 1935)
+ROW_END
+SPACE(-20)
+ROW_START (FS, TOP, 50, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Duke of York, 22, 26, 3, , Duke of York, 2c, brown, S 212, , May 1935)
+  STAMP_ADD(Prince of Wales, 22, 26, 3, , Prince of Wales, 5c, blue, S 214, , May 1935)
+ROW_END
+SPACE(10)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(King George V & Queen Mary, 38, 26, 3, , King George V & Queen Mary, 3c, carmine, S 213, , May 1935)
+  STAMP_ADD(Windsor Castle, 38, 26, 3, , Windsor Castle, 10c, green, S 215, , May 1935)
+  STAMP_ADD(Royal Yacht "Britania", 38, 26, 3, , Royal Yacht "Britania", 13c, dark blue, S 216, , May 1935)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 23 - King George V, Pictorial Issue (1935)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (King George V, Pictorial Issue (1935))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (Beginning with this issue, the dies of all Canadian postage stamps bore a date indicating the year of manufacture of each design. Thus in this series, the year of manufacture is incorporated in the design of the stamp in an inconspicuous manner. The name of the manufacturer appears in the margin of the sheet.)
+
+SPACE(15)
+ROW_START (FS, TOP, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , KGV, 1c, dark green, S 195, , December 1932)
+  STAMP_ADD(, 22, 26, 3, , KGV, 2c, black brown, S 196, , December 1932)
+ROW_END
+SPACE(5)
+ROW_START (FS, TOP, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , KGV, 3c, deep red, S 197, , December 1932)
+  STAMP_ADD(, 22, 26, 3, , KGV, 4c, ocher, S 198, , December 1932)
+  STAMP_ADD(, 22, 26, 3, , KGV, 5c, dark blue, S 199, , December 1932)
+  STAMP_ADD(, 22, 26, 3, , KGV, 6c, red orange, S 200, , December 1932)
+ROW_END
+
+SPACE(15)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Coil Stamps ~)
+FONT (Calibri, 10, italic)
+SPACE(2)
+ROW_START (FS, TOP, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 44, 26, 3, , KGV coil, 1c, dark green, S 205pa, , )
+  STAMP_ADD(, 44, 26, 3, , KGV coil, 2c, black brown, S 206pa, , )
+ROW_END
+SPACE(3)
+ROW_START (FS, TOP, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 44, 26, 3, , KGV coil, 1c, dark green, S 205pa, , )
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 24 - King George V, Pictorial Issue (1935)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (King George V, Pictorial Issue (1935))
+
+SPACE(45)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(R.C.M.P., 38, 26, 3, , R.C.M.P., 10c, carmine rose, S 223, , June 1935)
+  STAMP_ADD(Confederation\, Charlottetown\, 1964, 38, 26, 3, , Confederation Conference at Charlottetown - 1964, 13c, violet, S 224, , June 1935)
+  STAMP_ADD(Niagara Falls, 38, 26, 3, , Niagara Falls, 20c, olive green, S 225, , June 1935)
+ROW_END
+SPACE(5)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Parliament Buildings\, Victoria\, BC, 38, 26, 3, , Parliament Buildings\, Victoria\, BC, 50c, dull violet, S 226, , June 1935)
+  STAMP_ADD(Champlain Monument\, Quebec, 38, 26, 3, , Champlain Monument\, Quebec, $1, deep blue, S 227, , June 1935)
+ROW_END
+SPACE(15)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Air Post ~)
+FONT (Calibri, 10, italic)
+SPACE(2)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Daedalus in Flight, 38, 26, 3, , Daedalus in Flight, 6c, red brown, S C5, , June 1935)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 25 - King George V, Pictorial Issue (1935)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (King George V, Pictorial Issue (1935))
+
+SPACE (10)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (A Royal Canadian Mounted Police constable on horseback with a prairie background.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The force, organized in 1873, has built a tradition of service, courage, and integrity. First known as the North West Mounted Police, the men confined their duties to the Northwest Territories. The term Royal was prefixed to the title in 1904, and in 1920 the name was changed to the Royal Canadian Mounted Police.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Confederation Conference at Charlottetown - 1964)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (A group of delegates attended the preliminary Conference on Canadian Confederation, on 1st September, 1864, in Charlottetown, Prince Edward Island. This historical event is significant since it was one of the main factors in crystalizing sentiment for Confederation of the Canadian provinces.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (A view of Niagara Falls with the Canadian Horseshoe Falls as the centre of interest.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (Niagara Falls, a scene of hydro-electric development, also has world-wide tourist interest. This design depicts a feature of Canada's topography noted for its scenic beauty.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (A view of the Legislative Buildings of the Province of British Columbia, at Victoria.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (They were erected in the years 1893 to 1897; Francis Mawson Rattenbury was the architect. This design gave Vancouver Island its first representation in Canadian postage stamps. It also honoured, through its capital city, the Pacific province of Canada.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Champlain Monument, Quebec)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The statue of Samuel de Champlain on Dufferin Terrace in Quebec appears in the foreground, with the St. Lawrence River and a shipping scene in the background. This stamp commemorated one of the greatest explorers, whose achievements meant so much in the opening of the New World. The monument was erected in 1898.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Air Post, "Daedalus in Flight", from an original oil painting made expressly for this stamp by A. E. Foringer.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The background is an adaptation of the view across the Straits of Georgia from Oak Bay near Victoria, British Columbia. The water in the foreground and the high mountains in the background give the illusion of height, adding to the impression of flight which is sought in this design. The mythical character, Daedalus, was believed to be the first man to have conceived the idea of human flight and to have successfully achieved it.)
+
+ 
+# ---------------------------------------------------------------------------------
+# Page 26 - King George VI, Mufti Issue (1937)						
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (King George VI, Mufti Issue (1937))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The accession to the throne of His Majesty King George VI necessitated the preparation of a new series of stamps bearing his portrait; he appeared in ordinary attire. The new issue of 1-cent, 2-cent, and 3-cent stamps released on 1st April, 1937, was the first series with the sovereign's portrait. He had been portrayed as Duke of York on the 2-cent brown in the King George V Silver Jubilee Canadian issue of 1935.)
+
+SPACE(15)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , KGVI, 1c, green, S 231, , April 1937)
+  STAMP_ADD(, 22, 26, 3, , KGVI, 2c, brown, S 232, , April 1937)
+ROW_END
+SPACE(5)
+ROW_START (FS, TOP, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , KGVI, 3c, carmine, S 233, , April 1937)
+  STAMP_ADD(, 22, 26, 3, , KGVI, 4c, yellow, S 234, , May 1937)
+  STAMP_ADD(, 22, 26, 3, , KGVI, 5c, blue, S 235, , May 1937)
+  STAMP_ADD(, 22, 26, 3, , KGVI, 8c, orange, S 236, , May 1937)
+ROW_END
+
+SPACE(15)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Coil Stamps ~)
+FONT (Calibri, 10, italic)
+SPACE(5)
+ROW_START (FS, TOP, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 44, 26, 3, , KGVI coil, 1c, green, S 238pa, , )
+  STAMP_ADD(, 44, 26, 3, , KGVI coil, 2c, brown, S 239pa, , )
+ROW_END
+SPACE(3)
+ROW_START (FS, TOP, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 44, 26, 3, , KGVI coil, 3c, carmine, S 240pa, , )
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 27 - Coronation of King George VI and Queen Elizabeth (1937)						
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Coronation of King George VI and Queen Elizabeth (1937))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (Canadians, like other peoples in the dominions and colonies within the British Commonwealth of Nations, honoured the Coronation of Their Majesties King George VI and Queen Elizabeth by a special postage stamp. The stamp was released on 10th May, 1937, two days before the actual date of the Coronation.)
+
+SPACE(40)
+ROW_START (FS, CEN, 12, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(King George VI & Queen Elizabeth, 38, 26, 3, , King George VI & Queen Elizabeth , 10c, carmine, S 237, , May 1937)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 28 - Pictorial Issue (1938)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Pictorial Issue (1938))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (Canada's pictorial stamps of 1938, covering the higher values, represented a very definite theme showing Canada's gateways to the north, south, east and west. The precedent established in 1928 of utilizing the higher denominations to illustrate scenes and subjects of Canadian geographical, industrial and historical interest, follows in this series. In an endeavour to maintain artistic balance of the designs, the Post Offices Department decided in the case of the pictorial stamps of this issue to eliminate subject descriptions from the designs. This information appears in English and French in the marginal paper along with the plate number.)
+
+SPACE(8)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Entrance to Halifax Harbor, 38, 26, 3, , Entrance to Halifax Harbor, 13c, deep blue, S 242, , November 1938)
+ROW_END
+SPACE(-10)
+ROW_START (ES, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Memorial Chamber, 26, 38, 3, , Memorial Chamber, 10c, dark carmine, S 241, , June 1938)
+  STAMP_ADD(Fort Garry Gate\, Winnipeg, 38, 26, 3, , Fort Garry Gate\, Winnipeg, 20c, red brown, S 243, , Junw 1938)
+  STAMP_ADD(Memorial Chamber, 26, 38, 3, , Memorial Chamber, 10c, carmine rose, S 241a, , June 1938)
+ROW_END
+SPACE(2)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Entrance to Vancouver Harbor, 38, 26, 3, , Entrance to Vancouver Harbor, 50c, green, S 244, , June 1938)
+  STAMP_ADD(Chateau de Ramesay\, Montreal, 38, 26, 3, images\0245 - Chateau de Ramezay.jpg, Chateau de Ramesay\, Montreal, $1, dull violet, S 245, , June 1938)
+ROW_END
+SPACE(7)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Air Post ~)
+FONT (Calibri, 10, italic)
+SPACE(0)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Mackenzie River\, Steamer and Seaplane, 38, 26, 3, , Mackenzie River\, Steamer and Seaplane, 6c, deep blue, S C6, , June 1938)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 29 - Pictorial Issue (1938)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Pictorial Issue (1938))
+
+SPACE (10)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Memorial Chamber, Peace Tower of the Parliament Buildings in Ottawa.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (This subject symbolizes the reverence Canadians hold for their fellow countrymen who lost their lives in the wars that have involved Canada. In the right foreground is the Altar of Remembrance containing the deathless roll of those who died in the wars for Canada and the Empire.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Entrance to Halifax harbour, Nova Scotia.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (This stamp was issued to complete the pictorial series commenced in June, 1938. The picture is taken at the city limits on the harbour front looking towards the sea. It shows the entrance to the harbour with a passenger liner on the distance and the lighthouse on the Harbour Bar.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Fort Garry Gate, Winnipeg.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (This stamp depicts the old Fort Garry Gate at Winnipeg, Manitoba, and symbolizes the Gateway to the Red River Country, the Prairies and the Middle West. It also suggests the story of the Canadian fur trade and the development of the West.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT ( Entrance, Vancouver Harbour.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (This design shows the view from West Bay on the northern side of the entrance to Vancouver Harbour where the Lookout at the Narrows is situated. Prospect Point and part of the city appear in the background. This is Canada's western gateway to the Orient and the Pacific. In the distance looms Mount Baker in the State of Washington.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (The Chateau Ramezay in Montreal.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (Erected in 1703 by Claude de Ramezay, the eleventh Governor of Montreal, the building served as headquarters for the Continental Army under General Montgomery in 1775-76. Since 1895, the Chateau has been maintained as a museum and portrait gallery. It became property of the Numismatic and Antiquarian Society of Montreal in 1929. The design of the stamp symbolizes the growth of the Canadian nation while it also reflects a colourful era in the history of Montreal.)
+
+SPACE(5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Air Post, Scene on the Mackenzie River, Northwest Territories.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (This airmail stamp is a composite, with one of the Mackenzie River shallow-draft stern- wheelers-actually the S.S. Distributor-somewhere along the river. In the left foreground the group of men carrying supplies to and from the landing stage has been adapted from a photograph showing similar activities at Aklavik, near the mouth of the river. Also in the foreground a twin- engined monoplane, equipped with floats, has been introduced to contrast the old and new methods of transporting mail along the Mackenzie River. This is one of Canada's northern gateways.)
+
+ 
+# ---------------------------------------------------------------------------------
+# Page 30 - Visit of King George VI and Queen Elizabeth to Canada and the US (1939)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Visit of King George VI and Queen Elizabeth to Canada and the US (1939))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (In 1939 Their Majesties King George VI and Queen Elizabeth visited the Dominion of Canada. Thus Canada had the signal honour of being the first of the Commonwealth nations to welcome the new King and Queen in person. To honour this historic occasion and add to the warm sincerity of Canada's welcome, the Post Office Department issues three special commemorative postage stamps to coincide with the tour of Their Majesties throughout the Dominion. The stamps were printed in two colours each.)
+
+SPACE(15)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Princess Elizabeth & Princess Margaret Rose, 38, 26, 3, , Elizabeth & Margaret, 1c, green & black, S 246, , May 1939)
+ROW_END
+SPACE(10)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(War Memorial\, Ottawa, 26, 38, 3, , War Memorial\, Ottawa, 2c, brwon & black, S 247, , May 1939)
+ROW_END
+SPACE(10)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(King George VI and Queen Elizabeth, 38, 26, 3, , King George VI and Queen Elizabeth, 3c, dark carmine & black, S 248, , May 1939)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 31 - KGVI, war issue (1942 - 1943)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Canada's contribution to the war effort of the Allied Nations (1942-43))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (During the early days of the Second World War, Canadian citizens and the postal authorities believed that Canadian postage stamps current since 1938, should be replaced by new designs. The Department decided to show Canada's contribution to the war effort of the Allied Nations. On Dominion Day, 1st July, 1942, the Department issued stamps portraying King George as head of the Armed Forces in naval, military and air force uniforms.)
+PAGE_TEXT (For many years, in the regular issues of Canadian postage stamps, the Department adhered to the custom of displaying the King's portrait on the lower denominations. Prior to the Second World War all denominations below 10-cents had been reserved in this way. In the wartime issue of 1942 an exception was made in the designs of the 4- cent and 8-cent denominations. They illustrated a grain elevator and a farm scene, indicating the contribution of Canada through her agricultural industry to the war effort of the Allies.)
+
+SPACE(15)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , KGVI, 1c, green, S 249, , July 1942)
+  STAMP_ADD(, 22, 26, 3, , KGVI, 2c, brown, S 250, , July 1942)
+  STAMP_ADD(, 22, 26, 3, , KGVI, 3c, dark carmine, S 251, , July 1942)
+  STAMP_ADD(, 22, 26, 3, , KGVI, 3c, rose violet, S 252, , June 1943)
+ROW_END
+SPACE(5)
+ROW_START (FS, TOP, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Grain Elevators, 26, 22, 3, , Grain Elevators, 4c, greenish black, S 253, , July 1942)
+  STAMP_ADD(, 22, 26, 3, , KGVI, 4c, dark carmine, S 254, , April 1943)
+  STAMP_ADD(, 22, 26, 3, , KGVI, 5c, deep blue, S 255, , July 1942)
+  STAMP_ADD(Farm Scene, 26, 22, 3, , Farm Scene, 8c, red brown, S 256, , July 1942)
+ROW_END
+
+SPACE(15)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Official Stamps ~)
+FONT (Calibri, 10, italic)
+SPACE(5)
+ROW_START (FS, TOP, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , KGVI, 1c, green, S O1, , July 1942)
+  STAMP_ADD(, 22, 26, 3, , KGVI, 2c, brown, S O2, , July 1942)
+  STAMP_ADD(, 22, 26, 3, , KGVI, 3c, rose violet, S O3, , July 1942)
+  STAMP_ADD(, 22, 26, 3, , KGVI, 4c, dark carmine, S O4, , July 1942)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 32 - KGVI, war issue (1942 - 1943)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Canada's contribution to the war effort of the Allied Nations (1942-43))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (During the early days of the Second World War, Canadian Postal authorities believed that the stamps in use since 1938 should be replaced with a new issue featuring Canada's substantial contribution to war work. A new general issue to last for the duration of the hostilities was designed. Subjects depicting Canada's munitions, war supplies, shipbuilding, agriculture, her importance as a great air-training centre, and as a source of food were chosen for the pictorial stamps. In 1943 the Post Office Department issues new denominations of postage stamps to meet the amended rate of postage, effective 1st April, 1943. No new designs were introduced.)
+
+SPACE(15)
+ROW_START (FS, BOTTOM, 16, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD("Ram" Tank, 38, 26, 3, , "Ram" Tank, 13c, dull green, S 258, , July 1942)
+  STAMP_ADD(Parliament Buildings, 26, 38, 3, , Parliament Buildings, 10c, brown, S 257, , July 1942)
+  STAMP_ADD("Ram" Tank, 38, 26, 3, , "Ram" Tank, 14c, dull green, S 225, , April 1943)
+ROW_END
+SPACE(5)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Corvette, 38, 26, 3, , Corvette, 20c, chocolate, S 260, , July 1942)
+  STAMP_ADD(Munition Factory, 38, 26, 3, , Munition Factory, 50c, violet, S 261, , July 1942)
+  STAMP_ADD(Destroyer, 38, 26, 3, , Destroyer, $1, deep blue, S 262, , July 1942)
+ROW_END
+SPACE(15)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Air Post ~)
+FONT (Calibri, 10, italic)
+SPACE(2)
+FONT (Calibri, 8, italic)
+PAGE_TEXT_CENTRE (British Commonwealth Air Training Plan)
+SPACE(-1)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , Planes and Student Flyers, 6c, deep blue, S C7, , July 1942)
+  STAMP_ADD(, 38, 26, 3, , Planes and Student Flyers, 7c, deep blue, S C8, , April 1943)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 33 - KGVI, war issue (1942 - 1943)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Canada's contribution to the war effort of the Allied Nations (1942-43))
+
+SPACE (10)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (A view of the Central portion of the Parliament Buildings, at Ottawa.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The design incorporates the maple leaf and Union Jack.)
+
+SPACE (5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT ("Ram" Tanks, Canadian Army)
+FONT (Calibri, 10, italic)
+PAGE_TEXT ("Ram" tanks of the Canadian Army, named after the Rocky Mountain ram, were produced in Canada by the railway equipment and locomotive manufacturers. The Ram tank, weighing 32 tons heavily armed, was probably the first piece of armament of a specifically United States type produced in Canada. It was patterned after the commonly known General Lee tank developed in 1939 in the United States. After actual combat in Libya, the design was materially modified; it had a maximum speed of 25 miles per hour.)
+
+SPACE (5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (A Canadian corvette ready for launching.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (This scene displays the contribution of the smaller shipyards of Canada in building vessels for the Royal Canadian Navy and the Merchant Marine. The corvette was among the early weapons of the Second World War. These ships were engaged in action against submarines and proved to be invaluable aid, due in no small measure to their seaworthiness. Vessels produced in Canada were used to transport men and supplies to the different war fronts.)
+
+SPACE (5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Interior of a Canadian munitions factory, showing a 25-pound gun being inspected.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (Modern war required the total mobilization of economic forces to equip and supply armaments to the fighting forces. For Canada this implied that in addition to providing men and materials for her own fighting forces, she must, to the maximum of her ability, furnish her allies with munitions. The scene illustrates the change of Canada's factories from a peacetime to a wartime basis.)
+
+SPACE (5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Destroyer, Royal Canadian Navy )
+FONT (Calibri, 10, italic)
+PAGE_TEXT ("Tribal Class" destroyer of the Royal Canadian Navy was another ship from Canadian Shipyards. The destroyers bore names of Indian tribes as: H.M.C.S. Iroquois. Destroyers of the Tribal class had the important duties of convoying men and supplies to the different war fronts and the protection of Canada's coastline.)
+
+SPACE (5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Air Post, British Commonwealth Air Training Plan)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (Pilot training under the British Commonwealth Air Training Plan in Canada, entering the cockpit of a training plane. Under this plan, administered by the RCAF in Canada, men from all parts of the British Commonwealth and her allies were trained in schools established across the country. Early in the war an announcement stated that Canada would be called upon to provide trained men for overseas service. Facilities were rapidly expanded to provide training. Agreement of the four Governments concerned, on the principle of the British Commonwealth Air Training Plan, was announced on 10th October, 1939, and by early November, representatives of the United Kingdom, Australia, and New Zealand had arrived in Ottawa to work out details of the plan with the Canadian government. A joint agreement for the large-scale training of air crew was signed on 17th December, 1939. Under this agreement the Commonwealth partners were to share pro rata in the training program.)
+
+
+# ---------------------------------------------------------------------------------
+# Page 34 - KGVI, war issue (1942 - 1943)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Canada's contribution to the war effort of the Allied Nations (1942-43))
+
+SPACE (10)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Special Delivery Stamps ~)
+FONT (Calibri, 10, italic)
+
+SPACE(3)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Coat of Arms and Flags, 47, 31, 3, , Coat of Arms and Flags, 10c, green, S E10, , July 1942)
+ROW_END
+
+SPACE (20)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Air Post Special Delivery Stamps ~)
+
+SPACE (4)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (A Trans-Canada airplane in flight with an aerial view of what is believed to be Drummondville, Quebec. This stamp is an innovation combining airmail and special delivery service charges in one stamp. The design was chosen to emphasize the time saved in transporting by air, personnel and materials necessary for the speedy prosecution of the war effort.)
+
+SPACE(7)
+ROW_START (FS, BOTTOM, 65, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Trans-Canada Airplane\, Air Post, 47, 31, 3, , Trans-Canada Airplane, 16c, bright ultra, S CE1, , July 1942)
+ROW_END
+SPACE(5)
+ROW_START (FS, BOTTOM, 65, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Trans-Canada Airplane\, Air Post, 47, 31, 3, , Trans-Canada Airplane, 17c, bright ultra, S CE2, , April 1943)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 35 - KGVI, war issue (1942 - 1943)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Canada's contribution to the war effort of the Allied Nations (1942-43))
+
+SPACE (35)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Coil Stamps ~)
+FONT (Calibri, 10, italic)
+
+SPACE(15)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 44, 25, 3, , King George VI\, coil, 1c, green, S 263pa, , July 1942)
+  STAMP_ADD(, 44, 25, 3, , King George VI\, coil, 2c, brown, S 264pa, , July 1942)
+ROW_END
+SPACE(5)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 44, 25, 3, , King George VI\, coil, 3c, dark carmine, S 265pa, , July 1942)
+  STAMP_ADD(, 44, 25, 3, , King George VI\, coil, 3c, rose violet, S 266pa, , July 1942)
+ROW_END
+SPACE(5)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 44, 25, 3, , King George VI\, coil, 4c, dark carmine, S 267pa, , July 1942)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 36 - Pictorials, Peace Issue (1946)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Pictorials, Peace Issue (1946))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (With the exception of the war issues of 1942-43 and certain special commemorative stamps, all pictorial postage stamps issued between 1927 and 1945 have illustrated subjects relating to Canada's history, geography, agriculture, and natural resources. The end of the war provided desirable opportunity to use subjects emphasizing the new industrial importance of Canada. In 1946 the Department decided to replace Canada's wartime pictorial postage stamps with an issue intended to provide a pictorial survey of Canada's primary industries and raw materials. The issue placed emphasis on the reconversion of Canadian industry to a peacetime basis.)
+
+SPACE(25)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Farm Scene\, Ontario, 38, 26, 3, , Farm Scene\, Ontario, 8c, red brow, S 268, , September 1946)
+  STAMP_ADD(Great Bear Lake\, Northwest Territories, 38, 26, 3, , Great Bear Lake\, Northwest Territorie, 10c, olive, S 269, ,September 1946)
+  STAMP_ADD(Hydroelectric Power Plant\, Quebec, 38, 26, 3, , "Hydroelectric Power Plant\, Quebec, 14c, black brown, S 270, , September 1946)
+ROW_END
+SPACE(5)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Combine\, Canadian Prairies, 38, 26, 3, , Combine\, Canadian Prairies, 20c, slate black, S 271, , September 1946)
+  STAMP_ADD(Logging\, British Columbia, 38, 26, 3, , Logging\, British Columbia, 50c, dark blue green, S 272, , September 1946)
+  STAMP_ADD(Train Ferry\, Prince Edward Island, 38, 26, 3, , Train Ferry\, Prince Edward Island, $1, red violet, S 273, , September 1946)
+ROW_END
+
+SPACE(10)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Air Post ~)
+FONT (Calibri, 10, italic)
+SPACE(2)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Canada Geese in Flight, 38, 26, 3, , Canada Geese in Flight, 7c, deep blue, S C9, , September 1946)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 37 - Pictorials, Peace Issue (1946)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Pictorials, Peace Issue (1946))
+
+SPACE (10)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Eastern Canada farm scene illustrating the vital farm products and farm activities.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The scene is a composite from four photographs. The farm house is from a photograph taken in Eastern Ontario, the barn from a farm in Western Ontario, the silo from Central Ontario and the ploughmen and horses from Quebec.)
+
+SPACE (5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT ( Great Bear Lake, Northwest Territories )
+FONT (Calibri, 10, italic)
+PAGE_TEXT (View of Great Bear Lake, Northwest Territories, showing the point where prospectors discovered pitchblende deposits, the source of radium and uranium, a Canadian contribution to science through her mining industry.)
+
+SPACE (5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (View of a hydro-electric power station on the St. Maurice River, Province of Quebec.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (Since water power developments are of paramount importance to Canada's manufacturing industries, the design emphasizes how richly Canada is endowed with these resources.)
+
+SPACE (5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (A combined reaper and thresher drawn by a tractor in use on a Canadian prairie wheatfield.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (This design illustrates a modern, speedy method of garnering Canada's wheat crop, her principal contribution to the world's food supply. The illustration also emphasizes the importance of grain- growing in Canada's economy.)
+
+SPACE (5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (View of logging operations in British Columbia.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The design stresses the background of the Canadian lumbering and pulpwood industries, major factors in Canada's manufacturing activities and export trade.)
+
+SPACE (5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Train-ferry operating between Prince Edward Island and the mainland with a typical Canadian fishing boat.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The motif illustrates a feature of Canada's transportation industry with the fishing industry. The subject represents the Maritime provinces.)
+
+SPACE (5)
+FONT (Calibri, 11, italic+bold)
+PAGE_TEXT (Air Post, Canada geese in flight near Sudbury, Ontario.)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (The Canada goose is notable among wildfowl for its speed and endurance, and symbolizes Canada's wildlife. It is depicted against a background situated in Canada's world-famous nickel-mining country in Northern Ontario. Canadian wildlife and scenery are fascinating attractions for travellers, sportsmen, and form the basis for the country's large and growing tourist industry.)
+
+
+# ---------------------------------------------------------------------------------
+# Page 38 - Express Delivery, peace issue (1946)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Peace Issue (1946))
+
+SPACE (10)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Special Delivery ~)
+
+SPACE(3)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Canadian Coat of Arms, 47, 31, 3, , Canadian Coat of Arms, 10c, green, S E11, , September 1946)
+ROW_END
+
+SPACE (20)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Air Post Special Delivery Stamps ~)
+
+SPACE (4)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (Aerial view of Quebec City looking northeast, showing the Plains of Abraham in the foreground. Superimposed on the picture is a drawing of the D.C. 4-M airplane, which at the time of the issue was under construction in Montreal for use on the trans-Atlantic mail and passenger route, and on the trans-Canada run. At that time, it was the most recent development in Canada's transportation industry. The first and comparatively small printing of this stamp was found to contain a minute error shortly after it was issued. The accent over the second "e" of the French word "Expres" was circumflexed instead of grave. This error, corrected in the new die, is the first in a Canadian postage stamp. )
+
+SPACE(7)
+FONT (Calibri, 10, italic)
+PAGE_TEXT_CENTRE (Transatlantic Mail Plane over Quebec)
+SPACE(1)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD("E" circumflex, 47, 31, 3, , "E" circumflex, 17c, bright ultra, S CE3, , September 1946)
+  STAMP_ADD("E" grave, 47, 31, 3, , "E" grave, 17c, bright ultra, S CE4, , December 1946)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 39 - Officials, Peace Issue (1949-1950)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Pictorials, Peace Issue (1949-50))
+
+SPACE (10)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Official Stamps ~)
+
+SPACE(20)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Great Bear Lake\, Northwest Territories, 38, 26, 3, , Great Bear Lake\, Northwest Territorie, 10c, olive, S O6, , )
+  STAMP_ADD(Hydroelectric Power Plant\, Quebec, 38, 26, 3, , "Hydroelectric Power Plant\, Quebec, 14c, black brown, S O7, , )
+  STAMP_ADD(Combine\, Canadian Prairies, 38, 26, 3, , Combine\, Canadian Prairies, 20c, slate black, S O8, , )
+ROW_END
+SPACE(5)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Logging\, British Columbia, 38, 26, 3, images\O9.jpg, Logging\, British Columbia, 50c, dark blue green, S O9, , )
+  STAMP_ADD(Train Ferry\, Prince Edward Island, 38, 26, 3, , Train Ferry\, Prince Edward Island, $1, red violet, S O10, , )
+  STAMP_ADD(Canada Geese in Flight\, Air Post, 38, 26, 3, , Canada Geese in Flight, 7c, deep blue, S CO1, , )
+ROW_END
+
+SPACE (20)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Special Delivery ~)
+
+SPACE(10)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Canadian Coat of Arms, 47, 31, 3, , Canadian Coat of Arms, 10c, green, S EO1, , )
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 40 - Officials, Peace Issue (1950)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Pictorials, Peace Issue (1950))
+
+SPACE (10)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Official Stamps ~)
+
+SPACE(20)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Great Bear Lake\, Northwest Territories, 38, 26, 3, , Great Bear Lake\, Northwest Territorie, 10c, olive, S O21, , )
+  STAMP_ADD(Hydroelectric Power Plant\, Quebec, 38, 26, 3, , "Hydroelectric Power Plant\, Quebec, 14c, black brown, S O22, , )
+  STAMP_ADD(Combine\, Canadian Prairies, 38, 26, 3, , Combine\, Canadian Prairies, 20c, slate black, S O23, , )
+ROW_END
+SPACE(5)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+#  STAMP_ADD(Logging\, British Columbia, 38, 26, 3, , Logging\, British Columbia, 50c, dark blue green, S O9, , )
+  STAMP_ADD(Train Ferry\, Prince Edward Island, 38, 26, 3, , Train Ferry\, Prince Edward Island, $1, red violet, S O25, , )
+  STAMP_ADD(Canada Geese in Flight\, Air Post, 38, 26, 3, , Canada Geese in Flight, 7c, deep blue, S CO2, , )
+ROW_END
+
+SPACE (20)
+FONT (Calibri, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Special Delivery ~)
+
+SPACE(10)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(Canadian Coat of Arms, 47, 31, 3, , Canadian Coat of Arms, 10c, green, S EO2, , )
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 38 - King George V, Admiral Issue (1911 - 1925)						
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (King George V, Admiral Issue (1911 - 1925))
+
+SPACE (10)
+FONT (Calibri, 10, italic)
+PAGE_TEXT (When a sovereign accedes to the British throne, a new issue of postage stamps is necessary. Many practical reasons prevent the change being made at once. Post Office departments nearly always keep large stocks of stamps bearing the portrait of the late monarch. Considerations of respect to the memory of the deceased sovereign, and less sentimental motivations of expediency and economy, usually combine to require that these stamps should continue to circulate for many months, on some cases even a year or two before an issue portraying the new sovereign appears. The accession to the throne of His Majesty King George V on 6th May, 1910, necessitated the issue of a new series of postage stamps bearing the portrait of His Majesty. The denominations first issued were the same as those of the King Edward VII series of 1908, but the colours of the 10- cent and 50-cent denominations were different.)
+
+SPACE(10)
+ROW_START (ES, TOP, 12, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , KGV, 1c, green, S 104, , July 1930)
+  STAMP_ADD(, 22, 26, 3, , KGV, 1c, orange yellow, S 105, , December 1930)
+  STAMP_ADD(, 22, 26, 3, , KGV, 2c, carmine, S 106, , June 1930)
+  STAMP_ADD(, 22, 26, 3, , KGV, 2c, yellow green, S 107, , November 1930)
+  STAMP_ADD(, 22, 26, 3, , KGV, 3c, brown, S 108, , November 1930)
+ROW_END
+SPACE(5)
+ROW_START (ES, TOP, 12, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , KGV, 3c, carmine, S 109, , July 1931)
+  STAMP_ADD(, 22, 26, 3, , KGV, 4c, olive bister, S 110, , July 1931)
+  STAMP_ADD(, 22, 26, 3, , KGV, 5c, dark blue, S 111, , November 1931)
+  STAMP_ADD(, 22, 26, 3, , KGV, 5c, violet, S 112, , June 1930)
+  STAMP_ADD(, 22, 26, 3, , KGV, 7c, yellow ocher, S 113, , June 1930)
+ROW_END
+SPACE(5)
+ROW_START (ES, TOP, 12, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , KGV, 7c, red brown, S 114, , November 1930)
+  STAMP_ADD(, 22, 26, 3, , KGV, 8c, blue, S 115, , August 1930)
+  STAMP_ADD(, 22, 26, 3, , KGV, 10c, plum, S 116, , November 1930)
+  STAMP_ADD(, 22, 26, 3, , KGV, 10c, blue, S 117, , June 1932)
+  STAMP_ADD(, 22, 26, 3, , KGV, 10c, bister brown, S 118, , June 1932)
+ROW_END
+SPACE(5)
+ROW_START (ES, TOP, 12, 1, 0.4, 0.1, 0.3, Calibri, 8, italic, Calibri, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , KGV, 20c, olive green, S 119, , November 1930)
+  STAMP_ADD(, 22, 26, 3, , KGV, 50c, black brown, S 120, , August 1930)
+  STAMP_ADD(, 22, 26, 3, , KGV, $1, orange, S 122, , November 1930)
+  STAMP_ADD(, 22, 26, 3, , KGV, 2c/3c, carmine, S 139, , June 1932)
+  STAMP_ADD(, 22, 26, 3, , KGV, 2c/3c, carmine, S 140, , June 1932)
+ROW_END
+
+
+
+
+
+
+
+

@@ -1,0 +1,279 @@
+###################################################################################
+# sample AlbumEasy file. (c) 2005 Bundu Technology Ltd.
+# ---------------------------------------------------------------------------------
+# Note: the # character is used for comments, any text following the # is
+#       ignored.
+#
+# All measurements are in millimeters, except for font sizes which are points.
+###################################################################################
+
+
+# ---------------------------------------------------------------------------------
+# First setup the page elements that are common to all pages in this album.
+# ---------------------------------------------------------------------------------
+
+ALBUM_PAGES_SIZE	 (Letter)				# Letter, A4
+ALBUM_PAGES_MARGINS	 (7.0, 7.0, 7.0, 7.0)			# Top, Right, Bottom, Left
+ALBUM_PAGES_BORDER	 (0.5, 0.1, 0.5)			# Exterior, Interior, Space
+ALBUM_PAGE_TITLE_FONT	 (Century Gothic, 12, bold+italic)	# Bold, Italic, Regular, Underline, Strikeout
+ALBUM_PAGES_TITLE	 (C   A   N   A   D   A)
+ALBUM_PAGES_SPACING	 (6.0, 6.0, 1.0)			# LeftIndent, RightIndent, VerticalSpacing
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 1 - Cover
+# ---------------------------------------------------------------------------------
+
+PAGE_START							# LAND(scape), PORT(rait)
+
+SPACE (75)
+FONT (Century Gothic, 36, italic)
+#PAGE_TEXT_CENTRE (C  A  N  A  D  A)
+SPACE(16)
+SPACE(20)
+PAGE_TEXT_CENTRE (? ? ? ?   -    ? ? ? ?)
+
+
+# Birds of Canada (1996-2001)
+# ---------------------------------------------------------------------------------
+# Page 2 - Birds of Canada (1996-97)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1996-2001)
+
+SPACE (10)
+FONT (Century Gothic, 10, italic)
+PAGE_TEXT_CENTRE (Birds of Canada - I & II)
+
+SPACE(28)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 162, 31, 3, images/1594a.jpg, , S 1594a, , , , )
+ROW_END
+ROW_START (FS, CEN, 0, 0, 0, 0, 0, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 40.5, 0, 0, , , , , , RUBY-THROATED HUMMINGBIRD, )
+  STAMP_ADD(, 40.5, 0, 0, , , , , , AMERICAN KESTREL, )
+  STAMP_ADD(, 40.5, 0, 0, , , , , , ATLANTIC PUFFIN, )
+  STAMP_ADD(, 40.5, 0, 0, , , , , , PILEATED WOODPECKER, )
+  ROW_SPACE(3)
+ROW_END
+
+SPACE (35)
+ROW_START (FS, CEN, 0, 0, 0, 0, 0, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 40.5, 0, 0, , , , , , NORTHERN GANNET, )
+  STAMP_ADD(, 40.5, 0, 0, , , , , , SCARLET TANAGER, )
+  ROW_SPACE(3)
+ROW_END
+SPACE(-1)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 81, 62, 3, images/1634a.jpg, , , S 1634a, , , )
+ROW_END
+ROW_START (FS, CEN, 0, 0, 0, 0, 0, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 40.5, 0, 0, , , , , , MOUNTAIN BLUEBIRD, )
+  STAMP_ADD(, 40.5, 0, 0, , , , , , WESTERN GREBE, )
+  ROW_SPACE(3)
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 3 - Birds of Canada (1998-99)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE ()
+
+SPACE (10)
+FONT (Century Gothic, 10, italic)
+PAGE_TEXT_CENTRE (Birds of Canada - III & IV)
+
+SPACE(12)
+ROW_START (FS, CEN, 0, 0, 0, 0, 0, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 40.5, 0, 0, , , , , , EASTERN SCREECH-OWL, )
+  STAMP_ADD(, 40.5, 0, 0, , , , , , GRAY-CROWNED ROSY-FINCH, )
+  ROW_SPACE(3)
+ROW_END
+SPACE(-1)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 81, 61, 3, images/1713a.jpg, , , S 1713a, , , )
+ROW_END
+ROW_START (FS, CEN, 0, 0, 0, 0, 0, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 40.5, 0, 0, , , , , , HAIRY WOODPECKER, )
+  STAMP_ADD(, 40.5, 0, 0, , , , , , GREAT CRESTED FLYCATCHER, )
+  ROW_SPACE(3)
+ROW_END
+
+SPACE (17)
+ROW_START (FS, CEN, 0, 0, 0, 0, 0, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 40.5, 0, 0, , , , , , NORTHERN GOSHAWK, )
+  STAMP_ADD(, 40.5, 0, 0, , , , , , RED-WINGED BLACKBIRD, )
+  ROW_SPACE(3)
+ROW_END
+SPACE(-1)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 81, 65, 3, images/1773a.jpg, , , S 1773a, , , )
+ROW_END
+ROW_START (FS, CEN, 0, 0, 0, 0, 0, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 40.5, 0, 0, , , , , , AMERICAN GOLDFINCH, )
+  STAMP_ADD(, 40.5, 0, 0, , , , , , SANDHILL CRANE, )
+  ROW_SPACE(3)
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 4 - Birds of Canada (2000-01)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE ()
+
+SPACE (10)
+FONT (Century Gothic, 10, italic)
+PAGE_TEXT_CENTRE (Birds of Canada - V & VI)
+
+SPACE(10)
+ROW_START (FS, CEN, 0, 0, 0, 0, 0, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 40.5, 0, 0, , , , , , PACIFIC LOON, )
+  STAMP_ADD(, 40.5, 0, 0, , , , , , BLUE JAY, )
+  ROW_SPACE(3)
+ROW_END
+SPACE(-1)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 81, 65, 3, images/1842a.jpg, , , S 1842a, , , )
+ROW_END
+ROW_START (FS, CEN, 0, 0, 0, 0, 0, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 40.5, 0, 0, , , , , , CANADIAN WARBLER, )
+  STAMP_ADD(, 40.5, 0, 0, , , , , , OSPREY, )
+  ROW_SPACE(3)
+ROW_END
+
+SPACE (15)
+ROW_START (FS, CEN, 0, 0, 0, 0, 0, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 40.5, 0, 0, , , , , , GOLDEN EAGLE, )
+  STAMP_ADD(, 40.5, 0, 0, , , , , , ARCTIC TERN, )
+  ROW_SPACE(3)
+ROW_END
+SPACE(-1)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 81, 65, 3, images/1889a.jpg, , , S 1889a, , , )
+ROW_END
+ROW_START (FS, CEN, 0, 0, 0, 0, 0, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 40.5, 0, 0, , , , , , ROCK PTARMIGAN, )
+  STAMP_ADD(, 40.5, 0, 0, , , , , , LAPLAND LONGSPUR, )
+  ROW_SPACE(3)
+ROW_END
+
+PAGE_START
+
+
+
+# Art Canada (1988-2002)
+# ---------------------------------------------------------------------------------
+# Page 1 - Art Canada (1988-2002)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1988-2002)
+
+SPACE (10)
+FONT (Century Gothic, 10, italic)
+PAGE_TEXT_CENTRE (Art Canada)
+
+SPACE(10)
+ROW_START (FS, CEN, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40, 48, 3, , , Sc 1203, , , "THE YOUNG READER" BY OZIAS LEDUC, )
+  STAMP_ADD(, 40, 48, 3, , , Sc 1241, , , "CEREMONNIAL FRONTLET", )
+  STAMP_ADD(, 40, 48, 3, , , Sc 1271, , , "THE WEST WIND" BY TOM THOMPSON, )
+ROW_END
+
+SPACE(10)
+ROW_START (FS, CEN, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40, 48, 3, , , Sc 1310, , , "FOREST\, BRITISH COLUMBIA" BY EMILY CARR, )
+  STAMP_ADD(, 40, 48, 3, , , Sc 1419, , , "RED NASTURTIUMS" BY DAVID MILNE, )
+  STAMP_ADD(, 40, 48, 3, , , Sc 1466, , , DRAWING FOR "THE OWL" BY KENOJUAK ASHEVAK, )
+ROW_END
+
+SPACE(10)
+ROW_START (FS, CEN, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40, 48, 3, , , Sc 1516, , , "VERA 1931" BY FREDERICK H. VARLEY, )
+  STAMP_ADD(, 40, 48, 3, , , Sc 1545, , , "FLORAISON" BY ALFRED PELLAN, )
+  STAMP_ADD(, 40, 48, 3, , , Sc 1602, , , "THE SPIRIT OF HAIDA GWAII" BY BILL REID, )
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 2 - Art Canada (1988-2002)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE ()
+
+SPACE (10)
+FONT (Century Gothic, 10, italic)
+PAGE_TEXT_CENTRE ()
+
+SPACE(10)
+ROW_START (FS, CEN, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40, 48, 3, , , Sc 1635, , , "YORK BOAT ON LAKE WINNIPEG"\nBY WALTER JOSEPH PHILLIPS, )
+  STAMP_ADD(, 40, 48, 3, , , Sc 1754, , , "THE FARMER'S FAMILY" BY BRUNO BONAK, )
+  STAMP_ADD(, 40, 48, 3, , , Sc 1800, , , "COQ LICORNE" BY JEAN D'ALLAIRE, )
+ROW_END
+
+SPACE(10)
+ROW_START (FS, CEN, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40, 48, 3, , , Sc 1863, , , "THE ARTIST AT NIAGARA"\nBY CORNELIUS KRIEGHOFF, )
+  STAMP_ADD(, 40, 48, 3, , , Sc 1916, , , "THE SPACE BETWEEN COLUMN 21"\nBY JACK LEONARD SHADBOLT, )
+  STAMP_ADD(, 40, 48, 3, , , Sc 1945, , , "CHURCH AND HORSE"\nBY DAVID ALEXANDER COLVILLE, )
+ROW_END
+
+# Millennium Set (1999-2000)
+# ---------------------------------------------------------------------------------
+# Page 1 - Millennium Set (1999-2000)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1999-2000)
+
+SPACE (10)
+FONT (Century Gothic, 10, italic)
+PAGE_TEXT_CENTRE (The Millennium Collection)
+
+SPACE(10)
+ROW_START (FS, BOTTOM, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 108, 112, 4, , , , , , , )
+ROW_END
+
+
+
+

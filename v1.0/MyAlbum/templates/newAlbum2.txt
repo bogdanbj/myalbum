@@ -1,0 +1,592 @@
+# ##############################################################################
+# 
+# ------------------------------------------------------------------------------
+#
+#
+################################################################################
+
+
+# ---------------------------------------------------------------------------------
+# First setup the page elements that are common to all pages in this album.
+# ---------------------------------------------------------------------------------
+
+ALBUM_PAGES_SIZE	 (Letter)				# Letter, A4
+ALBUM_PAGES_MARGINS	 (25.0, 7.0, 7.0, 7.0)			# Top, Right, Bottom, Left
+ALBUM_PAGES_MARGINS	 (7.0, 7.0, 7.0, 7.0)			# Top, Right, Bottom, Left
+ALBUM_PAGES_BORDER	 (0.5, 0.1, 0.5)			# Exterior, Interior, Space
+ALBUM_PAGE_TITLE_FONT	 (Century Gothic, 12, bold+italic)		# Bold, Italic, Regular, Underline, Strikeout
+ALBUM_PAGES_TITLE	 (C   A   N   A   D   A)
+ALBUM_PAGES_SPACING	 (6.0, 6.0, 1.0)			# LeftIndent, RightIndent, VerticalSpacing
+
+#DEFAULT_STAMP_VSPACING	  (1)					# the space between title and stamp frame
+#DEFAULT_STAMP_TITLE_FONT (Century Gothic, 10, cold+underline)
+#DEFAULT_STAMP_TEXT_FONT  (Century Gothic,  6, regular)
+#DEFAULT_STAMP_BORDER	  (0.4, 0.1, 0.3)			# Exterion, Interion, Space
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 1 - Cover
+# ---------------------------------------------------------------------------------
+
+PAGE_START							# LAND(scape), PORT(rait)
+
+SPACE (75)
+FONT (Century Gothic, 36, italic)
+PAGE_TEXT_CENTRE (C  A  N  A  D  A)
+SPACE(20)
+PAGE_TEXT_CENTRE (S T A M P S)
+
+
+# ---------------------------------------------------------------------------------
+# Page 2 - International Year of Astronomy, 2009
+# ---------------------------------------------------------------------------------
+
+PAGE_START							
+
+SPACE (15)
+FONT (Century Gothic, 16, italic)
+PAGE_TEXT_CENTRE (International Year of Astronomy, 2009)
+
+SPACE(30)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 56, 39, 3, , S 2324-5, 2 x 54c, , , HORSEHEAD NEBULA / EAGLE NEBULA, )
+ROW_END
+
+SPACE(10)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 101, 90, 4, , S 2323, Souvenir Sheet, 2 x 54c, , , )
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 3 - International Year of Astronomy, 2009
+# ---------------------------------------------------------------------------------
+
+PAGE_START							
+
+SPACE (15)
+FONT (Century Gothic, 16, italic)
+PAGE_TEXT_CENTRE (International Year of Astronomy, 2009)
+
+#SPACE (10)
+#FONT (Century Gothic, 12, italic+bold)
+#PAGE_TEXT_CENTRE (~ Overprinted ~)
+#FONT (Century Gothic, 10, italic)
+
+SPACE(50)
+FONT (Century Gothic, 10, normal)
+PAGE_TEXT_CENTRE (Overprinted)
+
+#SPACE(10)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 101, 90, 4, , S 2323 c, Souvenir Sheet, 2 x 54c, , , )
+ROW_END
+
+
+# ------------------------------------------------------------------------------
+# Page 4 - Jean Paul Lemieux, 2004
+# ------------------------------------------------------------------------------
+
+PAGE_START							
+
+SPACE (15)
+FONT (Century Gothic, 16, italic)
+PAGE_TEXT_CENTRE (Art Canada, 2004)
+
+SPACE (3)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (Jean Paul Lemieux)
+
+SPACE (10)
+FONT (Century Gothic, 10, italic)
+PAGE_TEXT ("I am especially interested in conveying the solitude of man and the ever-flowing passage of time. I try to express this silence in which we all move.")
+SPACE(1)
+FONT (Century Gothic, 10, regular)
+PAGE_TEXT (- Jean Paul Lemieux)
+
+SPACE(5)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Self-Portrait\, 1974, 33, 54, 3, , Self-Portrait, 49c, , S 2067, , October 2004)
+ROW_END
+
+SPACE(10)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 150, 87, 4, , , Souvenir Sheet, 49c\, 80c and $1.40, S 2068, , April 2009)
+ROW_END
+
+
+# ------------------------------------------------------------------------------
+# Page 5 - Homer Watson, 2005
+# ------------------------------------------------------------------------------
+
+PAGE_START							
+
+SPACE (15)
+FONT (Century Gothic, 16, italic)
+PAGE_TEXT_CENTRE (Art Canada, 2005)
+
+SPACE (3)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (Homer Watson)
+
+SPACE (10)
+FONT (Century Gothic, 10, italic)
+PAGE_TEXT ("Laureate-like he is a poet of the trees, and he has loved them, lived with them, learned of them all his life, until from intimacy has grown tremendous power.")
+SPACE(1)
+FONT (Century Gothic, 10, regular)
+PAGE_TEXT (- Katherine Hale, Canadian Magazine, "Interview with Homer Watson")
+
+SPACE(24)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Down in the Laurentides\, 1882, 51, 32, 3, , Down in the Laurentides, 50c, , S 2109, , May 2005)
+ROW_END
+
+SPACE(15)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 151, 87, 4, , , Souvenir Sheet, 1 x 50c\, 1 x 85c, S 2110, , May 2005)
+ROW_END
+
+
+
+# ------------------------------------------------------------------------------
+# Page 6 - Dorothy Knowles, 2006
+# ------------------------------------------------------------------------------
+
+PAGE_START							
+
+SPACE (15)
+FONT (Century Gothic, 16, italic)
+PAGE_TEXT_CENTRE (Art Canada, 2006)
+
+SPACE (3)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (Dorothy Knowles)
+
+SPACE (10)
+FONT (Century Gothic, 10, italic)
+PAGE_TEXT ("There are many things about Dorothy Knowles' paintings that deliver a sense of awe and wonder, but perhaps none more so than their very scale - some as big as six by eight feet. Look at one of Knowles' landscapes and you can almost believe that she took a complete prairie landscape and dropped it, in its entirety, onto her canvas.")
+SPACE(1)
+FONT (Century Gothic, 10, regular)
+PAGE_TEXT (- Canada Post, "Canada's Stamp Details")
+
+SPACE(20)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(The Field of Rapeseed\, 1971, 46, 32, 3, , The Field of Rapeseed, 51c, , S 2147, , April 2006)
+ROW_END
+
+SPACE(15)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 150, 87, 4, , , Souvenir Sheet, 1 x 51c\, 1 x 89c, S 2148, , April 2006)
+ROW_END
+
+
+# ------------------------------------------------------------------------------
+# Page 7 - Mary Pratt, 2007
+# ------------------------------------------------------------------------------
+
+PAGE_START							
+
+SPACE (15)
+FONT (Century Gothic, 16, italic)
+PAGE_TEXT_CENTRE (Art Canada, 2007)
+
+SPACE (3)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (Mary Pratt)
+
+SPACE (10)
+FONT (Century Gothic, 10, italic)
+PAGE_TEXT ("When asked by Canada Post whether she thought that she'd transformed the images of the domestic sphere into the subjects of serious art, Pratt replied: \"They are serious art, the things women handle every day - the fruit, the jars, the jelly. [...] My role seems to have been to make people see things that are around them all the time that they never noticed before... to help them find the beauty of the simple things. I think that, in the past, people have not given enough weight to the images that women see. We have to eat. Food is important.")
+SPACE(1)
+FONT (Century Gothic, 10, regular)
+PAGE_TEXT (- Canada Post, "Canada's Stamp Details")
+
+SPACE(10)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Jelly Shelf\, 1999, 51, 40, 3, , Jelly Shelf, 52c, , S 2211, , March 2007)
+ROW_END
+
+SPACE(10)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 150, 87, 4, , , Souvenir Sheet, 1 x 52c\, 1 x $1.55, S 2212, , March 2007)
+ROW_END
+
+
+# ------------------------------------------------------------------------------
+# Page 8 - Yousuf Karsh, 2008
+# ------------------------------------------------------------------------------
+
+PAGE_START							
+
+SPACE (15)
+FONT (Century Gothic, 16, italic)
+PAGE_TEXT_CENTRE (Art Canada, 2008)
+
+SPACE (3)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (Yousuf Karsh)
+
+SPACE (1)
+FONT (Century Gothic, 10, italic)
+PAGE_TEXT (In 1941, Churchill visited first Washington and then Ottawa. The Prime Minister, Mackenzie King, invited me to be present. After the electrifying speech, I waited in the Speaker’s Chamber where, the evening before, I had set up my lights and camera. The Prime Minister, arm-in-arm with Churchill and followed by his entourage, started to lead him into the room. I switched on my floodlights; a surprised Churchill growled, "What's this, what's this?" No one had the courage to explain. I timorously stepped forward and said, "Sir, I hope I will be fortunate enough to make a portrait worthy of this historic occasion." He glanced at me and demanded, "Why was I not told?" When his entourage began to laugh, this hardly helped matters for me. Churchill lit a fresh cigar, puffed at it with a mischievous air, and then magnanimously relented. "You may take one." Churchill's cigar was ever present. I held out an ashtray, but he would not dispose of it. I went back to my camera and made sure that everything was all right technically. I waited; he continued to chomp vigorously at his cigar. I waited. Then I stepped toward him and, without premeditation, but ever so respectfully, I said, "Forgive me, sir," and plucked the cigar out of his mouth. By the time I got back to my camera, he looked so belligerent he could have devoured me. It was at that instant that I took the photograph.)
+SPACE(0)
+FONT (Century Gothic, 10, regular)
+PAGE_TEXT (- Yousuf Karsh)
+
+SPACE(4)
+ROW_START (FS, TOP, 10, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Audrey Hepburn\, 1956, 32, 40, 3, , Audrey Hepburn, 96c, , S 2272, , May 2008)
+  STAMP_ADD(Sir Winston Churchill\, 1941, 32, 40, 3, , Sir Winston Churchill, $1.60, , S 2273, , May 2008)
+  STAMP_ADD(Self-portrait\, 1952, 32, 40, 3, , Self-portrait, 52c, , S 2270, , May 2008)
+ROW_END
+
+SPACE(2)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 150, 87, 4, , , Souvenir Sheet, 1 x 52c\, 1 x 96c\, 1 x $1.60, S 2271, , May 2008)
+ROW_END
+
+
+# ------------------------------------------------------------------------------
+# Page 8 - Jack Bush, 2009
+# ------------------------------------------------------------------------------
+
+PAGE_START							
+
+SPACE (15)
+FONT (Century Gothic, 16, italic)
+PAGE_TEXT_CENTRE (Art Canada, 2009)
+
+SPACE (3)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (Jack Bush)
+
+SPACE (10)
+FONT (Century Gothic, 10, italic)
+PAGE_TEXT ("The creative artist’s job, as I see it, is to recreate his human experience in an art form. By this means he communicates his emotions and experiences to others. The creation…has its own rules, limitations, its own existence…[It] may or may not resemble the subject; what is important is how much the essence of beauty, harmony and vitality can be breathed onto the canvas by the artist as he works.")
+SPACE(1)
+FONT (Century Gothic, 10, regular)
+PAGE_TEXT (- Jack Bush)
+
+SPACE(10)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Striped Column\, 1964, 41, 45, 3, , Striped Column, 54c, , S 2321, , March 2009)
+ROW_END
+
+SPACE(10)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 150, 87, 4, , , Souvenir Sheet, 1 x 54c\, 1 x $1.65, S 2322, , March 2009)
+ROW_END
+
+
+# ------------------------------------------------------------------------------
+# Page 8 - Daffodils, 2005
+# ------------------------------------------------------------------------------
+
+PAGE_START							
+
+SPACE (15)
+FONT (Century Gothic, 16, italic)
+PAGE_TEXT_CENTRE (Daffodils, 2005)
+
+SPACE (10)
+FONT (Century Gothic, 10, italic)
+PAGE_TEXT (Unfortunately for the designer, when it came time to photograph daffodils for these stamps last April, there wasn't a bloom to be found. "I called florists and grocers all over the Montreal region," says Isabelle Toussaint. "But potted daffodils are grown much earlier in the season, and they weren't yet flowering naturally in this area, so no one could sell us any. We actually began looking at fabric reproductions, to see how realistic they would appear. A couple of weeks later, as I was driving home one evening, I saw some daffodils just opening in my neighbour's garden. I called the photographer right away and said, ' I've got some! Can you shoot this week? ' ")
+PAGE_TEXT (Marc Montplaisir photographed the flowers against a white backdrop, back-lit to enhance the effect of transparency in their delicate petals. The backgrounds for the stamps were then created by Toussaint, who digitally manipulated the photographs to produce a photo-montage of flowers, with colours intensified for contrast. "I reproduced the same images, but with a blur effect, to give the feeling of many flowers," she says. "Only the primary image is in focus, but the background suggests the daffodil's natural environment.)
+
+SPACE(15)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 80, 31, 3, , Daffodils, 2 x 50c, , S 2092-3, , March 2005)
+ROW_END
+
+SPACE(10)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 120, 80, 4, , , Souvenir Sheet, 2 x 50c, S 2091, , March 2005)
+ROW_END
+
+
+# ------------------------------------------------------------------------------
+# Page 9 - Lilacs, 2006
+# ------------------------------------------------------------------------------
+
+PAGE_START							
+
+SPACE (15)
+FONT (Century Gothic, 16, italic)
+PAGE_TEXT_CENTRE (Lilacs, 2007)
+
+SPACE (10)
+FONT (Century Gothic, 10, italic)
+PAGE_TEXT (Cultivated in 1874 by James Dougall of Windsor, Ontario, the "Princess Alexandra" was one of the first lilacs to be planted in Canada. Dougall was the first person in North America to originate lilac cultivars and named his hybrid after Alexandra, the Queen-consort of King Edward VII.)
+PAGE_TEXT (The "Isabella" was originated in 1927 by Isabella Preston, a plant hybridizer at the Central Experimental Farm. Preston started hybridizing lilacs in the hope of obtaining attractive, hardy, lateblooming Canadian lilacs. She began her work in 1920 by crossing two wild species from China: S. komarowii subsp. reflexa and S. villosa. The resulting hybrid - "Isabella" - blooms from late May to mid June.)
+
+SPACE(15)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 68, 26, 3, , Lilacs, 2 x 52c, , S 2207-08, , March 2007)
+ROW_END
+
+SPACE(10)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 128, 80, 4, , , Souvenir Sheet, 2 x 52c, S 2206, , March 2007)
+ROW_END
+
+
+# ------------------------------------------------------------------------------
+# Page 10 - Peonies, 2008
+# ------------------------------------------------------------------------------
+
+PAGE_START							
+
+SPACE (15)
+FONT (Century Gothic, 16, italic)
+PAGE_TEXT_CENTRE (Peonies, 2008)
+
+SPACE (10)
+FONT (Century Gothic, 10, italic)
+PAGE_TEXT (Two of Canada's most popular flowers are featured in new stamps for 2008. On March 3, Canada Post issued two stamps dedicated to peonies (Paeonia lactiflora). The stamps capture two Canadian hybrids in all their blooming glory: the "Elgin" and the "Coral 'n Gold.".)
+PAGE_TEXT (The "Elgin" reflects the popular vision of a peony: up to a metre tall and sprouting impressively large, pink blossoms fringed with lavender. The blooms last for two to three weeks and emit a strong, rich scent. William Brown, a peony specialist in Elora, Ontario, introduced the "Elgin" in 1952.)
+PAGE_TEXT (The "Coral 'n Gold" hybrid was named for the appealing colour combination of its blossoms. Originally bred by Lyman Cousins in London, Ontario, the "Coral 'n Gold" features a cup of bright petals surrounding golden stamens.)
+
+SPACE(20)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Elgin & Coral 'n Gold, 68, 25, 3, , Elgin & Coral 'n Gold, 2 x 52c, , S 2261-2, , March 2008)
+ROW_END
+
+SPACE(15)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 120, 84, 4, , , Souvenir Sheet, 2 x 52c, S 2260, , March 2008)
+ROW_END
+
+
+# ------------------------------------------------------------------------------
+# Page 11 - Rhododendrons, 2009
+# ------------------------------------------------------------------------------
+
+PAGE_START							
+
+SPACE (15)
+FONT (Century Gothic, 16, italic)
+PAGE_TEXT_CENTRE (Rhododendrons, 2009)
+
+SPACE (10)
+FONT (Century Gothic, 10, italic)
+PAGE_TEXT (Though all rhododendrons share a reputation for fabulous flaring petals and deep evergreen leaves, much variation exists within the 700-specie genus to which they belong. In fact, though "rhododendron" is Greek for "red tree," the blooms can also be found in magenta, purple, pink and white shades, often blotted with speckles and splashes of colour.)
+PAGE_TEXT (When asked, many gardeners agree that if they could grow only one rhododendron, it would be an R. Yakushimanum "Mist Maiden." As beautiful in as out of bloom, this stunning seedling selection boasts an abundant array of flowers in shades of rose, pink and white, all tightly bound above their foliage. Once the Mist Maiden was introduced to the gardening world (1947), plant breeders cross-bred it with other species and hybrids. Among such crossbreeds is the R. Minas Maid, a hybrid introduced and registered by Canadian breeder Dr. D.L. Craig in 1979. "Its rich, vibrant pink flowers and dark green foliage create a striking display," explains Dr. Craig. "It is also very sturdy, reliable and easy to grow.")
+
+SPACE(20)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Yakushimanum & Minas Maid, 65, 27, 3, , Rhododendrons, 2 x 54c, , S 2319-20, , March 2009)
+ROW_END
+
+SPACE(15)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 120, 76, 4, , , Souvenir Sheet, 2 x 54c, S 2318, , March 2009)
+ROW_END
+
+
+# ------------------------------------------------------------------------------
+# Page 12 - African Violets, 2010
+# ------------------------------------------------------------------------------
+
+PAGE_START							
+
+SPACE (15)
+FONT (Century Gothic, 16, italic)
+PAGE_TEXT_CENTRE (African Violets, 2010)
+
+SPACE (10)
+FONT (Century Gothic, 10, italic)
+PAGE_TEXT (A tropical flower, the African Violet was first discovered in East Africa's Usambara Mountains in 1892, by Baron Walter von Saint Paul-Illaire, a German district officer living in what is now Tanzania. He sent seeds to his father in Germany, where the plant acquired the botanical name, Saintpaulia. Today, there are 21 species, six variants and two natural hybrids of the African Violet known to growers. The genus's seemingly endless variety includes more than 1,000 hybrids developed and registered by Canadians. Its ease of care and extensive selection considered, it's no wonder the African Violet is the most popular houseplant in the world.)
+PAGE_TEXT ("Picasso", hybridized by Michel Tremblay, is a heavy bloomer with double flowers that are violet above and white below, with some variable white fantasy. "In violet world, 'fantasy' refers to the lines or dots on a flower's petals," explains Monique Beaucage, President, SSM. "Decelles' Avalanche" was named after its hybridizer, Yvon Decelles. It has semi-double red-fuchsia star blooms and medium green and cream variegated foliage.)
+
+SPACE(15)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Picasso & Decelles' Avalanche, 53, 33, 3, , African Violets, 2 x P, , S ...., , March 2010)
+ROW_END
+
+SPACE(10)
+ROW_START (ES, TOP, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 120, 82, 4, , , Souvenir Sheet, 2 x 54c, S ...., , March 2010)
+ROW_END
+
+
+# ------------------------------------------------------------------------------
+# Page 13 - Flowers, definitive, 2004 - 2010
+# ------------------------------------------------------------------------------
+
+PAGE_START							
+
+SPACE (15)
+FONT (Century Gothic, 16, italic)
+PAGE_TEXT_CENTRE (Flowers, definitive, 2004 - 2010)
+
+SPACE(15)
+FONT (Century Gothic, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Coil Stamps, Self-Adhesive ~)
+SPACE(5)
+ROW_START (FS, BOTTOM, 10.5, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Red Calla Lily, 24, 21, 3, , , Domestic, 50c, S 2072, , December 2004)
+  STAMP_ADD(Yellow Calla Lily, 24, 21, 3, , , U.S., 85c, S 2073, , December 2004)
+  STAMP_ADD(Dutch Iris, 24, 21, 3, , , International, $1.45, S 2074, , December 2004)
+ROW_END
+SPACE(5)
+ROW_START (ES, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Red Bergamot, 24, 21, 3, , , Domestic, 51c, S 2128, , December 2005)
+  STAMP_ADD(Yellow Lady's Slipper, 24, 21, 3, , , U.S., 89c, S 2129, , December 2005)
+  STAMP_ADD(Pink Fairy Slipper, 24, 21, 3, , , Oversize, $1.05, S 2130, , December 2005)
+  STAMP_ADD(Himalayan Blue Poppy, 24, 21, 3, , , International, $1.49, S 2131, , December 2005)
+ROW_END
+SPACE(5)
+ROW_START (ES, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Spotted Coralroot, 24, 21, 3, , , Domestic, P, S 2187, , November 2006)
+  STAMP_ADD(Flat-leaved Bladderwort, 24, 21, 3, , , U.S., 93c, S 2195, , December 2006)
+  STAMP_ADD(Marsh Skullcap, 24, 21, 3, , , Oversize, $1.10, S 2196, , December 2006)
+  STAMP_ADD(Little Larkspur, 24, 21, 3, , , International, $1.55, S 2197, , December 2006)
+ROW_END
+SPACE(5)
+ROW_START (ES, BOTTOM, 8, 1, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Odontioda, 24, 0, 3, , , , , , , )
+  STAMP_ADD(Potinara Janet Elizabeth, 24, 0, 3, , , , , , , )
+  STAMP_ADD(Laeliocattleya Memoria, 24, 0, 3, , , , , , , )
+  STAMP_ADD(Masdevallia Kaleidoscope, 24, 0, 3, , , , , , , )
+ROW_END
+SPACE(-10)
+ROW_START (ES, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Island Red, 24, 21, 3, , , Domestic, P, S 2244, , December 2007)
+  STAMP_ADD("Fire Dancer", 24, 21, 3, , , U.S., 96c, S 2245, , December 2007)
+  STAMP_ADD(Evelyn Light, 24, 21, 3, , , Oversize, $1.15, S 2246, , December 2007)
+  STAMP_ADD("Conni", 24, 21, 3, , , International, $1.60, S 2247, , December 2007)
+ROW_END
+SPACE(5)
+ROW_START (ES, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Striped Coralroot, 24, 21, 3, , , Domestic, P, S ...., , January 2010)
+  STAMP_ADD(Giant Helleborine, 24, 21, 3, , , U.S., $1, S ...., , January 2010)
+  STAMP_ADD(Grass Pink , 24, 21, 3, , , Oversize, $1.22, S ...., , January 2010)
+  STAMP_ADD(Rose Pogonia, 24, 21, 3, , , International, $1.70, S ...., , January 2010)
+ROW_END
+
+
+# ------------------------------------------------------------------------------
+# Page 14 - Flowers, definitive, 2004 - 2010
+# ------------------------------------------------------------------------------
+
+PAGE_START							
+
+SPACE (15)
+FONT (Century Gothic, 16, italic)
+PAGE_TEXT_CENTRE (Flowers, definitive, 2006 - 2007)
+
+SPACE(15)
+FONT (Century Gothic, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Souvenir Sheets ~)
+SPACE(5)
+ROW_START (FS, BOTTOM, 10.5, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 120, 72, 4, , Souvenir Sheet, Canadian Wildflowers, Definitives, S ...., , December 20046)
+ROW_END
+SPACE(5)
+ROW_START (FS, BOTTOM, 10.5, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 120, 72, 4, , Souvenir Sheet, Orchids, Definitives, S ...., , December 2007)
+ROW_END
+
+
+# ------------------------------------------------------------------------------
+# Page 15 - Flowers, definitive, 2004 - 2010
+# ------------------------------------------------------------------------------
+
+PAGE_START							
+
+SPACE (15)
+FONT (Century Gothic, 16, italic)
+PAGE_TEXT_CENTRE (Flowers, definitive, 2010)
+
+SPACE(15)
+FONT (Century Gothic, 12, italic+bold)
+PAGE_TEXT_CENTRE (~ Souvenir Sheets ~)
+SPACE(5)
+ROW_START (FS, BOTTOM, 10.5, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 120, 72, 4, , Souvenir Sheet, Orchids, Definitives, S ...., , January 2010)
+ROW_END
+
+
+# ------------------------------------------------------------------------------
+# Page 16 - Canadian Universities, 2002 - 2010
+# ------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Century Gothic, 16, italic)
+PAGE_TEXT_CENTRE (Canadian Universities, 2002)
+
+SPACE(35)
+ROW_START (FS, BOTTOM, 15, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(University of Manitoba\, 1877-2002, 45, 36, 3, , , University of Manitoba, 48c, S 1941, , February 2002)
+  STAMP_ADD(Université Laval\, 1852-2002, 45, 36, 3, , , Université Laval, 48c, S 1942, , April 2002)
+ROW_END
+
+SPACE(10)
+ROW_START (FS, BOTTOM, 15, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(University of Trinity College\, 1852-2002, 45, 36, 3, , , University of Trinity College, 48c, S 1942, , April 2002)
+  STAMP_ADD(Saint Mary's University\, 1802-2002, 45, 36, 3, , , Saint Mary's University, 48c, S 1943, , May 2002)
+ROW_END
+
+#SPACE (10)
+#FONT (Century Gothic, 10, italic+bold)
+#PAGE_TEXT (University of Manitoba)
+#FONT (Century Gothic, 10, italic)
+#PAGE_TEXT(On February 28, 1877, western Canada's first university was established, with instruction offered through three existing colleges: St. Boniface College (Catholic); St. John's College (Anglican); and Manitoba College (Presbyterian). Today, the University of Manitoba has a student body of approximately 21,000 in total, with 22 faculties on two campuses offering over 100 different areas of study at the undergraduate level in addition to graduate and professional programs.)
+
+#SPACE(5)
+#FONT (Century Gothic, 10, italic+bold)
+#PAGE_TEXT (Université Laval)
+#FONT (Century Gothic, 10, italic)
+#PAGE_TEXT(In 1663, Msgr. François de Montmorency Laval founded the Séminaire de Québec. In 1852, priests from that institution founded Université Laval - which was granted a charter by Queen Victoria later that year, making it the first North American institution to offer post-secondary education in French. Today, Université Laval has a student population of more than 35,000 and offers over 350 programs. The institution remains at the forefront of the internationalization of teaching and research.)
+
+#SPACE(5)
+#FONT (Century Gothic, 10, italic+bold)
+#PAGE_TEXT (University of Trinity College)
+#FONT (Century Gothic, 10, italic)
+#PAGE_TEXT(Incorporated by an act of the Legislature of the Province of Canada on August 2nd, 1851, and opened on January 15th, 1852, Trinity College owes its existence to John Strachan, the first Anglican Bishop of Toronto. In 1904, Trinity College amalgamated with the University of Toronto, and eventually moved to the University campus at Queen's Park (now known as the St. George campus). In 1925, Trinity College moved to its present location on Hoskin Avenue. Today, the student body of the University of Trinity College numbers approximately 1,450. One of the unique aspects of life at the University of Trinity College is that students regularly wear undergraduate robes on an ordinary day during the course of undergraduate studies, especially when attending Chapel, dining at Strachan Hall, and attending College events and meetings. This practice is in keeping with a long and venerable academic tradition of the College.)
+
+#SPACE(5)
+#FONT (Century Gothic, 10, italic+bold)
+#PAGE_TEXT (Saint Mary's University)
+#FONT (Century Gothic, 10, italic)
+#PAGE_TEXT(Founded in 1802, Saint Mary's University is the oldest English-speaking Roman Catholic initiated university in Canada. Today, Saint Mary's has evolved into a complex urban university offering a full range of undergraduate degrees and elected graduate studies. More than 7,100 full- and part-time students attend Saint Mary's University.)
+
+
+# ------------------------------------------------------------------------------
+# Page 17 - Canadian Universities, 2002 - 2010
+# ------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (15)
+FONT (Century Gothic, 16, italic)
+PAGE_TEXT_CENTRE (Canadian Universities, 2003 - 2004)
+
+SPACE(0)
+ROW_START (FS, BOTTOM, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD( Bishop's University\, 1853-2003, 36, 45, 3, , , Bishop's University, 48c, S 1973, , January 2003)
+  STAMP_ADD(The University of Western Ontario\, 1878-2003, 36, 45, 3, , , The University of Western Ontario, 48c, S 1974, , March 2002)
+ROW_END
+
+SPACE(0)
+ROW_START (FS, BOTTOM, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD( St. Francis Xavier University\, 1853-2003, 36, 45, 3, , ,  St. Francis Xavier University, 48c, S 1975, , April 2003)
+  STAMP_ADD(Macdonald Institute\, 1903-2003, 36, 45, 3, , , Macdonald Institute, 48c, S 1976, , June 2003)
+  STAMP_ADD(Université de Montréal\, 1878-2003, 36, 45, 3, , , Université de Montréal, 48c, S 1977, , September 2003)
+ROW_END
+
+SPACE(0)
+ROW_START (FS, BOTTOM, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Sherbrooke University\, 1954-2004, 36, 45, 3, , , Sherbrooke University, 49c, S 2033, , May 2004)
+  STAMP_ADD(University of Prince Edward Island\, 1804-2004, 36, 45, 3, , , University of Prince Edward Island, 49c, S 2034, , May 2004)
+ROW_END
+
+
+
+
+
+
+

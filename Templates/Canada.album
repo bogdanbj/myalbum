@@ -1,0 +1,524 @@
+﻿<MyAlbum ver="3.0">
+	<styles>
+		<!-- BORDER
+		type: none, single, double, white ace, custom
+		width: line1, space, line2
+		padding: top, right, bottom, left
+		-->
+		<border style="stamp_frame" default="true" border_type="double" width="0.4, 0.3, 0.1" margin="0,0,0,0" padding="3, 3, 3, 3" color="0,0,0" background-color="255,255,255" />
+		<border style="page_border" default="false" border_type="double" width="0.5, 0.5, 0.2" margin="0,0,0,0" padding="0, 6, 0, 6" />
+		<border style="white_ace_page" default="false" border_type="white_ace_page" margin="0,0,0,0" padding="3, 3, 3, 3" color="67,143,189" background-color="255,255,255" />
+		<border style="white_ace_stamp" default="false" border_type="white_ace_stamp" width="0.2, 0.9, 0.2" margin="0,0,0,0" padding="3, 3, 3, 3" color="48, 48, 48" background-color="255,255,255" />
+
+		<!-- TEXT
+		font_size: double
+		font_style: bold, bolditalic, italic, regular, strikeout, underline
+		align: left, center, right
+		valign: top, center, bottom
+		-->
+		<text style="text_default" default="true" align="left" font_name="Century Gothic" font_size="8"/>
+		<text style="story" justify="true" align="center" font_name="Folio" font_size="8"/>
+		<text style="italic" justify="true" align="center" font_name="Garamond" font_size="8" font_style="italic"/>
+		<text style="headline" justify="false" align="center" font_name="Stymie Becker Light" font_size="14"/>
+		<text style="date" justify="true" align="center" font_name="Lubalin Graph" font_size="6" font_style="bold"/>
+		<text style="title" align="center" font_name="Stymie Becker Light" font_size="10"/>
+		<text style="inside" align="center" font_name="Stymie Becker Light" font_size="6" width="80%"/>
+		<text style="footer_left" justify="true" align="left" font_name="Garamond" font_size="8" font_style="italic" />
+		<text style="footer_center" justify="true" align="center" font_name="Garamond" font_size="8" font_style="italic" width="80%" />
+		<text style="footer_right" justify="true" align="right" font_name="Garamond" font_size="8" font_style="italic" />
+
+		<!-- IMAGE
+		-->
+		<image style="stamp_image" default="true" color="false" />
+
+		<!-- STAMP
+		-->
+		<stamp style="stamp_default" default="true" vspace="1">
+			<border style="stamp_frame" />
+			<!--border style="white_ace_stamp" /-->
+			<image style="image_default" margin="2,2,2,2" />
+			<title style="title" />
+			<inside1 style="inside" />
+			<inside2 style="inside" />
+			<inside3 style="inside" />
+			<footer1 style="footer_left" />
+			<footer2 style="footer_center" />
+			<footer3 style="footer_right" />
+		</stamp>
+
+		<!-- ROW
+		spacing: FS (fixed space), ES (equal spacing), JS (justified spacing)
+		-->
+		<row style="stamp_FS" default="true" align="center" valign="center" spacing-mode="FS" space="6" />
+		<row style="page_header" default="false" align="center" valign="top" spacing-mode="FS" space="8" />
+
+		<!-- COLUMN
+		-->
+		<column style="default_column" default="true" align="center" space="1"/>
+
+		<!-- PAGE
+		orientation: portrait, landscape
+		size: letter, A4
+		margin: top, right, bottom, left
+		-->
+		<page style="portrait" default="true" orientation="portrait" size="letter" margin="7,7,7,7"  color="48,48,48" vspace="1">
+			<banner file_name="" />
+			<border style="page_border" />
+			<row style="page_header">
+			<text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
+			</row>
+			<row height="10" />
+		</page>
+		<page style="landscape" default="false" orientation="landscape" size="letter" margin="7,7,7,7"  color="48,48,48" vspace="1">
+			<banner file_name="" />
+			<border style="page_border" />
+			<row style="page_header" rotate="true">
+				<text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
+			</row>
+			<row rotate="true">
+				<image absolute="true" align="left" valign="top" file_name="Pictures\Canada-Post-Logo.png" x="20" y="20" height="32" width="32" stretched="true"></image>
+			</row>
+		</page>
+	</styles>
+
+
+  <page no="1" title="QV Diamond Jubilee Issue">
+    <row height="10" />
+    <row>
+      <text style="headline">QUEEN VICTORIA JUBILEE ISSUE</text>
+    </row>
+    <row height="2" />
+    <row>
+      <text style="date">1897</text>
+    </row>
+    <row height="15" />
+    <row space="14">
+      <stamp width="34" height="25" title="" image="" i1="1/2c" i2="black" i3="S 50" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="1c" i2="orange" i3="S 51" f1="" f2="" f3="" />
+    </row>
+    <row height="15" />
+    <row space="14">
+      <stamp width="34" height="25" title="" image="" i1="2c" i2="green" i3="S 52" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="3c" i2="bright rose" i3="S 53" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="5c" i2="deep blue" i3="S 54" f1="" f2="" f3="" />
+    </row>
+    <row height="15" />
+    <row space="14">
+      <stamp width="34" height="25" title="" image="" i1="6c" i2="yellow brown" i3="S 55" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="8c" i2="dark violet" i3="S 56" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="10c" i2="brown violet" i3="S 57" f1="" f2="" f3="" />
+    </row>
+    <row height="10" />
+    <row>
+			<text style="story" width="150">This issue honors the sixtieth year of reign for Alexandria Victoria, Queen of the United Empire of Great Britain and Ireland, empress of India. She acceded to the trone in 1827 and brought with her an era rich in Empire history. She was honest, devoted to her duty and a shining example of a happy family life. Her reign was the longest in British History.</text>
+    </row>
+  </page>
+
+  <page no="2" title="QV Diamond Jubilee Issue">
+    <row height="10" />
+    <row valign="center" space="4">
+      <text style="headline">QUEEN VICTORIA JUBILEE ISSUE</text>
+    </row>
+    <row height="2" />
+    <row valign="center" space="4">
+      <text style="date">1897</text>
+    </row>
+    <row height="15" />
+    <row space="14">
+      <stamp width="34" height="25" title="" image="" i1="15c" i2="steel blue" i3="S 58" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="20c" i2="vermilion" i3="S 59" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="50c" i2="ultramarine" i3="S 60" f1="" f2="" f3="" />
+    </row>
+    <row height="15" />
+    <row space="14">
+      <stamp width="34" height="25" title="" image="" i1="$1" i2="lake" i3="S 61" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="$2" i2="dark purple" i3="S 62" f1="" f2="" f3="" />
+    </row>
+    <row height="15" />
+    <row space="14">
+      <stamp width="34" height="25" title="" image="" i1="$3" i2="yellow bistre" i3="S 63" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="$4" i2="purple" i3="S 64" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="$5" i2="olive green" i3="S 65" f1="" f2="" f3="" />
+    </row>
+    <row height="10" />
+    <row>
+			<text style="story" width="150" >Two portraits of Queen Victoria 1837 and 1867. The portrait on the left is from a painting by Alfred Edward Chalon, R. A., and portrays Her Majesty on the occasion of the prorogation of Parliament on 17th July, 1837. This is the same portrait reproduced on the 12-pence Canadian stamp of 1851. Between the portraits on the stamps, the initials V.R.I. signify Victoria, Queen and Empress, and below are dates 1837 and 1897, the years of the Queen's accession and her Diamond Jubilee.</text>
+    </row>
+  </page>
+
+  <page no="3" title="QV Leaf Issue">
+    <row height="10" />
+    <row valign="center" space="4">
+      <text style="headline">ISSUE OF 1897</text>
+    </row>
+    <row height="25" />
+    <row space="20">
+      <stamp width="20" height="25" title="" image="" i1="1/2c" i2="black" i3="S 50" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="1c" i2="blue green" i3="S 50" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="2c" i2="purple" i3="S 50" f1="" f2="" f3="" />
+    </row>
+    <row height="15" />
+    <row space="20">
+      <stamp width="20" height="25" title="" image="" i1="3c" i2="carmine" i3="S 50" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="5c" i2="blue" i3="S 50" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="6c" i2="brown" i3="S 50" f1="" f2="" f3="" />
+    </row>
+    <row height="15" />
+    <row space="20">
+      <stamp width="20" height="25" title="" image="" i1="8c" i2="orange" i3="S 50" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="10c" i2="brown violet" i3="S 50" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="2c/3c" i2="carmine, surcharged" i3="S 50" f1="" f2="" f3="" />
+    </row>
+    <row height="10" />
+    <row>
+      <text style="story" width="150">The change of contract for the production of stamped postal supplies caused a need for new, regular postage stamps. The new contractors started work on them as soon as they finished the Diamond Jubilee Issue. As a model to work from, the engravers used a photographic portrait of Her Majesty taken at the time of her Diamond Jubilee, and approved and signed by her. Realistic maple leafs decorated all four corners of the stamps. For this reason, stamp collectors refer to them as the Maple Leaves Issue.</text>
+    </row>
+		<!--
+		<row height="5" />
+    <row>
+      <text style="story" width="150">Portrait of Her Majesty Queen Victoria, from a photograph by Messrs. W. &amp; D. Downey, of London, England, taken in 1897 for the occasion of her Diamond Jubilee.</text>
+    </row>
+		-->
+		<!--
+    <row height="5" />
+    <row>
+			<text style="story" width="150">Following the Queen Victoria Jubilee issue, a new set was placed in use bearing a maple leaf in each corner with the Queen Victoria head in a center oval.</text>
+    </rw>
+		-->
+  </page>
+
+  <page no="4" title="QV Numneral Issue">
+    <row height="10" />
+    <row valign="center" space="4">
+      <text style="headline">ISSUE OF 1898 - 1902</text>
+    </row>
+    <row height="25" />
+    <row space="10">
+      <stamp width="20" height="25" title="" image="" i1="1/2c" i2="black" i3="S 74" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="1c" i2="gray green" i3="S 75" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="2c" i2="purple" i3="S 76" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="2c" i2="carmine" i3="S 77" f1="" f2="" f3="" />
+    </row>
+    <row height="15" />
+    <row space="10">
+      <stamp width="20" height="25" title="" image="" i1="3c" i2="carmine" i3="S 78" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="5c" i2="blue" i3="S 79" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="6c" i2="brown" i3="S 80" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="7c" i2="olive yellow" i3="S 81" f1="" f2="" f3="" />
+    </row>
+    <row height="15" />
+    <row space="10">
+      <stamp width="20" height="25" title="" image="" i1="8c" i2="orange" i3="S 82" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="10c" i2="brown violet" i3="S 83" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="20c" i2="olive green" i3="S 84" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="2c/3c" i2="carmine, surcharged" i3="S 88" f1="" f2="" f3="" />
+    </row>
+    <row height="10" />
+    <row>
+      <text style="story" width="150">The decorative and symbolic use of the maple leaves on the Diamond Jubilee commemorative and the regular issues of 1897 met with instant public approval. But the designers of the Maple Leaves issue failed to give sufficient prominence to the denominations in words rather than figures. As a result, the public was not able to distinguish the face values quickly. The Post Office Department accordingly modified the design and prepared a new issue of postage stamps.</text>
+    </row>
+    <!--
+		<row height="10" />
+    <row>
+      <text style="story" width="150" align="left">The reduction of the domestic letter rate from three to two cents per ounce, effective 1st January, 1899, found the Post Office Department with large stocks of the 3-cent carmine stamps. In order to utilize them and prevent confusion with the forthcoming 2-cent carmine issue, the Department instructed the manufacturers to overprint the 3-cent stamps with a surcharge in one line reducing the face value to two cents. The surcharge was arranged in a distinctive manner, concave at the top, so as to obliterate effectually the original words and numerals value.</text>
+    </row>
+    <row height="3" />
+    <row space="10">
+      <stamp width="20" height="25" title="" image="" i1="2c/3c" i2="carmine, surcharged" i3="S 50" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="2c/3c" i2="carmine, surcharged" i3="S 88" f1="" f2="" f3="" />
+    </row>
+		-->
+  </page>
+
+  <page no="5" title="Imperial Penny Postage &amp; King Edward VII">
+    <row height="10" />
+    <row valign="top" space="25">
+      <column width="90">
+        <row valign="center" space="4">
+          <text style="headline">IMPERIAL PENNY POSTAGE ISSUE</text>
+        </row>
+        <row height="2" />
+        <row valign="center" space="4">
+          <text style="date">1898</text>
+        </row>
+        <row height="3" />
+        <row space="8">
+          <stamp width="35" height="26" title="" image="" i1="2c" i2="black, lavender, carmine" i3="S 85" f1="" f2="" f3="" />
+          <stamp width="35" height="26" title="" image="" i1="2c" i2="black, blue, carmine" i3="S 86" f1="" f2="" f3="" />
+        </row>
+        <row height="0" />
+        <row>
+          <!--text style="story" width="90">These stamps were issued on December 7, 1898 to commemorate the London Conference that month, which established the one penny rate for mail being sent within the British Empire. The Mercator Projection map of the world highlights the territoties of the widespread British Empire. The stamps were produced by engraving and typography.</text-->
+          <text style="story" width="90">"We Hold a Vaster Empire Than Has Been" is inscribed on these stamps to commemorate the London Conference on Xmas Day establishing the one penny rate for all the Empire.</text>
+        </row>
+      </column>
+      <column width="41">
+        <row valign="center" space="4">
+          <text style="headline" width="80">SPECIAL DELIVERY ISSUE</text>
+        </row>
+        <row height="2" />
+        <row valign="center" space="4">
+          <text style="date">1898</text>
+        </row>
+        <row height="3" />
+        <row>
+          <stamp width="35" height="26" title="" image="" i1="10c" i2="green" i3="S E1" f1="" f2="" f3="" />
+        </row>
+      </column>
+    </row>
+    <row height="25" />
+    <row valign="center" space="4">
+      <text style="headline">ISSUE OF 1903 - 1908</text>
+    </row>
+    <row height="10" />
+    <row space="10">
+      <stamp width="20" height="25" title="" image="" i1="1c" i2="gray green" i3="S 75" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="2c" i2="purple" i3="S 76" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="2c" i2="carmine" i3="S 77" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="3c" i2="carmine" i3="S 78" f1="" f2="" f3="" />
+    </row>
+    <row height="5" />
+    <row space="10">
+      <stamp width="20" height="25" title="" image="" i1="5c" i2="blue" i3="S 79" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="6c" i2="brown" i3="S 80" f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="7c" i2="olive yellow" i3="S 81" f1="" f2="" f3="" />
+    </row>
+    <row height="3" />
+    <row>
+      <text style="story" width="130">Following the death of Queen Victoria, King Edward VII ascended to the trone of Great Britain. This set issued in 1903, bears the likeliness of the new King and was the only regular postage issue of Canada to honor him.</text>
+    </row>
+  </page>
+
+  <page no="6" title="Quebec Tercentenary Issue">
+    <row height="10" />
+    <row valign="center" space="4">
+      <text style="headline">QUEBEC TERCENTENARY ISSUE</text>
+    </row>
+    <row height="2" />
+    <row valign="center" space="4">
+      <text style="date">1908</text>
+    </row>
+    <row height="15" />
+    <row space="14">
+      <stamp width="37" height="26" title="" image="" i1="1/2c" i2="black brown" i3="S 96" f1="" f2="Prince and Princess of Wales" f3="" />
+      <stamp width="37" height="26" title="" image="" i1="1c" i2="blue green" i3="S 97" f1="" f2="Jacques Cartier and Samuel de Champlain" f3="" />
+    </row>
+    <row height="15" />
+    <row space="14">
+      <stamp width="37" height="26" title="" image="" i1="2c" i2="carmine" i3="S 98" f1="" f2="Queen Alexandra and King Edward" f3="" />
+      <stamp width="37" height="26" title="" image="" i1="5c" i2="daark blue" i3="S 99" f1="" f2="Champlain’s Home in Quebec" f3="" />
+      <stamp width="37" height="26" title="" image="" i1="7c" i2="olive green" i3="S 100" f1="" f2="Generals Montcalm and Wolfe" f3="" />
+    </row>
+    <row height="15" />
+    <row space="14">
+      <stamp width="37" height="26" title="" image="" i1="10c" i2="dark violet" i3="S 101" f1="" f2="View of Quebec in 1700" f3="" />
+      <stamp width="37" height="26" title="" image="" i1="15c" i2="red orange" i3="S 102" f1="" f2="Champlain’s Departure for West" f3="" />
+      <stamp width="37" height="26" title="" image="" i1="20c" i2="yellow brown" i3="S 103" f1="" f2="Arrival of Cartier at Quebec" f3="" />
+    </row>
+    <row height="10" />
+    <row>
+      <text style="story" width="150">Quebec, Capital of the Province of Quebec was originally an Indian village called Stadacona and discovered in 1535 by French explorer Jacques Cartier. The present city is founded in 1608 by the French explorer and navigator Samuel de Champlain. Champlain and his crew built a wooden fort which they called "l'habitation" within only a few days of their arrival. This early fort and trading post exists today as a historic site in Old Quebec.</text>
+    </row>
+  </page>
+
+  <page no="7" title="KGV Admiral Issue">
+    <row height="10" />
+    <row valign="center" space="4">
+      <text style="headline">ISSUE OF 1911 - 1925</text>
+    </row>
+    <row height="10" />
+    <row>
+      <stamp width="20" height="25" title="" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+    </row>
+    <row height="5" />
+    <row space="10">
+      <stamp width="20" height="25" title="" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+    </row>
+    <row height="5" />
+    <row space="10">
+      <stamp width="20" height="25" title="" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+    </row>
+    <row height="5" />
+    <row space="10">
+      <stamp width="20" height="25" title="" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+    </row>
+    <row height="5" />
+    <row space="10">
+			<column width="62">
+				<row>
+					<text style="title">Surcharged</text>
+				</row>
+				<row height="-2" />
+				<row space="10">
+					<stamp width="20" height="25" title="" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+					<stamp width="20" height="25" title="" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+				</row>
+			</column>
+			<column width="0" />
+			<column width="26">
+				<stamp width="20" height="25" title="Perforated 12x8" image="" i1="c" i2="" i3="S " f1="" f2="" f3="" />
+			</column>
+    </row>
+  </page>
+
+
+
+
+<!--
+  
+  <page no="2" title="Provincial and territorial flags">
+    <row height="5"/>
+    <row valign="bottom">
+      <column width="43" space="5">
+        <stamp width="37" height="31" i1="17c" i2="S 821" f2="Ontario" />
+        <stamp width="37" height="31" i1="17c" i2="S 824" f2="New Brunswick" />
+        <stamp width="37" height="31" i1="17c" i2="S 827" f2="Prince Edward Island" />
+        <stamp width="37" height="31" i1="17c" i2="S 830" f2="Newfoundland" />
+      </column>
+      <column width="43">
+        <row>
+          <column margin="0,-5,0,-5">
+            <text style="headline">PROVINCIAL and\nTERRITORIAL FLAGS</text>
+            <text style="date">1979</text>
+          </column>
+        </row>
+        <stamp width="37" height="31" i1="17c" i2="S 822" f2="Quebec" />
+        <stamp width="37" height="31" i1="17c" i2="S 825" f2="Manitoba" />
+        <stamp width="37" height="31" i1="17c" i2="S 828" f2="Saskatchewan" />
+        <stamp width="37" height="31" i1="17c" i2="S 831" f2="Northwest Territories" />
+      </column>
+      <column width="43" space="5">
+        <stamp width="37" height="31" i1="17c" i2="S 823" f2="Nova Scotia" />
+        <stamp width="37" height="31" i1="17c" i2="S 826" f2="British Columbia" />
+        <stamp width="37" height="31" i1="17c" i2="S 829" f2="Alberta" />
+        <stamp width="37" height="31" i1="17c" i2="S 832" f2="Yukon Territory" />
+      </column>
+    </row>
+  </page>
+   
+  <page no="3" title="Earth Science">
+    <row height="5"/>
+    <row valign="bottom">
+      <column space="1" width="46" align="center">
+        <text style="headline">WORLD HEALTH\nDAY</text>
+        <text style="date">1972</text>
+        <stamp width="40" height="25" i1="8c" i2="S 560" f2="Figure of a Heart" />
+      </column>
+      <column space="1" width="40" align="center">
+        <text style="headline">FIGURE SKATING</text>
+        <text style="date">1972</text>
+        <stamp width="30" height="36" i1="8c" i2="S 559" f2="Figure Skaters" />
+      </column>
+      <column space="1" width="46" align="center">
+        <text style="headline">GOVERNOR\nFRONTENAC</text>
+        <text style="date">1972</text>
+        <stamp width="40" height="25" i1="8c" i2="S 561" f2="Statue of Frontenac" />
+      </column>
+    </row>
+    <row height="1" />
+    <row valign="top">
+      <column space="1" width="46" align="center">
+        <text style="story" width="36">Designed by Joyce Wieland of Toronto, the stamp incorporates the figure of a heart in keeping with the theme for 1972 World Health Day, "Your Heart is Your Health."</text>
+      </column>
+      <column space="1" width="40" align="center">
+        <text style="story" width="36">Issued to commemorate the World Figure Skating Championships held in the City of Calgary from March 6th to 12th. The first international skating competition was held in 1890 in St. Petersburg, Russia. It was won by Louis Rubenstein, a Canadian.</text>
+      </column>
+      <column space="1" width="46" align="center">
+        <text style="story" width="36">A man of bold and dynamic personality, Frontenac was an influential figure in the early history of Canada. He is best remembered as the architect of French development in North America and the defender of New France.</text>
+      </column>
+    </row>
+    <row height="5" />
+    <row valign="center">
+      <column width ="36" space="10">
+        <stamp width="30" height="30" i1="15c" i2="S 582" f2="Faulted Strats of Earth Crust" />
+        <stamp width="30" height="30" i1="15c" i2="S 584" f2="Geometry of Aerial Photography" />
+      </column>
+      <column width ="66">
+        <text style="headline">EARTH SCIENCES</text>
+        <text style="date">1972</text>
+        <stamp width="60" height="60" i1="4x15c" i2="S 582a" />
+        <text style="story" width="64">Four stamps representing the sciences of Photogrammetry, Carthography, Geology and Geography were issued on August 2nd in recognition of four scientific congresses: the 24th International Geological Congress, the 22nd International Geographical Congress, the 12th Congress of the International Society of Photogrammetry and the 6th Congress of the International Catography Association.</text>
+      </column>
+      <column width ="36" space="10">
+        <stamp width="30" height="30" i1="15c" i2="S 585" f2="Simplification of Mountains" />
+        <stamp width="30" height="30" i1="15c" i2="S 583" f2="Abstracted View of a Village" />
+      </column>
+    </row>
+  </page>
+  <page no="4" title="Canada Day 1985" style="white_ace_landscape_no_banner">
+    <row>
+      <column space="1" width="46" align="center">
+        <text style="headline">CANADA DAY</text>
+        <text style="date">1985</text>
+        <stamp width="208" height="78" i1="10 x 32c" i2="" i3="S 1059a" f2="" />
+      </column>
+    </row>
+    <row>
+        <stamp width="208" height="78" i1="10 x 32c" i2="" i3="S 1059a" f2="" />
+    </row>
+
+  </page>
+
+  <page no="5" style="portrait">
+    <row>
+      <text style="headline">PAGE 5</text>
+    </row>
+    <row>
+      <column space="1" width="46" align="center">
+        <text style="headline">CANADA DAY</text>
+        <text style="date">1985</text>
+        <stamp width="150" height="30" i1="10 x 32c" i2="" i3="S 1059a" f2="" >
+          <border style="stamp_frame" border_type="double, none" />
+        </stamp>
+      </column>
+    </row>
+    <row>
+      <stamp width="38" height="26" i1="10 x 32c" i2="" i3="S 1059a" f2="" >
+        <border style="stamp_frame" border_type="double, none" />
+      </stamp>
+      <stamp width="38" height="26" i1="10 x 32c" i2="" i3="S 1059a" f2="" />
+      <stamp width="38" height="26" i1="10 x 32c" i2="" i3="S 1059a" f2="" >
+        <border style="stamp_frame" border_type="none, double" />
+      </stamp>
+    </row>
+    <row>
+      <stamp width="38" height="26" i1="10 x 32c" i2="" i3="S 1059a" f2="" />
+      <stamp width="38" height="26" i1="10 x 32c" i2="" i3="S 1059a" f2="" />
+      <stamp width="38" height="26" i1="10 x 32c" i2="" i3="S 1059a" f2="" />
+    </row>
+    <row>
+      <stamp width="38" height="26" i1="10 x 32c" i2="" i3="S 1059a" f2="" >
+        <border style="stamp_frame" border_type="none, double" />
+      </stamp>
+      <stamp width="38" height="26" i1="10 x 32c" i2="" i3="S 1059a" f2="" />
+      <stamp width="38" height="26" i1="10 x 32c" i2="" i3="S 1059a" f2="" >
+        <border style="stamp_frame" border_type="double, none" />
+      </stamp>
+    </row>
+  </page>
+
+  <page no="6" title="Handcrafted Textiles" style="landscape">
+    <row>
+      <text style="headline">PAGE 6</text>
+    </row>
+    <row>
+      <image absolute="true" align="left" valign="top" file_name="Pictures\Canada-Post-Logo.png" x="20" y="20" height="32" width="32" stretched ="true"></image>
+      <image absolute="true" align="left" valign="top" file_name="Pictures\blue_shim.jpg" x="20" y="60" height="32" width="32" stretched ="true"></image>
+    </row>
+  </page>
+-->
+</MyAlbum>

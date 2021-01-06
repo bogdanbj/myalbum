@@ -1,0 +1,280 @@
+###################################################################################
+# sample AlbumEasy file. (c) 2005 Bundu Technology Ltd.
+# ---------------------------------------------------------------------------------
+# Note: the # character is used for comments, any text following the # is
+#       ignored.
+#
+# All measurements are in millimeters, except for font sizes which are points.
+###################################################################################
+
+
+# ---------------------------------------------------------------------------------
+# First setup the page elements that are common to all pages in this album.
+# ---------------------------------------------------------------------------------
+
+ALBUM_PAGES_SIZE	 (Letter)				# Letter, A4
+ALBUM_PAGES_MARGINS	 (25.0, 5.0, 5.0, 5.0)			# Top, Right, Bottom, Left
+ALBUM_PAGES_BORDER	 (0.5, 0.1, 0.5)			# Exterior, Interior, Space
+ALBUM_PAGE_TITLE_FONT	 (Calibri, 12, bold+italic)		# Bold, Italic, Regular, Underline, Strikeout
+ALBUM_PAGES_TITLE	 (C   A   N   A   D   A)
+ALBUM_PAGES_SPACING	 (6.0, 6.0, 2.0)			# LeftIndent, RightIndent, VerticalSpacing
+
+#DEFAULT_STAMP_VSPACING	  (1)					# the space between title and stamp frame
+#DEFAULT_STAMP_TITLE_FONT (Calibri, 10, cold+underline)
+#DEFAULT_STAMP_TEXT_FONT  (Calibri,  6, regular)
+#DEFAULT_STAMP_BORDER	  (0.4, 0.1, 0.3)			# Exterion, Interion, Space
+
+# ---------------------------------------------------------------------------------
+# Page 1 - Horizontal Alignment
+# ---------------------------------------------------------------------------------
+
+PAGE_START							# LAND(scape), PORT(rait)
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Horizontal Alignment)
+
+#SPACE (5)
+#FONT (Calibri, 12, italic)
+#PAGE_TEXT_CENTRE (~ ~ 50th anniv. of the Canadian Confederation. ~ ~)
+
+#SPACE (10)
+#FONT (Calibri, 10, italic)
+#PAGE_TEXT (Despite the effort put forth by Canada during the First World War, the fiftieth anniversary of Confederation on 1st July, 1867, did not pass unnoticed in 1917. As part of the program adopted for the occasion, the Dominion Cabinet approved on 13th June, the issuance of a special 3-cent stamp to commemorate the anniversary. "The Fathers of Confederation" from a photograph of the original oil painting by Robert Harris, C.M.G., R.C.A., formerly in the Railway Committee Room of the Centre Block, Parliament Building, Ottawa. It was destroyed by fire on 3rd February, 1916.)
+#PAGE_TEXT (The painting is not shown in its entirety. Eight members of the group of the original work were omitted from the stamp for reasons of space and balance in design. The omission was rectified when the subject was again used for the 2-cent stamp of the Confederation issue of 1927. The view through the windows is of the scenery and shipping on the St. Lawrence River from the old Parliament Buildings at Quebec. In the middle foreground the items are two maps rolled under a stool. A light overcoat lying on it serves as an effective composition.)
+
+#SPACE (120)
+#PAGE_TEXT_CENTRE (HN 8 "\"The Fathers of Confederation\"")
+#PAGE_TEXT (HN 1 "")
+
+SPACE (30)
+ROW_START (FS, TOP, 6, 1, 0.4, 0.1, 0.3, Calibri, 10, regular, Calibri, 6, regular)
+  STAMP_ADD(KGVI, 22, 26, 2.5, images\0249-KGVI.jpg, KGVI, 1c, green, S 249, , )
+  STAMP_ADD(Corvette, 38, 26, 2.5, images\0260-Corvette.jpg, Corvette, 20c, chocolate, S 260, , )
+  STAMP_ADD(Parliament Buildings, 26, 38, 2.5, images\0257-Buildings.jpg, Parliement Buildings, 10c, brown, S 257, , )
+ROW_END
+
+#SPACE (10)
+ROW_START (ES, TOP, 6, 1, 0.4, 0.1, 0.3, Calibri, 10, italic, Calibri, 6, regular)
+  STAMP_ADD(KGVI, 22, 26, 2, images\0249-KGVI.jpg, KGVI, 1c, green, S 249, , )
+  STAMP_ADD(Corvette, 38, 26, 2, images\0260-Corvette.jpg, Corvette, 20c, chocolate, S 260, , )
+  STAMP_ADD(Parliament Buildings, 26, 38, 2, images\0257-Buildings.jpg, Parliement Buildings, 10c, brown, S 257, , )
+ROW_END
+
+#SPACE (10)
+ROW_START (JS, TOP, 6, 1, 0.4, 0.1, 0.3, Calibri, 10, underline, Calibri, 6, regular)
+  STAMP_ADD(KGVI, 22, 26, 2, images\0249-KGVI.jpg, KGVI, 1c, green, S 249, , )
+  STAMP_ADD(Corvette, 38, 26, 2, images\0260-Corvette.jpg, Corvette, 20c, chocolate, S 260, , )
+  STAMP_ADD(Parliament Buildings, 26, 38, 2, images\0257-Buildings.jpg, Parliement Buildings, 10c, brown, S 257, , )
+ROW_END
+
+#TEST
+
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 2 - Vertical Alignment
+# ---------------------------------------------------------------------------------
+
+PAGE_START							# LAND(scape), PORT(rait)
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Vertical Alignment)
+
+#SPACE (5)
+#FONT (Calibri, 12, italic)
+#PAGE_TEXT_CENTRE (~ ~ 50th anniv. of the Canadian Confederation. ~ ~)
+
+#SPACE (10)
+#FONT (Calibri, 10, italic)
+#PAGE_TEXT (Despite the effort put forth by Canada during the First World War, the fiftieth anniversary of Confederation on 1st July, 1867, did not pass unnoticed in 1917. As part of the program adopted for the occasion, the Dominion Cabinet approved on 13th June, the issuance of a special 3-cent stamp to commemorate the anniversary. "The Fathers of Confederation" from a photograph of the original oil painting by Robert Harris, C.M.G., R.C.A., formerly in the Railway Committee Room of the Centre Block, Parliament Building, Ottawa. It was destroyed by fire on 3rd February, 1916.)
+#PAGE_TEXT (The painting is not shown in its entirety. Eight members of the group of the original work were omitted from the stamp for reasons of space and balance in design. The omission was rectified when the subject was again used for the 2-cent stamp of the Confederation issue of 1927. The view through the windows is of the scenery and shipping on the St. Lawrence River from the old Parliament Buildings at Quebec. In the middle foreground the items are two maps rolled under a stool. A light overcoat lying on it serves as an effective composition.)
+
+#SPACE (120)
+#PAGE_TEXT_CENTRE (HN 8 "\"The Fathers of Confederation\"")
+#PAGE_TEXT (HN 1 "")
+
+SPACE (30)
+PAGE_TEXT_CENTRE (~ ~ Vertical Allignment - TOP. ~ ~)
+ROW_START (ES, TOP, 6, 1, 0.4, 0.1, 0.3, Calibri, 10, underline, Calibri, 6, regular)
+  STAMP_ADD(KGVI, 22, 26, 2, images\0249-KGVI.jpg, KGVI, 1c, green, S 249, , )
+  STAMP_ADD(Corvette, 38, 26, 2, images\0260-Corvette.jpg, Corvette, 20c, chocolate, S 260, , )
+  STAMP_ADD(Parliament Buildings, 26, 38, 2, images\0257-Buildings.jpg, Parliement Buildings, 10c, brown, S 257, , )
+ROW_END
+
+PAGE_TEXT_CENTRE (~ ~ Vertical Allignment - CENTRE. ~ ~)
+ROW_START (ES, CEN, 6, 1, 0.4, 0.1, 0.3, Calibri, 10, underline, Calibri, 6, regular)
+  STAMP_ADD(KGVI, 22, 26, 2, images\0249-KGVI.jpg, KGVI, 1c, green, S 249, , )
+  STAMP_ADD(Parliament Buildings, 26, 38, 2, images\0257-Buildings.jpg, Parliement Buildings, 10c, brown, S 257, , )
+  STAMP_ADD(Corvette, 38, 26, 2, images\0260-Corvette.jpg, Corvette, 20c, chocolate, S 260, , )
+ROW_END
+
+PAGE_TEXT_CENTRE (~ ~ Vertical Allignment - BOTTOM. ~ ~)
+ROW_START (ES, BOT, 6, 1, 0.4, 0.1, 0.3, Calibri, 10, underline, Calibri, 6, regular)
+  STAMP_ADD(Parliament Buildings, 26, 38, 2, images\0257-Buildings.jpg, Parliement Buildings, 10c, brown, S 257, , )
+  STAMP_ADD(KGVI, 22, 26, 2, images\0249-KGVI.jpg, KGVI, 1c, green, S 249, , )
+  STAMP_ADD(Corvette, 38, 26, 2, images\0260-Corvette.jpg, Corvette, 20c, chocolate, S 260, , )
+ROW_END
+
+#END ALBUM
+
+# ---------------------------------------------------------------------------------
+# Page 3 - Custom Rows
+# ---------------------------------------------------------------------------------
+
+PAGE_START							# LAND(scape), PORT(rait)
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Alignment Combinations)
+
+#SPACE (5)
+#FONT (Calibri, 12, italic)
+#PAGE_TEXT_CENTRE (~ ~ 50th anniv. of the Canadian Confederation. ~ ~)
+
+#SPACE (10)
+#FONT (Calibri, 10, italic)
+#PAGE_TEXT (Despite the effort put forth by Canada during the First World War, the fiftieth anniversary of Confederation on 1st July, 1867, did not pass unnoticed in 1917. As part of the program adopted for the occasion, the Dominion Cabinet approved on 13th June, the issuance of a special 3-cent stamp to commemorate the anniversary. "The Fathers of Confederation" from a photograph of the original oil painting by Robert Harris, C.M.G., R.C.A., formerly in the Railway Committee Room of the Centre Block, Parliament Building, Ottawa. It was destroyed by fire on 3rd February, 1916.)
+#PAGE_TEXT (The painting is not shown in its entirety. Eight members of the group of the original work were omitted from the stamp for reasons of space and balance in design. The omission was rectified when the subject was again used for the 2-cent stamp of the Confederation issue of 1927. The view through the windows is of the scenery and shipping on the St. Lawrence River from the old Parliament Buildings at Quebec. In the middle foreground the items are two maps rolled under a stool. A light overcoat lying on it serves as an effective composition.)
+
+#SPACE (120)
+#PAGE_TEXT_CENTRE (HN 8 "\"The Fathers of Confederation\"")
+#PAGE_TEXT (HN 1 "")
+
+SPACE (40)
+ROW_START (FS, TOP, 60, 1, 0.4, 0.1, 0.3, Calibri, 10, underline, Calibri, 6, regular)
+  STAMP_ADD(Champlain Monument Ottawa, 38, 26, 2, images\0227-Statue.jpg, Champlain Monument, $1, deep blue, S 227, , )
+  STAMP_ADD(Corvette, 38, 26, 2, images\0260-Corvette.jpg, Corvette, 20c, chocolate, S 260, , )
+ROW_END
+
+SPACE(0)
+ROW_START (ES, TOP, 6, 1, 0.4, 0.1, 0.3, Calibri, 10, underline, Calibri, 6, regular)
+  STAMP_ADD(Parliament Buildings, 26, 38, 2, images\0257-Buildings.jpg, Parliement Buildings, 10c, brown, S 257, , )
+ROW_END
+
+SPACE(0)
+ROW_START (FS, TOP, 60, 1, 0.4, 0.1, 0.3, Calibri, 10, underline, Calibri, 6, regular)
+  STAMP_ADD(Champlain Monument Ottawa, 38, 26, 2, images\0227-Statue.jpg, Champlain Monument, $1, deep blue, S 227, , )
+  STAMP_ADD(Corvette, 38, 26, 2, images\0260-Corvette.jpg, Corvette, 20c, chocolate, S 260, , )
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 4 - Text and Borders
+# ---------------------------------------------------------------------------------
+
+PAGE_START							# LAND(scape), PORT(rait)
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (Text and Borders)
+
+#SPACE (5)
+#FONT (Calibri, 12, italic)
+#PAGE_TEXT_CENTRE (~ ~ 50th anniv. of the Canadian Confederation. ~ ~)
+
+#SPACE (10)
+#FONT (Calibri, 10, italic)
+#PAGE_TEXT (Despite the effort put forth by Canada during the First World War, the fiftieth anniversary of Confederation on 1st July, 1867, did not pass unnoticed in 1917. As part of the program adopted for the occasion, the Dominion Cabinet approved on 13th June, the issuance of a special 3-cent stamp to commemorate the anniversary. "The Fathers of Confederation" from a photograph of the original oil painting by Robert Harris, C.M.G., R.C.A., formerly in the Railway Committee Room of the Centre Block, Parliament Building, Ottawa. It was destroyed by fire on 3rd February, 1916.)
+#PAGE_TEXT (The painting is not shown in its entirety. Eight members of the group of the original work were omitted from the stamp for reasons of space and balance in design. The omission was rectified when the subject was again used for the 2-cent stamp of the Confederation issue of 1927. The view through the windows is of the scenery and shipping on the St. Lawrence River from the old Parliament Buildings at Quebec. In the middle foreground the items are two maps rolled under a stool. A light overcoat lying on it serves as an effective composition.)
+
+#SPACE (120)
+#PAGE_TEXT_CENTRE (HN 8 "\"The Fathers of Confederation\"")
+#PAGE_TEXT (HN 1 "")
+
+SPACE (30)
+ROW_START (ES, TOP, 6, 1, 0.4, 0.1, 0.3, Calibri, 10, regular, Calibri, 6, regular)
+  STAMP_ADD(KGVI, 22, 26, 2, images\x0249-KGVI.jpg, KGVI, 1c, green, S 249, , )
+  STAMP_ADD(Corvette, 38, 26, 2, images\x0260-Corvette.jpg, Corvette, 20c, chocolate, S 260, , )
+  STAMP_ADD(Parliament Buildings, 26, 38, 2, images\x0257-Buildings.jpg, Parliement Buildings, 10c, brown, S 257, , )
+ROW_END
+
+SPACE (10)
+ROW_START (ES, TOP, 6, 1, 0.1, 0, 0, Calibri, 10, italic, Calibri, 6, regular)
+  STAMP_ADD(KGVI, 22, 26, 2, images\0249-KGVI.jpg, KGVI, 1c, green, , , S 249)
+  STAMP_ADD(Corvette, 38, 26, 2, images\0260-Corvette.jpg, Corvette, 20c, chocolate, , ,S 260)
+  STAMP_ADD(Parliament Buildings, 26, 38, 2, images\0257-Buildings.jpg, Parliement Buildings, 10c, brown, , , S 257)
+ROW_END
+
+SPACE (10)
+ROW_START (ES, TOP, 6, 1, 0, 0, 0, Calibri, 10, underline, Calibri, 6, regular)
+  STAMP_ADD(KGVI, 22, 26, 2, images\0249-KGVI.jpg, KGVI, 1c, green, , S 249, )
+  STAMP_ADD(Corvette, 38, 26, 2, images\0260-Corvette.jpg, Corvette, 20c, chocolate, , S 260, )
+  STAMP_ADD(Parliament Buildings, 26, 38, 2, images\0257-Buildings.jpg, Parliement Buildings, 10c, brown, , S 257, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 4 - More Borders
+# ---------------------------------------------------------------------------------
+
+PAGE_START		# LAND(scape), PORT(rait)
+
+SPACE (15)
+FONT (Calibri, 16, italic)
+PAGE_TEXT_CENTRE (More Borders)
+
+#SPACE (5)
+#FONT (Calibri, 12, italic)
+#PAGE_TEXT_CENTRE (~ ~ 50th anniv. of the Canadian Confederation. ~ ~)
+
+#SPACE (10)
+#FONT (Calibri, 10, italic)
+#PAGE_TEXT (Despite the effort put forth by Canada during the First World War, the fiftieth anniversary of Confederation on 1st July, 1867, did not pass unnoticed in 1917. As part of the program adopted for the occasion, the Dominion Cabinet approved on 13th June, the issuance of a special 3-cent stamp to commemorate the anniversary. "The Fathers of Confederation" from a photograph of the original oil painting by Robert Harris, C.M.G., R.C.A., formerly in the Railway Committee Room of the Centre Block, Parliament Building, Ottawa. It was destroyed by fire on 3rd February, 1916.)
+#PAGE_TEXT (The painting is not shown in its entirety. Eight members of the group of the original work were omitted from the stamp for reasons of space and balance in design. The omission was rectified when the subject was again used for the 2-cent stamp of the Confederation issue of 1927. The view through the windows is of the scenery and shipping on the St. Lawrence River from the old Parliament Buildings at Quebec. In the middle foreground the items are two maps rolled under a stool. A light overcoat lying on it serves as an effective composition.)
+
+#SPACE (120)
+#PAGE_TEXT_CENTRE (HN 8 "\"The Fathers of Confederation\"")
+#PAGE_TEXT (HN 1 "")
+
+SPACE (10)
+ROW_START (ES, TOP, 6, 1, 0.4, 0.1, 0.3, Calibri, 10, regular, Calibri, 6, regular)
+  STAMP_ADD(KGVI, 22, 26, 2, images\x0249-KGVI.jpg, KGVI, 1c, green, S 249, , )
+  STAMP_ADD(KGVI, 22, 26, 2, images\x0249-KGVI.jpg, KGVI, 1c, green, S 249, , )
+  STAMP_ADD(KGVI, 22, 26, 2, images\x0249-KGVI.jpg, KGVI, 1c, green, S 249, , )
+  STAMP_ADD(KGVI, 22, 26, 2, images\x0249-KGVI.jpg, KGVI, 1c, green, S 249, , )
+  STAMP_ADD(KGVI, 22, 26, 2, images\x0249-KGVI.jpg, KGVI, 1c, green, S 249, , )
+  STAMP_ADD(KGVI, 22, 26, 2, images\x0249-KGVI.jpg, KGVI, 1c, green, S 249, , )
+ROW_END
+
+
+
+
+ROW_START (ES, TOP, 6, 1, 0.4, 0.1, 0.3, Calibri, 10, regular, Calibri, 6, regular)
+  STAMP_ADD(KGVI, 22, 26, 2, images\0249-KGVI.jpg, KGVI, 1c, green, S 249, , )
+  STAMP_ADD(Ram Tank, 38, 26, 2, images\0258-Tank.jpg, Ram Tank, 13c, green, S 258, , )
+  STAMP_ADD(Corvette, 38, 26, 2, images\0260-Corvette.jpg, Corvette, 20c, chocolate, S 260, , 2)
+ROW_END
+
+ROW_START (ES, TOP, 6, 1, 0.4, 0.1, 0.3, Calibri, 10, regular, Calibri, 6, regular)
+  STAMP_ADD(KGVI, 22, 26, 2.5, images\0249-KGVI.jpg, KGVI, 1c, green, S 249, , )
+  STAMP_ADD(Ram Tank, 38, 26, 2.5, images\0258-Tank.jpg, Ram Tank, 13c, green, S 258, , )
+  STAMP_ADD(Corvette, 38, 26, 2.5, images\0260-Corvette.jpg, Corvette, 20c, chocolate, S 260, , 2.5)
+ROW_END
+
+ROW_START (ES, TOP, 6, 1, 0.4, 0.1, 0.3, Calibri, 10, regular, Calibri, 6, regular)
+  STAMP_ADD(KGVI, 22, 26, 3, images\0249-KGVI.jpg, KGVI, 1c, green, S 249, , )
+  STAMP_ADD(Ram Tank, 38, 26, 3, images\0258-Tank.jpg, Ram Tank, 13c, green, S 258, , )
+  STAMP_ADD(Corvette, 38, 26, 3, images\0260-Corvette.jpg, Corvette, 20c, chocolate, S 260, , 3)
+ROW_END
+
+ROW_START (ES, TOP, 6, 1, 0.4, 0.1, 0.3, Calibri, 10, regular, Calibri, 6, regular)
+  STAMP_ADD(KGVI, 22, 26, 3.5, images\0249-KGVI.jpg, KGVI, 1c, green, S 249, , )
+  STAMP_ADD(Ram Tank, 38, 26, 3.5, images\0258-Tank.jpg, Ram Tank, 13c, green, S 258, , )
+  STAMP_ADD(Corvette, 38, 26, 3.5, images\0260-Corvette.jpg, Corvette, 20c, chocolate, S 260, , 3.5)
+ROW_END
+
+
+
+
+
+
+
+
+
+
+
+

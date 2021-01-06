@@ -1,0 +1,178 @@
+﻿<MyAlbum ver="3.0">
+  <styles>
+    <!-- BORDER
+			type: none, single, double, white ace, custom
+			width: line1, space, line2
+			padding: top, right, bottom, left
+		-->
+    <border style="stamp_frame" default="true" border_type="double" width="0.4, 0.3, 0.1" margin="0,0,0,0" padding="3, 3, 3, 3" color="0,0,0" background-color="255,255,255" />
+
+    <!-- TEXT
+			font_size: double
+			font_style: bold, bolditalic, italic, regular, strikeout, underline
+      align: left, center, right
+      valign: top, center, bottom
+		-->
+    <text style="text_default" default="true" align="left" valign="top" font_name="Century Gothic" font_size="8"/>
+    <text style="story" justify="true" align="center" valign="top" font_name="Folio" font_size="8"/>
+    <text style="italic" justify="true" align="center" valign="top" font_name="Garamond" font_size="8" font_style="italic"/>
+    <text style="headline" justify="false" align="center" valign="top" font_name="Stymie Becker Light" font_size="12"/>
+    <text style="date" justify="true" align="center" valign="top" font_name="Lubalin Graph" font_size="10" font_style="bold"/>
+    <text style="title" align="center" valign="top" font_name="Stymie Becker Light" sizefont_size="8"/>
+    <text style="inside" align="center" valign="center" font_name="Stymie Becker Light" font_size="6" width="80%"/>
+    <text style="footer" justify="true" align="center" valign="top" font_name="Garamond" font_size="8" font_style="italic" width="80%" />
+
+    <!-- IMAGE
+		-->
+    <image style="stamp_image" default="true" margin="2,2,2,2" color="false" />
+
+    <!-- STAMP
+		-->
+    <stamp style="stamp_default" default="true">
+      <border style="stamp_frame" />
+      <image style="image_default" />
+      <title style="title" />
+      <inside1 style="inside" />
+      <inside2 style="inside" />
+      <inside3 style="inside" />
+      <footer1 style="footer" />
+      <footer2 style="footer" />
+      <footer3 style="footer" />
+    </stamp>
+
+    <!-- ROW
+			spacing: FS (fixed space), ES (equal spacing), JS (justified spacing)
+		-->
+    <row style="stamp_FS" default="true" align="center" valign="top" spacing-mode="FS" space="8" />
+    <row style="page_header" default="false" align="center" valign="top" spacing-mode="FS" space="8" />
+
+    <!-- STAMP_COLUMN
+		-->
+    <stamp_column style="default_column" default="true" align="center"/>
+
+    <!-- PAGE
+			orientation: portrait, landscape
+			size: letter, A4
+			margin: top, right, bottom, left
+		-->
+    <page style="portrait_default" default="true" orientation="portrait" size="letter" margin="7,7,7,7" color="128,128,128" vspace="1">
+      <!--border style="page_border" width="0.5, 0.5, 0.1" padding="0, 6, 0, 6" /-->
+      <border style="page_border" width="0.5, 1.0, 0.1" padding="0, 6, 0, 6" />
+      <row style="page_header">
+        <text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
+      </row>
+    </page>
+  </styles>
+
+
+  <page no="1" title="Postage Stamp Centenary">
+    <row height="30" />
+
+    <row valign="center">
+      <block width="40">
+        <row>
+          <text style="headline">POSTAGE STAMP CENTENARY</text>
+        </row>
+        <row>
+          <text style="date">1951</text>
+        </row>
+      </block>
+      <stamp width="38" height="26" image="" title="" i1="4c" i2="dark gray" i3="S 311" f1="" f2="Mail Trains, 1851 and 1951" f3="" />
+      <text style="story" width="40" font_size="6">The British North American postal administration began in 1851 when Canada's first stamps were issued, one showing a beaver and the others Queen Victoria and Prince Albert. This set marks the centenary anniversary of Canadian postage stamps. It was issued September 24, 1951</text>
+    </row>
+
+    <row height="10" />
+    <row valign="bottom" space="15">
+      <stamp width="38" height="26" i1="5c" i2="purple" i3="S 312" f2="Steamships"/>
+      <stamp width="25" height="22" i1="15c" i2="bright red" i3="S 314" f2="First Stamp of Canada" />
+      <stamp width="38" height="26" i1="7c" i2="dark deep blue" i3="S 313" f2="Mail Coach and Mail Plane" />
+    </row>
+
+    <row height="10" />
+    <row valign="center">
+      <text style="story" valign="bottom" width="40" font_size="6">The stamp which was produced by a combination of the engraving and lithography printing methods, was issued on July 26, 1952. It commemorates the 18th International Red Cross Conference, which convened in Toronto, Ontario during July of 1952</text>
+      <stamp width="38" height="26" i1="4c" i2="blue &amp; red" i3="S 317" f2="Red Cross and Clouds" />
+      <block valign="top" width="40">
+        <row>
+          <text style="headline" align="left">RED CROSS</text>
+        </row>
+        <row>
+          <text style="date" align="left">1952</text>
+        </row>
+      </block>
+    </row>
+    <row>
+      <text style="headline">PRIME MINISTERS</text>
+    </row>
+    <row>
+      <stamp_column>
+        <text style="date" width="22"  value="1951" />
+        <stamp width="22" height="26" image="Pictures\borden.jpg" i1="3c" i2="turquoise green" i3="S 303" f2="Prime Mister Borden" />
+      </stamp_column>
+      <stamp_column>
+        <text style="date" width="22" value="1951" />
+        <stamp width="22" height="26" image="Pictures\king.jpg" i1="4c" i2="rose pink" i3="S 304" f2="Prime Mister King" />
+      </stamp_column>
+      <stamp_column>
+        <text style="date" width="22" value="1952" />
+        <stamp width="22" height="26" image="Pictures\abbott.jpg" i1="3c" i2="rose lilac" i3="S 318" f2="Sir john Abbott" />
+      </stamp_column>
+      <stamp_column>
+        <text style="date" width="22" value="1952" />
+        <stamp width="22" height="26" image="Pictures\mackenzie.jpg" i1="4c" i2="orange vermilion" i3="S 319" f2="Alexander Mackenzie" />
+      </stamp_column>
+    </row>
+    <row margin="0,25,0,25">
+      <text style="story">These stamps pay tribute to Canadian Prime Ministers. Sir John Abbott became the head of Canda's government in 1891; Alexander Mackenzie served from 1873 to 1878; Sir Robert Laird Borden became Prime Minister in 1911; and W. L. Mackenzie King served in three different occasions as Prime Minister: 1921-6; 1926-30; 1935-48. Mackenzie headed Canada's first Liberal administration; King also was a Liberal leader. The Borden and King stamps were issued June 25, 1951; the Abbott and Mackenzie adhesives November3, 1952</text>
+    </row>
+  </page>
+
+  <page no="2">
+    <row height="10"/>
+    <row valign="bottom">
+      <stamp_column space="14">
+        <stamp width="37" height="31" i1="17c" i2="S 821" f2="Ontario"/>
+        <stamp width="37" height="31" i1="17c" i2="S 824" f2="New Brunswick"/>
+        <stamp width="37" height="31" i1="17c" i2="S 827" f2="Prince Edward Island"/>
+        <stamp width="37" height="31" i1="17c" i2="S 830" f2="Newfoundland"/>
+      </stamp_column>
+      <stamp_column space="6" width="40" align="center">
+        <block>
+          <row>
+            <text style="headline">PROVINCIAL and\nTERRITORIAL FLAGS</text>
+          </row>
+          <row>
+            <text style="date">1979</text>
+          </row>
+        </block>
+        <stamp width="37" height="31" i1="17c" i2="S 822" f2="Quebec"/>
+        <stamp width="37" height="31" i1="17c" i2="S 825" f2="Manitoba"/>
+        <stamp width="37" height="31" i1="17c" i2="S 828" f2="Saskatchewan"/>
+        <stamp width="37" height="31" i1="17c" i2="S 831" f2="Northwest Territories"/>
+      </stamp_column>
+      <stamp_column space="14">
+        <stamp width="37" height="31" i1="17c" i2="S 823" f2="Nova Scotia"/>
+        <stamp width="37" height="31" i1="17c" i2="S 826" f2="British Columbia"/>
+        <stamp width="37" height="31" i1="17c" i2="S 829" f2="Alberta"/>
+        <stamp width="37" height="31" i1="17c" i2="S 832" f2="Yukon Territory"/>
+      </stamp_column>
+    </row>
+  </page>
+<!--  
+  <page no="3">
+    <row>
+      <text style="headline">PAGE 3</text>
+    </row>
+  </page>
+  <page no="4">
+    <row>
+      <text style="headline">PAGE 4</text>
+    </row>
+  </page>
+  <page no="5">
+    <row>
+      <text style="headline">PAGE 5</text>
+    </row>
+  </page>
+-->
+</MyAlbum>

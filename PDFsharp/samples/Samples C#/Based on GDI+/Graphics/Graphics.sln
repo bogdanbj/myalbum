@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics", "Graphics.csproj", "{644AE77B-7914-4B2C-A57C-20D60C9180E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{644AE77B-7914-4B2C-A57C-20D60C9180E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{644AE77B-7914-4B2C-A57C-20D60C9180E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{644AE77B-7914-4B2C-A57C-20D60C9180E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{644AE77B-7914-4B2C-A57C-20D60C9180E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

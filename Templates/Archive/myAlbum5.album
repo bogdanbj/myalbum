@@ -1,0 +1,1724 @@
+###################################################################################
+# sample AlbumEasy file. (c) 2005 Bundu Technology Ltd.
+# ---------------------------------------------------------------------------------
+# Note: the # character is used for comments, any text following the # is
+#       ignored.
+#
+# All measurements are in millimeters, except for font sizes which are points.
+###################################################################################
+
+
+# ---------------------------------------------------------------------------------
+# First setup the page elements that are common to all pages in this album.
+# ---------------------------------------------------------------------------------
+
+ALBUM_PAGES_SIZE	 (Letter)				# Letter, A4
+ALBUM_PAGES_MARGINS	 (7.0, 7.0, 7.0, 7.0)			# Top, Right, Bottom, Left
+ALBUM_PAGES_BORDER	 (0.5, 0.1, 0.5)			# Exterior, Interior, Space
+ALBUM_PAGE_TITLE_FONT	 (Century Gothic, 12, bold+italic)	# Bold, Italic, Regular, Underline, Strikeout
+ALBUM_PAGES_TITLE	 (C   A   N   A   D   A)
+ALBUM_PAGES_SPACING	 (6.0, 6.0, 1.0)			# LeftIndent, RightIndent, VerticalSpacing
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 1 - Cover
+# ---------------------------------------------------------------------------------
+
+PAGE_START							# LAND(scape), PORT(rait)
+
+SPACE (75)
+FONT (Century Gothic, 36, italic)
+#PAGE_TEXT_CENTRE (C  A  N  A  D  A)
+SPACE(16)
+SPACE(20)
+PAGE_TEXT_CENTRE (1 9 7 6  -  2 0 1 0)
+
+
+# ---------------------------------------------------------------------------------
+# Page 2 - Olympic Games (1973-76)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (75)
+FONT (Century Gothic, 24, italic)
+PAGE_TEXT_CENTRE (Games of the XXI Olympiad)
+SPACE(6)
+FONT (Century Gothic, 18, italic)
+PAGE_TEXT_CENTRE (July 17 - August 1, 1976)
+SPACE(3)
+PAGE_TEXT_CENTRE (Montreal, Canada)
+
+
+# ---------------------------------------------------------------------------------
+# Page 3 - Olympic Games (1973-76)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1976 Olympic Games)
+
+SPACE(25)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Olympic Games Symbol (1973-74))
+SPACE(5)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 31, 49, 3, images/0623.jpg, 8c, S 623, , , "COJO" SYMBOL, )
+  STAMP_ADD(, 31, 49, 3, images/0624.jpg, 15c, S 624, , , , )
+ROW_END
+
+SPACE(20)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 25, 41, 3, images/B1.jpg, 8c+2c, S B1, , , , )
+  STAMP_ADD(, 25, 41, 3, images/B2.jpg, 10c+5c, S B2, , , , )
+  STAMP_ADD(, 25, 41, 3, images/B3.jpg, 15c+5c, S B3, , , , )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 4 - Olympic Games (1973-76)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1976 Olympic Games)
+
+SPACE(10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE ("Keep Fit" Summer Sports (1974))
+SPACE(1)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 61, 37, 3, images/0629-30.jpg, 2x8c, S 629\, 630, , , , )
+ROW_END
+
+SPACE(2)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 61, 37, 3, images/0631-32.jpg, 2x8c, S 631\, 632, , , , )
+ROW_END
+
+SPACE(10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE ("Keep Fit" Winter Sports (1974))
+SPACE(1)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 73, 31, 3, images/0644-45.jpg, 2x8c, S 644\, 645, , , , )
+ROW_END
+
+SPACE(2)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 73, 31, 3, images/0646-47.jpg, 2x8c, S 646\, 647, , , , )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 5 - Olympic Games (1973-76)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1976 Olympic Games)
+
+SPACE(20)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Water Sports (1975))
+SPACE(1)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 36, 30, 3, images/B4.jpg, 8c + 2c, S B4, , , SWIMMING, )
+  STAMP_ADD(, 36, 30, 3, images/B5.jpg, 10c + 5c, S B5, , , ROWING, )
+  STAMP_ADD(, 36, 30, 3, images/B6.jpg, 15c + 5c, S B6, , , SAILING, )
+ROW_END
+
+SPACE(10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Combat Sports (1975))
+SPACE(1)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 30, 36, 3, images/B7.jpg, 8c + 2c, S B7, , , FENCING, )
+  STAMP_ADD(, 30, 36, 3, images/B8.jpg, 10c + 5c, S B8, , , BOXING, )
+  STAMP_ADD(, 30, 36, 3, images/B9.jpg, 15c + 5c, S B9, , , JUDO, )
+ROW_END
+
+SPACE(10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Team Sports (1976))
+SPACE(1)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 30, 36, 3, images/B10.jpg, 8c + 2c, S B10, , , BASKETBALL, )
+  STAMP_ADD(, 30, 36, 3, images/B11.jpg, 10c + 5c, S B11, , , GYMNASTICS, )
+  STAMP_ADD(, 30, 36, 3, images/B12.jpg, 20c + 5c, S B12, , , SOCCER, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 6 - Olympic Games (1973-76)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1976 Olympic Games)
+
+SPACE(25)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Sculptures (1975))
+SPACE(5)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 48, 30, 3, images/0656.jpg, $1, S 656, , , THE SPRINTER, )
+  STAMP_ADD(, 30, 48, 3, images/0657.jpg, $2, S 657, , , THE PLUNGER, )
+ROW_END
+
+SPACE(20)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Track & Field Sports (1975))
+SPACE(1)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 30, 48, 3, images/0664.jpg, $2, S 657, , , POLE VAULTING, )
+  STAMP_ADD(, 30, 48, 3, images/0665.jpg, $2, S 657, , , HURDLING, )
+  STAMP_ADD(, 30, 48, 3, images/0666.jpg, $2, S 657, , , MARATHON RUNNING, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 7 - Olympic Games (1973-76)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1976 Olympic Games)
+
+SPACE(20)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Ceremonies (1976))
+SPACE(1)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 36, 30, 3, images/0681.jpg, 8c, S 681, , , OLYMPIC TORCH IGNITED BY\nSATELITE IN CANADA, )
+  STAMP_ADD(, 36, 30, 3, images/0682.jpg, 20c, S 682, , , CANADIAN ATHLETS CARRYING\nOLYMPIC FLAG, )
+  STAMP_ADD(, 36, 30, 3, images/0683.jpg, 25c, S 683, , , WOMEN ATHLETES RECEIVING\nOLYMPIC MEDALS, )
+ROW_END
+
+SPACE(10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Arts & Culture Programme (1976))
+SPACE(1)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 30, 48, 3, images/0684.jpg, 20c, S 684, , , COMMUNICATION ARTS, )
+  STAMP_ADD(, 30, 48, 3, images/0685.jpg, 25c, S 685, , , HANDCRAFT TOOLS, )
+  STAMP_ADD(, 30, 48, 3, images/0686.jpg, 50c, S 686, , , PERFORMING ARTS, )
+ROW_END
+
+SPACE(10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Sites (1976))
+SPACE(1)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 61, 24, 3, images/0687.jpg, $1, S 687, , , NOTRE-DAME AND PLACE VILLE MARIE, )
+  STAMP_ADD(, 61, 24, 3, images/0688.jpg, $2, S 688, , , OLYMPIC STADIUM, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 8 - Comemoratives (1976)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1976)
+
+SPACE(10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE ()
+
+ROW_START (FS, BOTTOM, 18, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 24.5, 41, 3, , 20c, S 689, , , WINTER OLYMPIC GAMES\,\nINNSBRUCK\, AUSTRIA, )
+  STAMP_ADD(, 36.5, 30.5, 3, , 20c, S 690, , , U. N. HABITAT CONFERENCE\n29 MAY TO 11 JUNE 1976\, VANCOUVER, )
+ROW_END
+
+SPACE(15)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 61, 48.5, 3, , 8c, S 692-3, , , CENTENARY OF THE ROYAL MILITARY COLLEGE\nKINGSTON\, ONTARIO, )
+ROW_END
+
+SPACE(15)
+FONT (Century Gothic, 10,  regular)
+PAGE_TEXT_CENTRE (United States Bicentennial - Joint Issue with U.S. Postal Service)
+SPACE(1)
+ROW_START (FS, TOP, 18, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40.5, 24.5, 3, , 10c, S 691, , , BENJAMIN FRANKLIN (1706-1790)\nDEPUTY POSTMASTER GENERAL FOR THE COLONIES\nFROM 1753 TO 1774, )
+  STAMP_ADD(, 40.5, 26, 3, , 13c, S 1690 (US), , , , )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 9 - Comemoratives (1976)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1976)
+
+SPACE(10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE ()
+
+FONT (Century Gothic, 10,  regular)
+PAGE_TEXT_CENTRE (Canadain Authors)
+SPACE(0)
+
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 61, 37, 3, , 8c, S 695-6, , , , )
+ROW_END
+ROW_START (FS, CEN, 0, 0, 0, 0, 0, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 30.5, 0, 0, , , , , , ROBERT W. SERVICE\n(1874-1958), )
+  STAMP_ADD(, 30.5, 0, 0, , , , , , GERMAINE GUEVREMONT, )
+  ROW_SPACE(3)
+ROW_END
+
+SPACE(10)
+FONT (Century Gothic, 10,  regular)
+PAGE_TEXT_CENTRE (Handicapped Olympics)
+SPACE(1)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40.5, 25, 3, , 20c, S 694, , , , )
+ROW_END
+SPACE(1)
+FONT (Century Gothic, 6,  italic)
+PAGE_TEXT_CENTRE (The 1976 Olympiad for the Phisically Disabled (Aug 3-11 in Toronto) was the first olympiad with )
+PAGE_TEXT_CENTRE (full competition for blind, paralyzed and amputee athletes. More then 1,500 from 38 countries )
+PAGE_TEXT_CENTRE (took part in wheelchair (12 events), blind (8 events), and amputee (11 events) games.)
+#PAGE_TEXT_CENTRE (The 1976 Olympiad for the Phisically Disabled (Aug 3-11 in Toronto) was the first olympiad with full competition for blind, paralyzed and amputee athletes. More then 1,500 from 38 countries took part in wheelchair (12 events), blind (8 events), and amputee (11 events) games.)
+
+SPACE(20)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Christmas - Stained Glass Windows)
+
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 30.5, 36.5, 3, , 8c, S 697, , , "NATIVITY"\nST. MICHAEL'S CATHEDRAL\, TORONTO, )
+  STAMP_ADD(, 30.5, 36.5, 3, , 10c, S 698, , , "NATIVITY"\nCHURCH OF ST. JUDE\, LONDON\, ON, )
+  STAMP_ADD(, 30.5, 36.5, 3, , 20c, S 699, , , "NATIVITY"\nBY YVONNE WILLIAMS, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 10 - Definitives (1977-1983)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1977-1982)
+
+SPACE(10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Floral Definitives)
+
+SPACE(3)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 20, 24, 3, , 1c, lilac, S 781, , BOTTLE GENTIAN, )
+  STAMP_ADD(, 20, 24, 3, , 2c, pale brown, S 782, , WESTERN COLUMBINE, )
+  STAMP_ADD(, 20, 24, 3, , 3c, dull green, S 783, , CANADA LILY, )
+  STAMP_ADD(, 20, 24, 3, , 4c, dull lavender, S 784, , HEPATICA, )
+  STAMP_ADD(, 20, 24, 3, , 5c, dull brown, S 785, , SHOOTING STAR, )
+ROW_END
+
+SPACE(3)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 20, 24, 3, , 10c, ochre, S 786, , LADY'S SLIPPER, )
+  STAMP_ADD(, 20, 24, 3, , 12c, bright green, S 712, , JEWELWEED, )
+  STAMP_ADD(, 20, 24, 3, , 15c, violet, S 787, , CANADA VIOLET, )
+ROW_END
+
+
+
+SPACE(15)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Medium-Value Tree Definitives)
+
+SPACE(3)
+ROW_START (FS, BOTTOM, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 24, 30, 3, , 15c, , S 717, , TREMBLING ASPEN, )
+  STAMP_ADD(, 24, 30, 3, , 20c, , S 718, , DOUGLAS FIR, )
+  STAMP_ADD(, 24, 30, 3, , 25c, , S 719, , SUGAR MAPLE, )
+  STAMP_ADD(, 24, 30, 3, , 30c, , S 720, , RED OAK, )
+  STAMP_ADD(, 24, 30, 3, , 35c, , S 721, , WHITE PINE, )
+ROW_END
+
+
+
+SPACE(15)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Medium-Value Street Definitives)
+
+SPACE(3)
+ROW_START (FS, BOTTOM, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 36, 30, 3, , 50c, S 723, , , PRAIRE STREET SCENE, )
+#  STAMP_ADD(, 36, 30, 3, , 50c, S 723A, , , 1978 on lic. plate, )
+  STAMP_ADD(, 36, 30, 3, , 60c, S 723C, , , ONTARIO STREET SCENE, )
+  STAMP_ADD(, 36, 30, 3, , 75c, S 724, , , ROW HOUSES, )
+  STAMP_ADD(, 36, 30, 3, , 80c, S 725, , , MARITIME STREET SCENE, )
+ROW_END
+
+
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 11 - Definitives (1977-1983)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+#SPACE (10)
+#FONT (Century Gothic, 14, italic)
+#PAGE_TEXT_CENTRE (1977-1987)
+
+SPACE(20)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (First-Class Definitives)
+#PAGE_TEXT_CENTRE ()
+
+SPACE(1)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Queen Elizabeth II: 1977-1987)
+
+SPACE(3)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 20, 24, 3, , 12c, bright blue, S 713, , QUEEN ELIZABETH II, )
+  STAMP_ADD(, 20, 24, 3, , 14c, red, S 716, , , )
+  STAMP_ADD(, 20, 24, 3, , 17c, green, S 789, , , )
+  STAMP_ADD(, 20, 24, 3, , 30c, deep magenta, S 791, , , )
+  STAMP_ADD(, 20, 24, 3, , 32c, grey-blue, S 792, , , )
+ROW_END
+SPACE(3)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 20, 24, 3, , 34c, dark blue, S 926, , , )
+  STAMP_ADD(, 20, 24, 3, , 36c, plum, S 926A, , , )
+ROW_END
+
+SPACE(20)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Houses of Parliament: 1977-1982)
+
+SPACE(3)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 20, 24, 3, , 1c, blue, S 797, , HOUSES OF PARLIAMENT, )
+  STAMP_ADD(, 20, 24, 3, , 5c, blue, S 800, , , )
+  STAMP_ADD(, 20, 24, 3, , 12c, blue, S 714, , , )
+  STAMP_ADD(, 20, 24, 3, , 14c, red, S 715, , , )
+  STAMP_ADD(, 20, 24, 3, , 17c, green, S 790, , , )
+ROW_END
+
+SPACE(10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Coil Stamps: Perforated 10 Vertically)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40, 24, 3, , 12c, blue, S 729, , , )
+  STAMP_ADD(, 40, 24, 3, , 14c, red, S 730, , , )
+  STAMP_ADD(, 42, 24, 3, , 17c, green, S 806, , , )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 12 - National Park Definitives (1979-1987)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1979-1987)
+
+SPACE(20)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (High-Value National Park Definitives)
+
+SPACE(10)
+ROW_START (FS, BOTTOM, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 49, 31, 3, , $1, S 726, , , FUNDY NATIONAL PARK, )
+  STAMP_ADD(, 49, 31, 3, , $2, S 727, , , KLUANE NATIONAL PARK, )
+ROW_END
+
+SPACE(10)
+ROW_START (FS, BOTTOM, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 49, 31, 3, , $1, S 934, , , GLACIER NATIONAL PARK, )
+  STAMP_ADD(, 49, 31, 3, , $1.50, S 935, , , WATERTON NATIONAL PARK, )
+  STAMP_ADD(, 49, 31, 3, , $2, S 936, , , MORAINE LAKE\, BANFF PARK, )
+ROW_END
+
+SPACE(10)
+ROW_START (FS, BOTTOM, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 49, 31, 3, , $5, S 937, , , POINT PELEE NATIONAL PARK, )
+  STAMP_ADD(, 49, 31, 3, , $5, S 1084, , , LA MAURICIE NATIONAL PARK, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 13 - Comemoratives, Endagered Wildlife (1977-1981)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1977)
+
+SPACE(10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Silver Jubilee)
+
+SPACE(5)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 30, 36, 3, , 25c, S 704, , , QUEEN ELIZABETH II, )
+ROW_END
+
+SPACE(2)
+FONT (Century Gothic, 8, regular)
+PAGE_TEXT_CENTRE (Issued to commemorate the 25th anniversary)
+PAGE_TEXT_CENTRE (of the accession to the throne of Queen Elizabeth II)
+
+
+SPACE(20)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Endagered Wildlife (1977-1981))
+SPACE(5)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 41, 25, 3, , 12c, S 732, , , EASTERN COUGAR, )
+  STAMP_ADD(, 41, 25, 3, , 12c, S 752, , , PEREGRINE FALCON, )
+  STAMP_ADD(, 41, 25, 3, , 17c, S 813, , , SOFT-SHELLED TURTLE, )
+ROW_END
+SPACE(3)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 41, 25, 3, , 35c, S 814, , , BOWHEAD WHALE, )
+  STAMP_ADD(, 41, 25, 3, , 17c, S 853, , , ATLANTIC WHITEFISH, )
+  STAMP_ADD(, 41, 25, 3, , 17c, S 854, , , GREATER PRAIRIE CHICKEN, )
+ROW_END
+SPACE(3)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 41, 25, 3, , 17c, S 883, , , VANCOUVR ISLAND MARMOT, )
+  STAMP_ADD(, 41, 25, 3, , $1, S 884, , , WOOD BISON, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 14 - Comemoratives (1977)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1977)
+
+SPACE(10)
+ROW_START (FS, BOTTOM, 3, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 41, 25, 3, , 12c, S 735, , , HONORING CANADIAN-BORN GOVERNORS GENERAL:\nVINCENT MASSEY\, GEORGES PHILIAS VANIER\,\nDANIEL ROLAND MICHENER AND JULES LEGER, )
+  ROW_SPACE(2)
+  STAMP_ADD(, 30, 30, 3, , 12c, S 733, , , "APRIL IN ALGONQUIN PARK", )
+  STAMP_ADD(, 30, 30, 3, , 12c, S 734, , , "AUTUMN BIRCHES", )
+  ROW_SPACE(2)
+  STAMP_ADD(, 41, 25, 3, , 12c, S 736, , , ORDER OF CANADA\, 10TH ANNIVERSARY, )
+ROW_END
+SPACE(-6)
+FONT (Century Gothic, 6, regular)
+PAGE_TEXT_CENTRE (TOM THOMSON (1877-1917), LANDSCAPE PAINTER, BIRTH CENTENARY)
+
+SPACE(10)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 41, 25, 3, , 12c, S 737, , , PEACE BRIDGE, )
+  STAMP_ADD(, 40, 26, 3, , 13c, US 1721, , , JOINT ISSUE WITH UNITED STATES, )
+ROW_END
+SPACE(0)
+FONT (Century Gothic, 6,  italic)
+PAGE_TEXT_CENTRE (50th anniversary of the Peace Bridge, connecting Fort Erie, Ontario, with Buffalo, New York. Joint issue with the USA)
+
+SPACE(10)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 81, 25, 3, , 2x12c, S 739a (748-9), , , , )
+  STAMP_ADD(, 41, 25, 3, , 25c, S 740, , , , )
+ROW_END
+
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 43.5, 0, 0, , , , , , JOSEPH-ELZEAR BERNIER (1852-1934)\,\nEXPLORER, )
+  STAMP_ADD(, 43.5, 0, 0, , , , , , SANDFORD FLEMING (1827-1915)\,\nMAPPED ROUTE FOR INTERCOLONIAL\nRAILWAY AND DESIGNED CANADA’S FIRST STAMP, )
+  ROW_SPACE(8)
+  STAMP_ADD(, 47, 0, 0, , , , , , 23RD COMMONWEALTH PARLIAMENTARY\nCONFERENCE\,OTTAWA\, SEPT. 19-25., )
+ROW_END
+
+SPACE(20)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Christmas - Illustrations for Canada’s first Christmas carol, written by Father Brebeuf, 1649)
+
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 37, 30, 3, , 10c, S 741, , , HUNTERS FOLLOWING STAR, )
+  STAMP_ADD(, 37, 30, 3, , 12c, S 742, , , ANGELIC CHOIR IN NORTHEN LIGHTS, )
+  STAMP_ADD(, 37, 30, 3, , 25c, S 743, , , CHRIST CHILD IN RING OF GLORY\nBLESSING CHIEFS FROM AFAR, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 15 - Inuit Art (1977-1980)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1977-1980)
+
+SPACE(10)
+FONT (Century Gothic, 10, normal)
+PAGE_TEXT_CENTRE (Inuit Art: Hunting (1977))
+SPACE(1)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 73, 31, 3, , 2 x 12c, S 749a, , , , )
+  STAMP_ADD(, 73, 31, 3, , 2 x 12c, S 751a, , , , )
+ROW_END
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 36.5, 0, 0, , , , , , SEAL HUNTER\,\nSOAPSTONE SCULPTURE, )
+  STAMP_ADD(, 36.5, 0, 0, , , , , , SPEAR FISHING, )
+  ROW_SPACE(3)
+  ROW_SPACE(8)
+  ROW_SPACE(3)
+  STAMP_ADD(, 36.5, 0, 0, , , , , , DISGUISED CARIBOU HUNTER, )
+  STAMP_ADD(, 36.5, 0, 0, , , , , , WALRUS HUNT, )
+  ROW_SPACE(3)
+ROW_END
+
+SPACE(2)
+FONT (Century Gothic, 10, normal)
+PAGE_TEXT_CENTRE (Inuit Art: Travel (1978))
+SPACE(1)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 73, 31, 3, , 2 x 14c, S 770a, , , , )
+  STAMP_ADD(, 73, 31, 3, , 2 x 14c, S 772a, , , , )
+ROW_END
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 36.5, 0, 0, , , , , , WOMAN WALKING\,\nBY PITSEOLAK, )
+  STAMP_ADD(, 36.5, 0, 0, , , , , , MIGRATION\,\nSOAPSTONE BY JOE TALURINILI, )
+  ROW_SPACE(3)
+  ROW_SPACE(8)
+  ROW_SPACE(3)
+  STAMP_ADD(, 36.5, 0, 0, , , , , , PLANE OVER VILLAGE\,\nSTONECUT AND STENCIL PRINT\nBY PUDLO, )
+  STAMP_ADD(, 36.5, 0, 0, , , , , , DOGTEAM AND SLED\,\nIVORY SCULPTURE\nBY ABRAHAM KINGMEATOOK, )
+  ROW_SPACE(3)
+ROW_END
+
+SPACE(2)
+FONT (Century Gothic, 10, normal)
+PAGE_TEXT_CENTRE (Inuit Art: Community (1979))
+SPACE(1)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 73, 31, 3, , 2 x 17c, S 836a, , , , )
+  STAMP_ADD(, 73, 31, 3, , 2 x 17c, S 838a, , , , )
+ROW_END
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 36.5, 0, 0, , , , , , SUMMER TENT\,\nPRINT BY KIAKSHUK, )
+  STAMP_ADD(, 36.5, 0, 0, , , , , , ESKIMOS BUILDING IGLOO\,\nBY ABRAHAM OF POVUNGNITUK, )
+  ROW_SPACE(3)
+  ROW_SPACE(8)
+  ROW_SPACE(3)
+  STAMP_ADD(, 36.5, 0, 0, , , , , , THE DANCE\,\nPRINT BY KALVAK OF HOLMAN ISLAND, )
+  STAMP_ADD(, 36.5, 0, 0, , , , , , TWO SOAPSTONE FIGURES\nFROM REPULSE BAY\,\nBY MADELEINE ISSERKUT\nAND JEAN MAPSALAK, )
+  ROW_SPACE(3)
+ROW_END
+
+SPACE(2)
+FONT (Century Gothic, 10, normal)
+PAGE_TEXT_CENTRE (Inuit Art: Spirits (1980))
+SPACE(1)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 73, 31, 3, , 2 x 17c, S 867a, , , , )
+  STAMP_ADD(, 73, 31, 3, , 2 x 35c, S 869a, , , , )
+ROW_END
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 36.5, 0, 0, , , , , , SEDNA\,\nBY ASHOONA KIAWAK, )
+  STAMP_ADD(, 36.5, 0, 0, , , , , , RETURN OF THE SUN\,\nPRINT BY KENOJOUAK, )
+  ROW_SPACE(3)
+  ROW_SPACE(8)
+  ROW_SPACE(3)
+  STAMP_ADD(, 36.5, 0, 0, , , , , , BIRD SPIRIT\,\nBY DORIS HAGIOLOK, )
+  STAMP_ADD(, 36.5, 0, 0, , , , , , SHAMAN\,\nPRINT BY SIMON TOOKOOME, )
+  ROW_SPACE(3)
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 16 - Comemoratives (1978)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1978)
+
+SPACE(10)
+FONT (Century Gothic, 10, normal)
+PAGE_TEXT_CENTRE (CAPEX ’78, Canadian International Philatelic Exhibition, Toronto, June 9-18)
+PAGE_TEXT_CENTRE (~ centenary of Canada’s admission to UPU ~)
+
+SPACE(3)
+ROW_START (ES, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 36, 31, 3, , 12c, S 753, , , CANADA NO. 3, )
+  STAMP_ADD(, 36, 31, 3, , 14c, S 754, , , CANADA NO. 7, )
+  STAMP_ADD(, 36, 31, 3, , 30c, S 755, , , CANADA NO. 8, )
+  STAMP_ADD(, 36, 31, 3, , $1.25, S 756, , , CANADA NO. 2, )
+ROW_END
+
+SPACE(5)
+ROW_START (FS, BOTTOM, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 101, 77, 4, , , , , , , )
+ROW_END
+
+SPACE(20)
+ROW_START (FS, BOTTOM, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Development of Natural Resources, 81, 25, 3, , , S 765-766, , , , )
+  STAMP_ADD(, 41, 25, 3, , , S 767, , , 100TH ANNIVERSARY OF\nCANADIAN NATIONAL EXHIBITION, )
+ROW_END
+SPACE(-4)
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 40, 1, 0, , , , , , COBALT SILVER MINE, )
+  ROW_SPACE(1)
+  STAMP_ADD(, 40, 1, 0, , , , , , ATHABASCA TAR SANDS, )
+  ROW_SPACE(3)
+  ROW_SPACE(12)
+  ROW_SPACE(47)
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 17 - Comemoratives (1978)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1978)
+
+SPACE(10)
+FONT (Century Gothic, 10, normal)
+PAGE_TEXT_CENTRE (XI Commonwealth Games, August 3-12, 1978, Edmonton)
+
+SPACE(3)
+ROW_START (FS, BOTTOM, 4, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 41, 25, 3, , 14c, S 757, , , GAMES EMBLEM, )
+  STAMP_ADD(, 41, 25, 3, , 30c, S 758, , , BADMINTON, )
+  STAMP_ADD(, 81, 25, 3, , , S 759-60, , , , )
+ROW_END
+SPACE(-3)
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  ROW_SPACE (47)
+  ROW_SPACE(4)
+  ROW_SPACE (47)
+  ROW_SPACE(4)
+  STAMP_ADD(, 43.5, 0, 0, , , , , , RUNNING, )
+  STAMP_ADD(, 43.5, 0, 0, , , , , , STADIUM, )
+ROW_END
+SPACE(1)
+ROW_START (FS, BOTTOM, 2, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 81, 25, 3, , , S 761-62, , , , )
+ROW_END
+SPACE(-2)
+ROW_START (FS, BOTTOM, 0, 1, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 43.5, 0, 0, , , , , , LEGISLATURE BUILDING, )
+  STAMP_ADD(, 43.5, 0, 0, , , , , , LAWN BUILDING, )
+ROW_END
+
+SPACE(10)
+ROW_START (FS, BOTTOM, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Captain James Cook, 61, 37, 3, , , S 763-64, , , CAPTAIN JAMES COOK (1728-1779)\, EXPLORER OF CANADA'S\n EAST AND WEST COASTS AND BICENTENARY OF HIS ANCHORAGE\nIN NOOTKA SOUND IN 1778, )
+  STAMP_ADD(, 31, 37, 3, , , S 768, , , MARGUERITE D'YOUVILLE (1701-1771)\,\nFOUNDER OF GREY NUNS, )
+ROW_END
+
+SPACE(10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Christmas - Paintings)
+
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 25, 41, 3, , 12c, S 773, , , "MADONNA OF THE\nFLOWERING PEA"\n(cca 1425), )
+  STAMP_ADD(, 25, 41, 3, , 14c, S 774, , , "VIRGIN AND CHILD"\nBY HANS MEMLING\n(1472), )
+  STAMP_ADD(, 25, 41, 3, , 30c, S 775, , , "VIRGIN & CHILD"\nBY JACOPO DI CIONE\n(CCA 1370-1380), )
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 18 - Comemoratives (1979)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1979)
+
+SPACE(10)
+FONT (Century Gothic, 10, normal)
+PAGE_TEXT_CENTRE ()
+PAGE_TEXT_CENTRE ()
+
+SPACE(-3)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 30, 36, 3, , 14c, S 780, , , 25TH ANNIVERSAARY OF THE\nQUEBEC WINTER CARNIVAL, )
+  STAMP_ADD(, 60, 36, 3, , , S 815-816, , , POSTAL CODE, )
+  STAMP_ADD(, 30, 36, 3, , 17c, S 842, , , International Year of the Child, )
+ROW_END
+
+SPACE(15)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Canadian Authors, 72, 30, 3, , , S 817-818, , , , )
+  STAMP_ADD(Canadian Colonels, 60, 36, 3, , , S 819-820, , , CHARLES-MICHEL D'IRUMBERRY DE SALABERRY (1778-1829)\,\nDEFENDER OF MONTREAL FROM AMERICAN ATTACK AT THE\nBATTLE OF CHATEAUGUAY AND \nJOHN BY (1779-1836)\, BUILDER OF THE RIDEAU CANAL, )
+ROW_END
+SPACE(-12.5)
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 36, 0, 0, , , , , , FRUITS OF THE EARTH, )
+  STAMP_ADD(, 36, 0, 0, , , , , , LE VAISSEAU D'OR, )
+  ROW_SPACE(3)
+  ROW_SPACE(8)
+  ROW_SPACE(66)
+ROW_END
+SPACE(0)
+ROW_START (FS, BOTTOM, 8, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 78, 0, 0, , , , , , 100TH BIRTH ANNIVERSARIES OF FREDERICK P. GROVE (1879-1948)\nAND EMILE NELLIGAN (1879-1941), )
+  ROW_SPACE(66)
+ROW_END
+FONT (Century Gothic, 6, )
+PAGE_TEXT_CENTRE ()
+
+SPACE(20)
+FONT (Century Gothic, 8, italic)
+PAGE_TEXT_CENTRE (Sports Championships)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40, 24, 3, , 17c, S 833, , , CANOE -KAYAK WORLD CHAMPIONSHIPS\,\nJONQUIRE\, QUEBEC, )
+  STAMP_ADD(, 40, 24, 3, , 17c, S 834, , , WOMEN'S FIELD HOCKEY CHAMPIONSHIPS\,\nVANCOUVER, )
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 19 - Comemoratives (1979)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1979)
+
+SPACE(10)
+FONT (Century Gothic, 10, normal)
+PAGE_TEXT_CENTRE (Canada Day)
+PAGE_TEXT_CENTRE (~ provincial and teritorial flags ~)
+
+
+SPACE(1)
+ROW_START (ES, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 36, 30, 3, , 17c, S 821, , , ONTARIO, )
+  STAMP_ADD(, 36, 30, 3, , 17c, S 822, , , QUEBEC, )
+  STAMP_ADD(, 36, 30, 3, , 17c, S 823, , , NOVA SCOTIA, )
+  STAMP_ADD(, 36, 30, 3, , 17c, S 824, , , NEW BRUNSWICK, )
+ROW_END
+SPACE(3)
+ROW_START (ES, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 36, 30, 3, , 17c, S 825, , , MANITOBA, )
+  STAMP_ADD(, 36, 30, 3, , 17c, S 826, , , BRITISH COLUMBIA, )
+  STAMP_ADD(, 36, 30, 3, , 17c, S 827, , , PRINCE EDWARD ISLAND, )
+  STAMP_ADD(, 36, 30, 3, , 17c, S 828, , , SASKATCHEWAN, )
+ROW_END
+SPACE(3)
+ROW_START (ES, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 36, 30, 3, , 17c, S 829, , , ALBERTA, )
+  STAMP_ADD(, 36, 30, 3, , 17c, S 830, , , NEWFOUNDLAND, )
+  STAMP_ADD(, 36, 30, 3, , 17c, S 831, , , NORTHWEST TERITORIES, )
+  STAMP_ADD(, 36, 30, 3, , 17c, S 832, , , YUKON TERRITORY, )
+ROW_END
+
+
+SPACE(15)
+FONT (Century Gothic, 10, regular)
+PAGE_TEXT_CENTRE (Christmas - Antique Toys)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40, 24, 3, , 15c, S 839, , , WOODEN TRAIN, )
+  STAMP_ADD(, 24, 40, 3, , 35c, S 841, , , KNITTED STUFFED DOLL, )
+  STAMP_ADD(, 40, 24, 3, , 17c, S 840, , , WODEN HORSE, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 20   - Comemoratives (1979)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1979-1982)
+
+SPACE(10)
+FONT (Century Gothic, 10, normal)
+PAGE_TEXT_CENTRE (Canadian Aircraft)
+
+SPACE(10)
+FONT (Century Gothic, 10, normal)
+PAGE_TEXT_CENTRE (Flying Boats)
+ROW_START (FS, BOTTOM, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 80, 24, 3, , , S 843-844, , , , )
+  STAMP_ADD(, 80, 24, 3, , , S 845-846, , , , )
+ROW_END
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 40, 0, 0, , , , , , CURTISS HS-2L, )
+  STAMP_ADD(, 40, 0, 0, , , , , , CANADAIR CL-215, )
+  ROW_SPACE(12)
+  STAMP_ADD(, 40, 0, 0, , , , , , CONSOLIDATED CANSO, )
+  STAMP_ADD(, 40, 0, 0, , , , , , VICKERS VEDETTE, )
+  ROW_SPACE(3)
+ROW_END
+
+SPACE(8)
+FONT (Century Gothic, 10, normal)
+PAGE_TEXT_CENTRE (Military Aircraft)
+ROW_START (FS, BOTTOM, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 80, 24, 3, , , S 873-874, , , , )
+  STAMP_ADD(, 80, 24, 3, , , S 875-876, , , , )
+ROW_END
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 40, 0, 0, , , , , , AVRO CANADA CF-100 (1950), )
+  STAMP_ADD(, 40, 0, 0, , , , , , AVRO LANCASTER (1941), )
+  ROW_SPACE(12)
+  STAMP_ADD(, 40, 0, 0, , , , , , CURTISS JN-4 CANUCK, )
+  STAMP_ADD(, 40, 0, 0, , , , , , HAWKER HURRICANE (1935), )
+  ROW_SPACE(3)
+ROW_END
+
+SPACE(8)
+FONT (Century Gothic, 10, normal)
+PAGE_TEXT_CENTRE (Transport and Training Aircraft)
+ROW_START (FS, BOTTOM, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 80, 24, 3, , , S 903-904, , , , )
+  STAMP_ADD(, 80, 24, 3, , , S 905-906, , , , )
+ROW_END
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 40, 0, 0, , , , , , DE HAVILLAND TIGER MOTH, )
+  STAMP_ADD(, 40, 0, 0, , , , , , CANADAIR CL-41 TUTOR, )
+  ROW_SPACE(12)
+  STAMP_ADD(, 40, 0, 0, , , , , , DE HAVILLAND CANADA DASH-7, )
+  STAMP_ADD(, 40, 0, 0, , , , , , AVRO CANADA C-102, )
+  ROW_SPACE(3)
+ROW_END
+
+SPACE(8)
+FONT (Century Gothic, 10, normal)
+PAGE_TEXT_CENTRE (Bush Aircraft)
+ROW_START (FS, BOTTOM, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 80, 24, 3, , , S 969-970, , , , )
+  STAMP_ADD(, 80, 24, 3, , , S 971-972, , , , )
+ROW_END
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 40, 0, 0, , , , , , DE HAVILLAND CANDA BEAVER, )
+  STAMP_ADD(, 40, 0, 0, , , , , , FAIRCHILD FC-2W1, )
+  ROW_SPACE(12)
+  STAMP_ADD(, 40, 0, 0, , , , , , FOKKER SUPER UNIVERSAL, )
+  STAMP_ADD(, 40, 0, 0, , , , , , NOORDUYN NORSEMAN, )
+  ROW_SPACE(3)
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 21   - Comemoratives (1980)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+# ---------------------------------------------------------------------------------
+# Page 21   - Comemoratives (1980)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1980)
+
+
+SPACE(10)
+FONT (Century Gothic, 8, italic)
+PAGE_TEXT_CENTRE (Academy of Arts)
+SPACE(-1)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 72, 30, 3, , , S 849-850, , , , )
+  STAMP_ADD(, 72, 30, 3, , , S 851-852, , , , )
+ROW_END
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 36, 0, 0, , , , , , INSPIRATION\nBY LOUIS-PHILLIPPE HEBERT, )
+  STAMP_ADD(, 36, 0, 0, , , , , , MEETING OF THE SCHOOL TRUSTEES\,\nBY ROBERT HARRIS, )
+  ROW_SPACE(3)
+  ROW_SPACE(8)
+  ROW_SPACE(3)
+  STAMP_ADD(, 36, 0, 0, , , , , , PARLIAMENT BUILDINGS\,\nBY THOMAS FULLER, )
+  STAMP_ADD(, 36, 0, 0, , , , , , SUNRISE ON THE SAGUENAY\,\nBY LUCIUS O'BRIEN, )
+  ROW_SPACE(3)
+ROW_END
+SPACE(2)
+FONT (Century Gothic, 6,  italic)
+PAGE_TEXT_CENTRE (Issued for the centenary of the Royal Canadian Academy of Arts, the forerunner to the National Gallery of Canada)
+
+SPACE(20)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 36, 30, 3, , , S 847, , , CENTENARY OF CANADA'S AQUISITION\nOF THE ARCTIC ISLANDS, )
+  STAMP_ADD(Canadian Musicians, 60, 36, 3, , , S 860-861, , , , )
+  STAMP_ADD(, 36, 30, 3, , , S 848, , , 13TH WINTERE OLYMPIC GAMES\,\nLAKE PLACID\, NY\, FEB. 12-24, )
+ROW_END
+SPACE(-2.8)
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 42, 0, 0, , , , , , , )
+  ROW_SPACE(8)
+  ROW_SPACE(3)
+  STAMP_ADD(, 30, 0, 0, , , , , , EMMA ALBANI (1847-1930)\,\nSOPRANO, )
+  STAMP_ADD(, 30, 0, 0, , , , , , HEALEY WILLAN (1880-1968)\,\nCOMPOSER-ORGANIST, )
+  ROW_SPACE(3)
+  ROW_SPACE(8)
+  STAMP_ADD(, 42, 0, 0, , , , , , , )
+ROW_END
+
+
+
+SPACE(23)
+ROW_START (FS, BOTTOM, 20, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 30, 36, 3, , , S 855, , , INTERNATIONAL FLOWER SHOW\,\nMONTREAL\, MAY 17 - SEPT. 1, )
+  STAMP_ADD(, 30, 36, 3, , , S 859, , , JOHN GEORGE DIEFENBAKER (1895-1979)\,\nPRIME MINISTER OF CANADA\, 1957-1963, )
+  STAMP_ADD(, 30, 36, 3, , , S 877, , , EMMANUEL-PERSILLIER LACHAPELLE\n(1845-1918)\, PHYSICIAN\,\nFOUNDED NOTRE-DAME HOSPITAL\,\nMONTREAL\, 1980, )
+ROW_END
+
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 22   - Comemoratives (1980)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1980)
+
+
+SPACE(20)
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, italic)
+  STAMP_ADD(, 30, 0, 0, , , , , , , )
+  ROW_SPACE(8)
+  STAMP_ADD(, 42, 0, 0, , , , , , , )
+  ROW_SPACE(12)
+  STAMP_ADD(Sasckatchewan & Alberta, 88, 0, 0, , , , , , , )
+ROW_END
+ROW_START (FS, BOTTOM, 0, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 24, 30, 3, , , S 848, , , 14TH WORLD CONGRESS OF\n"REHABILITATION INTERNATIONAL"\,\nWINNIPEG\, JUNE 22-27, )
+  ROW_SPACE(8)
+  STAMP_ADD(, 36, 30, 3, , , S 862, , , NEW HANLAN (1855-1908)\, OARSMAN\,\nTHE FIRST CANADIAN TO WIN AN\nINTERNATIONAL CHAMPIONSHIP, )
+  ROW_SPACE(12)
+  STAMP_ADD(, 36, 30, 3, , , S 863, , , WHEAT FIELDS\, SASCKATCHEWAN, )
+  ROW_SPACE(4)
+  STAMP_ADD(, 36, 30, 3, , , S 864, , , STRIP MINING AND TOWN\, ALBERTA, )
+ROW_END
+SPACE(-4.5)
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, italic)
+  STAMP_ADD(, 30, 0, 0, , , , , , , )
+  ROW_SPACE(8)
+  STAMP_ADD(, 42, 0, 0, , , , , , , )
+  ROW_SPACE(12)
+  STAMP_ADD(, 88, 0, 0, , , , , , 75th anniversary of the creation ofthe Provinces of Sasckatchewan and Alberta, )
+ROW_END
+
+SPACE(20)
+ROW_START (FS, BOTTOM, 24, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(O Canada Centenary, 80, 24, 3, , , S 857-858, , , , )
+  STAMP_ADD(, 40, 24, 3, , , S 865, , , DISCOVERY OF URANIUM IN CANADA\,\n80TH ANNIVERSARY, )
+ROW_END
+SPACE(-2.7)
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, italic)
+  ROW_SPACE(3)
+  STAMP_ADD(, 40, 0, 0, , , , , , COMPOSERS, )
+  STAMP_ADD(, 40, 0, 0, , , , , , O CANADA\, OPENING BARS, )
+  ROW_SPACE(3)
+  ROW_SPACE(24)
+  STAMP_ADD(, 46, 0, 0, , , , , , , )
+ROW_END
+
+
+SPACE(25)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Christmas - Greeting Cards)
+SPACE(3)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 24, 30, 3, , 36c, S 870, , , "CHRISTMAS MORNING"\nBY FRANK C. HENNESSY , )
+  STAMP_ADD(, 24, 30, 3, , 42c, S 871, , , "SLEIGHT RIDE"\nBY JOSEPH S. HALLAM, )
+  STAMP_ADD(, 24, 30, 3, , 84c, S 872, , , "McGILL CAB STAND"\nBY KATHLEEN MORRIS, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 23   - Comemoratives (1981)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1981)
+
+
+SPACE(10)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD("Look Of Music"\n- a rare musical instrument\nexhibition held in Vancouver, 40, 24, 3, , , S 878, , , , )
+  STAMP_ADD(Canadian religious personalities, 48, 40, 3, , , S 885-886, , , , )
+  STAMP_ADD(Canadian botanists, 60, 36, 3, , , S 894-895, , , , )
+ROW_END
+SPACE(-9)
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 46, 0, 0, , , , , , ANTIQUE MANDORA, )
+  ROW_SPACE(11)
+  STAMP_ADD(, 24, 0, 0, , , , , , KATERI\nTEKAKWITHA\n(1656-1680), )
+  STAMP_ADD(, 24, 0, 0, , , , , , MARIE\nDE L'INCARNATION\n(1599-1672), )
+  ROW_SPACE(14)
+  STAMP_ADD(, 30, 0, 0, , , , , , JOHN MACOUN, )
+  STAMP_ADD(, 30, 0, 0, , , , , , FRÈRE MARIE-VICTORIN, )
+  ROW_SPACE(3)
+ROW_END
+
+
+SPACE(13)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Canadian Art)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 48, 40, 3, , , S 887, , , "AT BAIE SAINT-PAUL" BY MARC-AURELE FORTIN, )
+  STAMP_ADD(, 40, 48, 3, , , S 888, , , "SELF PORTRAIT" BY FREDERICK H. VARLEY, )
+  STAMP_ADD(, 40, 48, 3, , , S 889, , , "UNTITLED NO. 6" BY PAUL-EMILE BORDUAS, )
+ROW_END
+
+
+SPACE(17)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Canada Day)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 144, 30, 3, , , S 890-893, , , , )
+ROW_END
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 36, 0, 0, , , , , , MAP OF CANADA\, 1867, )
+  STAMP_ADD(, 36, 0, 0, , , , , , MAP OF CANADA\, 1873, )
+  STAMP_ADD(, 36, 0, 0, , , , , , MAP OF CANADA\, 1905, )
+  STAMP_ADD(, 36, 0, 0, , , , , , MAP OF CANADA\, 1949, )
+  ROW_SPACE(3)
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 24   - Comemoratives (1981)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1981)
+
+
+SPACE(10)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 30, 36, 3, , , S 896, , , LES FLORALIES DE MONTREAL\,\nTHE MONTREAL ROSE, )
+  STAMP_ADD(, 30, 36, 3, , , S 897, , , NIAGARA-ON-THE-LAKE\,\nBICENTENARY OF THE FIRST CAPITAL\nOF UPPER CANADA (NOW ONTARIO), )
+  STAMP_ADD(, 30, 36, 3, , , S 898, , , ACADIANS\,\nCENTENARY OF THE FIRST\nACADIAN CONGRESS, )
+  STAMP_ADD(, 30, 36, 3, , , S 899, , , AARON MOSHER (1881-1959)\,\n A LEADING FOUNDER OF THE\nCANADIAN LABOR CONGRESS, )
+ROW_END
+
+
+SPACE(10)
+FONT (Century Gothic, 8, italic)
+PAGE_TEXT_CENTRE (Canadian Feminists)
+SPACE(1)
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40, 0, 0, , , , , , EMILY STOWE(1831-1903) WAS THE\nFIRST CANADIAN WOMAN PHYSICIAN, )
+  ROW_SPACE(4)
+  STAMP_ADD(, 40, 0, 0, , , , , , IDOLA SAINT-JEAN (1875-1945) FOUGHT\nFOR THE WOMEN'S RIGHT TO VOTE, )
+ROW_END
+SPACE(-1)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 80, 48, 3, , , S 879-882, , , , )
+ROW_END
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40, 0, 0, , , , , , LOUISE MCKINNEY (1868-1931) WAS THE\nFIRST WOMAN MEMBER OF A LEGISLATURE\nIN THE BRITISH COMMONWEALTH, )
+  ROW_SPACE(4)
+  STAMP_ADD(, 40, 0, 0, , , , , , HENRIETTA EDWARDS (1849-1931)\nFOUNDED THE WORKING GIRL'S\nASSOCIATION, )
+ROW_END
+
+
+SPACE(10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Christmas - Bicentenary of the first illuminated Christmas tree in Canada)
+SPACE(1)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 30, 36, 3, , , S 900, , , CHRISTMAS TREE\, 1781, )
+  STAMP_ADD(, 30, 36, 3, , , S 901, , , CHRISTMAS TREE\, 1881, )
+  STAMP_ADD(, 30, 36, 3, , , S 902, , , CHRISTMAS TREE\, 1983, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 25   - Canada 82, International Philatelic Youth Exhibition
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1982)
+
+SPACE (8)
+FONT (Century Gothic, 10, normal)
+PAGE_TEXT_CENTRE (Canada 82, International Philatelic Youth Exhibition )
+
+SPACE(4)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 45, 36, 3, , 30c, S 909, , , THREE-PENNY BEAVER (NO. 1), )
+  STAMP_ADD(, 45, 36, 3, , 30c, S 910, , , CHAMPLAIN'S DEPARTURE (NO.102), )
+  STAMP_ADD(, 45, 36, 3, , 35c, S 911, , , RCMP CONSTABLE (NO. 203), )
+ROW_END
+SPACE(1)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 45, 36, 3, , 35c, S 912, , , MOUNT HURD (NO. 155), )
+  STAMP_ADD(, 45, 36, 3, , 60c, S 913, , , BLUENOSE (NO. 158), )
+ROW_END
+SPACE(3)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 160, 108, 4, , , S 913a, , , , )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 26   - Canada Day (1982)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1982)
+
+SPACE (8)
+FONT (Century Gothic, 10, normal)
+PAGE_TEXT_CENTRE (Canada Day)
+SPACE(1)
+FONT (Century Gothic, 8, italic)
+PAGE_TEXT_CENTRE (Twelve stamps depicting teritorial and provincial scenes painted by various Canadian artists)
+
+SPACE(5)
+ROW_START (FS, BOTTOM, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Yukon Territory, 40, 30, 3, , 30c, S 955, , , "THE HIGHWAY NEAR KLUANE LAKE"\,\nALEXANDER YOUNG JACKSON\, 1943, )
+  STAMP_ADD(Quebec, 40, 30, 3, , 30c, S 956, , , "SCENE DE RUE\, MONTREAL"\,\nADRIEN HEBERT\, 1933, )
+  STAMP_ADD(Newfoundland, 40, 30, 3, , 30c, S 957, , , "BREAKWATER"\,\nCHRISTOPHER PRATT\, 1976, )
+ROW_END
+SPACE(5)
+ROW_START (FS, BOTTOM, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Northwest Teritories, 40, 30, 3, , 30c, S 958, , , "LE LONG DU GRAND LAC DES ESCLAVES"\,\n RENE RICHARD\, 1960, )
+  STAMP_ADD(Prince Edward Island, 40, 30, 3, , 30c, S 959, , , "TEA HILL"\,\nMOLLY JOAN LAMB BOBAK, )
+  STAMP_ADD(Nova Scotia, 40, 30, 3, , 30c, S 960, , , "FAMILY AND RAINSTORM"\,\nDAVID ALEXANDER COLVILLE\, 1965, )
+ROW_END
+SPACE(5)
+ROW_START (FS, BOTTOM, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Saskatchewan, 40, 30, 3, , 30c, S 961, , , "BROWN SHADOWS"\,\nDOROTHY KNOWLES\, 1977, )
+  STAMP_ADD(Ontario, 40, 30, 3, , 30c, S 962, , , "RED BRICK HOUSE"\,\nDAVID BRUCE MILNE\, 1931, )
+  STAMP_ADD(New Brunswick, 40, 30, 3, , 30c, S 963, , , "CANPUS GATES"\,\nBRUNISLAW JACOB BOBAK\, 1964, )
+ROW_END
+SPACE(5)
+ROW_START (FS, BOTTOM, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Alberta, 40, 30, 3, , 30c, S 964, , , "PRAIRIE TOWN\, EARLY MORNING"\,\nILLINGWORTH HOLEY KERR\, 1927, )
+  STAMP_ADD(British Columbia, 40, 30, 3, , 30c, S 965, , , "TOTEMS AT NINSTINTS"\,\nJOSEPH FRANCIS PLASKETT,  )
+  STAMP_ADD(Manitoba, 40, 30, 3, , 30c, S 966, , , "DOC SNYDER'S HOUSE"\,\nLIONEL LEMOINE FITZGERALD\, 1931, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 27   - Comemoratives (1982)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1982)
+
+SPACE(20)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 30, 36, 3, , 30c, S 914, , , JULES LEGER (1913-1980)\,\n26TH GOVERNOR GENERAL, )
+  STAMP_ADD(, 60, 24, 3, , 30c, S 916, , , 1982 CONSTITUTION, )
+  STAMP_ADD(, 36, 30, 3, , 30c, S 954, , , CENTENARY OF THE SALVATION ARMY, )
+ROW_END
+
+SPACE(15)
+ROW_START (FS, BOTTOM, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40, 24, 3, , 30c, S 967, , , REGINA CENTENARY - LEGISLATURE BUILDING, )
+  STAMP_ADD(, 24, 40, 3, , 30c, S 915, , , TERRY FOX (1958-1981)\,\nMARATHON OF HOPE, )
+  STAMP_ADD(, 40, 24, 3, , 30c, S 968, , , ROYAL CANADIAN HENLEY REGATTA\nROWING COMPETITION, )
+ROW_END
+
+SPACE(25)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Christmas - Creche Figures)
+SPACE(1)
+ROW_START (FS, BOTTOM, 16, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 30, 36, 3, , 30c, S 973, , , HOLY FAMILY, )
+  STAMP_ADD(, 30, 36, 3, , 35c, S 974, , , SHEPHARDS, )
+  STAMP_ADD(, 30, 36, 3, , 60c, S 975, , , THREE WISE MEN, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 28   - Definitives (1982-1987)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1982-1987)
+
+
+SPACE(10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Low-Value Artifact Definitives)
+
+SPACE(3)
+ROW_START (FS, BOTTOM, 20, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 20, 24, 3, , 1c, S 917, , , DECOY, )
+  STAMP_ADD(, 20, 24, 3, , 2c, S 918, , , FISHING SPEAR, )
+  STAMP_ADD(, 20, 24, 3, , 3c, S 919, , , LANTERN, )
+  STAMP_ADD(, 20, 24, 3, , 5c, S 920, , , BUCKET, )
+ROW_END
+SPACE(3)
+ROW_START (FS, BOTTOM, 20, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 20, 24, 3, , 10c, S 921, , , WHEATHERCOCK, )
+  STAMP_ADD(, 20, 24, 3, , 20c, S 922, , , ICE SKATES, )
+  STAMP_ADD(, 20, 24, 3, , 25c, S 1080, , , BUTTER STAMP, )
+ROW_END
+
+
+SPACE(10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Medium-Value Artifact Definitives)
+
+SPACE(3)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 30, 24, 3, , 37c, S 927, , , WOODEN PLOUGH, )
+  STAMP_ADD(, 30, 24, 3, , 39c, S 928, , , SETTLE-BED, )
+  STAMP_ADD(, 30, 24, 3, , 42c, S 1081, , , LINEN CHEST, )
+  STAMP_ADD(, 30, 24, 3, , 48c, S 929, , , CRADLE, )
+ROW_END
+SPACE(3)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 30, 24, 3, , 50c, S 930, , , SLEIGHT, )
+  STAMP_ADD(, 30, 24, 3, , 55c, S 1082, , , IRON KETTLE, )
+  STAMP_ADD(, 30, 24, 3, , 64c, S 931, , , WOOD STOVE, )
+ROW_END
+SPACE(3)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 30, 24, 3, , 68c, S 932, , , SPINNING WHEEL, )
+  STAMP_ADD(, 30, 24, 3, , 72c, S 1083, , , HAND-DRAWN CART, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 29   - Definitives (1982-1987)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1981-1984)
+
+SPACE(10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Maple Leaf Definitives)
+
+
+SPACE(20)
+ROW_START (FS, BOTTOM, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 20, 24, 3, , A, red, S 907, , 30c - domestic rate, )
+  STAMP_ADD(, 20, 24, 3, , 30c, red on blue, S 923, , , )
+  STAMP_ADD(, 20, 24, 3, , 32c, red on cream, S 924, , , )
+ROW_END
+
+SPACE(20)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Booklet Stamps: one or two straight edges)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 20, 24, 3, , 5c, purple, S 940, , , )
+  STAMP_ADD(, 20, 24, 3, , 8c, dark blue, S 943, , , )
+  STAMP_ADD(, 20, 24, 3, , 10c, dark green, S 944, , , )
+  STAMP_ADD(, 20, 24, 3, , 30c, red, S 945, , , )
+  STAMP_ADD(, 20, 24, 3, , 32c, brown, S 946, , , )
+ROW_END
+
+SPACE(25)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Coil Stamps: Perforated 10 Vertically)
+ROW_START (FS, BOTTOM, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40, 24, 3, , A, red, S 908, , , )
+  STAMP_ADD(, 40, 24, 3, , 30c, red, S 950, , , )
+  STAMP_ADD(, 42, 24, 3, , 32c, brown, S 951, , , )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 30   - Comemoratives (1983)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1983)
+
+SPACE(20)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 30, 40, 3, , 32c, S 976, , , UNITED NATIONS\nWORLD COMMUNICTIONS YEAR, )
+  STAMP_ADD(, 48, 40, 3, , $2, S 977, , , COMMONWEALTH DAY, )
+ROW_END
+
+SPACE(20)
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(World University Games, 72, 0, 0, , , , , , , )
+  ROW_SPACE(3)
+  ROW_SPACE(18)
+  ROW_SPACE(3)
+  STAMP_ADD(, 30, 0, 0, , , , , , , )
+  ROW_SPACE(3)
+  ROW_SPACE(14)
+  ROW_SPACE(3)
+  STAMP_ADD(, 30, 0, 0, , , , , , , )
+  ROW_SPACE(3)
+ROW_END
+ROW_START (FS, BOTTOM, 0, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 30, 36, 3, , 32c, S 981, , , , )
+  ROW_SPACE(6)
+  STAMP_ADD(, 30, 36, 3, , 64c, S 982, , , , )
+  ROW_SPACE(18)
+  STAMP_ADD(, 30, 36, 3, , 32c, S 994, , , , )
+  ROW_SPACE(14)
+  STAMP_ADD(, 30, 36, 3, , 32c, S 995, , , , )
+ROW_END
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 72, 0, 0, , , , , , HELD IN EDMONTON\, AB FROM JULY 1 TO JULY 11\, 1983, )
+  ROW_SPACE(3)
+  ROW_SPACE(18)
+  ROW_SPACE(3)
+  STAMP_ADD(, 30, 0, 0, , , , , , WORLD COUNCIL\nOF CHURCHES ASSEMBLY, )
+  ROW_SPACE(3)
+  ROW_SPACE(14)
+  ROW_SPACE(3)
+  STAMP_ADD(, 30, 0, 0, , , , , , 400TH ANNIVERSARY OF\nSIR HUMPREY GILBERT\nCLAIMING NEWFOUNDLAND FOR\nTHE QUEEN ELISABETH I OF ENGLAND, )
+  ROW_SPACE(3)
+ROW_END
+
+SPACE(20)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 36, 30, 3, , , S 993, , , , )
+  STAMP_ADD(Canadian Writers, 72, 30, 3, , , S 978-979, , , , )
+  STAMP_ADD(, 36, 30, 3, , , S 980, , , , )
+ROW_END
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 36, 0, 0, , , , , , 75th ANNIVERSARY OF SCOUTING IN CANADA\nDESIGNED BY 12-YEAR OLD MARC FOURNIER\nSELECTED AS WINNER OF NATION-WIDE POSTER CONTEST, )
+  ROW_SPACE(16)
+  STAMP_ADD(, 36, 0, 0, , , , , , LAURE CONAN\, AUTHOR, )
+  STAMP_ADD(, 36, 0, 0, , , , , , E.J. PRATT\, POET, )
+  ROW_SPACE(16)
+  STAMP_ADD(, 36, 0, 0, , , , , , ST. JOHN AMBULANCE CENTENARY, )
+  ROW_SPACE(3)
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 31   - Comemoratives (1983)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1983)
+
+SPACE(15)
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(Canadian Pioneers, 92, 0, 0, , , , , , , )
+ROW_END
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40, 24, 3, , 32c, S 997, , , JOSIAH HENSON (1789-1883)\nWAS INSTRUMENTAL IN OPERATING\nTHE "UNDERGROUND RAILROAD" WHICH\nBROUGHT AMERICAN SLAVES TO CANADA, )
+  STAMP_ADD(, 36, 30, 3, , 32c, S 998, , , ANTOINE LABELLE (1883-1981)\nCOLONIZED MANY OF THE\nSMALLER VILLAGES IN QUEBEC, )
+ROW_END
+
+SPACE(13)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40, 24, 3, , 32c, S 996, , , DISCOVERY OF NICKEL, )
+ROW_END
+
+SPACE(4)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40, 24, 3, , 32c, S 1003, , , DALHOUSIE LAW SCHOOL CENTENARY, )
+ROW_END
+
+SPACE(13)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Christmas)
+SPACE(1)
+ROW_START (FS, BOTTOM, 10, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 36, 30, 3, , 32c, S 1004, , , URBAN CHURCH, )
+  STAMP_ADD(, 36, 30, 3, , 37c, S 1005, , , FAMILY GOING TO CHURCH, )
+  STAMP_ADD(, 36, 30, 3, , 64c, S 1006, , , RURAL CHURCH, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 31   - Army Regiments (1983-1985)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1983-1985)
+
+SPACE(20)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Army regiments)
+SPACE(1)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 60, 40, 3, , , S 1007-1008, , , ROYAL CANADIAN REGIMENT / BRITISH COLUMBIA REGIMENT\nROYAL WINNIPEG RIFLES / ROYAL CANADIAN DRAGONS, )
+  STAMP_ADD(, 30, 40, 3, , 32c, S 1005, , , ROYAL CANADIAN AIR FORCE, )
+  STAMP_ADD(, 30, 40, 3, , 34c, S 1006, , , ROYAL CANADIAN NAVY, )
+ROW_END
+
+
+SPACE (30)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1983-1986)
+
+SPACE(10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Canadian Locomotives (1836-1860))
+SPACE(1)
+ROW_START (FS, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 80, 26, 3, , , S 999-1000, , , , )
+ROW_END
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 40, 0, 0, , , , , , TORONTO 4-4-0 TYPE, )
+  STAMP_ADD(, 40, 0, 0, , , , , , DORCHESTER 0-4-0 TYPE, )
+  ROW_SPACE(3)
+ROW_END
+SPACE(10)
+ROW_START (FS, BOTTOM, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40, 26, 3, , 37c, S 1001, , , SAMSON 0-6-0 TYPE, )
+  STAMP_ADD(, 40, 26, 3, , 64c, S 1002, , , ADAM BROWN 4-4-0 TYPE, )
+ROW_END
+
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 32   - Canadian Locomotives (1983-1986)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1983-1986)
+
+SPACE(10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Canadian Locomotives (1860-1905))
+SPACE(1)
+ROW_START (FS, BOTTOM, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 112, 26, 3, , , S 1036-1037, , , , )
+ROW_END
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 56, 0, 0, , , , , , SCOTIA 0-6-0 TYPE, )
+  STAMP_ADD(, 56, 0, 0, , , , , , COUNTESS OF DUFFERIN 4-4-0 TYPE, )
+  ROW_SPACE(3)
+ROW_END
+
+SPACE(10)
+ROW_START (FS, BOTTOM, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 56, 26, 3, , 37c, S 1038, , , GT CLASS E3 2-6-0 TYPE, )
+  STAMP_ADD(, 56, 26, 3, , 64c, S 1039, , , CP CLASS D10A 4-6-0 TYPE, )
+ROW_END
+
+SPACE(10)
+ROW_START (FS, BOTTOM, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 152, 103, 4, , , S 1039a, , , , )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 33   - Canadian Locomotives (1983-1986)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1983-1986)
+
+SPACE(20)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Canadian Locomotives (1906-1925))
+SPACE(1)
+ROW_START (FS, BOTTOM, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 112, 26, 3, , , S 1071-1072, , , , )
+ROW_END
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 56, 0, 0, , , , , , GT CLASS K2 4-6-4T TYPE, )
+  STAMP_ADD(, 56, 0, 0, , , , , , CP CLASS P2A 2-8-2 TYPE, )
+  ROW_SPACE(3)
+ROW_END
+
+SPACE(10)
+ROW_START (FS, BOTTOM, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 56, 26, 3, , 39c, S 1073, , , CNOR CLASS 010A 0-6-0 TYPE, )
+  STAMP_ADD(, 56, 26, 3, , 68c, S 1074, , , CGR CLASS H4D 2-8-0 TYPE, )
+ROW_END
+
+SPACE(20)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Canadian Locomotives (1836-1860))
+SPACE(1)
+ROW_START (FS, BOTTOM, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 128, 26, 3, , , S 1118-1119, , , , )
+ROW_END
+ROW_START (FS, BOTTOM, 0, 0, 0, 0, 0, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  ROW_SPACE(3)
+  STAMP_ADD(, 64, 0, 0, , , , , , CN CLASS V-1-A 2-DO-1+1-DO-2 TYPE, )
+  STAMP_ADD(, 64, 0, 0, , , , , , CP CLASS T1A 2-10-4 TYPE, )
+  ROW_SPACE(3)
+ROW_END
+
+SPACE(10)
+ROW_START (FS, BOTTOM, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 64, 26, 3, , 32c, S 1120, , , CN CLASS U-2-A 4-8-4 TYPE, )
+  STAMP_ADD(, 64, 26, 3, , 34c, S 1121, , , CP CLASS H1C 4-6-4 TYPE, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 34   - Canadian Forts (1983, 1985, 1995)
+# ---------------------------------------------------------------------------------
+
+PAGE_START (LAND)
+
+SPACE (5)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1983-1985)
+
+SPACE(6)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Canadian Forts)
+SPACE(1)
+
+ROW_START (ES, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40, 26, 3, , 32c, S 984, , , FORT WILLIAM\, ONTARIO, )
+  STAMP_ADD(, 32, 26, 3, , 32c, S 986, , , FORT WELLINGTON\, ONTARIO, )
+  STAMP_ADD(, 48, 26, 3, , 32c, S 983, , , FORT HENRY\, ONTARIO, )
+  STAMP_ADD(, 32, 26, 3, , 32c, S 987, , , FORT PRINCE OF WALES\, MANITOBA, )
+  STAMP_ADD(, 40, 26, 3, , 32c, S 985, , , FORT ROD HILL\, BRITISH COLUMBIA, )
+ROW_END
+
+SPACE(3)
+ROW_START (ES, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40, 26, 3, , 32c, S 984, , , FORT CHAMBLY\, QUEBEC, )
+  STAMP_ADD(, 32, 26, 3, , 32c, S 986, , , FORT COTEAU-DU-LAC\, QUEBEC, )
+  STAMP_ADD(, 48, 26, 3, , 32c, S 983, , , HALIFAX CITADEL\, NOVA SCOTIA, )
+  STAMP_ADD(, 32, 26, 3, , 32c, S 987, , , FORT BEAUSEJOUR\, NEW BRUNSWICK, )
+  STAMP_ADD(, 40, 26, 3, , 32c, S 985, , , FORT NO. 1 POINT LEVIS\, QUEBEC, )
+ROW_END
+
+SPACE(3)
+ROW_START (ES, BOTTOM, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40, 26, 3, , 34c, S 1051, , , FORT ANNE\, NOVA SCOTIA, )
+  STAMP_ADD(, 32, 26, 3, , 34c, S 1053, , , CASTLE HILL\, NEWFOUNDLAND, )
+  STAMP_ADD(, 48, 26, 3, , 34c, S 1050, , , LOWER FORT GARRY\, MANITOBA, )
+  STAMP_ADD(, 32, 26, 3, , 34c, S 1054, , , FORT WHOOP-UP\, ALBERTA, )
+  STAMP_ADD(, 40, 26, 3, , 34c, S 1052, , , FORT YORK\, ONTARIO, )
+ROW_END
+
+SPACE(3)
+ROW_START (ES, BOTTOM, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 40, 26, 3, , 34c, S 1056, , , FORT WALSH\, SASKATCHEWAN, )
+  STAMP_ADD(, 32, 26, 3, , 34c, S 1058, , , YORK REDOUBT\, NOVA SCOTIA, )
+  STAMP_ADD(, 48, 26, 3, , 34c, S 1055, , , FORT ERIE\, ONTARIO, )
+  STAMP_ADD(, 32, 26, 3, , 34c, S 1059, , , FORT FREDERICK\, ONTARIO, )
+  STAMP_ADD(, 40, 26, 3, , 34c, S 1057, , , FORT LENNOX\, QUEBEC, )
+ROW_END
+
+
+
+
+
+
+
+
