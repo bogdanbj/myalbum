@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MyAlbum": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\My\\Git\\myalbum\\Templates\\test3.xml"
+    }
+  }
+}
