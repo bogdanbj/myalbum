@@ -14,11 +14,14 @@
 			font_style: bold, bolditalic, italic, regular, strikeout, underline
 			align: left, center, right
 			valign: top, center, bottom
+
+			White ace: The story copy is Folio Lite, the Italic is Garamond Lite Italic, the Headline Type is Stymie Book and the Dates are Lubalin.
 			-->
 			<text style="text_default" default="true" align="left" font_name="Century Gothic" font_size="8"/>
 			<text style="story" justify="true" align="center" font_name="Folio" font_size="7"/>
 			<text style="italic" justify="true" align="center" font_name="Garamond" font_size="8" font_style="italic"/>
 			<text style="headline" justify="false" align="center" font_name="Stymie Becker Light" font_size="16" margin="2,0"/>
+			<text style="headline-smaller" justify="false" align="center" font_name="Stymie Becker Light" font_size="14" margin="2,0"/>
 			<text style="date" justify="true" align="center" font_name="Lubalin Graph" font_size="8" font_style="bold"/>
 			<text style="title" align="center" font_name="Stymie Becker Light" font_size="10"/>
 			<text style="inside" align="center" font_name="Stymie Becker Light" font_size="6" width="80%"/>
@@ -99,7 +102,7 @@
 		<page no="2" title="Commemorative 1984">
 			<row height="10" />
 
-			<row space="20" valign="bottom">
+			<row space="20" valign="top">
 				<column width="36" rem="Yellowknife" >
 					<text style="headline">YELLOWKNIFE</text>
 					<text style="date">1984</text>
@@ -139,7 +142,7 @@
 					<text style="headline">UNITED EMPIRE LOYALISTS</text>
 					<text style="date">1984</text>
 					<stamp width="40" height="24" title="" image="" i1="32c" i2="" i3="S 1028" f1="" f2="Loyalists and British flag" f3="" />
-					<text style="story" width="40">Approximately 100,000 Loyalists fled the United Stated, at the end of American Revolution, about half of them in Canada contributing substantially to the pioneering efforts.\n</text>
+					<text style="story" width="40">Approximately 100,000 Loyalists fled the United Stated, at the end of American Revolution, about half of them in Canada contributing substantially to the pioneering efforts.</text>
 				</column>
 			</row>
 			</page>
@@ -240,7 +243,7 @@
 				<column width="36" rem="New Brunswick Bicentennial" >
 					<text style="headline">NEW BRUNSWICK BICENTENNIAL</text>
 					<text style="date">1984</text>
-					<stamp width="30" height="36" title="" image="" i1="32c" i2="" i3="S 1014" f1="" f2="'Lymphad' sailing vessels" f3="" />
+					<stamp width="30" height="36" title="" image="" i1="32c" i2="" i3="S 1014" f1="" f2="'Lymphad' sailing\nvessels" f3="" />
 					<text style="story" width="40">The stamp commemorates 200 years since the creation of the "Colony of New Brunswick". The Scottish Lymphads represent shipbuilding, one of the province's main industries throughout much of its history.</text>
 					<!--text style="story" width="40">In 1784 the British Gouvernment decided to divide Nova Scotia and create the new province New Brunswick. The display of oared galleys evokes a long seafared tradition and is also found on the porvincial flag and coat-of-arms.</text-->
 				</column>
@@ -316,9 +319,9 @@
 
 			<row space="20" valign="bottom">
 				<column width="36" rem="International Youth Year" >
-					<text style="headline">INTERNATIONAL YOUTH YEAR</text>
+					<text style="headline-smaller">INTERNATIONAL YOUTH YEAR</text>
 					<text style="date">1985</text>
-					<stamp width="40" height="24" i1="32c" i2="S 1045" f2="Heart and Arrow, Jeans" />
+					<stamp width="40" height="24" i1="32c" i2="S 1045" f2="Heart and Arrow, Jeans\n" />
 					<text style="story" width="40">The United Nations proclaimed 1985 International Youth Year to raise the awareness of the problems encountered by young people.</text>
 				</column>
 				<column width="36" rem="Canadians in Space">
