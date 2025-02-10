@@ -59,50 +59,32 @@ namespace MyAlbum
             return null;
         }
 
+#nullable enable
         public FontResolverInfo ResolveTypeface(string familyName, bool isBold, bool isItalic)
         {
+
             FontResolverInfo? fontResolverInfo;
-            
-            string suffix = "";
-            if (isBold && isItalic)
-                suffix = " Bold Italic";
-            else if (isBold)
-                suffix = " Bold";
-            else if (isItalic)
-                suffix = " Italic";
 
-            fontResolverInfo = new FontResolverInfo($"{familyName}{suffix}");
+            string faceName = familyName;
+            if (isBold) familyName += " Bold";
+            if (isItalic) familyName += " Italic";
 
+            fontResolverInfo = new FontResolverInfo(faceName);
 
-            switch (familyName)
-            {
-                case "Century Gothic":
-                    return new FontResolverInfo($"Century Gothic{suffix}");
-                case "Folio":
-                    return new FontResolverInfo($"Folio{suffix}");
-                case "Garamond":
-                    return new FontResolverInfo($"Garamond{suffix}");
-                case "Lubalin Graph":
-                    return new FontResolverInfo($"Lubalin Graph{suffix}");
-                case "Stymie Becker Light":
-                    return new FontResolverInfo($"Stymie Becker Light{suffix}");
-            }
+            if (fontResolverInfo != null)
+                return fontResolverInfo;
 
+            // fallback to platform default resolver
+            fontResolverInfo = PlatformFontResolver.ResolveTypeface(familyName, isBold, isItalic);
 
-            var font = PlatformFontResolver.ResolveTypeface(familyName, isBold, isItalic);
+            // fallback to "Verdana"
+            if (fontResolverInfo == null)
+                fontResolverInfo = PlatformFontResolver.ResolveTypeface("Verdana", isBold, isItalic);
 
-            if (font == null)
-            {
-                // Fallback to a default font
-                font = PlatformFontResolver.ResolveTypeface("Verdana", isBold, isItalic);
-            }
-
-            return font;
-            
-            //return PdfSharp.Fonts.PlatformFontResolver.ResolveTypeface(familyName, isBold, isItalic);
+            return fontResolverInfo!;
 
         }
-
+#nullable restore
 
         private byte[] LoadFontData(string fontPath)
         {
