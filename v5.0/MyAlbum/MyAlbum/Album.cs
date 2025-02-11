@@ -91,10 +91,10 @@ namespace MyAlbum
             ////gfx.DrawLine(XPens.PowderBlue, rect.X + rect.Width / 2, rect.Y, rect.X + rect.Width / 2, rect.Y + rect.Height);
 
             //Text text1 = new Text(gfx, font, XBrushes.SlateGray, lorem_ipsum[0]);
-            //text1.X = XUnit.FromMillimeter(20);
-            //text1.Y = XUnit.FromMillimeter(100);
-            //text1.W = XUnit.FromMillimeter(150);
-            //text1.H = XUnit.FromMillimeter(20);
+            //text1.X = XUnitPt.FromMillimeter(20);
+            //text1.Y = XUnitPt.FromMillimeter(100);
+            //text1.W = XUnitPt.FromMillimeter(150);
+            //text1.H = XUnitPt.FromMillimeter(20);
             //text1.Align = Alignments.Default;
             ////text1.IsJustified = true;
             ////Text text2 = new Text(gfx, lorem_ipsum[1], rect.X, rect.Y, 45, 50, font, XBrushes.SlateGray, Alignments.TopCenter, false);

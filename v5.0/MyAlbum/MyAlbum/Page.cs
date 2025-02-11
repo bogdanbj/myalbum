@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using System.Xml.Linq;
+using PdfSharp;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 
@@ -12,11 +13,12 @@ namespace MyAlbum
     class Page : Container
     {
         #region Properties
-        PdfPage _pdfPage;
+        private PdfPage _pdfPage;
         private Image _banner;
         private Border _frame;
         private List<Row> _rows;
-        private XUnit yPos, yPosRotate;
+        private XUnitPt yPos, yPosRotate;
+        private PageOrientation _orientation;
         public PdfPage PdfPage
         {
             get 
@@ -27,14 +29,34 @@ namespace MyAlbum
                 }
                 return _pdfPage;
             }
-            set { _pdfPage = value; }
+            set 
+            { 
+                _pdfPage = value; 
+                this.Height = _pdfPage.Height.Point;
+                this.Width = _pdfPage.Width.Point;
+            }
         }
+        public XUnitPt Width { get; set; }
+        public XUnitPt Height { get; set; }
         public string Title { get; set; }
         public string No { get; set; }
-        public string Orientation { get; set; }
-        public string Size { get; set; }
-        public new static XUnit VSpace { get; set; }
-        //public XUnit VSpace { get; set; }
+        //public string Orientation { get; set; }
+
+        public PageOrientation Orientation
+        {
+            get { return _orientation; }
+            set 
+            { 
+                _orientation = value; 
+                this.PdfPage.Orientation = value;
+            }
+        }
+
+        //public PageOrientation Orientation { get; set; }
+        //public string Size { get; set; }
+        public PageSize Size { get; set; }
+        public new static XUnitPt VSpace { get; set; }
+        //public XUnitPt VSpace { get; set; }
         public Image Banner
         {
             get 
@@ -68,6 +90,7 @@ namespace MyAlbum
         public Page()
         {
             BoxColor = XColors.Red;
+            //this.PdfPage = new PdfPage();
         }
         public Page(XElement xml) : this()
         {
@@ -90,61 +113,62 @@ namespace MyAlbum
         }
         public override void Calculate()
         {
-            gfx = XGraphics.FromPdfPage(_pdfPage);
-            //XSolidBrush brush;
+            //gfx = XGraphics.FromPdfPage(_pdfPage);
+            //gfx = XGraphics.FromPdfPage(this.PdfPage);
+            XSolidBrush brush;
 
             #region page orientation
-            switch (this.Orientation.ToLower())
-            {
-                case "portrait":
-                    _pdfPage.Orientation = PdfSharp.PageOrientation.Portrait;
-                    break;
-                case "landscape":
-                    _pdfPage.Orientation = PdfSharp.PageOrientation.Landscape;
-                    break;
-                default:
-                    _pdfPage.Orientation = PdfSharp.PageOrientation.Portrait;
-                    break;
-            }
+            this.PdfPage.Orientation = this.Orientation;
+            this.PdfPage.Size = this.Size;
+            gfx = XGraphics.FromPdfPage(this.PdfPage);
+            //switch (this.Orientation.ToLower())
+            //{
+            //    case "portrait":
+            //        this.Orientation = PdfSharp.PageOrientation.Portrait;
+            //        break;
+            //    case "landscape":
+            //        this.Orientation = PdfSharp.PageOrientation.Landscape;
+            //        break;
+            //    default:
+            //        this.Orientation = PdfSharp.PageOrientation.Portrait;
+            //        break;
+            //}
             #endregion
 
             #region page size
-            switch (this.Size.ToLower())
-            {
-                case "letter":
-                    _pdfPage.Size = PdfSharp.PageSize.Letter;
-                    break;
-                case "a4":
-                    _pdfPage.Size = PdfSharp.PageSize.A4;
-                    break;
-                default:
-                    _pdfPage.Size = PdfSharp.PageSize.Letter;
-                    break;
-            }
+            //switch (this.Size.ToLower())
+            //{
+            //    case "letter":
+            //        this.Size = PdfSharp.PageSize.Letter;
+            //        break;
+            //    case "a4":
+            //        this.Size = PdfSharp.PageSize.A4;
+            //        break;
+            //    default:
+            //        this.Size = PdfSharp.PageSize.Letter;
+            //        break;
+            //}
             #endregion
 
             #region page canvas
-                if (_pdfPage.Orientation == PdfSharp.PageOrientation.Portrait)
-                {
-                    x = MarginLeft;
-                    y = MarginTop;
-                    w = _pdfPage.Width - MarginLeft - MarginRight;
-                    h = _pdfPage.Height - MarginTop - MarginBottom;
-                }
-                else
-                {
-                    x = MarginBottom;
-                    y = MarginLeft;
-                    w = _pdfPage.Width - (MarginBottom + MarginTop);
-                    h = _pdfPage.Height - (MarginLeft + MarginRight);
-                    //x = MarginLeft;
-                    //y = MarginTop;
-                    //w = _pdfPage.Width - MarginLeft - MarginRight;
-                    //h = _pdfPage.Height - MarginTop - MarginBottom;
-                }
-            #endregion
+            if (this.Orientation == PdfSharp.PageOrientation.Portrait)
+            {
+                x = MarginLeft;
+                y = MarginTop;
+                w = this.Width - MarginLeft - MarginRight;
+                h = this.Height - MarginTop - MarginBottom;
+            }
+            else
+            {
+                x = MarginBottom;
+                y = MarginLeft;
+                w = this.Height - MarginTop - MarginBottom;
+                h = this.Width - MarginLeft - MarginRight;
+            }
             //brush = new XSolidBrush(XColors.AliceBlue);
             //gfx.DrawRectangle(brush, x, y, w, h);
+            #endregion
+
 
             #region calculate banner
             if (!String.IsNullOrEmpty(Banner.FileName))
@@ -152,10 +176,10 @@ namespace MyAlbum
                 Banner.gfx = gfx;
                 Banner.Load();
 
-                if (_pdfPage.Orientation == PdfSharp.PageOrientation.Portrait)
+                if (this.Orientation == PdfSharp.PageOrientation.Portrait)
                 {
                     Banner.w = w;
-                    Banner.h = XUnit.FromPoint(Banner.XImg.Size.Height) * Banner.w / XUnit.FromPoint(Banner.XImg.Size.Width);
+                    Banner.h = XUnitPt.FromPoint(Banner.XImg.Size.Height) * Banner.w / XUnitPt.FromPoint(Banner.XImg.Size.Width);
                     Banner.x = x + w / 2;
                     Banner.y = y;
 
@@ -166,9 +190,9 @@ namespace MyAlbum
                 {
 
                     Banner.w = h;
-                    Banner.h = XUnit.FromPoint(Banner.XImg.Size.Height) * Banner.w / XUnit.FromPoint(Banner.XImg.Size.Width);
-                    Banner.x = (_pdfPage.Width - _pdfPage.Height) / 2 + MarginTop + Banner.w / 2;
-                    Banner.y = - (_pdfPage.Width - _pdfPage.Height) / 2 + MarginRight;
+                    Banner.h = XUnitPt.FromPoint(Banner.XImg.Size.Height) * Banner.w / XUnitPt.FromPoint(Banner.XImg.Size.Width);
+                    Banner.x = (this.Width - this.Height) / 2 + MarginTop + Banner.w / 2;
+                    Banner.y = - (this.Width - this.Height) / 2 + MarginRight;
 
                     w -= Banner.h;
                     //h -= Banner.h;
@@ -181,9 +205,10 @@ namespace MyAlbum
             #region calculate frame
             if (Frame != null)
             {
-                if (_pdfPage.Orientation == PdfSharp.PageOrientation.Portrait)
+                Frame.gfx = gfx;
+
+                if (this.Orientation == PdfSharp.PageOrientation.Portrait)
                 {
-                    Frame.gfx = gfx;
                     Frame.x = x + Frame.MarginLeft;
                     Frame.y = y + Frame.MarginTop;
                     Frame.w = w - (Frame.MarginLeft + Frame.MarginRight);
@@ -197,11 +222,20 @@ namespace MyAlbum
                 }
                 else
                 {
-                    Frame.gfx = gfx;
-                    Frame.x = (_pdfPage.Width - _pdfPage.Height) / 2 + MarginTop + Frame.MarginLeft;
-                    Frame.y = -(_pdfPage.Width - _pdfPage.Height) / 2 + MarginRight + Banner.h + Frame.MarginTop;
+                    //Frame.x = (this.Width - this.Height) / 2 + MarginTop + Frame.MarginLeft;
+                    //Frame.y = -(this.Width - this.Height) / 2 + MarginRight + Banner.h + Frame.MarginTop;
+                    Frame.x = (w - h) / 2 + MarginTop + Frame.MarginLeft;
+                    Frame.x = x + Frame.MarginLeft;
+                    //Frame.x -= 200;
+                    Frame.y = -(w - h) / 2 + MarginRight + Banner.h + Frame.MarginTop;
+                    //Frame.y = 0;
                     Frame.w = h - (Frame.MarginLeft + Frame.MarginRight);
                     Frame.h = w - (Frame.MarginTop + Frame.MarginBottom);
+
+
+                    brush = new XSolidBrush(XColors.LightGreen);
+                    gfx.DrawRectangle(brush, Frame.x, Frame.y, Frame.w, Frame.h);
+
                     Frame.Calculate();
 
                     x += Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + VSpace;
@@ -238,19 +272,19 @@ namespace MyAlbum
             #region draw banner
             if (Banner != null && Banner.FileName.Length > 0) 
             {
-                if (_pdfPage.Orientation == PdfSharp.PageOrientation.Portrait)
+                if (this.Orientation == PdfSharp.PageOrientation.Portrait)
                 {
                     Banner.Draw();
                 }
                 else
                 {
-                    gfx.TranslateTransform(_pdfPage.Width / 2, _pdfPage.Height / 2);
+                    gfx.TranslateTransform(this.Width / 2, this.Height / 2);
                     gfx.RotateTransform(90);
-                    gfx.TranslateTransform(-_pdfPage.Width / 2, -_pdfPage.Height / 2);
+                    gfx.TranslateTransform(-this.Width / 2, -this.Height / 2);
                     Banner.Draw();
-                    gfx.TranslateTransform(_pdfPage.Width / 2, _pdfPage.Height / 2);
+                    gfx.TranslateTransform(this.Width / 2, this.Height / 2);
                     gfx.RotateTransform(-90);
-                    gfx.TranslateTransform(-_pdfPage.Width / 2, -_pdfPage.Height / 2);
+                    gfx.TranslateTransform(-this.Width / 2, -this.Height / 2);
                 }
             }
             #endregion
@@ -258,7 +292,7 @@ namespace MyAlbum
             #region draw frame
             if (Frame != null) 
             { 
-                if (_pdfPage.Orientation == PdfSharp.PageOrientation.Portrait)
+                if (this.Orientation == PdfSharp.PageOrientation.Portrait)
                 {
                     Frame.Draw();
                 }
@@ -267,48 +301,60 @@ namespace MyAlbum
                     //XSolidBrush brush = new XSolidBrush(XColors.AliceBlue);
                     //gfx.DrawRectangle(brush, x, y, w, h);
 
-                    gfx.TranslateTransform(_pdfPage.Width / 2, _pdfPage.Height / 2);
+                    gfx.TranslateTransform(this.Width / 2, this.Height / 2);
                     gfx.RotateTransform(90);
-                    gfx.TranslateTransform(-_pdfPage.Width / 2, -_pdfPage.Height / 2);
+                    gfx.TranslateTransform(-this.Width / 2, -this.Height / 2);
+
+                    XSolidBrush brush = new XSolidBrush(XColors.AliceBlue);
+                    gfx.DrawRectangle(brush, x, y, w, h);
+                    //gfx.TranslateTransform(this.w / 2, this.h / 2);
+                    //gfx.RotateTransform(90);
+                    //gfx.TranslateTransform(-this.w / 2, -this.h / 2);
+
                     Frame.Draw();
-                    gfx.TranslateTransform(_pdfPage.Width / 2, _pdfPage.Height / 2);
+
+                    gfx.TranslateTransform(this.Width / 2, this.Height / 2);
                     gfx.RotateTransform(-90);
-                    gfx.TranslateTransform(-_pdfPage.Width / 2, -_pdfPage.Height / 2);
+                    gfx.TranslateTransform(-this.Width / 2, -this.Height / 2);
+
+                    //gfx.TranslateTransform(this.w / 2, this.h / 2);
+                    //gfx.RotateTransform(-90);
+                    //gfx.TranslateTransform(-this.w / 2, -this.h / 2);
                 }
             }
             #endregion
 
             #region draw rows
             yPos = y;
-            yPosRotate = y - (_pdfPage.Width - _pdfPage.Height) / 2;
+            yPosRotate = y - (this.Width - this.Height) / 2;
             yPosRotate -= Frame.MarginLeft + Frame.WidthLeft + Frame.PaddingLeft;
             yPosRotate += Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + VSpace;
 
-            foreach (Row row in Rows) 
-            {
-                row.Parent = this;
-                if (row.Rotate.ToLower() == "true")
-                {
-                    gfx.TranslateTransform(_pdfPage.Width / 2, _pdfPage.Height / 2);
-                    gfx.RotateTransform(90);
-                    gfx.TranslateTransform(-_pdfPage.Width / 2, -_pdfPage.Height / 2);
-                    row.y = yPosRotate;
-                    row.Draw();
-                    yPosRotate += row.h + VSpace;
-                    this.w = this.w - row.h;
-                    gfx.TranslateTransform(_pdfPage.Width / 2, _pdfPage.Height / 2);
-                    gfx.RotateTransform(-90);
-                    gfx.TranslateTransform(-_pdfPage.Width / 2, -_pdfPage.Height / 2);
-                }
-                else 
-                {
-                    row.y = yPos;
-                    //brush = new XSolidBrush(XColors.LightYellow);
-                    //gfx.DrawRectangle(brush, row.x, row.y, row.w, row.h);
-                    row.Draw();
-                    yPos += row.h + VSpace;
-                }
-            }
+            //foreach (Row row in Rows) 
+            //{
+            //    row.Parent = this;
+            //    if (row.Rotate.ToLower() == "true")
+            //    {
+            //        gfx.TranslateTransform(this.Width / 2, this.Height / 2);
+            //        gfx.RotateTransform(90);
+            //        gfx.TranslateTransform(-this.Width / 2, -this.Height / 2);
+            //        row.y = yPosRotate;
+            //        row.Draw();
+            //        yPosRotate += row.h + VSpace;
+            //        this.w = this.w - row.h;
+            //        gfx.TranslateTransform(this.Width / 2, this.Height / 2);
+            //        gfx.RotateTransform(-90);
+            //        gfx.TranslateTransform(-this.Width / 2, -this.Height / 2);
+            //    }
+            //    else 
+            //    {
+            //        row.y = yPos;
+            //        //brush = new XSolidBrush(XColors.LightYellow);
+            //        //gfx.DrawRectangle(brush, row.x, row.y, row.w, row.h);
+            //        row.Draw();
+            //        yPos += row.h + VSpace;
+            //    }
+            //}
             #endregion
 
         }
@@ -398,15 +444,41 @@ namespace MyAlbum
         {
             if (Xml.Attribute("orientation") != null)
             {
-                this.Orientation = Xml.Attribute("orientation").Value.ToLower();
+                switch (Xml.Attribute("orientation").Value.ToLower())
+                {
+                    case "portrait":
+                        this.Orientation = PdfSharp.PageOrientation.Portrait;
+                        break;
+                    case "landscape":
+                        this.Orientation = PdfSharp.PageOrientation.Landscape;
+                        break;
+                    default:
+                        this.Orientation = PdfSharp.PageOrientation.Portrait;
+                        break;
+                }
             }
+            //else
+            //    this.Orientation = PdfSharp.PageOrientation.Portrait;
         }
         private void ParseSizeAttribute()
         {
             if (Xml.Attribute("size") != null)
             {
-                this.Size = Xml.Attribute("size").Value.ToLower();
+                switch (Xml.Attribute("size").Value.ToLower())
+                {
+                    case "letter":
+                        this.Size = PdfSharp.PageSize.Letter;
+                        break;
+                    case "a4":
+                        this.Size = PdfSharp.PageSize.A4;
+                        break;
+                    default:
+                        this.Size = PdfSharp.PageSize.Letter;
+                        break;
+                }
             }
+            else
+                this.Size = PdfSharp.PageSize.Letter;
         }
         private void ParseVSpaceAttribute()
         {
@@ -414,11 +486,11 @@ namespace MyAlbum
             {
                 try
                 {
-                    VSpace = XUnit.FromMillimeter(double.Parse(Xml.Attribute("vspace").Value));
+                    VSpace = XUnitPt.FromMillimeter(double.Parse(Xml.Attribute("vspace").Value));
                 }
                 catch (Exception)
                 {
-                    VSpace = XUnit.Zero;
+                    VSpace = XUnitPt.Zero;
                 }
             }
         }

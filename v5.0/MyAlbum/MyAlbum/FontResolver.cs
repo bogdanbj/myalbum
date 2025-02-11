@@ -67,8 +67,8 @@ namespace MyAlbum
             FontResolverInfo? fontResolverInfo;
 
             string faceName = familyName;
-            if (isBold) familyName += " Bold";
-            if (isItalic) familyName += " Italic";
+            if (isBold) faceName += " Bold";
+            if (isItalic) faceName += " Italic";
 
             fontResolverInfo = new FontResolverInfo(faceName);
 

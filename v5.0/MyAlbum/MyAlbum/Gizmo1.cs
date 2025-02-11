@@ -10,7 +10,7 @@ namespace MyAlbum
 {
     class Gizmo1: BaseElement
     {
-        public XUnit LineWidth { get; set; }
+        public XUnitPt LineWidth { get; set; }
 
         public override void Draw()
         {

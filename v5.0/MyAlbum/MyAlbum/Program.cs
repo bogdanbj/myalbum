@@ -70,6 +70,7 @@ namespace MyAlbum
                     UseShellExecute = true
                 };
                 Process.Start(psi);
+
                 //Process.Start(outputName);
 
 #if DEBUG
@@ -77,7 +78,7 @@ namespace MyAlbum
                 //Console.ReadKey();
 #endif
 
-			}
+            }
 			catch (Exception ex)
 			{
                 Console.WriteLine("*** ERROR **");

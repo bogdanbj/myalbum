@@ -64,12 +64,12 @@ namespace MyAlbum
         }
         public override void Calculate()
         {
-            h = XUnit.Zero;
+            h = XUnitPt.Zero;
             if (!string.IsNullOrEmpty(this.Value))
             {
                 h = this.MarginTop + this.MarginBottom;
 
-                if (w == XUnit.Zero)
+                if (w == XUnitPt.Zero)
                 {
                     w = GetWidth(this.Parent) * this.WidthPercent / 100;
                 }
@@ -77,10 +77,10 @@ namespace MyAlbum
 
                 for (int i = 0; i < arr.Length; i++)
                 {
-                    h += XUnit.FromPoint(this.Font.Height);
+                    h += XUnitPt.FromPoint(this.Font.Height);
                 }
             }
-            TopAlign = XUnit.Zero;
+            TopAlign = XUnitPt.Zero;
             MiddleAlign = h / 2;
             BottomAlign = h;
         }
@@ -113,7 +113,7 @@ namespace MyAlbum
                         {
                             wordsWidth += gfx.MeasureString(words[j], Font).Width;
                         }
-                        spaceWidth = this.w.Point - wordsWidth;
+                        spaceWidth = this.w - wordsWidth;
                         space = spaceWidth / (words.Length - 1);
                         for (int j = 0; j < words.Length; j++)
                         {
@@ -342,7 +342,7 @@ namespace MyAlbum
 
             //if (CanGrow)
             //{
-            //    this.H = XUnit.FromPoint(this.TextHeight);
+            //    this.H = XUnitPt.FromPoint(this.TextHeight);
             //}
             //else
             //{

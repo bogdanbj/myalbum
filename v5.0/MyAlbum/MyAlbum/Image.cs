@@ -41,7 +41,7 @@ namespace MyAlbum
         }
         public override void Calculate()
         {
-            TopAlign = XUnit.Zero;
+            TopAlign = XUnitPt.Zero;
             MiddleAlign = h / 2;
             BottomAlign = h;
         }

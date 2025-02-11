@@ -15,17 +15,25 @@ namespace MyAlbum
         public XElement Xml { get; set; }
 
         public XGraphics gfx { get; set; }
-        public XUnit x { get; set; }
-        public XUnit y { get; set; }
-        public XUnit w { get; set; }
-        public XUnit h { get; set; }
+        public XUnitPt x { get; set; }
+        public XUnitPt y { get; set; }
+        public XUnitPt w { get; set; }
+        public XUnitPt h { get; set; }
+        //public double x { get; set; }
+        //public double y { get; set; }
+        //public double w { get; set; }
+        //public double h { get; set; }
+        //public XUnitPt x { get; set; }
+        //public XUnitPt y { get; set; }
+        //public XUnitPt w { get; set; }
+        //public XUnitPt h { get; set; }
         public double WidthPercent { get; set; }
         public bool IsDefault { get; set; }
         public string Style { get; set; }
-        public XUnit MarginLeft { get; set; }
-        public XUnit MarginRight { get; set; }
-        public XUnit MarginTop { get; set; }
-        public XUnit MarginBottom { get; set; }
+        public XUnitPt MarginLeft { get; set; }
+        public XUnitPt MarginRight { get; set; }
+        public XUnitPt MarginTop { get; set; }
+        public XUnitPt MarginBottom { get; set; }
         public XColor Color { get; set; }
         public XColor BoxColor { get; set; }
         public Styles.Alignments Align { get; set; }
@@ -37,9 +45,9 @@ namespace MyAlbum
 
         public BaseElement Parent { get; set; }
 
-        public XUnit TopAlign { get; set; }
-        public XUnit MiddleAlign { get; set; }
-        public XUnit BottomAlign { get; set; }
+        public XUnitPt TopAlign { get; set; }
+        public XUnitPt MiddleAlign { get; set; }
+        public XUnitPt BottomAlign { get; set; }
         #endregion
 
         #region Public Abstract Methods
@@ -107,12 +115,12 @@ namespace MyAlbum
         public void ParseXAttribute()
         {
             // X attribute
-            this.x = XUnit.Zero;
+            this.x = XUnitPt.Zero;
             if (Xml.Attribute("x") != null)
             {
                 try
                 {
-                    x = XUnit.FromMillimeter(double.Parse(Xml.Attribute("x").Value));
+                    x = XUnitPt.FromMillimeter(double.Parse(Xml.Attribute("x").Value));
                 }
                 catch (Exception)
                 { }
@@ -121,12 +129,12 @@ namespace MyAlbum
         public void ParseYAttribute()
         {
             // Y attribute
-            this.y = XUnit.Zero;
+            this.y = XUnitPt.Zero;
             if (Xml.Attribute("y") != null)
             {
                 try
                 {
-                    y = XUnit.FromMillimeter(double.Parse(Xml.Attribute("y").Value));
+                    y = XUnitPt.FromMillimeter(double.Parse(Xml.Attribute("y").Value));
                 }
                 catch (Exception)
                 { }
@@ -147,7 +155,7 @@ namespace MyAlbum
                     }
                     else
                     {
-                        w = XUnit.FromMillimeter(double.Parse(width));
+                        w = XUnitPt.FromMillimeter(double.Parse(width));
                     }
                 }
                 catch (Exception)
@@ -157,12 +165,12 @@ namespace MyAlbum
         public void ParseHeightAttribute()
         {
             //height attribute
-            this.h = XUnit.Zero;
+            this.h = XUnitPt.Zero;
             if (Xml.Attribute("height") != null)
             {
                 try
                 {
-                    this.h = XUnit.FromMillimeter(double.Parse(Xml.Attribute("height").Value));
+                    this.h = XUnitPt.FromMillimeter(double.Parse(Xml.Attribute("height").Value));
                 }
                 catch (Exception)
                 {
@@ -222,26 +230,26 @@ namespace MyAlbum
                     switch (arr.Length)
                     {
                         case 1:
-                            MarginLeft = MarginRight = MarginTop = MarginBottom = XUnit.FromMillimeter(double.Parse(arr[0]));
+                            MarginLeft = MarginRight = MarginTop = MarginBottom = XUnitPt.FromMillimeter(double.Parse(arr[0]));
                             break;
                         case 2:
-                            MarginTop = MarginBottom = XUnit.FromMillimeter(double.Parse(arr[0]));
-                            MarginLeft = MarginRight = XUnit.FromMillimeter(double.Parse(arr[1]));
+                            MarginTop = MarginBottom = XUnitPt.FromMillimeter(double.Parse(arr[0]));
+                            MarginLeft = MarginRight = XUnitPt.FromMillimeter(double.Parse(arr[1]));
                             break;
                         case 4:
-                            MarginTop = XUnit.FromMillimeter(double.Parse(arr[0]));
-                            MarginRight = XUnit.FromMillimeter(double.Parse(arr[1]));
-                            MarginBottom = XUnit.FromMillimeter(double.Parse(arr[2]));
-                            MarginLeft = XUnit.FromMillimeter(double.Parse(arr[3]));
+                            MarginTop = XUnitPt.FromMillimeter(double.Parse(arr[0]));
+                            MarginRight = XUnitPt.FromMillimeter(double.Parse(arr[1]));
+                            MarginBottom = XUnitPt.FromMillimeter(double.Parse(arr[2]));
+                            MarginLeft = XUnitPt.FromMillimeter(double.Parse(arr[3]));
                             break;
                         default:
-                            MarginLeft = MarginRight = MarginTop = MarginBottom = XUnit.Zero;
+                            MarginLeft = MarginRight = MarginTop = MarginBottom = XUnitPt.Zero;
                             break;
                     }
                 }
                 catch (Exception)
                 {
-                    this.MarginLeft = this.MarginRight = this.MarginTop = MarginBottom = XUnit.Zero;
+                    this.MarginLeft = this.MarginRight = this.MarginTop = MarginBottom = XUnitPt.Zero;
                 }
             }
         }
@@ -289,9 +297,9 @@ namespace MyAlbum
 
         }
 
-        public XUnit GetHeight(BaseElement obj)
+        public XUnitPt GetHeight(BaseElement obj)
         {
-            if (obj.h != XUnit.Zero)
+            if (obj.h != XUnitPt.Zero)
             {
                 return obj.h;
             }
@@ -301,9 +309,9 @@ namespace MyAlbum
             }
         }
 
-        public XUnit GetWidth(BaseElement obj)
+        public XUnitPt GetWidth(BaseElement obj)
         {
-            if (obj.w != XUnit.Zero)
+            if (obj.w != XUnitPt.Zero)
             {
                 return obj.w;
             }
@@ -313,17 +321,28 @@ namespace MyAlbum
             }
         }
 
-        public PdfPage GetPage()
+        public Page GetPage()
         {
             BaseElement elem = this;
 
             while (elem.GetType() != typeof(Page))
-	        {
-	            elem = elem.Parent;
-	        }
+            {
+                elem = elem.Parent;
+            }
 
-            return ((Page)elem).PdfPage;
+            return (Page)elem;
         }
+        //public PdfPage GetPage()
+        //{
+        //    BaseElement elem = this;
+
+        //    while (elem.GetType() != typeof(Page))
+        //    {
+        //        elem = elem.Parent;
+        //    }
+
+        //    return ((Page)elem).PdfPage;
+        //}
 
         #endregion
 
@@ -367,7 +386,7 @@ namespace MyAlbum
         }
         public void DrawCross(XPoint point, XColor color)
         {
-            XUnit d = XUnit.FromMillimeter(7);
+            XUnitPt d = XUnitPt.FromMillimeter(7);
             gfx.DrawLine(new XPen(color, 0.1), point.X - d, point.Y, point.X + d, point.Y);
             gfx.DrawLine(new XPen(color, 0.1), point.X, point.Y - d, point.X, point.Y + d);
         }

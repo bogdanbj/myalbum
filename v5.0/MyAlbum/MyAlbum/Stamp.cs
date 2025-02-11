@@ -68,15 +68,15 @@ namespace MyAlbum
             set { _img = value; }
         }
 
-        private XUnit yPos;
-        private XUnit stampHeight;
-        private XUnit stampWidth;
+        private XUnitPt yPos;
+        private XUnitPt stampHeight;
+        private XUnitPt stampWidth;
         #endregion
 
         #region Constructors
         public Stamp()
         {
-            this.VSpace = XUnit.FromMillimeter(1);
+            this.VSpace = XUnitPt.FromMillimeter(1);
             this.BoxColor = XColors.DeepPink;
             Text t = new Text();
             Title=t;
@@ -179,12 +179,12 @@ namespace MyAlbum
             Footer3.Calculate();
 
             this.w = Frame.w;
-            XUnit footerHeight = Math.Max(Footer1.h, Math.Max(Footer2.h, Footer3.h));
-            this.h = (string.IsNullOrEmpty(Title.Value) ? XUnit.Zero : (XUnit)(Title.h + this.VSpace)) + Frame.h + /*2 * Frame.Height +*/ (footerHeight.Equals(XUnit.Zero) ? XUnit.Zero : (XUnit)(this.VSpace + footerHeight));
+            XUnitPt footerHeight = Math.Max(Footer1.h, Math.Max(Footer2.h, Footer3.h));
+            this.h = (string.IsNullOrEmpty(Title.Value) ? XUnitPt.Zero : (XUnit)(Title.h + this.VSpace)) + Frame.h + /*2 * Frame.Height +*/ (footerHeight.Equals(XUnitPt.Zero) ? XUnitPt.Zero : (XUnit)(this.VSpace + footerHeight));
 
-            TopAlign = MarginTop + (string.IsNullOrEmpty(Title.Value) ? XUnit.Zero : (XUnit)(Title.h + this.VSpace)); // +Frame.Height;
-            MiddleAlign = MarginTop + (string.IsNullOrEmpty(Title.Value) ? XUnit.Zero : (XUnit)(Title.h + this.VSpace)) /*+ Frame.Height*/ + Frame.h / 2;
-            BottomAlign = MarginTop + (string.IsNullOrEmpty(Title.Value) ? XUnit.Zero : (XUnit)(Title.h + this.VSpace)) /*+ Frame.Height*/ + Frame.h; // +Frame.Height;
+            TopAlign = MarginTop + (string.IsNullOrEmpty(Title.Value) ? XUnitPt.Zero : (XUnit)(Title.h + this.VSpace)); // +Frame.Height;
+            MiddleAlign = MarginTop + (string.IsNullOrEmpty(Title.Value) ? XUnitPt.Zero : (XUnit)(Title.h + this.VSpace)) /*+ Frame.Height*/ + Frame.h / 2;
+            BottomAlign = MarginTop + (string.IsNullOrEmpty(Title.Value) ? XUnitPt.Zero : (XUnit)(Title.h + this.VSpace)) /*+ Frame.Height*/ + Frame.h; // +Frame.Height;
         }
         public override void Draw()
         {
@@ -331,7 +331,7 @@ namespace MyAlbum
                 {
                     Color = styleStamp.Color;
                 }
-                if (styleStamp.VSpace != XUnit.Zero)
+                if (styleStamp.VSpace != XUnitPt.Zero)
                 {
                     VSpace = styleStamp.VSpace;
                 }
@@ -343,12 +343,12 @@ namespace MyAlbum
             ParseBaseAttribute();
 
             // give it a bit of height so it can be noticed on the page
-            if (h == XUnit.Zero) { h = XUnit.FromMillimeter(10); }
+            if (h == XUnitPt.Zero) { h = XUnitPt.FromMillimeter(10); }
 
             this.stampHeight = this.h;
             this.stampWidth = this.w;
-            this.w = XUnit.Zero;
-            this.h = XUnit.Zero;
+            this.w = XUnitPt.Zero;
+            this.h = XUnitPt.Zero;
 
             //image attribute
             ParseVSpaceAttribute();
@@ -385,7 +385,7 @@ namespace MyAlbum
             {
                 try
                 {
-                    this.VSpace = XUnit.FromMillimeter(double.Parse(Xml.Attribute("vspace").Value));
+                    this.VSpace = XUnitPt.FromMillimeter(double.Parse(Xml.Attribute("vspace").Value));
                 }
                 catch (Exception)
                 {
@@ -505,13 +505,13 @@ namespace MyAlbum
                 }
             }
         }
-        private XUnit GetWidth()
+        private XUnitPt GetWidth()
         {
             return Frame.w;
         }
-        private XUnit GetHeight()
+        private XUnitPt GetHeight()
         {
-            return XUnit.Zero;
+            return XUnitPt.Zero;
         }
         #endregion
     }

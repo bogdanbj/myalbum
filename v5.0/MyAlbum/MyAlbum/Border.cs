@@ -11,22 +11,22 @@ namespace MyAlbum
     class Border : BaseElement
     {
         #region Properties
-        public XUnit LineWidth1 { get; set; }
-        public XUnit LineWidth2 { get; set; }
-        public XUnit Offset { get; set; }
+        public XUnitPt LineWidth1 { get; set; }
+        public XUnitPt LineWidth2 { get; set; }
+        public XUnitPt Offset { get; set; }
         public string TypeLeft { get; set; }
         public string TypeRight { get; set; }
         public string TypeTop { get; set; }
         public string TypeBottom { get; set; }
-        public XUnit PaddingLeft { get; set; }
-        public XUnit PaddingRight { get; set; }
-        public XUnit PaddingTop { get; set; }
-        public XUnit PaddingBottom { get; set; }
+        public XUnitPt PaddingLeft { get; set; }
+        public XUnitPt PaddingRight { get; set; }
+        public XUnitPt PaddingTop { get; set; }
+        public XUnitPt PaddingBottom { get; set; }
         public XBrush Brush { get; set; }
-        public XUnit WidthLeft { get; set; }
-        public XUnit WidthRight { get; set; }
-        public XUnit WidthTop { get; set; }
-        public XUnit WidthBottom { get; set; }
+        public XUnitPt WidthLeft { get; set; }
+        public XUnitPt WidthRight { get; set; }
+        public XUnitPt WidthTop { get; set; }
+        public XUnitPt WidthBottom { get; set; }
         #endregion
 
         #region Constructors
@@ -58,10 +58,10 @@ namespace MyAlbum
                     WidthLeft = LineWidth1 / 2 + Offset + LineWidth2;
                     break;
                 case "none":
-                    WidthLeft = XUnit.Zero;
+                    WidthLeft = XUnitPt.Zero;
                     break;
                 default:
-                    WidthLeft = XUnit.Zero;
+                    WidthLeft = XUnitPt.Zero;
                     break;
             }
             switch (TypeRight)
@@ -73,10 +73,10 @@ namespace MyAlbum
                     WidthRight = LineWidth1 / 2 + Offset + LineWidth2;
                     break;
                 case "none":
-                    WidthRight = XUnit.Zero;
+                    WidthRight = XUnitPt.Zero;
                     break;
                 default:
-                    WidthRight = XUnit.Zero;
+                    WidthRight = XUnitPt.Zero;
                     break;
             }
             switch (TypeTop)
@@ -88,10 +88,10 @@ namespace MyAlbum
                     WidthTop = LineWidth1 / 2 + Offset + LineWidth2;
                     break;
                 case "none":
-                    WidthTop = XUnit.Zero;
+                    WidthTop = XUnitPt.Zero;
                     break;
                 default:
-                    WidthTop = XUnit.Zero;
+                    WidthTop = XUnitPt.Zero;
                     break;
             }
             switch (TypeBottom)
@@ -103,10 +103,10 @@ namespace MyAlbum
                     WidthBottom = LineWidth1 / 2 + Offset + LineWidth2;
                     break;
                 case "none":
-                    WidthBottom = XUnit.Zero;
+                    WidthBottom = XUnitPt.Zero;
                     break;
                 default:
-                    WidthBottom = XUnit.Zero;
+                    WidthBottom = XUnitPt.Zero;
                     break;
             }
             //if (TypeLeft == "single") 
@@ -114,7 +114,7 @@ namespace MyAlbum
             //    Width = Height = LineWidth1 / 2; }
             //if (BorderType == "double") { Width = Height = LineWidth1 / 2 + Offset + LineWidth2; }
             
-            //if (BorderType == "white_ace_page") { Width = Height = XUnit.FromMillimeter(5); }
+            //if (BorderType == "white_ace_page") { Width = Height = XUnitPt.FromMillimeter(5); }
             
         }
         public override void Draw()
@@ -126,20 +126,20 @@ namespace MyAlbum
             pen.LineCap = XLineCap.Round;
             pen.LineJoin = XLineJoin.Bevel;
             if (TypeLeft == "single" || TypeLeft == "double") { gfx.DrawLine(pen, x, y, x, y + h); }
-            if (TypeTop == "single" || TypeTop == "double") { gfx.DrawLine(pen, x, y, x + w, y); }
-            if (TypeRight == "single" || TypeRight == "double") { gfx.DrawLine(pen, x + w, y, x + w, y + h); }
-            if (TypeBottom == "single" || TypeBottom == "double") { gfx.DrawLine(pen, x, y + h, x + w, y + h); }
+            //if (TypeTop == "single" || TypeTop == "double") { gfx.DrawLine(pen, x, y, x + w, y); }
+            //if (TypeRight == "single" || TypeRight == "double") { gfx.DrawLine(pen, x + w, y, x + w, y + h); }
+            //if (TypeBottom == "single" || TypeBottom == "double") { gfx.DrawLine(pen, x, y + h, x + w, y + h); }
             #endregion
             
             #region double border
-            XUnit space = Offset + LineWidth1;
+            XUnitPt space = Offset + LineWidth1;
             pen = new XPen(this.Color, LineWidth2);
             pen.LineCap = XLineCap.Round;
             pen.LineJoin = XLineJoin.Bevel;
             if (TypeLeft == "double") { gfx.DrawLine(pen, x + space, y + ((TypeTop != "none") ? space : 0), x + space, y + h - ((TypeBottom != "none") ? space : 0)); }
-            if (TypeTop == "double") { gfx.DrawLine(pen, x + ((TypeLeft != "none") ? space : 0), y + space, x + w - ((TypeRight != "none") ? space : 0), y + space); }
-            if (TypeRight == "double") { gfx.DrawLine(pen, x + w - space, y + ((TypeTop != "none") ? space : 0), x + w - space, y + h - ((TypeBottom != "none") ? space : 0)); }
-            if (TypeBottom == "double") { gfx.DrawLine(pen, x + ((TypeLeft != "none") ? space : 0), y + h - space, x + w - ((TypeRight != "none") ? space : 0), y + h - space); }
+            //if (TypeTop == "double") { gfx.DrawLine(pen, x + ((TypeLeft != "none") ? space : 0), y + space, x + w - ((TypeRight != "none") ? space : 0), y + space); }
+            //if (TypeRight == "double") { gfx.DrawLine(pen, x + w - space, y + ((TypeTop != "none") ? space : 0), x + w - space, y + h - ((TypeBottom != "none") ? space : 0)); }
+            //if (TypeBottom == "double") { gfx.DrawLine(pen, x + ((TypeLeft != "none") ? space : 0), y + h - space, x + w - ((TypeRight != "none") ? space : 0), y + h - space); }
             #endregion
 
             #region white ace borders - commented out
@@ -150,8 +150,8 @@ namespace MyAlbum
             #region white ace page border
             if (BorderType == "white_ace_page")
             {
-                XUnit adj = XUnit.FromMillimeter(0.2);
-                pen = new XPen(this.Color, XUnit.FromMillimeter(0.25));
+                XUnit adj = XUnitPt.FromMillimeter(0.2);
+                pen = new XPen(this.Color, XUnitPt.FromMillimeter(0.25));
 
                 #region top border
                 // exterior rectangle
@@ -171,9 +171,9 @@ namespace MyAlbum
                 // center rectangle
                 gfx.DrawRectangle(pen,
                     XBrushes.White,
-                    x + w / 2 - XUnit.FromMillimeter(20),
+                    x + w / 2 - XUnitPt.FromMillimeter(20),
                     y,
-                    XUnit.FromMillimeter(40),
+                    XUnitPt.FromMillimeter(40),
                     Height);
 
                 // center text
@@ -186,21 +186,21 @@ namespace MyAlbum
 
                 // center rectangle - left end
                 points = new XPoint[3];
-                points[0].X = x + w / 2 - XUnit.FromMillimeter(20);
+                points[0].X = x + w / 2 - XUnitPt.FromMillimeter(20);
                 points[0].Y = y + adj;
-                points[1].X = x + w / 2 - XUnit.FromMillimeter(20);
+                points[1].X = x + w / 2 - XUnitPt.FromMillimeter(20);
                 points[1].Y = y + Height - adj;
-                points[2].X = x + w / 2 - XUnit.FromMillimeter(26);
+                points[2].X = x + w / 2 - XUnitPt.FromMillimeter(26);
                 points[2].Y = y + Height / 2;
                 gfx.DrawPolygon(pen, new XSolidBrush(this.Color), points, XFillMode.Winding);
 
                 // center rectangle - right end
                 points = new XPoint[3];
-                points[0].X = x + w / 2 + XUnit.FromMillimeter(20);
+                points[0].X = x + w / 2 + XUnitPt.FromMillimeter(20);
                 points[0].Y = y + adj;
-                points[1].X = x + w / 2 + XUnit.FromMillimeter(20);
+                points[1].X = x + w / 2 + XUnitPt.FromMillimeter(20);
                 points[1].Y = y + Height - adj;
-                points[2].X = x + w / 2 + XUnit.FromMillimeter(26);
+                points[2].X = x + w / 2 + XUnitPt.FromMillimeter(26);
                 points[2].Y = y + Height / 2;
                 gfx.DrawPolygon(pen, new XSolidBrush(this.Color), points, XFillMode.Winding);
                 #endregion
@@ -355,7 +355,7 @@ namespace MyAlbum
                     img = XImage.FromFile("Pictures\\coats.png");
                     gfx.DrawImage(img,
                         x + w / 2 - 3 * Height * img.Size.Width / img.Size.Height / 2,
-                        y + h - XUnit.FromMillimeter(8.5),
+                        y + h - XUnitPt.FromMillimeter(8.5),
                         3 * Height * img.Size.Width / img.Size.Height,
                         3 * Height);
                 }
@@ -393,8 +393,8 @@ namespace MyAlbum
             #region white ace page border no banner
             if (BorderType == "white_ace_page_no_banner")
             {
-                XUnit adj = XUnit.FromMillimeter(0.2);
-                pen = new XPen(this.Color, XUnit.FromMillimeter(0.25));
+                XUnit adj = XUnitPt.FromMillimeter(0.2);
+                pen = new XPen(this.Color, XUnitPt.FromMillimeter(0.25));
 
                 #region top border
                 // exterior rectangle
@@ -414,9 +414,9 @@ namespace MyAlbum
                 // center rectangle
                 gfx.DrawRectangle(pen,
                     XBrushes.White,
-                    x + w / 2 - XUnit.FromMillimeter(20),
+                    x + w / 2 - XUnitPt.FromMillimeter(20),
                     y,
-                    XUnit.FromMillimeter(40),
+                    XUnitPt.FromMillimeter(40),
                     Height);
 
                 // center text
@@ -429,21 +429,21 @@ namespace MyAlbum
 
                 // center rectangle - left end
                 points = new XPoint[3];
-                points[0].X = x + w / 2 - XUnit.FromMillimeter(20);
+                points[0].X = x + w / 2 - XUnitPt.FromMillimeter(20);
                 points[0].Y = y + adj;
-                points[1].X = x + w / 2 - XUnit.FromMillimeter(20);
+                points[1].X = x + w / 2 - XUnitPt.FromMillimeter(20);
                 points[1].Y = y + Height - adj;
-                points[2].X = x + w / 2 - XUnit.FromMillimeter(26);
+                points[2].X = x + w / 2 - XUnitPt.FromMillimeter(26);
                 points[2].Y = y + Height / 2;
                 gfx.DrawPolygon(pen, new XSolidBrush(this.Color), points, XFillMode.Winding);
 
                 // center rectangle - right end
                 points = new XPoint[3];
-                points[0].X = x + w / 2 + XUnit.FromMillimeter(20);
+                points[0].X = x + w / 2 + XUnitPt.FromMillimeter(20);
                 points[0].Y = y + adj;
-                points[1].X = x + w / 2 + XUnit.FromMillimeter(20);
+                points[1].X = x + w / 2 + XUnitPt.FromMillimeter(20);
                 points[1].Y = y + Height - adj;
-                points[2].X = x + w / 2 + XUnit.FromMillimeter(26);
+                points[2].X = x + w / 2 + XUnitPt.FromMillimeter(26);
                 points[2].Y = y + Height / 2;
                 gfx.DrawPolygon(pen, new XSolidBrush(this.Color), points, XFillMode.Winding);
                 #endregion
@@ -598,7 +598,7 @@ namespace MyAlbum
                     img = XImage.FromFile("Pictures\\coats.png");
                     gfx.DrawImage(img,
                         x + w / 2 - 3 * Height * img.Size.Width / img.Size.Height / 2,
-                        y + h - XUnit.FromMillimeter(8.5),
+                        y + h - XUnitPt.FromMillimeter(8.5),
                         3 * Height * img.Size.Width / img.Size.Height,
                         3 * Height);
                 }
@@ -914,7 +914,7 @@ namespace MyAlbum
                 }
                 catch (Exception)
                 {
-                    this.PaddingLeft = this.PaddingRight = this.PaddingTop = PaddingBottom = XUnit.Zero;
+                    this.PaddingLeft = this.PaddingRight = this.PaddingTop = PaddingBottom = XUnitPt.Zero;
                 }
             }
         }
@@ -929,25 +929,25 @@ namespace MyAlbum
                     switch (arr.Length)
                     {
                         case 1:
-                            LineWidth1 = LineWidth2 = Offset = XUnit.FromMillimeter(double.Parse(arr[0]));
+                            LineWidth1 = LineWidth2 = Offset = XUnitPt.FromMillimeter(double.Parse(arr[0]));
                             break;
                         case 2:
-                            LineWidth1 = LineWidth2 = XUnit.FromMillimeter(double.Parse(arr[0]));
-                            Offset = XUnit.FromMillimeter(double.Parse(arr[1]));
+                            LineWidth1 = LineWidth2 = XUnitPt.FromMillimeter(double.Parse(arr[0]));
+                            Offset = XUnitPt.FromMillimeter(double.Parse(arr[1]));
                             break;
                         case 3:
-                            LineWidth1 = XUnit.FromMillimeter(double.Parse(arr[0]));
-                            Offset = XUnit.FromMillimeter(double.Parse(arr[1]));
-                            LineWidth2 = XUnit.FromMillimeter(double.Parse(arr[2]));
+                            LineWidth1 = XUnitPt.FromMillimeter(double.Parse(arr[0]));
+                            Offset = XUnitPt.FromMillimeter(double.Parse(arr[1]));
+                            LineWidth2 = XUnitPt.FromMillimeter(double.Parse(arr[2]));
                             break;
                         default:
-                            LineWidth1 = LineWidth2 = Offset = XUnit.Zero;
+                            LineWidth1 = LineWidth2 = Offset = XUnitPt.Zero;
                             break;
                     }
                 }
                 catch (Exception)
                 {
-                    this.LineWidth1 = this.LineWidth2 = this.Offset = XUnit.Zero;
+                    this.LineWidth1 = this.LineWidth2 = this.Offset = XUnitPt.Zero;
                 }
             }
         }
@@ -962,26 +962,26 @@ namespace MyAlbum
                     switch (arr.Length)
                     {
                         case 1:
-                            PaddingLeft = PaddingRight = PaddingTop = PaddingBottom = XUnit.FromMillimeter(int.Parse(arr[0]));
+                            PaddingLeft = PaddingRight = PaddingTop = PaddingBottom = XUnitPt.FromMillimeter(int.Parse(arr[0]));
                             break;
                         case 2:
-                            PaddingTop = PaddingBottom = XUnit.FromMillimeter(int.Parse(arr[0]));
-                            PaddingLeft = PaddingRight = XUnit.FromMillimeter(int.Parse(arr[1]));
+                            PaddingTop = PaddingBottom = XUnitPt.FromMillimeter(int.Parse(arr[0]));
+                            PaddingLeft = PaddingRight = XUnitPt.FromMillimeter(int.Parse(arr[1]));
                             break;
                         case 4:
-                            PaddingTop = XUnit.FromMillimeter(int.Parse(arr[0]));
-                            PaddingLeft = XUnit.FromMillimeter(int.Parse(arr[1]));
-                            PaddingBottom = XUnit.FromMillimeter(int.Parse(arr[2]));
-                            PaddingRight = XUnit.FromMillimeter(int.Parse(arr[3]));
+                            PaddingTop = XUnitPt.FromMillimeter(int.Parse(arr[0]));
+                            PaddingLeft = XUnitPt.FromMillimeter(int.Parse(arr[1]));
+                            PaddingBottom = XUnitPt.FromMillimeter(int.Parse(arr[2]));
+                            PaddingRight = XUnitPt.FromMillimeter(int.Parse(arr[3]));
                             break;
                         default:
-                            PaddingLeft = PaddingRight = PaddingTop = PaddingBottom = XUnit.Zero;
+                            PaddingLeft = PaddingRight = PaddingTop = PaddingBottom = XUnitPt.Zero;
                             break;
                     }
                 }
                 catch (Exception)
                 {
-                    this.PaddingLeft = this.PaddingRight = this.PaddingTop = PaddingBottom = XUnit.Zero;
+                    this.PaddingLeft = this.PaddingRight = this.PaddingTop = PaddingBottom = XUnitPt.Zero;
                 }
             }
         }
