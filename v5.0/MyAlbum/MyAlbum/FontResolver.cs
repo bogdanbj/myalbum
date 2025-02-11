@@ -2,6 +2,7 @@
 using PdfSharp.Internal;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -15,7 +16,7 @@ namespace MyAlbum
 
         public byte[] GetFont(string faceName)
         {
-            string fontPath = "C:\\Git\\MyAlbum\\Fonts";
+            string fontPath = ConfigurationManager.AppSettings["FontPath"];
             switch (faceName)
             {
                 case "Century Gothic":

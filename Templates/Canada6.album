@@ -9,9 +9,6 @@
 			<border style="page_border" default="false" border_type="double" width="0.5, 0.5, 0.2" margin="0,0,0,0" padding="0, 6, 0, 6" />
 			<border style="white_ace_page" default="false" border_type="white_ace_page" margin="0,0,0,0" padding="3, 3, 3, 3" color="67,143,189" background-color="255,255,255" />
 			<border style="white_ace_stamp" default="false" border_type="white_ace_stamp" width="0.2, 0.9, 0.2" margin="0,0,0,0" padding="3, 3, 3, 3" background-color="255,255,255" />
-			<!-- White Ace fonts
-				The story copy is Folio Lite, the Italic is Garamond Lite Italic, the Headline Type is Stymie Book and the Dates are Lubalin.
-			-->
 		<!-- TEXT
 			font_size: double
 			font_style: bold, bolditalic, italic, regular, strikeout, underline
@@ -28,12 +25,28 @@
 			<text style="footer_left" justify="true" align="left" font_name="Garamond" font_size="8" font_style="italic" />
 			<text style="footer_center" justify="true" align="center" font_name="Garamond" font_size="10" font_style="italic" width="80%" margin="0,0,2,0" />
 			<text style="footer_right" justify="true" align="right" font_name="Garamond" font_size="8" font_style="italic" margin="0,0,2,0" />
+		<!-- FRENCH CHARACTERS
+			l'accent aigu (acute accent) – é
+			l'accent grave (grave accent) – à, è, ù
+			la cédille (cedilla) – ç
+			l'accent circonflexe (circumflex) – â, ê, î, ô, û
+			l'accent tréma (trema) – ë, ï, ü
+			
+			L'ACCENT AIGU (ACUTE ACCENT) – É
+			L'ACCENT GRAVE (GRAVE ACCENT) – À, È, Ù
+			LA CÉDILLE (CEDILLA) – Ç
+			L'ACCENT CIRCONFLEXE (CIRCUMFLEX) – Â, Ê, Î, Ô, Û
+			L'ACCENT TRÉMA (TREMA) – Ë, Ï, Ü
+			-->
 		<!-- ESCAPE CHARACTERS
 			ampersand (&) is escaped to &amp; 
 			double quotes (") are escaped to &quot; 
 			single quotes (') are escaped to &apos; 
 			less than (<) is escaped to &lt; 
 			greater than (>) is escaped to &gt;
+			-->
+		<!-- WHITE ACE FONTS
+				The story copy is Folio Lite, the Italic is Garamond Lite Italic, the Headline Type is Stymie Book and the Dates are Lubalin.
 			-->
 		<!-- IMAGE
 			-->
@@ -107,7 +120,7 @@
 					<text style="headline">YELLOWKNIFE</text>
 					<text style="date">1984</text>
 					<stamp width="30" height="36" title="" image="" i1="32c" i2="" i3="S 1009" f1="" f2="Gold mine head frame in pan" f3="" />
-					<text style="story" width="40">The stamp issued on 15 May 1984, commemorates the 50th anniversary of the gold mining community living in the city of Yellowknife, capital of Northwest Territories.\n</text>
+					<text style="story" width="40">The stamp issued on 15 May 1984, commemorates the 50th anniversary of the gold mining community living in the city of Yellowknife, capital of Northwest Territories.</text>
 				</column>
 				<column width="36" rem="Tall Ships">
 					<text style="headline">TALL SHIPS</text>
@@ -118,8 +131,8 @@
 				<column width="36" rem="Canadian Red Cross">
 					<text style="headline">RED CROSS</text>
 					<text style="date">1984</text>
-					<stamp width="30" height="36" title="" image="" i1="32c" i2="" i3="S 1009" f1="" f2="Meritorious Service Medal" f3="" />
-					<text style="story" width="40">In recognition of their invaluable contribution, Canada Post issued this stamp featuring the medal awarded by The Canadian Red Cross Society for long-standing and meritorious voluntary service.</text>
+					<stamp width="30" height="36" title="" image="" i1="32c" i2="" i3="S 1013" f1="" f2="Meritorious Service Medal" f3="" />
+					<text style="story" width="40">\nIn recognition of their invaluable contribution, Canada Post issued this stamp featuring the medal awarded by The Canadian Red Cross Society for long-standing and meritorious voluntary service.</text>
 				</column>
 			</row>
 
@@ -130,7 +143,7 @@
 					<text style="headline">MONTREAL SYMPHONY</text>
 					<text style="date">1984</text>
 					<stamp width="40" height="24" title="" image="" i1="32c" i2="" i3="S 1010" f1="" f2="Orchestra concert" f3="" />
-					<text style="story" width="40">The Montreal Symphony Orchestra, one of the largest principal orchestras in Canada, was founded in 1934 in the middle of the Great Depression by enthusiastic Quebec musicians.</text>
+					<text style="story" width="40">The Montreal Symphony Orchestra, one of the largest principal orchestras in Canada, was founded in 1934 in the middle of the Great Depression by enthusiastic Quebec musicians.\n\n</text>
 				</column>
 				<column width="36" rem="Treffle Berthiaume">
 					<text style="headline">TREFFLÉ BERTHIAUME</text>
@@ -142,7 +155,7 @@
 					<text style="headline">UNITED EMPIRE LOYALISTS</text>
 					<text style="date">1984</text>
 					<stamp width="40" height="24" title="" image="" i1="32c" i2="" i3="S 1028" f1="" f2="Loyalists and British flag" f3="" />
-					<text style="story" width="40">Approximately 100,000 Loyalists fled the United Stated, at the end of American Revolution, about half of them in Canada contributing substantially to the pioneering efforts.\n</text>
+					<text style="story" width="40">Approximately 100,000 Loyalists fled the United Stated, at the end of American Revolution, about half of them in Canada contributing substantially to the pioneering efforts.\n\n</text>
 				</column>
 			</row>
 			</page>
@@ -196,8 +209,8 @@
 
 			<row valign="bottom" space="15">
 				<column width="46" space="3" align="left">
-					<stamp width="27" height="40" title="" image="" i1="32c" i2="" i3="S 1023" f1="" f2="Nova Scotia" f3="" />
-					<stamp width="40" height="27" title="" image="" i1="32c" i2="" i3="S 1016" f1="" f2="New Bunswick" f3="" />
+					<stamp width="27" height="40" title="" image="" i1="32c" i2="" i3="S 1024" f1="" f2="Nova Scotia" f3="" />
+					<stamp width="40" height="27" title="" image="" i1="32c" i2="" i3="S 1016" f1="" f2="New Brunswick" f3="" />
 					<stamp width="40" height="27" title="" image="" i1="32c" i2="" i3="S 1019" f1="" f2="Quebec" f3="" />
 					<stamp width="40" height="27" title="" image="" i1="32c" i2="" i3="S 1022" f1="" f2="Prince Edward Island" f3="" />
 				</column>
@@ -217,7 +230,7 @@
 					<stamp width="27" height="40" title="" image="" i1="32c" i2="" i3="S 1027" f1="" f2="Ontario" f3="" />
 					<stamp width="40" height="27" title="" image="" i1="32c" i2="" i3="S 1018" f1="" f2="Yukon Territory" f3="" />
 					<stamp width="40" height="27" title="" image="" i1="32c" i2="" i3="S 1021" f1="" f2="Alberta" f3="" />
-					<stamp width="40" height="27" title="" image="" i1="32c" i2="" i3="S 1025" f1="" f2="Nortwest Territories" f3="" />
+					<stamp width="40" height="27" title="" image="" i1="32c" i2="" i3="S 1025" f1="" f2="Northwest Territories" f3="" />
 				</column>
 			</row>
 			</page>
@@ -345,7 +358,7 @@
 				<column width="78" rem="Canadians Feminists" >
 					<text style="headline">\nCANADIANS FEMINISTS</text>
 					<text style="date">1985</text>
-					<stamp width="72" height="30" i1="32c" i2="S 1010" />
+					<stamp width="72" height="30" i1="32c" i2="S 1048a" />
 					<row margin="0,0,0,0" space="0">
 						<text style="footer_center" width="40">Emily Murphy</text>
 						<text style="footer_center" width="40">Thérèse Casgrain</text>
@@ -367,7 +380,7 @@
 
 			<row space="20" valign="bottom">
 				<column width="36" rem="Louis Hebert" >
-					<text style="headline">LOUIS HEBERT</text>
+					<text style="headline">LOUIS HÉBERT</text>
 					<text style="date">1985</text>
 					<stamp width="24" height="40" i1="34c" i2="S 1060" f2="Louis Hébert and\nApothecary objects" />
 					<text style="story" width="40">Louis Hébert (c. 1575 – January 1627) is widely considered to be the first Canadian apothecary as well as the first European to farm in Canada. He arrived to Acadia in 1606, along with Samuel Champlain.</text>
@@ -481,7 +494,7 @@
 			<row space="10">
 					<stamp width="30" height="32" i1="36c" i2="S 1130" f2="Speed Skating" />
 					<stamp width="56" height="29" i1="34c" i2="S 1077" f2="Map" />
-					<stamp width="30" height="32" i1="42c" i2="S 1131" f2="Bobsleight" />
+					<stamp width="30" height="32" i1="42c" i2="S 1131" f2="Bobsleigh" />
 			</row>
 			<row space="10">
 					<stamp width="60" height="32" i1="2x34c" i2="S 1112a" />
@@ -541,7 +554,7 @@
 			<row valign="bottom">
 				<stamp width="40" height="24" i1="34c" i2="S 1078" f2="Canada Pavilion" />
 				<stamp width="40" height="24" i1="39c" i2="S 1079" f2="Communications" />
-				<stamp width="40" height="24" i1="68c" i2="S 1093" f2="Transportaion"  />
+				<stamp width="40" height="24" i1="68c" i2="S 1093" f2="Transportation"  />
 			</row>
 
 			<row height="15" />
@@ -570,7 +583,7 @@
 				</column>
 				<column width="10" />
 				<column width="62" rem="Canadian Forces Postal Service">
-					<stamp width="36" height="30" i1="32c" i2="S 1046" f2="Soldiers Handling Mail" />
+					<stamp width="36" height="30" i1="32c" i2="S 1094" f2="Soldiers Handling Mail" />
 					<text style="story" width="40">Field Marshal Bernard Montgomery believed that his soldiers would do anything he asked as long as they got "mail from home, the newspapers, and... plenty of tea". The stamp celebrates 75 years of the Canadian Forces Postal Service.</text>
 				</column>
 			</row>
@@ -594,7 +607,7 @@
 				<column width="64" align="left">
 					<text style="headline" align="left" margin="10,0,2,0">BIRDS OF CANADA</text>
 					<text style="date" align="left">1986</text>
-					<text style="story" align="left" margin="5,0,0,0">As a result of its size and diversity of environments, Canada provides habitats for a great variety of birds. Among the larger and better-known birds are: the Great Blue Heron - a tall and stately wader; the Great Horned Owl - a powerful and ferocious nocturnal hunter; the Spruce Grouse - a species almost exclusively Canadian in range and so tame it is known as the "fool hen"; and the Snow Goose - a large, snow-white migrant, which breeds in the high Arctic.\nThe stapms were issued in honour of the XIX International Ornithological Congress, in Ottawa, June 22 to 29.</text>
+					<text style="story" align="left" margin="5,0,0,0">As a result of its size and diversity of environments, Canada provides habitats for a great variety of birds. Among the larger and better-known birds are: the Great Blue Heron - a tall and stately wader; the Great Horned Owl - a powerful and ferocious nocturnal hunter; the Spruce Grouse - a species almost exclusively Canadian in range and so tame it is known as the "fool hen"; and the Snow Goose - a large, snow-white migrant, which breeds in the high Arctic.\nThe stamps were issued in honour of the XIX International Ornithological Congress, in Ottawa, June 22 to 29.</text>
 				</column>
 			</row>
 
@@ -841,7 +854,7 @@
 						<text style="footer_center" width="40">George Vancouver</text>
 						<column width="3"/>
 					</row>
-					<stamp width="80" height="56" i1="4x34c" i2="S 1107a" />
+					<stamp width="80" height="56" i1="4x34c" i2="S 1202a" />
 					<row space="0" margin="0,0,2,0">
 						<column width="3"/>
 						<text style="footer_center" width="40">Simon Fraser</text>
@@ -864,7 +877,7 @@
 						<text style="footer_center" width="40">Sir John Franklin</text>
 						<column width="3"/>
 					</row>
-					<stamp width="80" height="56" i1="4x34c" i2="S 1129a" />
+					<stamp width="80" height="56" i1="4x34c" i2="S 1236a" />
 					<row space="0" margin="0,0,2,0">
 						<column width="3"/>
 						<text style="footer_center" width="40">Joseph Burr Tyrrell</text>
@@ -1070,7 +1083,7 @@
 			</row>
 			<row space="10" valign="bottom">
 				<!-- Low values -->
-				<stamp width="26" height="22" title="" image="" i1="1c" i2="" i3="S 1155" f1="" f2="Flying Squirel" f3="" />
+				<stamp width="26" height="22" title="" image="" i1="1c" i2="" i3="S 1155" f1="" f2="Flying Squirrel" f3="" />
 				<stamp width="26" height="22" title="" image="" i1="2c" i2="" i3="S 1156" f1="" f2="Porcupine" f3="" />
 				<stamp width="26" height="22" title="" image="" i1="3c" i2="" i3="S 1157" f1="" f2="Muskrat" f3="" />
 				<stamp width="26" height="22" title="" image="" i1="5c" i2="" i3="S 1158" f1="" f2="Varying Hare" f3="" />
@@ -1284,7 +1297,7 @@
 			<row height="0" />
 			<row space="10" valign="bottom">
 				<stamp width="40" height="48" title="" image="" i1="50c" i2="" i3="S 1203" f1="" f2='"The Young Reader" by Ozias Leduc' f3="" />
-				<stamp width="40" height="48" title="" image="" i1="50c" i2="" i3="S 1241" f1="" f2='"Ceremonnial Frontlet"' f3="" />
+				<stamp width="40" height="48" title="" image="" i1="50c" i2="" i3="S 1241" f1="" f2='"Ceremonnial Frontlet"\nby Harry Foster' f3="" />
 				<stamp width="40" height="48" title="" image="" i1="50c" i2="" i3="S 1271" f1="" f2='"The West Wind" by Tom Thompson' f3="" />
 			</row>
 			<row height="6" />
@@ -1295,7 +1308,7 @@
 			<row height="2" />
 			<row space="10" valign="bottom">
 				<stamp width="40" height="48" title="" image="" i1="86c" i2="" i3="S 1466" f1="" f2='Drawing for "The Owl"\nby Kenojuak Ashevak' f3="" />
-				<stamp width="40" height="48" title="" image="" i1="88c" i2="" i3="S 1516" f1="" f2='"Vera 1931" by Frederick H. Varley' f3="" />
+				<stamp width="40" height="48" title="" image="" i1="88c" i2="" i3="S 1516" f1="" f2='"Vera" by Frederick H. Varley' f3="" />
 				<stamp width="40" height="48" title="" image="" i1="88c" i2="" i3="S 1545" f1="" f2='"Floraison" by Alfred Pellan' f3="" />
 			</row>
 			</page>
@@ -1317,14 +1330,14 @@
 			</row>
 			<row height="2" />
 			<row space="10" valign="bottom">
-				<stamp width="40" height="48" title="" image="" i1="90c" i2="" i3="S 1754" f1="" f2='"The Farmer&apos;s Family"\nby Bruno Bonak' f3="" />
-				<stamp width="40" height="48" title="" image="" i1="95c" i2="" i3="S 1800" f1="" f2='"Coq Licorne" by Jean D&apos;allaire' f3="" />
+				<stamp width="40" height="48" title="" image="" i1="90c" i2="" i3="S 1754" f1="" f2='"The Farmer&apos;s Family"\nby Bruno Bobak' f3="" />
+				<stamp width="40" height="48" title="" image="" i1="95c" i2="" i3="S 1800" f1="" f2='"Coq Licorne" by Jean Dallaire' f3="" />
 				<stamp width="40" height="48" title="" image="" i1="95c" i2="" i3="S 1863" f1="" f2='"The Artist at Niagara"\nby Cornelius Krieghoff' f3="" />
 			</row>
 			<row height="2" />
 			<row space="10" valign="bottom">
-				<stamp width="40" height="48" title="" image="" i1="50c" i2="" i3="S 1203" f1="" f2='"The Space Between Column #21"\nby Jack Leonard Shadbolt' f3="" />
-				<stamp width="40" height="48" title="" image="" i1="50c" i2="" i3="S 1203" f1="" f2='"Church and Horse"\nby David Alexander Colville' f3="" />
+				<stamp width="40" height="48" title="" image="" i1="50c" i2="" i3="S 1916" f1="" f2='"The Space Between Column #21"\nby Jack Leonard Shadbolt' f3="" />
+				<stamp width="40" height="48" title="" image="" i1="50c" i2="" i3="S 1945" f1="" f2='"Church and Horse"\nby David Alexander Colville' f3="" />
 			</row>
 			</page>
 			.
@@ -1576,7 +1589,7 @@
 					<text style="date">1991</text>
 					<row space="0" margin="0,0,-2,0">
 						<column width="3"/>
-						<text style="footer_center" width="40">Verchere rowboat</text>
+						<text style="footer_center" width="40">Verchère rowboat</text>
 						<text style="footer_center" width="40">Touring kayak</text>
 						<column width="3"/>
 					</row>
@@ -1593,7 +1606,7 @@
 					<row height="17" />
 					<text style="story" align="left">Canada's extensive coasts and vast maze of rivers and lakes encouraged the development of many different types of boats by Native People. These craft provided mobility where it was otherwise practically impossible to travel. The first four stamps in the three-years series picture the Native craft as first seen by the Europeans. The environments where each boat would characteristically be found form a backdrop for the small craft depicted.</text>
 					<text style="story" align="left">In recognition of the important role played by work boasts during Canada's early history, Canada Post is issuing a second set of four in the series on small craft. These stamps feature a fishing boat called the dory; the pointer or "lumberman's batteau"; the North canoe which was used by traders and explorers; and the Hudson's Bay Company's York boat.</text>
-					<text style="story" align="left">The third and final set of stamps in the Small Craft series - Pleasure Craft - is issued on July 18, 1991. While the first two sets in the series focussed on boats as essential modes of transportation and commerce, this last segment displays how boats have evolved into a recreational pastime for millions of Canadians. As Canada is bounded by three oceans and is blessed with a large network of inland and rivers, it is not surprising that the mode of transportation which originally opened up this vast country to the Voyageurs is now a pleasurable sporting activity.</text>
+					<text style="story" align="left">The third and final set of stamps in the Small Craft series - Pleasure Craft - is issued on July 18, 1991. While the first two sets in the series focused on boats as essential modes of transportation and commerce, this last segment displays how boats have evolved into a recreational pastime for millions of Canadians. As Canada is bounded by three oceans and is blessed with a large network of inland and rivers, it is not surprising that the mode of transportation which originally opened up this vast country to the Voyageurs is now a pleasurable sporting activity.</text>
 				</column>
 			</row>
 			</page>
@@ -1629,10 +1642,10 @@
 					<text style="headline">CANADIAN POETS</text>
 					<text style="date">1989</text>
 					<row valign="bottom" space="15">
-						<stamp width="36" height="30" i1="38c" i2="S 1243" f2="Louis Frechette"/>
+						<stamp width="36" height="30" i1="38c" i2="S 1243" f2="Louis Fréchette"/>
 						<stamp width="36" height="30" i1="38c" i2="S 1244" f2="Archibald Lampman"/>
 					</row>
-					<text style="story">Issued to honor the the 150th birth anniversary of French Canadian's poet laureate, Louis-Honoré Fréchette (1839-1908), famous for his patriotic verse and grandiose style. Archibald Lampman (1861-1899), best known for his nature poetry, was a postal employee in Ottawa for the most of his working life.The stamps  illustrate each poet's portrait, placed in a background setting reflective of each poet's work.</text>
+					<text style="story">Issued to honor the 150th birth anniversary of French Canadian's poet laureate, Louis-Honoré Fréchette (1839-1908), famous for his patriotic verse and grandiose style. Archibald Lampman (1861-1899), best known for his nature poetry, was a postal employee in Ottawa for the most of his working life. The stamps  illustrate each poet's portrait, placed in a background setting reflective of each poet's work.</text>
 				</column>
 			</row>
 			</page>
@@ -1654,7 +1667,7 @@
 					<row height="10"/>
 					<text style="headline">MUSHROOMS</text>
 					<text style="date">1989</text>
-					<text style="story">The four commemorative stamps featuring musrooms which can be found in Canada are issued in conjunction with the conventions being held in Toronto this summer, by both the Mycological Society of America, and the American Institute of Biological Sciences.</text>
+					<text style="story">The four commemorative stamps featuring mushrooms which can be found in Canada are issued in conjunction with the conventions being held in Toronto this summer, by both the Mycological Society of America, and the American Institute of Biological Sciences.</text>
 				</column>
 			</row>
 
@@ -1669,7 +1682,7 @@
 						<stamp width="36" height="30" i1="38c" i2="S 1243" f2="Louis Frechette"/>
 						<stamp width="36" height="30" i1="38c" i2="S 1244" f2="Archibald Lampman"/>
 					</row>
-					<text style="story">Issued to honor the the 150th birth anniversary of French Canadian's poet laureate, Louis-Honoré Fréchette (1839-1908), famous for his patriotic verse and grandiose style. Archibald Lampman (1861-1899), best known for his nature poetry, was a postal employee in Ottawa for the most of his working life.The stamps  illustrate each poet's portrait, placed in a background setting reflective of each poet's work.</text>
+					<text style="story">Issued to honor the 150th birth anniversary of French Canadian's poet laureate, Louis-Honoré Fréchette (1839-1908), famous for his patriotic verse and grandiose style. Archibald Lampman (1861-1899), best known for his nature poetry, was a postal employee in Ottawa for the most of his working life. The stamps  illustrate each poet's portrait, placed in a background setting reflective of each poet's work.</text>
 				</column>
 			</row>
 			</page>
