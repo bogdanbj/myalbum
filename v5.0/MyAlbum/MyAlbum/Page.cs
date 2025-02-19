@@ -228,6 +228,7 @@ namespace MyAlbum
                     Frame.x = x + Frame.MarginLeft;
                     //Frame.x -= 200;
                     Frame.y = -(w - h) / 2 + MarginRight + Banner.h + Frame.MarginTop;
+                    Frame.y = y + Frame.MarginTop;
                     //Frame.y = 0;
                     Frame.w = h - (Frame.MarginLeft + Frame.MarginRight);
                     Frame.h = w - (Frame.MarginTop + Frame.MarginBottom);
@@ -301,9 +302,9 @@ namespace MyAlbum
                     //XSolidBrush brush = new XSolidBrush(XColors.AliceBlue);
                     //gfx.DrawRectangle(brush, x, y, w, h);
 
-                    gfx.TranslateTransform(this.Width / 2, this.Height / 2);
-                    gfx.RotateTransform(90);
-                    gfx.TranslateTransform(-this.Width / 2, -this.Height / 2);
+                    //gfx.TranslateTransform(this.Width / 2, this.Height / 2);
+                    //gfx.RotateTransform(90);
+                    //gfx.TranslateTransform(-this.Width / 2, -this.Height / 2);
 
                     XSolidBrush brush = new XSolidBrush(XColors.AliceBlue);
                     gfx.DrawRectangle(brush, x, y, w, h);

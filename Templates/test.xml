@@ -103,6 +103,65 @@
 			</page>
 	</styles>
 	
+	
+	<pages>
+		<!-- Cover -->	
+		<page style="cover" no="1" title="Cover">
+			<row height="110" />
+			<row>
+				<text style="headline" font_size="36" font_style="italic">1 9 8 4  -  2 0 1 0</text>
+			</row>
+		</page>
+		.
+		<!-- 1984 -->
+		<page no="2" title="Commemorative 1984">
+			<row height="10" />
+
+			<row space="20" valign="bottom">
+				<column width="36" rem="Yellowknife" >
+					<text style="headline">YELLOWKNIFE</text>
+					<text style="date">1984</text>
+					<stamp width="30" height="36" title="" image="" i1="32c" i2="" i3="S 1009" f1="" f2="Gold mine head frame in pan" f3="" />
+					<text style="story" width="40">The stamp issued on 15 May 1984, commemorates the 50th anniversary of the gold mining community living in the city of Yellowknife, capital of Northwest Territories.</text>
+				</column>
+				<column width="36" rem="Tall Ships">
+					<text style="headline">TALL SHIPS</text>
+					<text style="date">1984</text>
+					<stamp width="30" height="40" title="" image="" i1="32c" i2="" i3="S 1012" f1="" f2="Tall Ships regatta" f3="" />
+					<text style="story" width="40">Over 85 of majestic two, three and four-masted ships dropped anchor in St. Lawrence River in Quebec City honouring the 450th anniversary of Jacques Cartier's first voyage to North America.</text>
+				</column>
+				<column width="36" rem="Canadian Red Cross">
+					<text style="headline">RED CROSS</text>
+					<text style="date">1984</text>
+					<stamp width="30" height="36" title="" image="" i1="32c" i2="" i3="S 1013" f1="" f2="Meritorious Service Medal" f3="" />
+					<text style="story" width="40">\nIn recognition of their invaluable contribution, Canada Post issued this stamp featuring the medal awarded by The Canadian Red Cross Society for long-standing and meritorious voluntary service.</text>
+				</column>
+			</row>
+
+			<row height="10" />
+
+			<row space="14"  valign="bottom">
+				<column width="46" rem="Montreal Symphony" >
+					<text style="headline">MONTREAL SYMPHONY</text>
+					<text style="date">1984</text>
+					<stamp width="40" height="24" title="" image="" i1="32c" i2="" i3="S 1010" f1="" f2="Orchestra concert" f3="" />
+					<text style="story" width="40">The Montreal Symphony Orchestra, one of the largest principal orchestras in Canada, was founded in 1934 in the middle of the Great Depression by enthusiastic Quebec musicians.\n\n</text>
+				</column>
+				<column width="36" rem="Treffle Berthiaume">
+					<text style="headline">TREFFLÉ BERTHIAUME</text>
+					<text style="date">1984</text>
+					<stamp width="26" height="40" title="" image="" i1="32c" i2="" i3="S 1044" f1="" f2="Trefflé Berthiaume" f3="" />
+					<text style="story" width="40">Trefflé Berthiaume (1848-1915), was a Canadian newspaperman and politician. As the owner of the Montreal newspaper "La Presse" he championed many social causes, including improved conditions for workers and aid to children and the needy.</text>
+				</column>
+				<column width="46" rem="United Empire Loyalists" >
+					<text style="headline">UNITED EMPIRE LOYALISTS</text>
+					<text style="date">1984</text>
+					<stamp width="40" height="24" title="" image="" i1="32c" i2="" i3="S 1028" f1="" f2="Loyalists and British flag" f3="" />
+					<text style="story" width="40">Approximately 100,000 Loyalists fled the United Stated, at the end of American Revolution, about half of them in Canada contributing substantially to the pioneering efforts.\n\n</text>
+				</column>
+			</row>
+		</page>
+		.
 		<page no="7" title="Canadian Lighthouses" style="landscape" >
 			<row height="10" />
 
@@ -144,6 +203,7 @@
 
 			<row space="14">
 			</row>
-			</page>
-
+		</page>
+		.
+	</pages>
 </MyAlbum>
