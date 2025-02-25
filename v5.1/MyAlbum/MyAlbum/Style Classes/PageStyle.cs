@@ -1,4 +1,5 @@
 ﻿using PdfSharp;
+using PdfSharp.Drawing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace MyAlbum
         #region properties
         public PageOrientation Orientation { get; set; }
         public PageSize Size { get; set; }
+        public XUnitPt VSpace { get; set; }
 
 
         //public Image Banner
@@ -80,6 +82,9 @@ namespace MyAlbum
             
             // size attribute
             ParseSizeAttribute();
+
+            //VSpace Attribute
+            ParseVSpaceAttribute();
         }
         private void ParseComponents()
         {
@@ -90,17 +95,17 @@ namespace MyAlbum
                 {
                     //case "banner":
                     //    Banner = new Image(xElem);
-                    //    Banner.Parent = this;
+                    //    //Banner.Parent = this;
                     //    Banner.Parse();
                     //    break;
                     case "border":
                         Frame = new Border(xElem);
-                        Frame.Parent = this;
+                        //Frame.Parent = this;
                         Frame.Parse();
                         break;
                     //case "row":
                     //    Row newRow = new Row(xElem);
-                    //    newRow.Parent = this;
+                    //    //newRow.Parent = this;
                     //    newRow.Parse();
                     //    this.Rows.Add(newRow);
                     //    break;
@@ -148,6 +153,20 @@ namespace MyAlbum
             }
             else
                 this.Size = PdfSharp.PageSize.Letter;
+        }
+        private void ParseVSpaceAttribute()
+        {
+            if (xml.Attribute("vspace") != null)
+            {
+                try
+                {
+                    VSpace = XUnitPt.FromMillimeter(double.Parse(xml.Attribute("vspace")!.Value));
+                }
+                catch (Exception)
+                {
+                    VSpace = XUnitPt.Zero;
+                }
+            }
         }
 
         #endregion

@@ -21,26 +21,11 @@ namespace MyAlbum
         //private Image? _banner;
         private Border? _frame;
         //private List<Row>? _rows;
+        DrawableElement _canvas;
         #endregion
 
         #region properties
-        public PdfPage PdfPage
-        {
-            get
-            {
-                if (_pdfPage == null) { _pdfPage = new PdfPage(); }
-                return _pdfPage;
-            }
-            set
-            {
-                _pdfPage = value;
-                gfx = XGraphics.FromPdfPage(_pdfPage);
-            }
-        }
-        public PageOrientation Orientation { get; set; }
-        public PageSize Size { get; set; }
-
-
+        private PageOrientation _orientation;
         //public Image Banner
         //{
         //    get
@@ -59,6 +44,14 @@ namespace MyAlbum
             }
             set { _frame = value; }
         }
+        public DrawableElement Canvas
+        {
+            get
+            {
+                if (_canvas == null) { _canvas = new DrawableElement(); }
+                return _canvas;
+            }
+        }
         //public List<Row> Rows
         //{
         //    get
@@ -68,6 +61,35 @@ namespace MyAlbum
         //    }
         //    set { _rows = value; }
         //}
+        
+        public PdfPage PdfPage
+        {
+            get
+            {
+                if (_pdfPage == null) { _pdfPage = new PdfPage(); }
+                return _pdfPage;
+            }
+            set
+            {
+                _pdfPage = value;
+                gfx = XGraphics.FromPdfPage(_pdfPage);
+            }
+        }
+        public PageOrientation Orientation
+        {
+            get 
+            { 
+                _pdfPage.Orientation = _orientation;
+                w = _pdfPage.Width;
+                h = _pdfPage.Height;
+                return _orientation; 
+            }
+            set { _orientation = value; }
+        }
+
+        public PageSize Size { get; set; }
+
+        public string No { get; set; }
         #endregion
 
         #region constructors
@@ -75,6 +97,17 @@ namespace MyAlbum
         {
             _pdfPage = new();
             Parent = null;
+
+            x = XUnitPt.Zero;
+            y = XUnitPt.Zero;
+            w = _pdfPage.Width;
+            h = _pdfPage.Height;
+
+            Canvas.x = XUnitPt.Zero;
+            Canvas.y = XUnitPt.Zero;
+            Canvas.w = _pdfPage.Width;
+            Canvas.h = _pdfPage.Height;
+
         }
         public Page(XElement xml) :this() 
         {
@@ -87,14 +120,19 @@ namespace MyAlbum
         #endregion
 
         #region public methods
-        public void Calculate()
+        public override void Parse()
         {
-            gfx = XGraphics.FromPdfPage(_pdfPage);
+            ParseAttributes();
+            ParseComponents();
+        }
+        public override void Calculate()
+        {
+            //gfx = XGraphics.FromPdfPage(_pdfPage);
 
             #region calculate frame
             if (Frame != null)
             {
-                Frame.gfx = gfx;
+                //Frame.gfx = gfx;
 
                 if (this.Orientation == PdfSharp.PageOrientation.Portrait)
                 {
@@ -104,49 +142,53 @@ namespace MyAlbum
                     Frame.h = h - (Frame.MarginTop + Frame.MarginBottom);
                     Frame.Calculate();
 
-                    x += Frame.MarginLeft + Frame.WidthLeft + Frame.PaddingLeft;
-                    y += Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + VSpace;
-                    w -= Frame.MarginLeft + Frame.WidthLeft + Frame.PaddingLeft + Frame.PaddingRight + Frame.WidthRight + Frame.MarginRight;
-                    h -= Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + Frame.PaddingBottom + Frame.WidthBottom + Frame.MarginBottom + 2 * VSpace;
+                    //Canvas.x += Frame.MarginLeft + Frame.WidthLeft + Frame.PaddingLeft;
+                    //Canvas.y += Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + VSpace;
+                    //Canvas.w -= Frame.MarginLeft + Frame.WidthLeft + Frame.PaddingLeft + Frame.PaddingRight + Frame.WidthRight + Frame.MarginRight;
+                    //Canvas.h -= Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + Frame.PaddingBottom + Frame.WidthBottom + Frame.MarginBottom + 2 * VSpace;
+                    Canvas.x = Frame.x + Frame.WidthLeft + Frame.PaddingLeft;
+                    Canvas.y = Frame.y + Frame.WidthTop + Frame.PaddingTop + VSpace;
+                    Canvas.w = Frame.w - (Frame.WidthLeft + Frame.PaddingLeft + Frame.PaddingRight + Frame.WidthRight);
+                    Canvas.h = Frame.h - (Frame.WidthTop + Frame.PaddingTop + Frame.PaddingBottom + Frame.WidthBottom + 2 * VSpace);
                 }
                 else
                 {
-                    Frame.x = (w - h) / 2 + MarginTop + Frame.MarginLeft;
-                    Frame.x = x + Frame.MarginLeft;
-                    Frame.y = -(w - h) / 2 + MarginRight + Banner.h + Frame.MarginTop;
-                    Frame.y = y + Frame.MarginTop;
-                    Frame.w = h - (Frame.MarginLeft + Frame.MarginRight);
-                    Frame.h = w - (Frame.MarginTop + Frame.MarginBottom);
-
-
-                    brush = new XSolidBrush(XColors.LightGreen);
-                    gfx.DrawRectangle(brush, Frame.x, Frame.y, Frame.w, Frame.h);
-
+                    Frame.x = x + Frame.MarginBottom;
+                    Frame.y = y + Frame.MarginLeft;
+                    Frame.w = w - (Frame.MarginBottom + Frame.MarginTop);
+                    Frame.h = h - (Frame.MarginLeft + Frame.MarginRight);
                     Frame.Calculate();
 
-                    x += Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + VSpace;
-                    y += Frame.MarginLeft + Frame.WidthLeft + Frame.PaddingLeft;
-                    w -= Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + Frame.PaddingBottom + Frame.WidthBottom + Frame.MarginBottom + 2 * VSpace;// ;
-                    h -= Frame.MarginLeft + Frame.WidthLeft + Frame.PaddingLeft + Frame.PaddingRight + Frame.WidthRight + Frame.MarginRight;
+                    Canvas.x = Frame.x + Frame.WidthBottom + Frame.PaddingLeft;
+                    Canvas.y = Frame.y + Frame.WidthLeft + Frame.PaddingTop + VSpace;
+                    Canvas.w = Frame.w - (Frame.WidthBottom + Frame.PaddingLeft + Frame.PaddingRight + Frame.WidthTop);
+                    Canvas.h = Frame.h - (Frame.WidthLeft + Frame.PaddingTop + Frame.PaddingBottom + Frame.WidthRight + 2 * VSpace);
                 }
             }
             #endregion
 
 
         }
-
-        public void Draw()
+        public override void Draw()
         {
-            this._pdfPage.Orientation = this.Orientation;
 
             #region draw frame
             if (Frame != null)
-            { 
+            {
+                 Frame.gfx = gfx;
+                if (Orientation == PageOrientation.Landscape)
+                {
+                    //Frame.gfx.TranslateTransform(w / 2, h / 2);
+                    //Frame.gfx.RotateTransform(90);
+                    //Frame.gfx.TranslateTransform(-w / 2, -h / 2);
+
+                }
+                Frame.Draw();
             }
             #endregion
 
-
-
+            Canvas.gfx = gfx;
+            Canvas.DrawBackground(XColors.WhiteSmoke);
             PrintAttributes();
         }
 
@@ -157,46 +199,40 @@ namespace MyAlbum
             XPdfFontOptions options = new XPdfFontOptions(PdfFontEncoding.Unicode, PdfFontEmbedding.EmbedCompleteFontFile);
             XFont font = new XFont("Stymie Becker Light", 20, XFontStyleEx.Regular, options);
 
-            int y = 0;
+            XUnitPt y = Canvas.y;
             foreach (XAttribute attribute in xml.Attributes())
             {
                 gfx.DrawString($"{attribute.Name}: {attribute.Value}",
                             font,
                             XBrushes.Black,
-                            // new XRect(Canvas.x, Canvas.y, Canvas.w, Canvas.h),
-                            new XRect(0, y, 500, 800),
+                            //new XRect(Canvas.x, Canvas.y, Canvas.w, Canvas.h),
+                            new XRect(Canvas.x, y, Canvas.w, Canvas.h),
                             XStringFormats.TopLeft);
                 y += 20;
             }
             gfx.DrawString($"StyleName: {StyleName}",
                         font,
                         XBrushes.Black,
-                        new XRect(0, y, 500, 800),
+                        new XRect(Canvas.x, y, Canvas.w, Canvas.h),
                         XStringFormats.TopLeft);
             y += 20;
             gfx.DrawString($"Orientation: {Orientation}",
                         font,
                         XBrushes.Black,
-                        new XRect(0, y, 500, 800),
+                        new XRect(Canvas.x, y, Canvas.w, Canvas.h),
                         XStringFormats.TopLeft);
             y += 20;
             gfx.DrawString($"Size: {Size}",
                         font,
                         XBrushes.Black,
-                        new XRect(0, y, 500, 800),
+                        new XRect(Canvas.x, y, Canvas.w, Canvas.h),
                         XStringFormats.TopLeft);
             y += 20;
             gfx.DrawString($"Width: {PdfPage.Width}, Height: {PdfPage.Height}",
                         font,
                         XBrushes.Black,
-                        new XRect(0, y, 500, 800),
+                        new XRect(Canvas.x, y, Canvas.w, Canvas.h),
                         XStringFormats.TopLeft);
-        }
-
-        public override void Parse()
-        {
-            ParseAttributes();
-            ParseComponents();
         }
         #endregion
 
@@ -212,6 +248,9 @@ namespace MyAlbum
 
             // size
             ParseSizeAttribute();
+
+            // number
+            ParseNumberAttribute();
         }
 
         private void ApplyStyleAttributes()
@@ -230,14 +269,21 @@ namespace MyAlbum
             {
                 this.Orientation = style.Orientation;
                 this.Size = style.Size;
+                this.VSpace = style.VSpace;
+                
+                if (style.Frame != null)
+                {
+                    this.Frame.StyleName = style.Frame.StyleName;
+                    this.Frame.Parent = this;
+                    this.Frame.ApplyStyleAttributes();
+                    //Console.WriteLine("has border");
+                }
             }
         }
 
         private void ParseComponents()
         {
         }
-        #endregion
-        
         // override the ParseStyleNameAttribute because this time
         // it is okay for the attribute "style" to be missing
         private void ParseStyleNameAttribute()
@@ -282,6 +328,15 @@ namespace MyAlbum
                 }
             }
         }
+        private void ParseNumberAttribute()
+        {
+            if (xml.Attribute("no") != null)
+            {
+                this.No = xml.Attribute("no")!.Value;
+            }
+        }
+
+        #endregion
 
 
 

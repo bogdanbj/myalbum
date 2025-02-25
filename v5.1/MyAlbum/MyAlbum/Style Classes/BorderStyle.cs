@@ -50,7 +50,7 @@ namespace MyAlbum
         #endregion region
 
         #region private methods
-        internal void ParseBorderTypeAttribute()
+        private void ParseBorderTypeAttribute()
         {
             if (xml.Attribute("border_type") != null)
             {
@@ -84,7 +84,7 @@ namespace MyAlbum
                 }
             }
         }
-        internal void ParseWidthAttribute()
+        private void ParseWidthAttribute()
         {
             if (xml.Attribute("width") != null)
             {

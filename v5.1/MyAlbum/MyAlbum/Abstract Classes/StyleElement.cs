@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace MyAlbum
 {
-    abstract class StyleElement : BaseElement
+    internal class StyleElement : BaseElement
     {
         #region properties
         public bool IsDefault { get; set; }

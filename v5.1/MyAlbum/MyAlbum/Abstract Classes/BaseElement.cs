@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace MyAlbum
 {
-    abstract class BaseElement
+    internal class BaseElement
     {
         #region properties
         public XElement xml { get; set; }
@@ -19,7 +19,10 @@ namespace MyAlbum
             xml = new XElement("none");
         }
 
-        public abstract void Parse();
+        public virtual void Parse()
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }

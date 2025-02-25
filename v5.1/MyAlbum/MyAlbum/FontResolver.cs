@@ -16,7 +16,8 @@ namespace MyAlbum
 
         public byte[] GetFont(string faceName)
         {
-            string defaultFontPath = "C:\\Git\\MyAlbum\\Fonts";
+            string workingDirectory = Environment.CurrentDirectory;
+            string defaultFontPath = Path.Combine(workingDirectory, "Fonts");
             string fontPath = ConfigurationManager.AppSettings["FontPath"] ?? defaultFontPath; 
             switch (faceName)
             {
