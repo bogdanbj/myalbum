@@ -175,7 +175,7 @@ namespace MyAlbum
         private void ParseComponents()
         {
             // Get the Album Pages
-            IEnumerable<XElement> pages = Xml.Elements("page");
+            IEnumerable<XElement> pages = Xml.Element("pages")?.Elements("page");
             foreach (XElement xPage in pages)
             {
                 Page newPage = new Page(xPage);

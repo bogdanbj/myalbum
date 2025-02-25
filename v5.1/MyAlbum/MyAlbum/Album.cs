@@ -1,148 +1,88 @@
-﻿using PdfSharp.Drawing;
-using PdfSharp.Pdf;
+﻿using PdfSharp.Pdf;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace MyAlbum
 {
-    internal class Album : BaseElement, IDrawable
+    internal class Album : BaseElement
     {
         #region fields
         private PdfDocument _pdfDoc;
         private List<Page> _pages;
-        #endregion
-
-        #region properties
-        public PdfDocument Pdf
-		{
-			get 
-			{ 
-				_pdfDoc ??= new PdfDocument();
-				return _pdfDoc; 
-			}
-			set { _pdfDoc = value; }
-		}
-		public List<Page> Pages
-		{
-			get 
-			{
-				_pages ??= new List<Page>();
-				return _pages; 
-			}
-			set { _pages = value; }
-		}
+        private XElement _xml;
         #endregion
 
         #region constructors
         public Album()
         {
             _pdfDoc = new PdfDocument();
-            _pages = new List<Page>();  
-
+            _pages = new List<Page>();
+            _xml = new XElement("none");
         }
-        public Album(XElement xElement) : this()
+        public Album(XElement xml) : this()
         {
-            Xml = xElement;
+            _xml = xml;
         }
         #endregion
 
         #region public methods
-        public void Draw()
-        { }
-
         public override void Parse()
         {
-            // Check for not null xml
-            if (Xml != null)
+            ParseStyles();
+            ParseComponents();
+        }
+        public void Draw()
+        {
+            foreach (Page page in _pages)
             {
-                ParseStyles();
-                ParseComponents();
-            }
-            else
-            {
-                throw new ArgumentNullException(nameof(Xml), "The xml cannot be null.");
+                page.Calculate();
+                page.Draw();
             }
         }
-
-        public void Save(string fileName)
+        public void Save(string file_name)
         {
-            if (Pdf.PageCount == 0)
-            {
-                PdfPage page = Pdf.AddPage();
-            }
-            Pdf.Save(fileName);
+            _pdfDoc.Save(file_name);
         }
         #endregion
 
-        #region privare methods
-        private void ParseComponents()
-        {
-            // Get the Album Pages
-            IEnumerable<XElement> xmlPages = Xml.Element("pages")?.Elements("page");
-            foreach (XElement xmlPage in xmlPages)
-            {
-                Page newPage = new Page(Pdf.AddPage());
-                newPage.Xml = xmlPage;
-                newPage.Parse();
-                Pages.Add(newPage);
-            }
-        }
-
+        #region private methods
         private void ParseStyles()
         {
-            //Get the Styles
-            IEnumerable<XElement> xStyles = Xml.Element("styles")?.Elements() ?? Enumerable.Empty<XElement>();
+            IEnumerable<XElement> xStyles = _xml.Element("styles")?.Elements() ?? Enumerable.Empty<XElement>();
             foreach (XElement elem in xStyles)
             {
                 switch (elem.Name.LocalName.ToLower())
                 {
                     case "page":
-                        PageStyle newPageStyle = new PageStyle();
-                        newPageStyle.Xml = elem;
-                        newPageStyle.Parse();
-                        Styles.PageStyles.Add(newPageStyle);
+                        PageStyle pageStyle = new PageStyle(elem);
+                        pageStyle.Parse();
+                        Styles.PageStyles.Add(pageStyle);
                         break;
-                    //case "border":
-                    //    Border newBorder = new Border(elem);
-                    //    newBorder.Parse();
-                    //    Styles.BorderStyles.Add(newBorder);
-                    //    break;
-                    //case "row":
-                    //    Row newRow = new Row(elem);
-                    //    newRow.Parse(isStyle: true);
-                    //    Styles.RowStyles.Add(newRow);
-                    //    break;
-                    //case "column":
-                    //    Column newColumn = new Column(elem);
-                    //    newColumn.Parse();
-                    //    Styles.ColumnStyles.Add(newColumn);
-                    //    break;
-                    //case "text":
-                    //    Text newText = new Text(elem);
-                    //    newText.Parse();
-                    //    Styles.TextStyles.Add(newText);
-                    //    break;
-                    //case "image":
-                    //    Image newImage = new Image(elem);
-                    //    newImage.Parse();
-                    //    Styles.ImageStyles.Add(newImage);
-                    //    break;
-                    //case "stamp":
-                    //    Stamp newStamp = new Stamp(elem);
-                    //    newStamp.Parse();
-                    //    Styles.StampStyles.Add(newStamp);
-                    //    break;
-                    default:
+                    case "border":
+                        BorderStyle borserStyle = new BorderStyle(elem);
+                        borserStyle.Parse();
+                        Styles.BorderStyles.Add(borserStyle);
                         break;
                 }
-                //Console.WriteLine(elem.ToString());
+            }
+        }
+        private void ParseComponents()
+        {
+            // tread the xml and create pages
+            IEnumerable<XElement> pages = _xml.Element("pages")?.Elements("page") ?? throw new InvalidOperationException("The xml does not contain a <pages> element.");
+            if (pages.Count() == 0)
+            {
+                throw new InvalidOperationException("The <pages> node does not contain any <page> element.");
+            }
+            foreach (XElement xPage in pages)
+            {
+                Page newPage = new Page(xPage, _pdfDoc.AddPage());
+                newPage.Parse();
+                _pages.Add(newPage);
             }
         }
         #endregion

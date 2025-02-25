@@ -16,17 +16,14 @@ namespace MyAlbum
 
         public byte[] GetFont(string faceName)
         {
-            string fontPath = ConfigurationManager.AppSettings["FontPath"];
+            string defaultFontPath = "C:\\Git\\MyAlbum\\Fonts";
+            string fontPath = ConfigurationManager.AppSettings["FontPath"] ?? defaultFontPath; 
             switch (faceName)
             {
                 case "Century Gothic":
-                    return LoadFontData($"{fontPath}\\Century Gothic\\century-gothic-regular.ttf");
+                    return LoadFontData($"{fontPath}\\Century Gothic\\CenturyGothic.ttf");
                 case "Century Gothic Bold":
-                    return LoadFontData($"{fontPath}\\Century Gothic\\century-gothic-bold.ttf");
-                case "Century Gothic Italic":
-                    return LoadFontData($"{fontPath}\\Century Gothic\\century-gothic-italic.ttf");
-                case "Century Gothic Bold Italic":
-                    return LoadFontData($"{fontPath}\\Century Gothic\\century-gothic-bold-italic.ttf");
+                    return LoadFontData($"{fontPath}\\Century Gothic\\CenturyGothic_Bold.ttf");
 
                 case "Folio":
                     return LoadFontData($"{fontPath}\\Folio Bk BT\\FolioBT_Book.ttf"); 
@@ -54,38 +51,55 @@ namespace MyAlbum
                 case "Stymie Becker":
                     return LoadFontData($"{fontPath}\\Stymie Becker\\stymie_becker.ttf");
                 case "Stymie Becker Light":
-                case "Stymie Becker Light Italic":
                     return LoadFontData($"{fontPath}\\Stymie Becker\\stymie_becker_light.ttf");
             }
             return null;
         }
 
-#nullable enable
         public FontResolverInfo ResolveTypeface(string familyName, bool isBold, bool isItalic)
         {
-
             FontResolverInfo? fontResolverInfo;
+            
+            string suffix = "";
+            if (isBold && isItalic)
+                suffix = " Bold Italic";
+            else if (isBold)
+                suffix = " Bold";
+            else if (isItalic)
+                suffix = " Italic";
 
-            string faceName = familyName;
-            if (isBold) faceName += " Bold";
-            if (isItalic) faceName += " Italic";
+            fontResolverInfo = new FontResolverInfo($"{familyName}{suffix}");
 
-            fontResolverInfo = new FontResolverInfo(faceName);
 
-            if (fontResolverInfo != null)
-                return fontResolverInfo;
+            switch (familyName)
+            {
+                case "Century Gothic":
+                    return new FontResolverInfo($"Century Gothic{suffix}");
+                case "Folio":
+                    return new FontResolverInfo($"Folio{suffix}");
+                case "Garamond":
+                    return new FontResolverInfo($"Garamond{suffix}");
+                case "Lubalin Graph":
+                    return new FontResolverInfo($"Lubalin Graph{suffix}");
+                case "Stymie Becker Light":
+                    return new FontResolverInfo($"Stymie Becker Light{suffix}");
+            }
 
-            // fallback to platform default resolver
-            fontResolverInfo = PlatformFontResolver.ResolveTypeface(familyName, isBold, isItalic);
 
-            // fallback to "Verdana"
-            if (fontResolverInfo == null)
-                fontResolverInfo = PlatformFontResolver.ResolveTypeface("Verdana", isBold, isItalic);
+            var font = PlatformFontResolver.ResolveTypeface(familyName, isBold, isItalic);
 
-            return fontResolverInfo!;
+            if (font == null)
+            {
+                // Fallback to a default font
+                font = PlatformFontResolver.ResolveTypeface("Verdana", isBold, isItalic);
+            }
+
+            return font;
+            
+            //return PdfSharp.Fonts.PlatformFontResolver.ResolveTypeface(familyName, isBold, isItalic);
 
         }
-#nullable restore
+
 
         private byte[] LoadFontData(string fontPath)
         {

@@ -1,64 +1,46 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
+
+using PdfSharp;
 using PdfSharp.Fonts;
 using System.Diagnostics;
+using System.Reflection.Metadata.Ecma335;
 using System.Xml.Linq;
+
+
+
 
 namespace MyAlbum
 {
     class Program
     {
-        static Album album = new Album();
-        
         static void Main(string[] args)
         {
-            // Register the custom font resolver
-            GlobalFontSettings.FontResolver = new FontResolver();
-
-            string fileName;
-            string outputName;
-            string pageNumber;
-
             try
             {
-                fileName = args[0];
-                if (args.Length > 1)
-                {
-                    pageNumber= args[1];
-                }
 
-                XDocument XAlbum = XDocument.Load(fileName);
-                // check xml version
-                if (Convert.ToDouble(XAlbum.Root.Attribute("ver").Value) < 3.0) { throw new FormatException("XML file is not compatible with this version."); }
+                // Register the custom font resolver
+                GlobalFontSettings.FontResolver = new FontResolver();
 
-                album = new Album(XAlbum.Root);
+                string fileName = args[0];
+                string outputName = GetOutputName(fileName);
+
+                // Read xml
+                XDocument xml = XDocument.Load(fileName);
+                if (Convert.ToDouble(xml.Root.Attribute("ver").Value) < 3.0) { throw new FormatException("XML file is not compatible with this version."); }
+
+                // Create, process, save album
+                Album album = new Album(xml.Root);
                 album.Parse();
                 album.Draw();
-
-                outputName = Path.ChangeExtension(fileName, ".pdf");
-                outputName = outputName.Replace("Templates", "Output");
-                if (!Directory.Exists(Path.GetDirectoryName(outputName)))
-                {
-                    Directory.CreateDirectory(Path.GetDirectoryName(outputName));
-                }
-                if (File.Exists(outputName))
-                {
-                    for (int i = 0; i < 10000; i++)
-                    {
-                        ;
-                        if (!(File.Exists(outputName = fileName.Replace("Templates", "Output").Replace(Path.GetExtension(fileName), i.ToString() + ".pdf"))))
-                            break;
-                    }
-                }
-
                 album.Save(outputName);
 
+                // Show album pdf
                 var psi = new ProcessStartInfo
                 {
                     FileName = outputName,
                     UseShellExecute = true
                 };
                 Process.Start(psi);
-
             }
             catch (Exception ex)
             {
@@ -70,15 +52,32 @@ namespace MyAlbum
                 Console.WriteLine();
                 Console.WriteLine(ex.StackTrace);
                 Console.WriteLine();
+                //Console.WriteLine(errXml);
+                //Console.WriteLine();
                 Console.WriteLine("Press any key to close...");
                 Console.ReadKey();
             }
+        }
 
+        static string GetOutputName(string fileName)
+        {
+            string outputName;
+            outputName = Path.ChangeExtension(fileName, ".pdf");
+            outputName = outputName.Replace("Templates", "Output");
+            if (!Directory.Exists(Path.GetDirectoryName(outputName)))
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(outputName));
+            }
+            if (File.Exists(outputName))
+            {
+                for (int i = 0; i < 10000; i++)
+                {
+                    ;
+                    if (!(File.Exists(outputName = fileName.Replace("Templates", "Output").Replace(Path.GetExtension(fileName), i.ToString() + ".pdf"))))
+                        break;
+                }
+            }
+            return outputName;
         }
     }
 }
-
-
-
-
-

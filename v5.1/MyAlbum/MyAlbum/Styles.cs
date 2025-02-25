@@ -30,8 +30,8 @@ namespace MyAlbum
         #endregion
 
         #region Static Fields
-        static List<PageStyle>? _pageStyles;
-        //static List<Border> _borderStyles;
+        static List<PageStyle> _pageStyles;
+        static List<BorderStyle> _borderStyles;
         //static List<Row> _rowStyles;
         //static List<Column> _columnStyles;
         //static List<Text> _textStyles;
@@ -52,18 +52,18 @@ namespace MyAlbum
             }
             set { _pageStyles = value; }
         }
-        //public static List<Border> BorderStyles
-        //{
-        //    get
-        //    {
-        //        if (_borderStyles == null)
-        //        {
-        //            _borderStyles = new List<Border>();
-        //        }
-        //        return _borderStyles;
-        //    }
-        //    set { _borderStyles = value; }
-        //}
+        public static List<BorderStyle> BorderStyles
+        {
+            get
+            {
+                if (_borderStyles == null)
+                {
+                    _borderStyles = new List<BorderStyle>();
+                }
+                return _borderStyles;
+            }
+            set { _borderStyles = value; }
+        }
         //public static List<Row> RowStyles
         //{
         //    get
