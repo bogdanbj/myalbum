@@ -14,31 +14,60 @@ using System.Xml.Linq;
 
 namespace MyAlbum
 {
-    internal class Page : PageStyle, IDrawable
+    internal class Page : DrawableElement
     {
         #region fields
         private PdfPage _pdfPage;
+        //private Image? _banner;
+        private Border? _frame;
+        //private List<Row>? _rows;
         #endregion
 
         #region properties
         public PdfPage PdfPage
         {
-            get { 
-                if(_pdfPage == null)
-                    _pdfPage = new PdfPage();
-                return _pdfPage; 
+            get
+            {
+                if (_pdfPage == null) { _pdfPage = new PdfPage(); }
+                return _pdfPage;
             }
-            set { 
-                _pdfPage = value; 
+            set
+            {
+                _pdfPage = value;
                 gfx = XGraphics.FromPdfPage(_pdfPage);
             }
         }
-        public XGraphics? gfx { get; set; }
-        public XUnitPt x { get; set; }
-        public XUnitPt y { get; set; }
-        public XUnitPt h { get; set; }
-        public XUnitPt w { get; set; }
-        public StyleElement? Parent { get; set; }
+        public PageOrientation Orientation { get; set; }
+        public PageSize Size { get; set; }
+
+
+        //public Image Banner
+        //{
+        //    get
+        //    {
+        //        if (_banner == null) { _banner = new Image(); }
+        //        return _banner;
+        //    }
+        //    set { _banner = value; }
+        //}
+        public Border Frame
+        {
+            get
+            {
+                if (_frame == null) { _frame = new Border(); }
+                return _frame;
+            }
+            set { _frame = value; }
+        }
+        //public List<Row> Rows
+        //{
+        //    get
+        //    {
+        //        if (_rows == null) { _rows = new List<Row>(); }
+        //        return _rows;
+        //    }
+        //    set { _rows = value; }
+        //}
         #endregion
 
         #region constructors

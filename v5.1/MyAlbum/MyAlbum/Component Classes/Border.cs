@@ -8,15 +8,20 @@ using PdfSharp.Drawing;
 
 namespace MyAlbum
 {
-    class Border : BorderStyle, IDrawable
+    class Border : DrawableElement
     {
         #region properties
-        public XGraphics? gfx { get; set; }
-        public StyleElement? Parent { get; set; }
-        public XUnitPt x { get; set; }
-        public XUnitPt y { get; set; }
-        public XUnitPt h { get; set; }
-        public XUnitPt w { get; set; }
+        public XUnitPt LineWidth1 { get; set; }
+        public XUnitPt LineWidth2 { get; set; }
+        public XUnitPt Offset { get; set; }
+        public string? TypeLeft { get; set; }
+        public string? TypeRight { get; set; }
+        public string? TypeTop { get; set; }
+        public string? TypeBottom { get; set; }
+        //public XUnitPt WidthLeft { get; set; }
+        //public XUnitPt WidthRight { get; set; }
+        //public XUnitPt WidthTop { get; set; }
+        //public XUnitPt WidthBottom { get; set; }
         #endregion
 
         #region Constructors
@@ -61,7 +66,7 @@ namespace MyAlbum
             //bgcolor
             ParseBackgroundColorAttribute();
         }
-        public void Calculate()
+        public override void Calculate()
         {
         //    switch (TypeLeft)
         //    {
@@ -132,7 +137,7 @@ namespace MyAlbum
 
         }
         
-        public void Draw()
+        public override void Draw()
         {
             //    XPen pen;
 

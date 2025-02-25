@@ -18,10 +18,10 @@ namespace MyAlbum
         public string? TypeRight { get; set; }
         public string? TypeTop { get; set; }
         public string? TypeBottom { get; set; }
-        public XUnitPt WidthLeft { get; set; }
-        public XUnitPt WidthRight { get; set; }
-        public XUnitPt WidthTop { get; set; }
-        public XUnitPt WidthBottom { get; set; }
+        //public XUnitPt WidthLeft { get; set; }
+        //public XUnitPt WidthRight { get; set; }
+        //public XUnitPt WidthTop { get; set; }
+        //public XUnitPt WidthBottom { get; set; }
         #endregion
 
         #region constructors
