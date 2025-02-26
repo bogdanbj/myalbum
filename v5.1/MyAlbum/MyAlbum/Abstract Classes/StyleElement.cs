@@ -13,6 +13,8 @@ namespace MyAlbum
         #region properties
         public bool IsDefault { get; set; }
         public string? StyleName { get; set; }
+        public Styles.Alignments Align { get; set; }
+        public Styles.VerticalAlignments VAlign { get; set; }
         public XBrush Brush { get; set; }
         public XColor Color { get; set; }
         public XUnitPt MarginLeft { get; set; }
@@ -23,6 +25,8 @@ namespace MyAlbum
         public XUnitPt PaddingRight { get; set; }
         public XUnitPt PaddingTop { get; set; }
         public XUnitPt PaddingBottom { get; set; }
+        public XUnitPt VSpace { get; set; }
+        public XUnitPt HSpace { get; set; }
         #endregion
 
         #region constructors
@@ -33,7 +37,7 @@ namespace MyAlbum
         }
         #endregion
 
-        #region private methods
+        #region methods
         internal void ParseBaseAttributes()
         {
             // default flag
@@ -53,6 +57,13 @@ namespace MyAlbum
 
             // background color 
             ParseBackgroundColorAttribute();
+            
+            // align attribute
+            ParseAlignAttribute();
+
+            // valign attribute
+            ParseVAlignAttribute();
+
         }
         private void ParseDefaultAttribute()
         {
@@ -169,6 +180,62 @@ namespace MyAlbum
                 catch (Exception)
                 {
                     Brush = XBrushes.White;
+                }
+            }
+        }
+        private void ParseAlignAttribute()
+        {
+            if (xml.Attribute("align") != null)
+            {
+                switch (xml.Attribute("align")!.Value.ToLower())
+                {
+                    case "left":
+                        this.Align = Styles.Alignments.Left;
+                        break;
+                    case "center":
+                        this.Align = Styles.Alignments.Center;
+                        break;
+                    case "right":
+                        this.Align = Styles.Alignments.Right;
+                        break;
+                    default:
+                        this.Align = Styles.Alignments.Left;
+                        break;
+                }
+            }
+        }
+        internal void ParseVAlignAttribute()
+        {
+            if (xml.Attribute("valign") != null)
+            {
+                switch (xml.Attribute("valign")!.Value.ToLower())
+                {
+                    case "top":
+                        this.VAlign = Styles.VerticalAlignments.Top;
+                        break;
+                    case "center":
+                        this.VAlign = Styles.VerticalAlignments.Center;
+                        break;
+                    case "bottom":
+                        this.VAlign = Styles.VerticalAlignments.Bottom;
+                        break;
+                    default:
+                        this.VAlign = Styles.VerticalAlignments.Top;
+                        break;
+                }
+            }
+        }
+        internal void ParseVSpaceAttribute()
+        {
+            if (xml.Attribute("vspace") != null)
+            {
+                try
+                {
+                    VSpace = XUnitPt.FromMillimeter(double.Parse(xml.Attribute("vspace")!.Value));
+                }
+                catch (Exception)
+                {
+                    VSpace = XUnitPt.Zero;
                 }
             }
         }

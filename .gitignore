@@ -8,6 +8,7 @@
 
 # Editplus backup files
 *.bak
+*.bkp
 
 # User-specific files
 *.rsuser

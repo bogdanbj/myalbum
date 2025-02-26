@@ -20,7 +20,7 @@ namespace MyAlbum
         private PdfPage _pdfPage;
         //private Image? _banner;
         private Border? _frame;
-        //private List<Row>? _rows;
+        private List<Row>? _rows;
         DrawableElement _canvas;
         #endregion
 
@@ -52,16 +52,16 @@ namespace MyAlbum
                 return _canvas;
             }
         }
-        //public List<Row> Rows
-        //{
-        //    get
-        //    {
-        //        if (_rows == null) { _rows = new List<Row>(); }
-        //        return _rows;
-        //    }
-        //    set { _rows = value; }
-        //}
-        
+        public List<Row> Rows
+        {
+            get
+            {
+                if (_rows == null) { _rows = new List<Row>(); }
+                return _rows;
+            }
+            set { _rows = value; }
+        }
+
         public PdfPage PdfPage
         {
             get
@@ -75,6 +75,7 @@ namespace MyAlbum
                 gfx = XGraphics.FromPdfPage(_pdfPage);
             }
         }
+        public string No { get; set; }
         public PageOrientation Orientation
         {
             get 
@@ -86,10 +87,8 @@ namespace MyAlbum
             }
             set { _orientation = value; }
         }
-
         public PageSize Size { get; set; }
-
-        public string No { get; set; }
+        public XUnitPt VSpace { get; set; }
         #endregion
 
         #region constructors
@@ -251,6 +250,9 @@ namespace MyAlbum
 
             // number
             ParseNumberAttribute();
+
+            //VSpace Attribute
+            ParseVSpaceAttribute();
         }
 
         private void ApplyStyleAttributes()
@@ -278,6 +280,8 @@ namespace MyAlbum
                     this.Frame.ApplyStyleAttributes();
                     //Console.WriteLine("has border");
                 }
+
+                
             }
         }
 
@@ -335,7 +339,20 @@ namespace MyAlbum
                 this.No = xml.Attribute("no")!.Value;
             }
         }
-
+        private new void ParseVSpaceAttribute()
+        {
+            if (xml.Attribute("vspace") != null)
+            {
+                try
+                {
+                    VSpace = XUnitPt.FromMillimeter(double.Parse(xml.Attribute("vspace")!.Value));
+                }
+                catch (Exception)
+                {
+                    VSpace = XUnitPt.Zero;
+                }
+            }
+        }
         #endregion
 
 

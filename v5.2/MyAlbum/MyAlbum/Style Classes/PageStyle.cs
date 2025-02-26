@@ -154,6 +154,20 @@ namespace MyAlbum
             else
                 this.Size = PdfSharp.PageSize.Letter;
         }
+        private void ParseVSpaceAttribute()
+        {
+            if (xml.Attribute("vspace") != null)
+            {
+                try
+                {
+                    VSpace = XUnitPt.FromMillimeter(double.Parse(xml.Attribute("vspace")!.Value));
+                }
+                catch (Exception)
+                {
+                    VSpace = XUnitPt.Zero;
+                }
+            }
+        }
 
         #endregion
     }
