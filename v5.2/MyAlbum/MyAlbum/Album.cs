@@ -33,7 +33,7 @@ namespace MyAlbum
         public override void Parse()
         {
             ParseStyles();
-            ParseComponents();
+            ParsePages();
         }
         public void Draw()
         {
@@ -62,20 +62,20 @@ namespace MyAlbum
                         pageStyle.Parse();
                         Styles.PageStyles.Add(pageStyle);
                         break;
-                    case "border":
-                        BorderStyle borserStyle = new BorderStyle(elem);
-                        borserStyle.Parse();
-                        Styles.BorderStyles.Add(borserStyle);
-                        break;
-                    case "row":
-                        RowStyle rowStyle = new RowStyle(elem);
-                        rowStyle.Parse();
-                        Styles.RowStyles.Add(rowStyle);
-                        break;
+                    //case "border":
+                    //    BorderStyle borserStyle = new BorderStyle(elem);
+                    //    borserStyle.Parse();
+                    //    Styles.BorderStyles.Add(borserStyle);
+                    //    break;
+                    //case "row":
+                    //    RowStyle rowStyle = new RowStyle(elem);
+                    //    rowStyle.Parse();
+                    //    Styles.RowStyles.Add(rowStyle);
+                    //    break;
                 }
             }
         }
-        private void ParseComponents()
+        private void ParsePages()
         {
             // tread the xml and create pages
             IEnumerable<XElement> pages = _xml.Element("pages")?.Elements("page") ?? throw new InvalidOperationException("The xml does not contain a <pages> element.");

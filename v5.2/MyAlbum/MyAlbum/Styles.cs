@@ -8,6 +8,12 @@ namespace MyAlbum
     static class Styles
     {
         #region Enumerations
+        public enum BorderTypes
+        {
+            None,
+            Single, 
+            Double
+        }
         public enum Alignments
         {
             Left,
@@ -32,7 +38,7 @@ namespace MyAlbum
         #region Static Fields
         static List<PageStyle> _pageStyles;
         static List<BorderStyle> _borderStyles;
-        static List<RowStyle> _rowStyles;
+        //static List<RowStyle> _rowStyles;
         //static List<Column> _columnStyles;
         //static List<Text> _textStyles;
         //static List<Image> _imageStyles;
@@ -64,18 +70,18 @@ namespace MyAlbum
             }
             set { _borderStyles = value; }
         }
-        public static List<RowStyle> RowStyles
-        {
-            get
-            {
-                if (_rowStyles == null)
-                {
-                    _rowStyles = new List<RowStyle>();
-                }
-                return _rowStyles;
-            }
-            set { _rowStyles = value; }
-        }
+        //public static List<RowStyle> RowStyles
+        //{
+        //    get
+        //    {
+        //        if (_rowStyles == null)
+        //        {
+        //            _rowStyles = new List<RowStyle>();
+        //        }
+        //        return _rowStyles;
+        //    }
+        //    set { _rowStyles = value; }
+        //}
         //public static List<Column> ColumnStyles
         //{
         //    get
@@ -126,5 +132,41 @@ namespace MyAlbum
         //}
         #endregion
 
+        #region IEnumerable extension methods
+        //These methods override the GetFirstOrDefault methods of IEnumerable List<T>
+        public static PageStyle FirstOrDefault(this List<PageStyle> pages, Func<PageStyle, bool> predicate)
+        {
+            var result = System.Linq.Enumerable.FirstOrDefault(pages, predicate);
+            if (result == null)
+                result = System.Linq.Enumerable.FirstOrDefault(pages, s => s.IsDefault == true);
+            if (result == null)
+                result = PageStyle.Default;
+            return result;
+        }
+        public static BorderStyle FirstOrDefault(this List<BorderStyle> borders, Func<BorderStyle, bool> predicate)
+        {
+            var result = System.Linq.Enumerable.FirstOrDefault(borders, predicate);
+            if (result == null)
+                result = System.Linq.Enumerable.FirstOrDefault(borders, s => s.IsDefault == true);
+            if (result == null)
+                result = BorderStyle.Default;
+            return result;
+        }
+        #endregion
+
+        public static BorderTypes GetBorderTypeFromString(string borderType)
+        {
+            switch (borderType.ToLower())
+            {
+                case "none":
+                    return BorderTypes.None;
+                case "single":
+                    return BorderTypes.Single;
+                case "double":
+                    return BorderTypes.Double;
+                default:
+                    return BorderTypes.None;
+            }
+        }
     }
 }

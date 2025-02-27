@@ -1,4 +1,5 @@
-﻿using PdfSharp.Drawing;
+﻿using PdfSharp;
+using PdfSharp.Drawing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,20 +11,36 @@ namespace MyAlbum
 {
     internal class BaseElement
     {
+        #region fields
+        private string? _styleName;
+        #endregion
+
         #region properties
         public XElement xml { get; set; }
-        #endregion  
+        public string? StyleName
+        {
+            get { return _styleName; }
+            set { _styleName = value; }
+        }
+        #endregion
 
-        protected BaseElement()
+        #region constructors
+        public BaseElement()
         {
             xml = new XElement("none");
         }
+        #endregion
 
+        #region methods
         public virtual void Parse()
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Returns the value of "style" attribute of an xml node, or null if not provided.
+        /// </summary>
+        /// <returns>The style name as a string.</returns>
         internal string? ParseStyleNameAttribute(XElement xml)
         {
             string? result = null;
@@ -33,6 +50,10 @@ namespace MyAlbum
             }
             return result;
         }
+        /// <summary>
+        /// Returns the value of "default" attribute of an xml node, or false if not provided.
+        /// </summary>
+        /// <returns>The default flag as a boolean.</returns>
         internal bool ParseDefaultAttribute(XElement xml)
         {
             bool result = false;
@@ -46,7 +67,7 @@ namespace MyAlbum
             return result;
         }
         /// <summary>
-        /// Returns an array with exactly four XUnitPt elements.
+        /// Returns the values of "margin" attribute of an xml node, or XUnitPt.Zero if not provided.
         /// </summary>
         /// <returns>An array of four XUnitPt [top, right, bottom, left].</returns>
         internal XUnitPt[] ParseMarginAttribute(XElement xml)
@@ -90,7 +111,7 @@ namespace MyAlbum
             return new XUnitPt[] { top, right, bottom, left };
         }
         /// <summary>
-        /// Returns an array with exactly four XUnitPt elements.
+        /// Returns the values of "padding" attribute of an xml node, or XUnitPt.Zero if not provided.
         /// </summary>
         /// <returns>An array of four XUnitPt [top, right, bottom, left].</returns>
         internal XUnitPt[] ParsePaddingAttribute(XElement xml)
@@ -133,6 +154,10 @@ namespace MyAlbum
             }
             return new XUnitPt[] { top, right, bottom, left };
         }
+        /// <summary>
+        /// Returns the values of "color" attribute of an xml node, or XColors.Black if not provided.
+        /// </summary>
+        /// <returns>The foreground color as an XColor.</returns>
         internal XColor ParseColorAttribute(XElement xml)
         {
             XColor result = XColors.Black;
@@ -150,6 +175,10 @@ namespace MyAlbum
             }
             return result;
         }
+        /// <summary>
+        /// Returns the values of "bgcolor" attribute of an xml node, or XBrushes.White if not provided.
+        /// </summary>
+        /// <returns>The background color as an XBrush.</returns>
         internal XBrush ParseBackgroundColorAttribute(XElement xml)
         {
             XBrush result = XBrushes.White;
@@ -167,6 +196,10 @@ namespace MyAlbum
             }
             return result;
         }
+        /// <summary>
+        /// Returns the values of "align" attribute of an xml node, or Alignments.Left if not provided.
+        /// </summary>
+        /// <returns>The horizontal alignment as a Styles.Alignment.</returns>
         internal Styles.Alignments ParseAlignAttribute(XElement xml)
         {
             Styles.Alignments result = Styles.Alignments.Left;
@@ -190,6 +223,10 @@ namespace MyAlbum
             }
             return result;
         }
+        /// <summary>
+        /// Returns the values of "valign" attribute of an xml node or VerticalAlignments.Top if not provided.
+        /// </summary>
+        /// <returns>The horizontal alignment as a Styles.VerticalAlignment.</returns>
         internal Styles.VerticalAlignments ParseVAlignAttribute(XElement xml)
         {
             Styles.VerticalAlignments result = Styles.VerticalAlignments.Top;
@@ -213,6 +250,171 @@ namespace MyAlbum
             }
             return result;
         }
+        /// <summary>
+        /// Returns the values of "orientation" attribute of an xml node or PageOrientation.Portrait if not provided.
+        /// </summary>
+        /// <returns>The page orientation as a PageOrientation.</returns>
+        internal PageOrientation ParsePageOrientationAttribute(XElement xml)
+        {
+            PageOrientation result = PageOrientation.Portrait;
+            if (xml.Attribute("orientation") != null)
+            {
+                switch (xml.Attribute("orientation")!.Value.ToLower())
+                {
+                    case "portrait":
+                        result = PdfSharp.PageOrientation.Portrait;
+                        break;
+                    case "landscape":
+                        result = PdfSharp.PageOrientation.Landscape;
+                        break;
+                    default:
+                        result = PdfSharp.PageOrientation.Portrait;
+                        break;
+                }
+            }
+            return result;
 
+
+        }
+        /// <summary>
+        /// Returns the values of "size" attribute of an xml node or PageSize.Letter if not provided.
+        /// </summary>
+        /// <returns>The page orientation as a PageSize.</returns>
+        internal PageSize ParsePageSizeAttribute(XElement xml)
+        {
+            PageSize result = PageSize.Letter;
+            if (xml.Attribute("size") != null)
+            {
+                switch (xml.Attribute("size")!.Value.ToLower())
+                {
+                    case "letter":
+                        result = PdfSharp.PageSize.Letter;
+                        break;
+                    case "a4":
+                        result = PdfSharp.PageSize.A4;
+                        break;
+                    default:
+                        result = PdfSharp.PageSize.Letter;
+                        break;
+                }
+            }
+            return result;
+        }
+        /// <summary>
+        /// Returns the values of "vspace" attribute of an xml node, or XUnitPt.Zero if not provided.
+        /// </summary>
+        /// <returns>Th vertical space as an XUnitPt.</returns>
+        internal XUnitPt ParseVSpaceAttribute(XElement xml)
+        {
+            XUnitPt result =XUnitPt.Zero;
+            if (xml.Attribute("vspace") != null)
+            {
+                try
+                {
+                    result = XUnitPt.FromMillimeter(double.Parse(xml.Attribute("vspace")!.Value));
+                }
+                catch (Exception)
+                {
+                    result = XUnitPt.Zero;
+                }
+            }
+            return result;
+        }
+        /// <summary>
+        /// Returns the values of "border_type" attribute of an xml node, or Styles.BorderTypes.None if not provided.
+        /// </summary>
+        /// <returns>An array of four Styles.BorderTypes [top, right, bottom, left].</returns>
+        internal Styles.BorderTypes[] ParseBorderTypeAttribute(XElement xml)
+        {
+            Styles.BorderTypes top = Styles.BorderTypes.None;
+            Styles.BorderTypes right = Styles.BorderTypes.None;
+            Styles.BorderTypes bottom = Styles.BorderTypes.None;
+            Styles.BorderTypes left = Styles.BorderTypes.None;
+
+            if (xml.Attribute("border_type") != null)
+            {
+                try
+                {
+                    string[] arr = (xml.Attribute("border_type")!.Value).Split(',');
+
+                    switch (arr.Length)
+                    {
+                        case 1:
+                            top = right = bottom = left = Styles.GetBorderTypeFromString(arr[0]);
+                            break;
+                        case 2:
+                            top = bottom = Styles.GetBorderTypeFromString(arr[0]);
+                            left = right = Styles.GetBorderTypeFromString(arr[1]);
+                            break;
+                        case 4:
+                            top = Styles.GetBorderTypeFromString(arr[0]);
+                            right = Styles.GetBorderTypeFromString(arr[1]);
+                            bottom = Styles.GetBorderTypeFromString(arr[2]);
+                            left = Styles.GetBorderTypeFromString(arr[3]);
+                            break;
+                        default:
+                            top = right = bottom = left = Styles.BorderTypes.None;
+                            break;
+                    }
+                }
+                catch (Exception)
+                {
+                    top = right = bottom = left = Styles.BorderTypes.None;
+                }
+            }
+            return new Styles.BorderTypes[] { top, right, bottom, left };
+        }
+        /// <summary>
+        /// Returns the values of "width" attribute of an xml node, or XUnitPt.Zero if not provided.
+        /// </summary>
+        /// <returns>An array of three XUnitPt [lineWidth1, offset, lineWidth2].</returns>
+        internal XUnitPt[] ParseBorderLineWidthAttribute(XElement xml)
+        {
+            XUnitPt lineWidth1 = XUnitPt.Zero;
+            XUnitPt lineWidth2 = XUnitPt.Zero;
+            XUnitPt offset = XUnitPt.Zero;
+
+            if (xml.Attribute("width") != null)
+            {
+                try
+                {
+                    string[] arr = (xml.Attribute("width")!.Value).Split(',');
+
+                    switch (arr.Length)
+                    {
+                        case 1:
+                            lineWidth1 = offset = lineWidth2  = XUnitPt.FromMillimeter(double.Parse(arr[0]));
+                            break;
+                        case 2:
+                            lineWidth1 = lineWidth2 = XUnitPt.FromMillimeter(double.Parse(arr[0])); 
+                            offset = XUnitPt.FromMillimeter(double.Parse(arr[1])); 
+                            break;
+                        case 3:
+                            lineWidth1 = XUnitPt.FromMillimeter(double.Parse(arr[0]));
+                            offset = XUnitPt.FromMillimeter(double.Parse(arr[1]));
+                            lineWidth2 = XUnitPt.FromMillimeter(double.Parse(arr[2]));
+                            break;
+                        default:
+                            lineWidth1 = lineWidth2 = offset = XUnitPt.Zero;
+                            break;
+                    }
+                }
+                catch (Exception)
+                {
+                    lineWidth1 = offset = lineWidth2 = XUnitPt.Zero;
+                }
+            }
+            return new XUnitPt[] { lineWidth1, offset, lineWidth2 };
+        }
+        internal string? ParseStringAttribute(XElement xml, string attributeName)
+        {
+            string? result = null;
+            if (xml.Attribute(attributeName) != null)
+            {
+                result = xml.Attribute(attributeName)!.Value.ToLower();
+            }
+            return result;
+        }
+        #endregion
     }
 }

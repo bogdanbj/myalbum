@@ -15,11 +15,24 @@ namespace MyAlbum
         #region fields
         //private PageOrientation _orientation;
         //private Image? _banner;
-        private Border? _frame;
+        //private Border? _frame;
         //private List<Row>? _rows;
         #endregion
 
         #region properties
+        public static PageStyle Default
+        {
+            get 
+            { 
+                var defaultPageStyle = DefaultStyleElement() as PageStyle;
+                if (defaultPageStyle != null)
+                {
+                    defaultPageStyle.Orientation = PageOrientation.Portrait;
+                    defaultPageStyle.Size = PageSize.Letter;
+                }
+                return defaultPageStyle; 
+            }
+        }
         public PageOrientation Orientation { get; set; }
         public PageSize Size { get; set; }
         public XUnitPt VSpace { get; set; }
@@ -34,15 +47,15 @@ namespace MyAlbum
         //    }
         //    set { _banner = value; }
         //}
-        public Border Frame
-        {
-            get
-            {
-                if (_frame == null) { _frame = new Border(); }
-                return _frame;
-            }
-            set { _frame = value; }
-        }
+        //public Border Frame
+        //{
+        //    get
+        //    {
+        //        if (_frame == null) { _frame = new Border(); }
+        //        return _frame;
+        //    }
+        //    set { _frame = value; }
+        //}
         //public List<Row> Rows
         //{
         //    get
@@ -56,7 +69,10 @@ namespace MyAlbum
 
         #region constructors
         public PageStyle()
-        { }
+        {
+            Orientation = PageOrientation.Portrait;
+            Size = PageSize.Letter;
+        }
         public PageStyle(XElement xml) : this()
         {
             this.xml = xml;
@@ -75,99 +91,105 @@ namespace MyAlbum
         private void ParseAttributes()
         {
             // common style attributes
-            ParseBaseAttributes();
+            ParseBaseStyleAttributes();
             
             // orientation attribute
-            ParseOrientationAttribute();
+            Orientation = ParsePageOrientationAttribute(xml);
             
             // size attribute
-            ParseSizeAttribute();
+            Size = ParsePageSizeAttribute(xml);
 
             //VSpace Attribute
-            ParseVSpaceAttribute();
+            VSpace = ParseVSpaceAttribute(xml);
         }
         private void ParseComponents()
         {
-            IEnumerable<XElement> elements = xml.Elements();
-            foreach (XElement xElem in elements)
-            {
-                switch (xElem.Name.LocalName)
-                {
-                    //case "banner":
-                    //    Banner = new Image(xElem);
-                    //    //Banner.Parent = this;
-                    //    Banner.Parse();
-                    //    break;
-                    case "border":
-                        Frame = new Border(xElem);
-                        //Frame.Parent = this;
-                        Frame.Parse();
-                        break;
-                    //case "row":
-                    //    Row newRow = new Row(xElem);
-                    //    //newRow.Parent = this;
-                    //    newRow.Parse();
-                    //    this.Rows.Add(newRow);
-                    //    break;
-                    default:
-                        break;
-                }
-            }
+            //IEnumerable<XElement> elements = xml.Elements();
+            //foreach (XElement xElem in elements)
+            //{
+            //    switch (xElem.Name.LocalName)
+            //    {
+            //        //case "banner":
+            //        //    Banner = new Image(xElem);
+            //        //    //Banner.Parent = this;
+            //        //    Banner.Parse();
+            //        //    break;
+            //        case "border":
+            //            Frame = new Border(xElem);
+            //            //Frame.Parent = this;
+            //            Frame.Parse();
+            //            break;
+            //        //case "row":
+            //        //    Row newRow = new Row(xElem);
+            //        //    //newRow.Parent = this;
+            //        //    newRow.Parse();
+            //        //    this.Rows.Add(newRow);
+            //        //    break;
+            //        default:
+            //            break;
+            //    }
+            //}
         }
-        private void ParseOrientationAttribute()
-        {
-            if (xml.Attribute("orientation") != null)
-            {
-                switch (xml.Attribute("orientation").Value.ToLower())
-                {
-                    case "portrait":
-                        this.Orientation = PdfSharp.PageOrientation.Portrait;
-                        break;
-                    case "landscape":
-                        this.Orientation = PdfSharp.PageOrientation.Landscape;
-                        break;
-                    default:
-                        this.Orientation = PdfSharp.PageOrientation.Portrait;
-                        break;
-                }
-            }
-            //else
-            //    this.Orientation = PdfSharp.PageOrientation.Portrait;
-        }
-        private void ParseSizeAttribute()
-        {
-            if (xml.Attribute("size") != null)
-            {
-                switch (xml.Attribute("size").Value.ToLower())
-                {
-                    case "letter":
-                        this.Size = PdfSharp.PageSize.Letter;
-                        break;
-                    case "a4":
-                        this.Size = PdfSharp.PageSize.A4;
-                        break;
-                    default:
-                        this.Size = PdfSharp.PageSize.Letter;
-                        break;
-                }
-            }
-            else
-                this.Size = PdfSharp.PageSize.Letter;
-        }
-        private void ParseVSpaceAttribute()
-        {
-            if (xml.Attribute("vspace") != null)
-            {
-                try
-                {
-                    VSpace = XUnitPt.FromMillimeter(double.Parse(xml.Attribute("vspace")!.Value));
-                }
-                catch (Exception)
-                {
-                    VSpace = XUnitPt.Zero;
-                }
-            }
-        }
+        
+        
+        
+        
+        
+        
+        //private void ParseOrientationAttribute()
+        //{
+        //    if (xml.Attribute("orientation") != null)
+        //    {
+        //        switch (xml.Attribute("orientation").Value.ToLower())
+        //        {
+        //            case "portrait":
+        //                this.Orientation = PdfSharp.PageOrientation.Portrait;
+        //                break;
+        //            case "landscape":
+        //                this.Orientation = PdfSharp.PageOrientation.Landscape;
+        //                break;
+        //            default:
+        //                this.Orientation = PdfSharp.PageOrientation.Portrait;
+        //                break;
+        //        }
+        //    }
+        //    //else
+        //    //    this.Orientation = PdfSharp.PageOrientation.Portrait;
+        //}
+        //private void ParseSizeAttribute()
+        //{
+        //    if (xml.Attribute("size") != null)
+        //    {
+        //        switch (xml.Attribute("size").Value.ToLower())
+        //        {
+        //            case "letter":
+        //                this.Size = PdfSharp.PageSize.Letter;
+        //                break;
+        //            case "a4":
+        //                this.Size = PdfSharp.PageSize.A4;
+        //                break;
+        //            default:
+        //                this.Size = PdfSharp.PageSize.Letter;
+        //                break;
+        //        }
+        //    }
+        //    else
+        //        this.Size = PdfSharp.PageSize.Letter;
+        //}
+        //private void ParseVSpaceAttribute()
+        //{
+        //    if (xml.Attribute("vspace") != null)
+        //    {
+        //        try
+        //        {
+        //            VSpace = XUnitPt.FromMillimeter(double.Parse(xml.Attribute("vspace")!.Value));
+        //        }
+        //        catch (Exception)
+        //        {
+        //            VSpace = XUnitPt.Zero;
+        //        }
+        //    }
+        //}
 
         #endregion
     }

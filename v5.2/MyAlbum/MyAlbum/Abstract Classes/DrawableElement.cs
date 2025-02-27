@@ -8,19 +8,33 @@ using System.Threading.Tasks;
 
 namespace MyAlbum
 {
-    internal class DrawableElement : StyleElement
+    internal class DrawableElement : BaseElement //StyleElement
     {
+        #region fields
+        private StyleElement? _style;
+        #endregion
+
         #region properties
         public XGraphics? gfx { get; set; }
         public XUnitPt x { get; set; }
         public XUnitPt y { get; set; }
         public XUnitPt h { get; set; }
         public XUnitPt w { get; set; }
-        public DrawableElement? Parent { get; set; }
         public  XColor BoxColor { get; set; }
+        public DrawableElement? Parent { get; set; }
+        public StyleElement Style
+        {
+            get 
+            {
+                if (_style == null)
+                    _style = new StyleElement();
+                return _style; 
+            }
+            set { _style = value; }
+        }
         #endregion
 
-        #region public methods - must be overriden
+        #region virtual methods - must be overriden
         public virtual void Calculate()
         {
             throw new NotImplementedException();
@@ -31,29 +45,12 @@ namespace MyAlbum
         }
         #endregion
 
-        #region private methods
-        //internal void ParseVSpaceAttribute()
-        //{
-        //    if (xml.Attribute("vspace") != null)
-        //    {
-        //        try
-        //        {
-        //            VSpace = XUnitPt.FromMillimeter(double.Parse(xml.Attribute("vspace")!.Value));
-        //        }
-        //        catch (Exception)
-        //        {
-        //            VSpace = XUnitPt.Zero;
-        //        }
-        //    }
-        //}
-        #endregion
-
-        #region Helper Methods
+        #region helper methods
         public void DrawBox()
         {
             if (BoxColor.IsEmpty)
             {
-                DrawBox(Color);
+                DrawBox(Style.Color);
             }
             else
             {
@@ -71,7 +68,7 @@ namespace MyAlbum
         {
             if (BoxColor.IsEmpty)
             {
-                DrawBox(Color, point, size);
+                DrawBox(Style.Color, point, size);
             }
             else
             {
@@ -84,7 +81,7 @@ namespace MyAlbum
         }
         public void DrawCross(XPoint point)
         {
-            DrawCross(point, Color);
+            DrawCross(point, Style.Color);
         }
         public void DrawCross(XPoint point, XColor color)
         {
@@ -94,7 +91,7 @@ namespace MyAlbum
         }
         public void DrawBackground()
         {
-            if (Brush is XSolidBrush solidBrush)
+            if (Style.Brush is XSolidBrush solidBrush)
             {
                 XColor color = solidBrush.Color;
                 DrawBackground(color);

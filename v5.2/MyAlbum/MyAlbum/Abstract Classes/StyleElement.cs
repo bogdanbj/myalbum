@@ -10,13 +10,46 @@ namespace MyAlbum
 {
     internal class StyleElement : BaseElement
     {
+        #region fields
+        string? _styleName;
+        XColor? _color;
+        XBrush? _brush;
+        #endregion
+        
         #region properties
+        public new string StyleName
+        { 
+            get
+            { 
+                if (string.IsNullOrEmpty(_styleName))
+                    _styleName = "default"; 
+                return _styleName;
+            }
+            set { _styleName = value; } 
+        }
         public bool IsDefault { get; set; }
-        public string StyleName { get; set; }
         public Styles.Alignments Align { get; set; }
         public Styles.VerticalAlignments VAlign { get; set; }
-        public XBrush Brush { get; set; }
-        public XColor Color { get; set; }
+        public XColor Color
+        {
+            get
+            {
+                if (!_color.HasValue)
+                    _color = XColors.Black;
+                return _color.Value;
+            }
+            set { _color = value; }
+        }
+        public XBrush Brush
+        {
+            get
+            {
+                if (_brush == null)
+                    _brush = XBrushes.White;
+                return _brush;
+            }
+            set { _brush = value; }
+        }
         public XUnitPt MarginLeft { get; set; }
         public XUnitPt MarginRight { get; set; }
         public XUnitPt MarginTop { get; set; }
@@ -28,14 +61,15 @@ namespace MyAlbum
         #endregion
 
         #region constructors
-        protected StyleElement() 
-        {
-            Brush = XBrushes.White;
-            Color = XColors.Black;
-        }
+        internal StyleElement() 
+        { }
         #endregion
 
         #region methods
+        public static StyleElement DefaultStyleElement()
+        {
+            return new StyleElement();
+        }
         internal void ParseBaseStyleAttributes()
         {
             // style name
@@ -54,10 +88,10 @@ namespace MyAlbum
 
             // padding
             arr = ParsePaddingAttribute(this.xml);
-            MarginTop = arr[0];
-            MarginRight = arr[1];
-            MarginBottom = arr[2];
-            MarginLeft = arr[3];
+            PaddingTop = arr[0];
+            PaddingRight = arr[1];
+            PaddingBottom = arr[2];
+            PaddingLeft = arr[3];
 
             // color
             Color = ParseColorAttribute(this.xml);
