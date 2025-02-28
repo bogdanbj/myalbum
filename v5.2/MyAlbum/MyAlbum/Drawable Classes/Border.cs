@@ -97,17 +97,23 @@ namespace MyAlbum
             // not relevant for Border
 
             // border type
-            Styles.BorderTypes[] types = ParseBorderTypeAttribute(xml);
-            Style.TypeTop = types[0];
-            Style.TypeRight = types[1];
-            Style.TypeBottom = types[2];
-            Style.TypeLeft = types[3];
+            if (xml.Attribute("border_type") != null)
+            {
+                Styles.BorderTypes[] types = ParseBorderTypeAttribute(xml);
+                Style.TypeTop = types[0];
+                Style.TypeRight = types[1];
+                Style.TypeBottom = types[2];
+                Style.TypeLeft = types[3];
+            }
 
             // lines and offset width
-            XUnitPt[] widths = ParseBorderLineWidthAttribute(xml);
-            Style.LineWidth1 = widths[0];
-            Style.Offset = widths[1];
-            Style.LineWidth2 = widths[2];
+            if (xml.Attribute("width") != null)
+            {
+                XUnitPt[] widths = ParseBorderLineWidthAttribute(xml);
+                Style.LineWidth1 = widths[0];
+                Style.Offset = widths[1];
+                Style.LineWidth2 = widths[2];
+            }
         }
         public override void Calculate()
         {
