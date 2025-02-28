@@ -89,7 +89,7 @@ namespace MyAlbum
         //    set { _orientation = value; }
         //}
         public PageSize Size { get; set; }
-        public XUnitPt VSpace { get; set; }
+        //public XUnitPt VSpace { get; set; }
         #endregion
 
         #region constructors
@@ -130,6 +130,7 @@ namespace MyAlbum
         public override void Calculate()
         {
             _pdfPage.Orientation = Style.Orientation;
+            _pdfPage.Size = Style.Size;
             w = _pdfPage.Width;
             h = _pdfPage.Height;
 
@@ -146,10 +147,10 @@ namespace MyAlbum
 
                 if (Style.Orientation == PdfSharp.PageOrientation.Portrait)
                 {
-                    Frame.x = x + Frame.Style.MarginLeft;
-                    Frame.y = y + Frame.Style.MarginTop;
-                    Frame.w = w - (Frame.Style.MarginLeft + Frame.Style.MarginRight);
-                    Frame.h = h - (Frame.Style.MarginTop + Frame.Style.MarginBottom);
+                    Frame.x = Canvas.x + Frame.Style.MarginLeft;
+                    Frame.y = Canvas.y + Frame.Style.MarginTop;
+                    Frame.w = Canvas.w - (Frame.Style.MarginLeft + Frame.Style.MarginRight);
+                    Frame.h = Canvas.h - (Frame.Style.MarginTop + Frame.Style.MarginBottom);
                     Frame.Calculate();
 
                     //Canvas.x += Frame.MarginLeft + Frame.WidthLeft + Frame.PaddingLeft;
@@ -157,22 +158,22 @@ namespace MyAlbum
                     //Canvas.w -= Frame.MarginLeft + Frame.WidthLeft + Frame.PaddingLeft + Frame.PaddingRight + Frame.WidthRight + Frame.MarginRight;
                     //Canvas.h -= Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + Frame.PaddingBottom + Frame.WidthBottom + Frame.MarginBottom + 2 * VSpace;
                     Canvas.x = Frame.x + Frame.WidthLeft + Frame.Style.PaddingLeft;
-                    Canvas.y = Frame.y + Frame.WidthTop + Frame.Style.PaddingTop + VSpace;
+                    Canvas.y = Frame.y + Frame.WidthTop + Frame.Style.PaddingTop + Style.VSpace;
                     Canvas.w = Frame.w - (Frame.WidthLeft + Frame.Style.PaddingLeft + Frame.Style.PaddingRight + Frame.WidthRight);
-                    Canvas.h = Frame.h - (Frame.WidthTop + Frame.Style.PaddingTop + Frame.Style.PaddingBottom + Frame.WidthBottom + 2 * VSpace);
+                    Canvas.h = Frame.h - (Frame.WidthTop + Frame.Style.PaddingTop + Frame.Style.PaddingBottom + Frame.WidthBottom + 2 * Style.VSpace);
                 }
                 else
                 {
-                    Frame.x = x + Frame.Style.MarginBottom;
-                    Frame.y = y + Frame.Style.MarginLeft;
-                    Frame.w = w - (Frame.Style.MarginBottom + Frame.Style.MarginTop);
-                    Frame.h = h - (Frame.Style.MarginLeft + Frame.Style.MarginRight);
+                    Frame.x = Canvas.x + Frame.Style.MarginBottom;
+                    Frame.y = Canvas.y + Frame.Style.MarginLeft;
+                    Frame.w = Canvas.w - (Frame.Style.MarginBottom + Frame.Style.MarginTop);
+                    Frame.h = Canvas.h - (Frame.Style.MarginLeft + Frame.Style.MarginRight);
                     Frame.Calculate();
 
                     Canvas.x = Frame.x + Frame.WidthBottom + Frame.Style.PaddingLeft;
-                    Canvas.y = Frame.y + Frame.WidthLeft + Frame.Style.PaddingTop + VSpace;
+                    Canvas.y = Frame.y + Frame.WidthLeft + Frame.Style.PaddingTop + Style.VSpace;
                     Canvas.w = Frame.w - (Frame.WidthBottom + Frame.Style.PaddingLeft + Frame.Style.PaddingRight + Frame.WidthTop);
-                    Canvas.h = Frame.h - (Frame.WidthLeft + Frame.Style.PaddingTop + Frame.Style.PaddingBottom + Frame.WidthRight + 2 * VSpace);
+                    Canvas.h = Frame.h - (Frame.WidthLeft + Frame.Style.PaddingTop + Frame.Style.PaddingBottom + Frame.WidthRight + 2 * Style.VSpace);
                 }
             }
             #endregion
@@ -182,20 +183,20 @@ namespace MyAlbum
         public override void Draw()
         {
 
-            //#region draw frame
-            //if (Frame != null)
-            //{
-            //     Frame.gfx = gfx;
-            //    if (Orientation == PageOrientation.Landscape)
-            //    {
-            //        //Frame.gfx.TranslateTransform(w / 2, h / 2);
-            //        //Frame.gfx.RotateTransform(90);
-            //        //Frame.gfx.TranslateTransform(-w / 2, -h / 2);
+            #region draw frame
+            if (Frame != null)
+            {
+                Frame.gfx = gfx;
+                if (Style.Orientation == PageOrientation.Landscape)
+                {
+                    //Frame.gfx.TranslateTransform(w / 2, h / 2);
+                    //Frame.gfx.RotateTransform(90);
+                    //Frame.gfx.TranslateTransform(-w / 2, -h / 2);
 
-            //    }
-            //    Frame.Draw();
-            //}
-            //#endregion
+                }
+                Frame.Draw();
+            }
+            #endregion
 
             Canvas.gfx = gfx;
             Canvas.DrawBackground(XColors.WhiteSmoke);
@@ -235,6 +236,12 @@ namespace MyAlbum
         }
         private void ParseComponents()
         {
+            // add Style components
+            Frame = Style.Frame;
+            Frame.Parent = this;
+            Frame.Parse();
+
+
             //todo: Page.ParseComponents()
             IEnumerable<XElement> elements = xml.Elements();
             foreach (XElement xElem in elements)

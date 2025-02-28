@@ -41,7 +41,6 @@ namespace MyAlbum
         public string Title { get; set; }
         public string No { get; set; }
         //public string Orientation { get; set; }
-
         public PageOrientation Orientation
         {
             get { return _orientation; }
@@ -51,7 +50,6 @@ namespace MyAlbum
                 this.PdfPage.Orientation = value;
             }
         }
-
         //public PageOrientation Orientation { get; set; }
         //public string Size { get; set; }
         public PageSize Size { get; set; }
@@ -527,4 +525,5 @@ namespace MyAlbum
         }
         #endregion
     }
+
 }

@@ -62,16 +62,16 @@ namespace MyAlbum
                         pageStyle.Parse();
                         Styles.PageStyles.Add(pageStyle);
                         break;
-                    //case "border":
-                    //    BorderStyle borserStyle = new BorderStyle(elem);
-                    //    borserStyle.Parse();
-                    //    Styles.BorderStyles.Add(borserStyle);
-                    //    break;
-                    //case "row":
-                    //    RowStyle rowStyle = new RowStyle(elem);
-                    //    rowStyle.Parse();
-                    //    Styles.RowStyles.Add(rowStyle);
-                    //    break;
+                    case "border":
+                        BorderStyle borserStyle = new BorderStyle(elem);
+                        borserStyle.Parse();
+                        Styles.BorderStyles.Add(borserStyle);
+                        break;
+                        //case "row":
+                        //    RowStyle rowStyle = new RowStyle(elem);
+                        //    rowStyle.Parse();
+                        //    Styles.RowStyles.Add(rowStyle);
+                        //    break;
                 }
             }
         }

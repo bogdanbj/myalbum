@@ -15,7 +15,7 @@ namespace MyAlbum
         #region fields
         //private PageOrientation _orientation;
         //private Image? _banner;
-        //private Border? _frame;
+        private Border? _frame;
         //private List<Row>? _rows;
         #endregion
 
@@ -47,15 +47,15 @@ namespace MyAlbum
         //    }
         //    set { _banner = value; }
         //}
-        //public Border Frame
-        //{
-        //    get
-        //    {
-        //        if (_frame == null) { _frame = new Border(); }
-        //        return _frame;
-        //    }
-        //    set { _frame = value; }
-        //}
+        public Border Frame
+        {
+            get
+            {
+                if (_frame == null) { _frame = new Border(); }
+                return _frame;
+            }
+            set { _frame = value; }
+        }
         //public List<Row> Rows
         //{
         //    get
@@ -104,31 +104,31 @@ namespace MyAlbum
         }
         private void ParseComponents()
         {
-            //IEnumerable<XElement> elements = xml.Elements();
-            //foreach (XElement xElem in elements)
-            //{
-            //    switch (xElem.Name.LocalName)
-            //    {
-            //        //case "banner":
-            //        //    Banner = new Image(xElem);
-            //        //    //Banner.Parent = this;
-            //        //    Banner.Parse();
-            //        //    break;
-            //        case "border":
-            //            Frame = new Border(xElem);
-            //            //Frame.Parent = this;
-            //            Frame.Parse();
-            //            break;
-            //        //case "row":
-            //        //    Row newRow = new Row(xElem);
-            //        //    //newRow.Parent = this;
-            //        //    newRow.Parse();
-            //        //    this.Rows.Add(newRow);
-            //        //    break;
-            //        default:
-            //            break;
-            //    }
-            //}
+            IEnumerable<XElement> elements = xml.Elements();
+            foreach (XElement xElem in elements)
+            {
+                switch (xElem.Name.LocalName)
+                {
+                    //case "banner":
+                    //    Banner = new Image(xElem);
+                    //    //Banner.Parent = this;
+                    //    Banner.Parse();
+                    //    break;
+                    case "border":
+                        Frame = new Border(xElem);
+                        //Frame.Parent = this;
+                        Frame.Parse();
+                        break;
+                    //case "row":
+                    //    Row newRow = new Row(xElem);
+                    //    //newRow.Parent = this;
+                    //    newRow.Parse();
+                    //    this.Rows.Add(newRow);
+                    //    break;
+                    default:
+                        break;
+                }
+            }
         }
         
         
