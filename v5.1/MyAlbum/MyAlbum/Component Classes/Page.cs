@@ -21,7 +21,10 @@ namespace MyAlbum
         //private Image? _banner;
         private Border? _frame;
         private List<Row>? _rows;
+<<<<<<< Updated upstream
         DrawableElement _canvas;
+=======
+>>>>>>> Stashed changes
         #endregion
 
         #region properties
@@ -44,6 +47,7 @@ namespace MyAlbum
             }
             set { _frame = value; }
         }
+<<<<<<< Updated upstream
         public DrawableElement Canvas
         {
             get
@@ -62,6 +66,18 @@ namespace MyAlbum
             set { _rows = value; }
         }
 
+=======
+        //public List<Row> Rows
+        //{
+        //    get
+        //    {
+        //        if (_rows == null) { _rows = new List<Row>(); }
+        //        return _rows;
+        //    }
+        //    set { _rows = value; }
+        //}
+        
+>>>>>>> Stashed changes
         public PdfPage PdfPage
         {
             get
@@ -126,7 +142,9 @@ namespace MyAlbum
         }
         public override void Calculate()
         {
-            //gfx = XGraphics.FromPdfPage(_pdfPage);
+            #region calculate banner
+            //TODO
+            #endregion
 
             #region calculate frame
             if (Frame != null)
@@ -135,16 +153,12 @@ namespace MyAlbum
 
                 if (this.Orientation == PdfSharp.PageOrientation.Portrait)
                 {
-                    Frame.x = x + Frame.MarginLeft;
-                    Frame.y = y + Frame.MarginTop;
-                    Frame.w = w - (Frame.MarginLeft + Frame.MarginRight);
-                    Frame.h = h - (Frame.MarginTop + Frame.MarginBottom);
+                    Frame.x = x + MarginLeft;
+                    Frame.y = y + MarginTop;
+                    Frame.w = w - (MarginLeft + MarginRight);
+                    Frame.h = h - (MarginTop + MarginBottom);
                     Frame.Calculate();
 
-                    //Canvas.x += Frame.MarginLeft + Frame.WidthLeft + Frame.PaddingLeft;
-                    //Canvas.y += Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + VSpace;
-                    //Canvas.w -= Frame.MarginLeft + Frame.WidthLeft + Frame.PaddingLeft + Frame.PaddingRight + Frame.WidthRight + Frame.MarginRight;
-                    //Canvas.h -= Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + Frame.PaddingBottom + Frame.WidthBottom + Frame.MarginBottom + 2 * VSpace;
                     Canvas.x = Frame.x + Frame.WidthLeft + Frame.PaddingLeft;
                     Canvas.y = Frame.y + Frame.WidthTop + Frame.PaddingTop + VSpace;
                     Canvas.w = Frame.w - (Frame.WidthLeft + Frame.PaddingLeft + Frame.PaddingRight + Frame.WidthRight);
@@ -152,10 +166,10 @@ namespace MyAlbum
                 }
                 else
                 {
-                    Frame.x = x + Frame.MarginBottom;
-                    Frame.y = y + Frame.MarginLeft;
-                    Frame.w = w - (Frame.MarginBottom + Frame.MarginTop);
-                    Frame.h = h - (Frame.MarginLeft + Frame.MarginRight);
+                    Frame.x = x + MarginBottom;
+                    Frame.y = y + MarginLeft;
+                    Frame.w = w - (MarginBottom + MarginTop);
+                    Frame.h = h - (MarginLeft + MarginRight);
                     Frame.Calculate();
 
                     Canvas.x = Frame.x + Frame.WidthBottom + Frame.PaddingLeft;
@@ -164,6 +178,10 @@ namespace MyAlbum
                     Canvas.h = Frame.h - (Frame.WidthLeft + Frame.PaddingTop + Frame.PaddingBottom + Frame.WidthRight + 2 * VSpace);
                 }
             }
+            #endregion
+
+            #region calculate rows
+            //TODO
             #endregion
 
 
@@ -269,6 +287,11 @@ namespace MyAlbum
             // apply style
             if (style != null)
             {
+                this.MarginTop = style.MarginTop;
+                this.MarginRight = style.MarginRight;
+                this.MarginBottom = style.MarginBottom;
+                this.MarginLeft = style.MarginLeft;
+
                 this.Orientation = style.Orientation;
                 this.Size = style.Size;
                 this.VSpace = style.VSpace;

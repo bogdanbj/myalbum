@@ -10,16 +10,40 @@ namespace MyAlbum
 {
     internal class DrawableElement : StyleElement
     {
+<<<<<<< Updated upstream
         #region properties
+=======
+        #region fields
+        DrawableElement? _canvas;
+        #endregion
+
+        #region properties
+        public DrawableElement Canvas
+        {
+            get
+            {
+                if (_canvas == null) { _canvas = new DrawableElement(); }
+                return _canvas;
+            }
+        }
+
+
+        public XColor BoxColor { get; set; }
+>>>>>>> Stashed changes
         public XGraphics? gfx { get; set; }
         public XUnitPt x { get; set; }
         public XUnitPt y { get; set; }
         public XUnitPt h { get; set; }
         public XUnitPt w { get; set; }
         public DrawableElement? Parent { get; set; }
+<<<<<<< Updated upstream
         public  XColor BoxColor { get; set; }
         #endregion
 
+=======
+        #endregion
+        
+>>>>>>> Stashed changes
         #region public methods - must be overriden
         public virtual void Calculate()
         {

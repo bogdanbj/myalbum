@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MyAlbum
 {
@@ -19,14 +20,13 @@ namespace MyAlbum
         #region fields
         private PdfPage _pdfPage;
         //private Image? _banner;
-        //private Border? _frame;
+        private Border? _frame;
         //private List<Row>? _rows;
         DrawableElement _canvas;
         #endregion
 
         #region properties
-        public PageStyle Style { get; set; }
-        //private PageOrientation _orientation;
+        public new PageStyle Style { get; set; }
         //public Image Banner
         //{
         //    get
@@ -36,15 +36,15 @@ namespace MyAlbum
         //    }
         //    set { _banner = value; }
         //}
-        //public Border Frame
-        //{
-        //    get
-        //    {
-        //        if (_frame == null) { _frame = new Border(); }
-        //        return _frame;
-        //    }
-        //    set { _frame = value; }
-        //}
+        public Border Frame
+        {
+            get
+            {
+                if (_frame == null) { _frame = new Border(); }
+                return _frame;
+            }
+            set { _frame = value; }
+        }
         public DrawableElement Canvas
         {
             get
@@ -138,44 +138,44 @@ namespace MyAlbum
             Canvas.w = w - (Style.MarginLeft + Style.MarginRight);
             Canvas.h = h - (Style.MarginTop + Style.MarginBottom);
 
-            
-            //#region calculate frame
-            //if (Frame != null)
-            //{
-            //    //Frame.gfx = gfx;
 
-            //    if (this.Orientation == PdfSharp.PageOrientation.Portrait)
-            //    {
-            //        Frame.x = x + Frame.MarginLeft;
-            //        Frame.y = y + Frame.MarginTop;
-            //        Frame.w = w - (Frame.MarginLeft + Frame.MarginRight);
-            //        Frame.h = h - (Frame.MarginTop + Frame.MarginBottom);
-            //        Frame.Calculate();
+            #region calculate frame
+            if (Frame != null)
+            {
+                //Frame.gfx = gfx;
 
-            //        //Canvas.x += Frame.MarginLeft + Frame.WidthLeft + Frame.PaddingLeft;
-            //        //Canvas.y += Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + VSpace;
-            //        //Canvas.w -= Frame.MarginLeft + Frame.WidthLeft + Frame.PaddingLeft + Frame.PaddingRight + Frame.WidthRight + Frame.MarginRight;
-            //        //Canvas.h -= Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + Frame.PaddingBottom + Frame.WidthBottom + Frame.MarginBottom + 2 * VSpace;
-            //        Canvas.x = Frame.x + Frame.WidthLeft + Frame.PaddingLeft;
-            //        Canvas.y = Frame.y + Frame.WidthTop + Frame.PaddingTop + VSpace;
-            //        Canvas.w = Frame.w - (Frame.WidthLeft + Frame.PaddingLeft + Frame.PaddingRight + Frame.WidthRight);
-            //        Canvas.h = Frame.h - (Frame.WidthTop + Frame.PaddingTop + Frame.PaddingBottom + Frame.WidthBottom + 2 * VSpace);
-            //    }
-            //    else
-            //    {
-            //        Frame.x = x + Frame.MarginBottom;
-            //        Frame.y = y + Frame.MarginLeft;
-            //        Frame.w = w - (Frame.MarginBottom + Frame.MarginTop);
-            //        Frame.h = h - (Frame.MarginLeft + Frame.MarginRight);
-            //        Frame.Calculate();
+                if (Style.Orientation == PdfSharp.PageOrientation.Portrait)
+                {
+                    Frame.x = x + Frame.Style.MarginLeft;
+                    Frame.y = y + Frame.Style.MarginTop;
+                    Frame.w = w - (Frame.Style.MarginLeft + Frame.Style.MarginRight);
+                    Frame.h = h - (Frame.Style.MarginTop + Frame.Style.MarginBottom);
+                    Frame.Calculate();
 
-            //        Canvas.x = Frame.x + Frame.WidthBottom + Frame.PaddingLeft;
-            //        Canvas.y = Frame.y + Frame.WidthLeft + Frame.PaddingTop + VSpace;
-            //        Canvas.w = Frame.w - (Frame.WidthBottom + Frame.PaddingLeft + Frame.PaddingRight + Frame.WidthTop);
-            //        Canvas.h = Frame.h - (Frame.WidthLeft + Frame.PaddingTop + Frame.PaddingBottom + Frame.WidthRight + 2 * VSpace);
-            //    }
-            //}
-            //#endregion
+                    //Canvas.x += Frame.MarginLeft + Frame.WidthLeft + Frame.PaddingLeft;
+                    //Canvas.y += Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + VSpace;
+                    //Canvas.w -= Frame.MarginLeft + Frame.WidthLeft + Frame.PaddingLeft + Frame.PaddingRight + Frame.WidthRight + Frame.MarginRight;
+                    //Canvas.h -= Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + Frame.PaddingBottom + Frame.WidthBottom + Frame.MarginBottom + 2 * VSpace;
+                    Canvas.x = Frame.x + Frame.WidthLeft + Frame.Style.PaddingLeft;
+                    Canvas.y = Frame.y + Frame.WidthTop + Frame.Style.PaddingTop + VSpace;
+                    Canvas.w = Frame.w - (Frame.WidthLeft + Frame.Style.PaddingLeft + Frame.Style.PaddingRight + Frame.WidthRight);
+                    Canvas.h = Frame.h - (Frame.WidthTop + Frame.Style.PaddingTop + Frame.Style.PaddingBottom + Frame.WidthBottom + 2 * VSpace);
+                }
+                else
+                {
+                    Frame.x = x + Frame.Style.MarginBottom;
+                    Frame.y = y + Frame.Style.MarginLeft;
+                    Frame.w = w - (Frame.Style.MarginBottom + Frame.Style.MarginTop);
+                    Frame.h = h - (Frame.Style.MarginLeft + Frame.Style.MarginRight);
+                    Frame.Calculate();
+
+                    Canvas.x = Frame.x + Frame.WidthBottom + Frame.Style.PaddingLeft;
+                    Canvas.y = Frame.y + Frame.WidthLeft + Frame.Style.PaddingTop + VSpace;
+                    Canvas.w = Frame.w - (Frame.WidthBottom + Frame.Style.PaddingLeft + Frame.Style.PaddingRight + Frame.WidthTop);
+                    Canvas.h = Frame.h - (Frame.WidthLeft + Frame.Style.PaddingTop + Frame.Style.PaddingBottom + Frame.WidthRight + 2 * VSpace);
+                }
+            }
+            #endregion
 
 
         }
@@ -235,6 +235,33 @@ namespace MyAlbum
         }
         private void ParseComponents()
         {
+            //todo: Page.ParseComponents()
+            IEnumerable<XElement> elements = xml.Elements();
+            foreach (XElement xElem in elements)
+            {
+                switch (xElem.Name.LocalName)
+                {
+                    //case "banner":
+                    //    Banner = new Image(xElem);
+                    //    Banner.Parent = this;
+                    //    Banner.Parse();
+                    //    break;
+                    case "border":
+                        Frame = new Border(xElem);
+                        Frame.Parent = this;
+                        Frame.Parse();
+                        break;
+                    //case "row":
+                    //    Row newRow = new Row(xElem);
+                    //    newRow.Parent = this;
+                    //    newRow.Parse();
+                    //    this.Rows.Add(newRow);
+                    //    break;
+                    default:
+                        break;
+                }
+                //Console.WriteLine(xElem.ToString());
+            }
         }
         #endregion
 

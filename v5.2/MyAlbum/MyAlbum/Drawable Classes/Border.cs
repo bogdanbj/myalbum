@@ -1,23 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
 using System.Xml.Linq;
 using PdfSharp.Drawing;
 
+//using MyAlbum.Styles;
+
 namespace MyAlbum
 {
     class Border : DrawableElement
     {
         #region properties
-        public XUnitPt LineWidth1 { get; set; }
-        public XUnitPt LineWidth2 { get; set; }
-        public XUnitPt Offset { get; set; }
-        public string? TypeLeft { get; set; }
-        public string? TypeRight { get; set; }
-        public string? TypeTop { get; set; }
-        public string? TypeBottom { get; set; }
+        public new BorderStyle Style { get; set; }
+        //public XUnitPt LineWidth1 { get; set; }
+        //public XUnitPt LineWidth2 { get; set; }
+        //public XUnitPt Offset { get; set; }
+        //public string? TypeLeft { get; set; }
+        //public string? TypeRight { get; set; }
+        //public string? TypeTop { get; set; }
+        //public string? TypeBottom { get; set; }
         public XUnitPt WidthLeft { get; set; }
         public XUnitPt WidthRight { get; set; }
         public XUnitPt WidthTop { get; set; }
@@ -41,138 +45,148 @@ namespace MyAlbum
         public override void Parse()
         {
             // inherit from parent
-            if (Parent != null) 
+            if (Parent != null)
             {
                 Style.Color = Parent.Style.Color;
+                Style.Brush = Parent.Style.Brush;
             }
 
-            StyleName = ParseStyleNameAttribute(xml) ?? "";
-            BorderStyle style = Styles.BorderStyles.FirstOrDefault(s => s.StyleName == StyleName);
-
-
-
-
-            // find and apply the style
-            ParseStyleNameAttribute();
-            ApplyStyleAttributes();
+            StyleName = ParseStyleNameAttribute(xml);
+            if (!string.IsNullOrEmpty(StyleName))
+            {
+                Style = Styles.BorderStyles.FirstOrDefault(s => s.StyleName == StyleName);
+            }
 
             // apply other explicit attributes
-            //type
-            ParseBorderTypeAttribute();
+            // margins
+            if (xml.Attribute("margin") != null)
+            {
+                XUnitPt[] arr = ParseMarginAttribute(this.xml);
+                Style.MarginTop = arr[0];
+                Style.MarginRight = arr[1];
+                Style.MarginBottom = arr[2];
+                Style.MarginLeft = arr[3];
+            }
 
-            //width
-            ParseWidthAttribute();
+            // padding
+            if (xml.Attribute("padding") != null)
+            {
+                XUnitPt[] arr = ParsePaddingAttribute(this.xml);
+                Style.PaddingTop = arr[0];
+                Style.PaddingRight = arr[1];
+                Style.PaddingBottom = arr[2];
+                Style.PaddingLeft = arr[3];
+            }
 
-            //margin
-            ParseMarginAttribute();
-            
-            //padding
-            ParsePaddingAttribute();
+            // color
+            if (xml.Attribute("color") != null)
+            {
+                Style.Color = ParseColorAttribute(this.xml);
+            }
 
-            //color
-            ParseColorAttribute();
+            // background color 
+            if (xml.Attribute("bgcolor") != null)
+            {
+                Style.Brush = ParseBackgroundColorAttribute(this.xml);
+            }
 
-            //bgcolor
-            ParseBackgroundColorAttribute();
+            //align
+            // not relevant for Border
+
+            //valign
+            // not relevant for Border
+
+            // border type
+            Styles.BorderTypes[] types = ParseBorderTypeAttribute(xml);
+            Style.TypeTop = types[0];
+            Style.TypeRight = types[1];
+            Style.TypeBottom = types[2];
+            Style.TypeLeft = types[3];
+
+            // lines and offset width
+            XUnitPt[] widths = ParseBorderLineWidthAttribute(xml);
+            Style.LineWidth1 = widths[0];
+            Style.Offset = widths[1];
+            Style.LineWidth2 = widths[2];
         }
         public override void Calculate()
         {
-            switch (TypeLeft)
+            switch (Style.TypeLeft)
             {
-                case "single":
-                    WidthLeft = LineWidth1 / 2;
+                case Styles.BorderTypes.Single:
+                    WidthLeft = Style.LineWidth1 / 2;
                     break;
-                case "double":
-                    WidthLeft = LineWidth1 / 2 + Offset + LineWidth2;
-                    break;
-                case "none":
-                    WidthLeft = XUnitPt.Zero;
+                case Styles.BorderTypes.Double:
+                    WidthLeft = Style.LineWidth1 / 2 + Style.Offset + Style.LineWidth2;
                     break;
                 default:
                     WidthLeft = XUnitPt.Zero;
                     break;
             }
-            switch (TypeRight)
+            switch (Style.TypeRight)
             {
-                case "single":
-                    WidthRight = LineWidth1 / 2;
+                case Styles.BorderTypes.Single:
+                    WidthRight = Style.LineWidth1 / 2;
                     break;
-                case "double":
-                    WidthRight = LineWidth1 / 2 + Offset + LineWidth2;
-                    break;
-                case "none":
-                    WidthRight = XUnitPt.Zero;
+                case Styles.BorderTypes.Double:
+                    WidthRight = Style.LineWidth1 / 2 + Style.Offset + Style.LineWidth2;
                     break;
                 default:
                     WidthRight = XUnitPt.Zero;
                     break;
             }
-            switch (TypeTop)
+            switch (Style.TypeTop)
             {
-                case "single":
-                    WidthTop = LineWidth1 / 2;
+                case Styles.BorderTypes.Single:
+                    WidthTop = Style.LineWidth1 / 2;
                     break;
-                case "double":
-                    WidthTop = LineWidth1 / 2 + Offset + LineWidth2;
-                    break;
-                case "none":
-                    WidthTop = XUnitPt.Zero;
+                case Styles.BorderTypes.Double:
+                    WidthTop = Style.LineWidth1 / 2 + Style.Offset + Style.LineWidth2;
                     break;
                 default:
                     WidthTop = XUnitPt.Zero;
                     break;
             }
-            switch (TypeBottom)
+            switch (Style.TypeBottom)
             {
-                case "single":
-                    WidthBottom = LineWidth1 / 2;
+                case Styles.BorderTypes.Single:
+                    WidthBottom = Style.LineWidth1 / 2;
                     break;
-                case "double":
-                    WidthBottom = LineWidth1 / 2 + Offset + LineWidth2;
-                    break;
-                case "none":
-                    WidthBottom = XUnitPt.Zero;
+                case Styles.BorderTypes.Double:
+                    WidthBottom = Style.LineWidth1 / 2 + Style.Offset + Style.LineWidth2;
                     break;
                 default:
                     WidthBottom = XUnitPt.Zero;
                     break;
             }
-            //    //if (TypeLeft == "single") 
-            //    //{ 
-            //    //    Width = Height = LineWidth1 / 2; }
-            //    //if (BorderType == "double") { Width = Height = LineWidth1 / 2 + Offset + LineWidth2; }
-
-            //    //if (BorderType == "white_ace_page") { Width = Height = XUnitPt.FromMillimeter(5); }
-
         }
-        
         public override void Draw()
         {
             XPen pen;
 
             #region single border
-            pen = new XPen(this.Color, LineWidth1);
+            pen = new XPen(Style.Color, Style.LineWidth1);
             pen.LineCap = XLineCap.Round;
             pen.LineJoin = XLineJoin.Bevel;
             //pen.Color = XColors.Red;
-            if (TypeLeft == "single" || TypeLeft == "double") { gfx.DrawLine(pen, x, y, x, y + h); }
+            if (Style.TypeLeft == Styles.BorderTypes.Single || Style.TypeLeft == Styles.BorderTypes.Double) { gfx.DrawLine(pen, x, y, x, y + h); }
             //pen.Color = XColors.Yellow;
-            if (TypeTop == "single" || TypeTop == "double") { gfx.DrawLine(pen, x, y, x + w, y); }
+            if (Style.TypeTop == Styles.BorderTypes.Single || Style.TypeTop == Styles.BorderTypes.Double) { gfx.DrawLine(pen, x, y, x + w, y); }
             //pen.Color = XColors.Blue;
-            if (TypeRight == "single" || TypeRight == "double") { gfx.DrawLine(pen, x + w, y, x + w, y + h); }
+            if (Style.TypeRight == Styles.BorderTypes.Single || Style.TypeRight == Styles.BorderTypes.Double) { gfx.DrawLine(pen, x + w, y, x + w, y + h); }
             //pen.Color = XColors.Green;
-            if (TypeBottom == "single" || TypeBottom == "double") { gfx.DrawLine(pen, x, y + h, x + w, y + h); }
+            if (Style.TypeBottom == Styles.BorderTypes.Single || Style.TypeBottom == Styles.BorderTypes.Double) { gfx.DrawLine(pen, x, y + h, x + w, y + h); }
             #endregion
 
             #region double border
-            XUnitPt space = Offset + LineWidth1;
-            pen = new XPen(this.Color, LineWidth2);
+            XUnitPt space = Style.Offset + Style.LineWidth1;
+            pen = new XPen(Style.Color, Style.LineWidth2);
             pen.LineCap = XLineCap.Round;
             pen.LineJoin = XLineJoin.Bevel;
-            if (TypeLeft == "double") { gfx.DrawLine(pen, x + space, y + ((TypeTop != "none") ? space : 0), x + space, y + h - ((TypeBottom != "none") ? space : 0)); }
-            if (TypeTop == "double") { gfx.DrawLine(pen, x + ((TypeLeft != "none") ? space : 0), y + space, x + w - ((TypeRight != "none") ? space : 0), y + space); }
-            if (TypeRight == "double") { gfx.DrawLine(pen, x + w - space, y + ((TypeTop != "none") ? space : 0), x + w - space, y + h - ((TypeBottom != "none") ? space : 0)); }
-            if (TypeBottom == "double") { gfx.DrawLine(pen, x + ((TypeLeft != "none") ? space : 0), y + h - space, x + w - ((TypeRight != "none") ? space : 0), y + h - space); }
+            if (Style.TypeLeft == Styles.BorderTypes.Double) { gfx.DrawLine(pen, x + space, y + ((Style.TypeTop != Styles.BorderTypes.None) ? space : 0), x + space, y + h - ((Style.TypeBottom != Styles.BorderTypes.None) ? space : 0)); }
+            if (Style.TypeTop == Styles.BorderTypes.Double) { gfx.DrawLine(pen, x + ((Style.TypeLeft != Styles.BorderTypes.None) ? space : 0), y + space, x + w - ((Style.TypeRight != Styles.BorderTypes.None) ? space : 0), y + space); }
+            if (Style.TypeRight == Styles.BorderTypes.Double) { gfx.DrawLine(pen, x + w - space, y + ((Style.TypeTop != Styles.BorderTypes.None) ? space : 0), x + w - space, y + h - ((Style.TypeBottom != Styles.BorderTypes.None) ? space : 0)); }
+            if (Style.TypeBottom == Styles.BorderTypes.Double) { gfx.DrawLine(pen, x + ((Style.TypeLeft != Styles.BorderTypes.None) ? space : 0), y + h - space, x + w - ((Style.TypeRight != Styles.BorderTypes.None) ? space : 0), y + h - space); }
             #endregion
 
             #region white ace borders - commented out
@@ -847,132 +861,6 @@ namespace MyAlbum
         }
         #endregion
 
-        #region Private Methods
-        private void Inherit()
-        {
-            this.Brush = Parent!.Brush;
-            this.Color = Parent!.Color;
-        }
-        
-        // override the ParseStyleNameAttribute because this time
-        // it is okay for the attribute "style" to be missing
-        private void ParseStyleNameAttribute()
-        {
-            //Console.WriteLine(xml);
-            this.StyleName = xml.Attribute("style")?.Value ?? "";
-        }
 
-        public void ApplyStyleAttributes()
-        {
-            // find style
-            BorderStyle? style;
-            style = Styles.BorderStyles.Find(e => e.StyleName == StyleName);
-            // if not found look for default style
-            if (style == null)
-            {
-                style = Styles.BorderStyles.Find(e => e.IsDefault == true);
-            }
-
-            // apply style
-            if (style != null)
-            {
-                // type
-                TypeLeft = style.TypeLeft;
-                TypeTop = style.TypeTop;
-                TypeRight = style.TypeRight;
-                TypeBottom = style.TypeBottom;
-                
-                // widths
-                LineWidth1 = style.LineWidth1;
-                LineWidth2 = style.LineWidth2;
-                Offset = style.Offset;
-
-                // margin
-                MarginLeft = style.MarginLeft;
-                MarginRight = style.MarginRight;
-                MarginTop = style.MarginTop;
-                MarginBottom = style.MarginBottom;
-
-                // padding
-                PaddingLeft = style.PaddingLeft;
-                PaddingRight = style.PaddingRight;
-                PaddingTop = style.PaddingTop;
-                PaddingBottom = style.PaddingBottom;
-                
-                // brush
-                Brush = style.Brush;
-
-                // color
-                Color = style.Color;
-            }
-        }
-        private void ParseBorderTypeAttribute()
-        {
-            if (xml.Attribute("border_type") != null)
-            {
-                try
-                {
-                    string[] arr = (xml.Attribute("border_type")?.Value.ToLower() ?? "none").Split(',');
-
-                    switch (arr.Length)
-                    {
-                        case 1:
-                            TypeLeft = TypeRight = TypeTop = TypeBottom = arr[0].Trim();
-                            break;
-                        case 2:
-                            TypeTop = TypeBottom = arr[0].Trim();
-                            TypeLeft = TypeRight = arr[1].Trim();
-                            break;
-                        case 4:
-                            TypeTop = arr[0].Trim();
-                            TypeLeft = arr[1].Trim();
-                            TypeBottom = arr[2].Trim();
-                            TypeRight = arr[3].Trim();
-                            break;
-                        default:
-                            TypeLeft = TypeRight = TypeTop = TypeBottom = "none";
-                            break;
-                    }
-                }
-                catch (Exception)
-                {
-                    TypeLeft = TypeRight = TypeTop = TypeBottom = "none";
-                }
-            }
-        }
-        private void ParseWidthAttribute()
-        {
-            if (xml.Attribute("width") != null)
-            {
-                try
-                {
-                    string[] arr = (xml.Attribute("width")?.Value ?? "0").Split(',');
-
-                    switch (arr.Length)
-                    {
-                        case 1:
-                            LineWidth1 = LineWidth2 = Offset = XUnitPt.FromMillimeter(double.Parse(arr[0]));
-                            break;
-                        case 2:
-                            LineWidth1 = LineWidth2 = XUnitPt.FromMillimeter(double.Parse(arr[0]));
-                            Offset = XUnitPt.FromMillimeter(double.Parse(arr[1]));
-                            break;
-                        case 3:
-                            LineWidth1 = XUnitPt.FromMillimeter(double.Parse(arr[0]));
-                            Offset = XUnitPt.FromMillimeter(double.Parse(arr[1]));
-                            LineWidth2 = XUnitPt.FromMillimeter(double.Parse(arr[2]));
-                            break;
-                        default:
-                            LineWidth1 = LineWidth2 = Offset = XUnitPt.Zero;
-                            break;
-                    }
-                }
-                catch (Exception)
-                {
-                    LineWidth1 = LineWidth2 = Offset = XUnitPt.Zero;
-                }
-            }
-        }
-        #endregion
     }
 }

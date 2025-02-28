@@ -1,4 +1,4 @@
-﻿<MyAlbum ver="3.0">
+﻿<MyAlbum ver="5.0">
 	<styles>
 		<!-- BORDER
 			type: none, single, double, white ace, custom
@@ -6,7 +6,7 @@
 			padding: top, right, bottom, left
 			-->
 			<border style="stamp_frame" default="true" border_type="double" width="0.4, 0.3, 0.1" margin="0,0,0,0" padding="3, 3, 3, 3" color="48,48,48" background-color="255,255,255" />
-			<border style="page_border" default="false" border_type="double" width="0.5, 0.5, 0.2" margin="7,7,7,7" padding="0, 6, 0, 6" />
+			<border style="page_border" default="false" border_type="double" width="0.5, 0.5, 0.2" margin="0" padding="0, 6, 0, 6" />
 			<border style="white_ace_page" default="false" border_type="white_ace_page" margin="0,0,0,0" padding="3, 3, 3, 3" color="67,143,189" background-color="255,255,255" />
 			<border style="white_ace_stamp" default="false" border_type="white_ace_stamp" width="0.2, 0.9, 0.2" margin="0,0,0,0" padding="3, 3, 3, 3" background-color="255,255,255" />
 		<!-- TEXT

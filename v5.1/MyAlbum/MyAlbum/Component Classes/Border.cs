@@ -68,6 +68,11 @@ namespace MyAlbum
         }
         public override void Calculate()
         {
+            Canvas.x = x - MarginLeft;
+            Canvas.y = y - MarginTop;
+            Canvas.w = w - (MarginLeft + MarginRight);
+            Canvas.h = h - (MarginTop + MarginBottom);
+            
             switch (TypeLeft)
             {
                 case "single":
@@ -128,13 +133,7 @@ namespace MyAlbum
                     WidthBottom = XUnitPt.Zero;
                     break;
             }
-            //    //if (TypeLeft == "single") 
-            //    //{ 
-            //    //    Width = Height = LineWidth1 / 2; }
-            //    //if (BorderType == "double") { Width = Height = LineWidth1 / 2 + Offset + LineWidth2; }
-
-            //    //if (BorderType == "white_ace_page") { Width = Height = XUnitPt.FromMillimeter(5); }
-
+ 
         }
         
         public override void Draw()
@@ -165,6 +164,9 @@ namespace MyAlbum
             if (TypeRight == "double") { gfx.DrawLine(pen, x + w - space, y + ((TypeTop != "none") ? space : 0), x + w - space, y + h - ((TypeBottom != "none") ? space : 0)); }
             if (TypeBottom == "double") { gfx.DrawLine(pen, x + ((TypeLeft != "none") ? space : 0), y + h - space, x + w - ((TypeRight != "none") ? space : 0), y + h - space); }
             #endregion
+
+            //Canvas.gfx = this.gfx;
+            //this.Canvas.DrawBackground(XColors.Beige);
 
             #region white ace borders - commented out
             /*

@@ -26,7 +26,7 @@ namespace MyAlbum
 
                 // Read xml
                 XDocument xml = XDocument.Load(fileName);
-                if (Convert.ToDouble(xml.Root.Attribute("ver").Value) < 3.0) { throw new FormatException("XML file is not compatible with this version."); }
+                if (Convert.ToDouble(xml.Root.Attribute("ver").Value) < 5.0) { throw new FormatException("XML file is not compatible with this version."); }
 
                 // Create, process, save album
                 Album album = new Album(xml.Root);
