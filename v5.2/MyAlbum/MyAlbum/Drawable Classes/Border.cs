@@ -13,8 +13,21 @@ namespace MyAlbum
 {
     class Border : DrawableElement
     {
+        #region fields
+        private BorderStyle _style;
+        #endregion
+
         #region properties
-        public new BorderStyle Style { get; set; }
+        public new BorderStyle Style 
+        {
+            get 
+            {
+                if (_style == null)
+                    _style = new BorderStyle();
+                return _style;
+            }
+            set { _style = value; } 
+        }
         //public XUnitPt LineWidth1 { get; set; }
         //public XUnitPt LineWidth2 { get; set; }
         //public XUnitPt Offset { get; set; }
@@ -47,6 +60,8 @@ namespace MyAlbum
             // inherit from parent
             if (Parent != null)
             {
+                if (Style == null)
+                    throw new NullReferenceException("Style is null");
                 Style.Color = Parent.Style.Color;
                 Style.Brush = Parent.Style.Brush;
             }
@@ -866,7 +881,5 @@ namespace MyAlbum
             #endregion
         }
         #endregion
-
-
     }
 }

@@ -115,16 +115,16 @@ namespace MyAlbum
                     //    Banner.Parse();
                     //    break;
                     case "border":
-                        Frame = new Border(xElem);
-                        //Frame.Parent = this;
-                        Frame.Parse();
+                        Border border = new Border(xElem);
+                        //border.Parse();
+                        Components.Add(border);
                         break;
-                    //case "row":
-                    //    Row newRow = new Row(xElem);
-                    //    //newRow.Parent = this;
-                    //    newRow.Parse();
-                    //    this.Rows.Add(newRow);
-                    //    break;
+                    case "row":
+                        Row row = new Row(xElem);
+                        //newRow.Parent = this;
+                        //row.Parse();
+                        Components.Add(row);
+                        break;
                     default:
                         break;
                 }

@@ -38,7 +38,7 @@ namespace MyAlbum
         #region Static Fields
         static List<PageStyle> _pageStyles;
         static List<BorderStyle> _borderStyles;
-        //static List<RowStyle> _rowStyles;
+        static List<RowStyle> _rowStyles;
         //static List<Column> _columnStyles;
         //static List<Text> _textStyles;
         //static List<Image> _imageStyles;
@@ -70,18 +70,18 @@ namespace MyAlbum
             }
             set { _borderStyles = value; }
         }
-        //public static List<RowStyle> RowStyles
-        //{
-        //    get
-        //    {
-        //        if (_rowStyles == null)
-        //        {
-        //            _rowStyles = new List<RowStyle>();
-        //        }
-        //        return _rowStyles;
-        //    }
-        //    set { _rowStyles = value; }
-        //}
+        public static List<RowStyle> RowStyles
+        {
+            get
+            {
+                if (_rowStyles == null)
+                {
+                    _rowStyles = new List<RowStyle>();
+                }
+                return _rowStyles;
+            }
+            set { _rowStyles = value; }
+        }
         //public static List<Column> ColumnStyles
         //{
         //    get
@@ -152,7 +152,17 @@ namespace MyAlbum
                 result = BorderStyle.Default;
             return result;
         }
+        public static RowStyle FirstOrDefault(this List<RowStyle> rows, Func<RowStyle, bool> predicate)
+        {
+            var result = System.Linq.Enumerable.FirstOrDefault(rows, predicate);
+            if (result == null)
+                result = System.Linq.Enumerable.FirstOrDefault(rows, s => s.IsDefault == true);
+            if (result == null)
+                result = RowStyle.Default;
+            return result;
+        }
         #endregion
+
 
         public static BorderTypes GetBorderTypeFromString(string borderType)
         {

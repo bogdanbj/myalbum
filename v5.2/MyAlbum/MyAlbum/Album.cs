@@ -67,11 +67,11 @@ namespace MyAlbum
                         borserStyle.Parse();
                         Styles.BorderStyles.Add(borserStyle);
                         break;
-                        //case "row":
-                        //    RowStyle rowStyle = new RowStyle(elem);
-                        //    rowStyle.Parse();
-                        //    Styles.RowStyles.Add(rowStyle);
-                        //    break;
+                    case "row":
+                        RowStyle rowStyle = new RowStyle(elem);
+                        rowStyle.Parse();
+                        Styles.RowStyles.Add(rowStyle);
+                        break;
                 }
             }
         }

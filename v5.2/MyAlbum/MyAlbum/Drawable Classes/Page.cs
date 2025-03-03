@@ -21,7 +21,7 @@ namespace MyAlbum
         private PdfPage _pdfPage;
         //private Image? _banner;
         private Border? _frame;
-        //private List<Row>? _rows;
+        private List<Row>? _rows;
         DrawableElement _canvas;
         #endregion
 
@@ -53,15 +53,15 @@ namespace MyAlbum
                 return _canvas;
             }
         }
-        //public List<Row> Rows
-        //{
-        //    get
-        //    {
-        //        if (_rows == null) { _rows = new List<Row>(); }
-        //        return _rows;
-        //    }
-        //    set { _rows = value; }
-        //}
+        public List<Row> Rows
+        {
+            get
+            {
+                if (_rows == null) { _rows = new List<Row>(); }
+                return _rows;
+            }
+            set { _rows = value; }
+        }
 
         public PdfPage PdfPage
         {
@@ -77,23 +77,12 @@ namespace MyAlbum
             }
         }
         public string? No { get; set; }
-        //public PageOrientation Orientation
-        //{
-        //    get 
-        //    { 
-        //        _pdfPage.Orientation = _orientation;
-        //        w = _pdfPage.Width;
-        //        h = _pdfPage.Height;
-        //        return _orientation; 
-        //    }
-        //    set { _orientation = value; }
-        //}
         public PageSize Size { get; set; }
         //public XUnitPt VSpace { get; set; }
         #endregion
 
         #region constructors
-        public Page() : base() 
+        public Page() //: base() 
         {
             _pdfPage = new();
             Parent = null;
@@ -178,6 +167,9 @@ namespace MyAlbum
             }
             #endregion
 
+            #region calculate rows
+            
+            #endregion
 
         }
         public override void Draw()
@@ -187,14 +179,22 @@ namespace MyAlbum
             if (Frame != null)
             {
                 Frame.gfx = gfx;
-                if (Style.Orientation == PageOrientation.Landscape)
-                {
-                    //Frame.gfx.TranslateTransform(w / 2, h / 2);
-                    //Frame.gfx.RotateTransform(90);
-                    //Frame.gfx.TranslateTransform(-w / 2, -h / 2);
+                //if (Style.Orientation == PageOrientation.Landscape)
+                //{
+                //    //Frame.gfx.TranslateTransform(w / 2, h / 2);
+                //    //Frame.gfx.RotateTransform(90);
+                //    //Frame.gfx.TranslateTransform(-w / 2, -h / 2);
 
-                }
+                //}
                 Frame.Draw();
+            }
+            #endregion
+
+            #region draw rows
+            foreach (Row row in Rows)
+            {
+                row.gfx = gfx;
+                row.Draw();
             }
             #endregion
 
@@ -237,12 +237,33 @@ namespace MyAlbum
         private void ParseComponents()
         {
             // add Style components
-            Frame = Style.Frame;
-            Frame.Parent = this;
-            Frame.Parse();
+            foreach (DrawableElement elem in Style.Components)
+            {
+                switch (elem.GetType().Name)
+                {
+                    //case nameof(Image):
+                    //    break;
+                    case nameof(Border):
+                        Frame = elem as Border;
+                        Frame.Parent = this;
+                        Frame.Parse();
+                        break;
+                    case nameof(Row):
+                        Row newRow = elem as Row;
+                        newRow.Parent = this;
+                        newRow.Parse();
+                        Rows.Add(newRow);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            //Frame = Style.Frame;
+            //Frame.Parent = this;
+            //Frame.Parse();
 
 
-            //todo: Page.ParseComponents()
+            ////todo: Page.ParseComponents()
             IEnumerable<XElement> elements = xml.Elements();
             foreach (XElement xElem in elements)
             {
@@ -258,12 +279,12 @@ namespace MyAlbum
                         Frame.Parent = this;
                         Frame.Parse();
                         break;
-                    //case "row":
-                    //    Row newRow = new Row(xElem);
-                    //    newRow.Parent = this;
-                    //    newRow.Parse();
-                    //    this.Rows.Add(newRow);
-                    //    break;
+                    case "row":
+                        Row newRow = new Row(xElem);
+                        newRow.Parent = this;
+                        newRow.Parse();
+                        Rows.Add(newRow);
+                        break;
                     default:
                         break;
                 }

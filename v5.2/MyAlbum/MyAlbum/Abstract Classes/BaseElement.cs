@@ -67,6 +67,22 @@ namespace MyAlbum
             return result;
         }
         /// <summary>
+        /// Returns the values of "absolute" attribute of an xml node, or false if not provided.
+        /// </summary>
+        /// <returns>An absolue positioning flag as a boolean.</returns>
+        internal bool ParseAbsoluteAttribute(XElement xml)
+        {
+            bool result = false;
+            if (xml.Attribute("absolute") != null)
+            {
+                if (xml.Attribute("absolute")!.Value.ToLower() == "true")
+                {
+                    result = true;
+                }
+            }
+            return result;
+        }
+        /// <summary>
         /// Returns the values of "margin" attribute of an xml node, or XUnitPt.Zero if not provided.
         /// </summary>
         /// <returns>An array of four XUnitPt [top, right, bottom, left].</returns>
@@ -406,6 +422,110 @@ namespace MyAlbum
             }
             return new XUnitPt[] { lineWidth1, offset, lineWidth2 };
         }
+        /// <summary>
+        /// Returns the values of "spacing-mode" attribute of an xml node, or SpacingModes.ES if not provided.
+        /// </summary>
+        /// <returns>The row spacing mode as a Styles.SpacingMode.</returns>
+        internal Styles.SpacingModes ParseSpacingModeAttribute(XElement xml)
+        {
+            Styles.SpacingModes result = Styles.SpacingModes.ES;
+            if (xml.Attribute("spacing-mode") != null)
+            {
+                switch (xml.Attribute("spacing-mode")!.Value.ToLower())
+                {
+                    case "fs":
+                        result = Styles.SpacingModes.FS;
+                        break;
+                    case "es":
+                        result = Styles.SpacingModes.ES;
+                        break;
+                    case "js":
+                        result = Styles.SpacingModes.JS;
+                        break;
+                    default:
+                        result = Styles.SpacingModes.ES;
+                        break;
+                }
+            }
+            return result;
+        }
+        /// <summary>
+        /// Returns the values of "space" attribute of an xml node, or XUnitPt.Zero if not provided.
+        /// </summary>
+        /// <returns>The space between child elements as an XUnitPt.</returns>
+        internal XUnitPt ParseSpaceAttribute(XElement xml)
+        {
+            XUnitPt result = XUnitPt.Zero;
+            if (xml.Attribute("space") != null)
+            {
+                try
+                {
+                    result = XUnitPt.FromMillimeter(double.Parse(xml.Attribute("space")!.Value));
+                }
+                catch (Exception)
+                {
+                    result = XUnitPt.Zero;
+                }
+            }
+            return result;
+        }
+        /// <summary>
+        /// Returns the values of "rotate" attribute of an xml node, or false if not provided.
+        /// </summary>
+        /// <returns>The rotate flag as a boolean.</returns>
+        internal bool ParseRotateAttribute(XElement xml)
+        {
+            bool result = false;
+            if (xml.Attribute("rotate") != null)
+            {
+                if (xml.Attribute("rotate")!.Value.ToLower() == "true")
+                {
+                    result = true;
+                }
+            }
+            return result;
+        }
+        /// <summary>
+        /// Returns the values of "width" attribute of an xml node, or XUnitPt.Zero if not provided.
+        /// </summary>
+        /// <returns>The width as an XUnitPt.</returns>
+        internal XUnitPt ParseWidthAttribute(XElement xml)
+        {
+            XUnitPt result = XUnitPt.Zero;
+            if (xml.Attribute("width") != null)
+            {
+                try
+                {
+                    result = XUnitPt.FromMillimeter(double.Parse(xml.Attribute("width")!.Value));
+                }
+                catch (Exception)
+                {
+                    result = XUnitPt.Zero;
+                }
+            }
+            return result;
+        }
+        /// <summary>
+        /// Returns the values of "height" attribute of an xml node, or XUnitPt.Zero if not provided.
+        /// </summary>
+        /// <returns>The height as an XUnitPt.</returns>
+        internal XUnitPt ParseHeightAttribute(XElement xml)
+        {
+            XUnitPt result = XUnitPt.Zero;
+            if (xml.Attribute("height") != null)
+            {
+                try
+                {
+                    result = XUnitPt.FromMillimeter(double.Parse(xml.Attribute("height")!.Value));
+                }
+                catch (Exception)
+                {
+                    result = XUnitPt.Zero;
+                }
+            }
+            return result;
+        }
+
         internal string? ParseStringAttribute(XElement xml, string attributeName)
         {
             string? result = null;

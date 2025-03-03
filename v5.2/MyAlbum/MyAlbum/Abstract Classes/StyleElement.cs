@@ -14,6 +14,7 @@ namespace MyAlbum
         string? _styleName;
         XColor? _color;
         XBrush? _brush;
+        List<DrawableElement> _components;
         #endregion
         
         #region properties
@@ -28,6 +29,7 @@ namespace MyAlbum
             set { _styleName = value; } 
         }
         public bool IsDefault { get; set; }
+        public bool Absolute { get; set; }
         public Styles.Alignments Align { get; set; }
         public Styles.VerticalAlignments VAlign { get; set; }
         public XColor Color
@@ -58,6 +60,20 @@ namespace MyAlbum
         public XUnitPt PaddingRight { get; set; }
         public XUnitPt PaddingTop { get; set; }
         public XUnitPt PaddingBottom { get; set; }
+        public XColor BackgroundColor { get; set; }
+        public XUnitPt Width { get; set; }
+        public XUnitPt Height { get; set; }
+
+        public List<DrawableElement> Components 
+        {
+            get
+            {   
+                if (_components == null)
+                    _components = new List<DrawableElement>();
+                return _components;
+            }
+            set { _components = value;  } 
+        }
         #endregion
 
         #region constructors
@@ -105,6 +121,8 @@ namespace MyAlbum
             // valign attribute
             VAlign = ParseVAlignAttribute(this.xml);
 
+            // absolute attribute
+            Absolute = ParseAbsoluteAttribute(this.xml);
         }
         #endregion
     }
