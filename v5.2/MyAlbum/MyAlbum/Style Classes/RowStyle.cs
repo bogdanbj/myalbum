@@ -52,7 +52,7 @@ namespace MyAlbum
             // space attribute
             Space = ParseSpaceAttribute(xml);
 
-            // space attribute
+            // rotate attribute
             Rotate = ParseRotateAttribute(xml);
 
             // width attribute

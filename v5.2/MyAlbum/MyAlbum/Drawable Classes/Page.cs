@@ -167,8 +167,19 @@ namespace MyAlbum
             }
             #endregion
 
+
             #region calculate rows
-            
+            XUnitPt yPos = Canvas.y;
+
+            foreach (Row row in Rows)
+            {
+                row.x = Canvas.x + row.Style.MarginLeft;
+                row.y = yPos;
+                row.w = Canvas.w;
+                row.h = row.Style.Height;
+                row.Calculate();
+                yPos += row.h + Style.VSpace;
+            }
             #endregion
 
         }
@@ -190,16 +201,35 @@ namespace MyAlbum
             }
             #endregion
 
+            Canvas.gfx = gfx;
+            Canvas.DrawBackground(XColors.WhiteSmoke);
+            //yPos = Canvas.y;
+
             #region draw rows
             foreach (Row row in Rows)
             {
                 row.gfx = gfx;
+                //row.y = yPos;
+                //row.x = Canvas.x;
+                //row.w = Canvas.w;
+                //row.h = 50;
+                //if (row.Style.Rotate == true)
+                //{
+                //    row.gfx.TranslateTransform(w / 2, h / 2);
+                //    row.gfx.RotateTransform(90);
+                //    row.gfx.TranslateTransform(-w / 2, -h / 2);
+                //}
                 row.Draw();
+                //if (row.Style.Rotate == true)
+                //{
+                //    row.gfx.TranslateTransform(w / 2, h / 2);
+                //    row.gfx.RotateTransform(-90);
+                //    row.gfx.TranslateTransform(-w / 2, -h / 2);
+                //}
+                //yPos += row.h + Style.VSpace;
             }
             #endregion
 
-            Canvas.gfx = gfx;
-            Canvas.DrawBackground(XColors.WhiteSmoke);
             PrintAttributes();
         }
 

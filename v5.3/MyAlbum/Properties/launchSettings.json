@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "MyAlbum": {
+      "commandName": "Project",
+      "commandLineArgs": "Templates\\Canada6.album",
+      "workingDirectory": "C:\\Git\\myalbum"
+    }
+  }
+}
