@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 
 using System.Xml.Linq;
 using PdfSharp.Drawing;
+using PdfSharp.Pdf;
 using static MyAlbum.Styles;
 
 namespace MyAlbum
@@ -13,6 +16,8 @@ namespace MyAlbum
     {
         #region fields
         private RowStyle _style;
+        private DrawableElement _canvas;
+        private List<DrawableElement> _elements;
         #endregion
 
         #region properties
@@ -26,15 +31,32 @@ namespace MyAlbum
             }
             set { _style = value; }
         }
+        public DrawableElement Canvas
+        {
+            get
+            {
+                if (_canvas == null) { _canvas = new DrawableElement(); }
+                return _canvas;
+            }
+        }
         public Styles.SpacingModes Spacing { get; set; }
         public XUnitPt Space { get; set; }
         public string Rotate { get; set; }
+        public List<DrawableElement> Elements
+        {
+            get
+            {
+                if (_elements == null) { _elements = new List<DrawableElement>(); }
+                return _elements;
+            }
+            set { _elements = value; }
+        }
         #endregion
 
         #region constructors
         public Row()
         {
-            BoxColor = XColors.Green;
+            BoxColor = XColors.Aqua;
         }
         public Row(XElement xml) : this()
         {
@@ -46,22 +68,30 @@ namespace MyAlbum
         public override void Parse()
         {
             ParseAttributes();
-            //ParseComponents();
+            ParseComponents();
         }
         public override void Calculate()
         {
-            //if (w == XUnitPt.Zero)
-            //{
-            //    if (Rotate.ToLower() == "true")
-            //    {
-            //        w = GetHeight(this.Parent) - (MarginTop + MarginBottom);
-            //    }
-            //    else
-            //    {
-            //        w = GetWidth(this.Parent) - (MarginLeft + MarginRight);
-            //    }
-            //}
+            Canvas.x = this.x + Style.PaddingLeft;
+            Canvas.y = this.y + Style.PaddingTop;
+            Canvas.w = this.w - (Style.PaddingRight + Style.PaddingLeft);
+            Canvas.h = this.h - (Style.PaddingTop + Style.PaddingBottom);
+            //h = 50;
+            //w = 250;
             
+            if (w == XUnitPt.Zero)
+            {
+                if (Rotate.ToLower() == "true")
+                {
+                    //w = GetHeight(this.Parent) - (MarginTop + MarginBottom);
+                }
+                else
+                {
+                    //w = ((Page)Parent).Canvas.w;// - (MarginLeft + MarginRight);
+                }
+            }
+
+
             //if (Elements.Count==0)
             //{
             //    this.TopAlign = XUnitPt.Zero;
@@ -69,10 +99,11 @@ namespace MyAlbum
             //    this.BottomAlign = this.h;
 
             //}
-            //foreach (BaseElement element in Elements)
-            //{
+            foreach (BaseElement element in Elements)
+            {
+                this.h = Math.Max(this.h + 10, this.Style.Height);
             //    element.gfx = gfx;
-                
+
             //    element.Calculate();
 
             //    if (element.Absolute == false)
@@ -96,14 +127,44 @@ namespace MyAlbum
             //                break;
             //        }
             //    }
-            //}
+            }
 
             //this.h += this.MarginTop + this.MarginBottom;
+            Canvas.h = this.h - (Style.PaddingTop + Style.PaddingBottom);
 
         }
         public override void Draw()
         {
-            DrawBox(BoxColor, new XPoint(x,y), new XSize(w, h));
+            Canvas.gfx = gfx;
+            //x = 0;
+            //y = 0;
+            //w = 200;
+            //h = 50;
+            if (Style.Rotate == true)
+            {
+                gfx.TranslateTransform(w / 2, h / 2);
+                gfx.RotateTransform(90);
+                gfx.TranslateTransform(-w / 2, -h / 2);
+            }
+            if (this.Elements.Count == 0) 
+            {
+                DrawBox(BoxColor, new XPoint(x, y), new XSize(w, h));
+            }
+            else
+            {  
+                Canvas.DrawBackground(BoxColor);
+                string text = xml.ToString();
+
+                XPdfFontOptions options = new XPdfFontOptions(PdfFontEncoding.Unicode, PdfFontEmbedding.EmbedCompleteFontFile);
+                XFont font = new XFont("Stymie Becker Light", 10, XFontStyleEx.Regular, options);
+                gfx.DrawString($"{this.xml}",
+                            font,
+                            XBrushes.Black,
+                            //new XRect(Canvas.x, Canvas.y, Canvas.w, Canvas.h),
+                            new XRect(Canvas.x, y, Canvas.w, Canvas.h),
+                            XStringFormats.TopLeft);
+
+            }
             ////XSolidBrush brush;
 
             //#region horizontal alignment
@@ -111,7 +172,7 @@ namespace MyAlbum
             //{
             //    x = Parent.x + (Parent.w - Parent.h) / 2 + this.MarginLeft;
             //    w = Parent.h - (this.MarginLeft + this.MarginRight);
-                
+
             //}
             //else
             //{
@@ -389,37 +450,41 @@ namespace MyAlbum
         //        this.Rotate = "FALSE";
         //    }
         //}
-        //private void ParseComponents()
-        //{ 
-        //    //todo: Row.ParseComponents();
-        //    IEnumerable<XElement> xElements = Xml.Elements();
-        //    foreach (XElement xElem in xElements)
-        //    {
-        //        BaseElement element = null; ;
-        //        switch (xElem.Name.LocalName)
-        //        {
-        //            case "column":
-        //                element = new Column(xElem);
-        //                break;
-        //            case "image":
-        //                element = new Image(xElem);
-        //                break;
-        //            case "stamp":
-        //                element = new Stamp(xElem);
-        //                break;
-        //            case "text":
-        //                element = new Text(xElem);
-        //                break;
-        //        }
-        //        if (element != null)
-        //        {
-        //            element.Color = this.Color;
-        //            element.Parent = this;
-        //            element.Parse();
-        //            this.Elements.Add(element);
-        //        }
-        //    }
-        //}
+        private void ParseComponents()
+        {
+            //todo: Row.ParseComponents();
+            IEnumerable<XElement> xElements = xml.Elements();
+            foreach (XElement xElem in xElements)
+            {
+                DrawableElement? element = null;
+                switch (xElem.Name.LocalName)
+                {
+                    case "column":
+                        //element = new Column(xElem);
+                        element = new DrawableElement();
+                        break;
+                    case "image":
+                        //element = new Image(xElem);
+                        element = new DrawableElement();
+                        break;
+                    case "stamp":
+                        //element = new Stamp(xElem);
+                        element = new DrawableElement();
+                        break;
+                    case "text":
+                        //element = new Text(xElem);
+                        element = new DrawableElement();
+                        break;
+                }
+                if (element != null)
+                {
+                    element.Style.Color = this.Style.Color;
+                    element.Parent = this;
+                    //element.Parse();
+                    this.Elements.Add(element);
+                }
+            }
+        }
         #endregion
 
     }
