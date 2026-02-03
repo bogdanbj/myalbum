@@ -10,13 +10,10 @@
   <ItemGroup>
     <Compile Remove="Models\Business\**" />
     <Compile Remove="Models\NewFolder1\**" />
-    <Compile Remove="NewFolder\**" />
     <EmbeddedResource Remove="Models\Business\**" />
     <EmbeddedResource Remove="Models\NewFolder1\**" />
-    <EmbeddedResource Remove="NewFolder\**" />
     <None Remove="Models\Business\**" />
     <None Remove="Models\NewFolder1\**" />
-    <None Remove="NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +23,10 @@
     <Compile Remove="Models\Xml\Styles\Styles.cs" />
     <Compile Remove="Models\Xml\Styles\teststyle.cs" />
     <Compile Remove="Models\test.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>
