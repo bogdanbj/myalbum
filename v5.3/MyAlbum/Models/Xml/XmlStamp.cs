@@ -7,16 +7,18 @@ using System.Xml.Serialization;
 
 namespace MyAlbum.Models.Xml
 {
-    public class XmlStamp
+    public class XmlStamp : XmlElement
     {
-        [XmlAttribute("style")]
-        public string Style { get; set; }
+        //[XmlAttribute("style")]
+        //public string Style { get; set; }
         [XmlAttribute("vspace")]
-        public double VSpace { get; set; }
+        public string VSpace { get; set; }
         [XmlAttribute("width")]
         public double Width { get; set; }
         [XmlAttribute("height")]
         public double Height { get; set; }
+
+        #region value oriented attributes
         [XmlAttribute("title")]
         public string Title { get; set; }
         [XmlAttribute("image")]
@@ -33,5 +35,27 @@ namespace MyAlbum.Models.Xml
         public string F2 { get; set; }
         [XmlAttribute("f3")]
         public string F3 { get; set; }
+        #endregion
+
+        #region style oriented attributes
+        [XmlElement("border")]
+        public XmlBorder BorderStyle { get; set; }
+        [XmlElement("image")]
+        public XmlImage ImageStyle { get; set; }
+        [XmlElement("title")]
+        public XmlText TitleStyle { get; set; }
+        [XmlElement("inside1")]
+        public XmlText Inside1Style { get; set; }
+        [XmlElement("inside2")]
+        public XmlText Inside2Style { get; set; }
+        [XmlElement("inside3")]
+        public XmlText Inside3Style { get; set; }
+        [XmlElement("footer1")]
+        public XmlText Footer1Style { get; set; }
+        [XmlElement("footer2")]
+        public XmlText Footer2Style { get; set; }
+        [XmlElement("footer3")]
+        public XmlText Footer3Style { get; set; }
+        #endregion
     }
 }

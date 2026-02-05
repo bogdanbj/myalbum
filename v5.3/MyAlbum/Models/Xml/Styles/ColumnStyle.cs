@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace MyAlbum.Models.Xml.Styles
 {
-    public class ColumnStyle : XmlColumn
+    public class ColumnStyle : XmlColumn, IStyle
     {
         [XmlAttribute("default")]
         public bool IsDefault { get; set; }

@@ -7,12 +7,12 @@ using System.Xml.Serialization;
 
 namespace MyAlbum.Models.Xml
 {
-    public class XmlText
+    public class XmlText : XmlElement
     {
-        [XmlAttribute("style")]
-        public string Style { get; set; }
-        [XmlAttribute("align")]
-        public string Align { get; set; }
+        //[XmlAttribute("style")]
+        //public string Style { get; set; }
+        //[XmlAttribute("align")]
+        //public string Align { get; set; }
         [XmlAttribute("justify")]
         public string Justify { get; set; }
         [XmlAttribute("font_name")]
@@ -23,9 +23,9 @@ namespace MyAlbum.Models.Xml
         public string FontStyle { get; set; }
         [XmlAttribute("width")]
         public string Width { get; set; }
-        [XmlAttribute("margin")]
-        public string Margin { get; set; }
+        //[XmlAttribute("margin")]
+        //public string Margin { get; set; }
         [XmlText]
-        public string Value { get; set; }
+        public string? Value { get; set; }
     }
 }

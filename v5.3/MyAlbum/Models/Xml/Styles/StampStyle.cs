@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace MyAlbum.Models.Xml.Styles
 {
-    public class StampStyle : XmlStamp
+    public class StampStyle : XmlStamp, IStyle
     {
         [XmlAttribute("default")]
         public bool IsDefault { get; set; }

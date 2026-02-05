@@ -1,9 +1,10 @@
-﻿using System.Diagnostics;
-using System.IO;
-using System.Reflection.Metadata;
-using System.Xml.Serialization;
+﻿//using MyAlbum.Models.Pdf;
+using MyAlbum.Models.Layout;
 using MyAlbum.Models.Xml;
-using MyAlbum.Services;
+using MyAlbum.Utils;
+using PdfSharpCore.Fonts;
+using System.Diagnostics;
+
 
 
 
@@ -13,31 +14,65 @@ namespace MyAlbum
     {
         static void Main(string[] args)
         {
-
-            String fileName;
-            String outputName;
-
-            if (args.Length == 0)
+            try
             {
-                Console.WriteLine("Please provide a file path as an argument.");
-                return;
+                // Register the custom font resolver
+                GlobalFontSettings.FontResolver = new MyFontResolver();
+
+                System.Diagnostics.Debug.WriteLine("FontResolver registered");
+
+                Album album = new Album();
+                if (args[0] == "TEST")
+                {
+                    album.Test();
+                    album.Save("test.pdf");
+                    Process.Start("test.pdf");
+                    return;
+                }
+
+                String fileName = Path.Combine(Directory.GetCurrentDirectory(), args[0]);
+                string outputName = GetOutputName(fileName);
+
+                // Deserialize XML file into XML Model objects
+                var xmlAlbum = XmlFactory.Deserialize(fileName);
+
+                // Create, draw and save the Album
+                album.FromXml(xmlAlbum);
+                album.Draw();
+                album.Save(outputName);
+
+                // Open the PDF file
+                var psi = new ProcessStartInfo
+                {
+                    FileName = outputName,
+                    UseShellExecute = true
+                };
+                Process.Start(psi);
+
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine($"XML deserialization error: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error: {ex.Message}");
             }
 
-            fileName = Path.Combine(Directory.GetCurrentDirectory(), args[0]);
-            if (!File.Exists(fileName))
-            {
-                Console.WriteLine($"File not found: {fileName}");
-                return;
-            }
-
-            // Deserialize XML file into XML Model objects
-            var serializer = new XmlSerializer(typeof(XmlAlbum));
-            using var stream = File.OpenRead(fileName);
-            var xmlAlbum = (XmlAlbum)serializer.Deserialize(stream);
-
-            // Create the pdfAlbum from xmlAlbum
+#if DEBUG
+            Console.WriteLine("Press any key to close...");
+            Console.ReadKey();
+#endif
 
 
+        }
+        static string GetOutputName(string fileName)
+        {
+            string outputName;
             outputName = Path.ChangeExtension(fileName, ".pdf");
             outputName = outputName.Replace("Templates", "Output");
             if (!Directory.Exists(Path.GetDirectoryName(outputName)))
@@ -53,24 +88,7 @@ namespace MyAlbum
                         break;
                 }
             }
-
-            // Generate album file
-            PdfFactory.CreatePdfFromXmlAlbum(xmlAlbum, outputName);
-
-            var psi = new ProcessStartInfo
-            {
-                FileName = outputName,
-                UseShellExecute = true
-            };
-            Process.Start(psi);
-            //Process.Start(outputName);
-
-#if DEBUG
-            Console.WriteLine("Press any key to close...");
-            Console.ReadKey();
-#endif
-
-
+            return outputName;
         }
     }
 

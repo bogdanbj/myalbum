@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
-using MyAlbum.Models.Abstract;
 
 namespace MyAlbum.Models.Xml.Styles
 {
-    public class PageStyle : XmlPage
+    public class PageStyle : XmlPage, IStyle
     {
         [XmlAttribute("default")]
         public bool IsDefault { get; set; }

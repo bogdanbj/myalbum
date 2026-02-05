@@ -1,31 +1,66 @@
 ﻿<MyAlbum ver="5.0">
-	<styles>
-		<!-- BORDER
+  <styles>
+    <!--  Colors can be specified by name or by RGB values (0-255, 0-255, 0-255).
+					When using RGB values, the color attribute should be a tupple of 3 RGB values separated by commas.
+					When using color names, the color attribute should be one of the following known names:
+          
+						AliceBlue						DarkOrchid					LavenderBlush						MidnightBlue			SeaShell
+						AntiqueWhite				DarkRed							LawnGreen								MintCream					Sienna
+						Aqua								DarkSalmon					LemonChiffon						MistyRose					Silver
+						Aquamarine					DarkSeaGreen				LightBlue								Moccasin					SkyBlue
+						Azure								DarkSlateBlue				LightCoral							NavajoWhite				SlateBlue
+						Beige								DarkSlateGray				LightCyan								Navy							SlateGray
+						Bisque							DarkTurquoise				LightGoldenrodYellow		OldLace						Snow
+						Black								DarkViolet					LightGray								Olive							SpringGreen
+						BlanchedAlmond			DeepPink						LightGreen							OliveDrab					SteelBlue
+						Blue								DeepSkyBlue					LightPink								Orange						Tan
+						BlueViolet					DimGray							LightSalmon							OrangeRed					Teal
+						Brown								DodgerBlue					LightSeaGreen						Orchid						Thistle
+						BurlyWood						Firebrick						LightSkyBlue						PaleGoldenrod			Tomato
+						CadetBlue						FloralWhite					LightSlateGray					PaleGreen					Transparent
+						Chartreuse					ForestGreen					LightSteelBlue					PaleTurquoise			Turquoise
+						Chocolate						Fuchsia							LightYellow							PaleVioletRed			Violet
+						Coral								Gainsboro						Lime										PapayaWhip				Wheat
+						CornflowerBlue			GhostWhite					LimeGreen								PeachPuff					White
+						Cornsilk						Gold								Linen										Peru							WhiteSmoke
+						Crimson							Goldenrod						Magenta									Pink							Yellow
+						Cyan								Gray								Maroon									Plum							YellowGreen
+						DarkBlue						Green								MediumAquamarine				PowderBlue
+						DarkCyan						GreenYellow					MediumBlue							Purple
+						DarkGoldenrod				Honeydew						MediumOrchid						Red
+						DarkGray						HotPink							MediumPurple						RosyBrown
+						DarkGreen						IndianRed						MediumSeaGreen					RoyalBlue
+						DarkKhaki						Indigo							MediumSlateBlue					SaddleBrown
+						DarkMagenta					Ivory								MediumSpringGreen				Salmon
+						DarkOliveGreen			Khaki								MediumTurquoise					SandyBrown
+						DarkOrange					Lavender						MediumVioletRed					SeaGreen
+    -->
+    <!-- BORDER
 			type: none, single, double, white ace, custom
 			width: line1, space, line2
 			padding: top, right, bottom, left
 			-->
-			<border style="stamp_frame" default="true" border_type="double" width="0.4, 0.3, 0.1" margin="0,0,0,0" padding="3, 3, 3, 3" color="48,48,48" background-color="255,255,255" />
-			<border style="page_border" default="false" border_type="double" width="0.5, 0.5, 0.2" margin="0" padding="0, 6, 0, 6" />
-			<border style="white_ace_page" default="false" border_type="white_ace_page" margin="0,0,0,0" padding="3, 3, 3, 3" color="67,143,189" background-color="255,255,255" />
-			<border style="white_ace_stamp" default="false" border_type="white_ace_stamp" width="0.2, 0.9, 0.2" margin="0,0,0,0" padding="3, 3, 3, 3" background-color="255,255,255" />
-		<!-- TEXT
+    <border style="stamp_frame" default="true" border-type="double" border-width="0.4, 0.3, 0.1" margin="0,0,0,0" padding="3, 3, 3, 3" color="48,48,48" bgcolor="255,255,255" />
+    <border style="page_border" default="false" border-type="double" border-width="0.5, 0.5, 0.2" margin="0,0,0,0" padding="0, 6, 0, 6" />
+    <border style="white_ace_page" default="false" border-type="white_ace_page" margin="0,0,0,0" padding="3, 3, 3, 3" color="67,143,189" bgcolor="255,255,255" />
+    <border style="white_ace_stamp" default="false" border-type="white_ace_stamp" border-width="0.2, 0.9, 0.2" margin="0,0,0,0" padding="3, 3, 3, 3" bgcolor="255,255,255" />
+    <!-- TEXT
 			font_size: double
 			font_style: bold, bolditalic, italic, regular, strikeout, underline
 			align: left, center, right
 			valign: top, center, bottom
 			-->
-			<text style="text_default" default="true" align="left" font_name="Century Gothic" font_size="8"/>
-			<text style="story" justify="true" align="center" font_name="Folio" font_size="7"/>
-			<text style="italic" justify="true" align="center" font_name="Garamond" font_size="8" font_style="italic"/>
-			<text style="headline" justify="false" align="center" font_name="Stymie Becker Light" font_size="16" margin="2,0" font_style="italic"/>
-			<text style="date" justify="true" align="center" font_name="Lubalin Graph" font_size="8" font_style="bold"/>
-			<text style="title" align="center" font_name="Stymie Becker Light" font_size="10"/>
-			<text style="inside" align="center" font_name="Stymie Becker Light" font_size="6" width="80%"/>
-			<text style="footer_left" justify="true" align="left" font_name="Garamond" font_size="8" font_style="italic" />
-			<text style="footer_center" justify="true" align="center" font_name="Garamond" font_size="10" font_style="italic" width="80%" margin="0,0,2,0" />
-			<text style="footer_right" justify="true" align="right" font_name="Garamond" font_size="8" font_style="italic" margin="0,0,2,0" />
-		<!-- FRENCH CHARACTERS
+    <text style="text_default" default="true" align="left" font_name="Century Gothic" font_size="8"/>
+    <text style="story" justify="true" align="center" font_name="Folio" font_size="7"/>
+    <text style="italic" justify="true" align="center" font_name="Garamond" font_size="8" font_style="italic"/>
+    <text style="headline" justify="false" align="center" font_name="Stymie Becker Light" font_size="16" margin="2,0" font_style="italic"/>
+    <text style="date" justify="true" align="center" font_name="Lubalin Graph" font_size="8" font_style="bold"/>
+    <text style="title" align="center" font_name="Stymie Becker Light" font_size="10"/>
+    <text style="inside" align="center" font_name="Stymie Becker Light" font_size="6" width="80%"/>
+    <text style="footer_left" justify="true" align="left" font_name="Garamond" font_size="8" font_style="italic" margin="0,0,2,0" />
+    <text style="footer_center" justify="true" align="center" font_name="Garamond" font_size="10" font_style="italic" width="80%" margin="0,0,2,0" />
+    <text style="footer_right" justify="true" align="right" font_name="Garamond" font_size="8" font_style="italic" margin="0,0,2,0" />
+    <!-- FRENCH CHARACTERS
 			l'accent aigu (acute accent) – é
 			l'accent grave (grave accent) – à, è, ù
 			la cédille (cedilla) – ç
@@ -38,172 +73,113 @@
 			L'ACCENT CIRCONFLEXE (CIRCUMFLEX) – Â, Ê, Î, Ô, Û
 			L'ACCENT TRÉMA (TREMA) – Ë, Ï, Ü
 			-->
-		<!-- ESCAPE CHARACTERS
+    <!-- ESCAPE CHARACTERS
 			ampersand (&) is escaped to &amp; 
 			double quotes (") are escaped to &quot; 
 			single quotes (') are escaped to &apos; 
 			less than (<) is escaped to &lt; 
 			greater than (>) is escaped to &gt;
 			-->
-		<!-- WHITE ACE FONTS
+    <!-- WHITE ACE FONTS
 				The story copy is Folio Lite, the Italic is Garamond Lite Italic, the Headline Type is Stymie Book and the Dates are Lubalin.
 			-->
-		<!-- IMAGE
+    <!-- IMAGE
 			-->
-			<image style="stamp_image" default="true" color="false" />
-		<!-- STAMP
+    <image style="stamp_image" default="true" color="false" />
+    <!-- STAMP
 			-->
-			<stamp style="stamp_default" default="true" vspace="1">
-				<border style="stamp_frame" />
-				<!--border style="white_ace_stamp" /-->
-				<image style="image_default" margin="2,2,2,2" />
-				<title style="title" />
-				<inside1 style="inside" />
-				<inside2 style="inside" />
-				<inside3 style="inside" />
-				<footer1 style="footer_left" />
-				<footer2 style="footer_center" />
-				<footer3 style="footer_right" />
-			</stamp>
-		<!-- ROW
+    <stamp style="stamp_default" default="true" vspace="1">
+      <border style="stamp_frame" />
+      <!--border style="white_ace_stamp" /-->
+      <image style="image_default" margin="2,2,2,2" />
+      <title style="title" />
+      <inside1 style="inside" />
+      <inside2 style="inside" />
+      <inside3 style="inside" />
+      <footer1 style="footer_left" />
+      <footer2 style="footer_center" />
+      <footer3 style="footer_right" />
+    </stamp>
+    <!-- ROW
 			spacing: FS (fixed space), ES (equal spacing), JS (justified spacing)
 			-->
-			<row style="stamp_FS" default="true" align="center" valign="center" spacing-mode="FS" space="6" />
-			<row style="page_header" default="false" align="center" valign="top" spacing-mode="FS" space="8" bgcolor="255, 32, 32" />
-		<!-- COLUMN
+    <row style="stamp_FS" default="true" align="center" valign="center" spacing-mode="FS" space="6" bgcolor="PaleGoldenrod"/>
+    <row style="page_header" default="false" align="center" valign="top" spacing-mode="FS" space="8" bgcolor="PaleGreen"/>
+    <!-- COLUMN
 			-->
-			<column style="default_column" default="true" align="center" space="1"/>
-		<!-- PAGE
+    <column style="default_column" default="true" align="center" space="1" bgcolor="SandyBrown"/>
+    <!-- PAGE
 			orientation: portrait, landscape
 			size: letter, A4
 			margin: top, right, bottom, left
 			-->
-			<!-- color="48,48,48" -->
-			<page style="cover" default="false" orientation="portrait" size="letter" margin="7,7,7,7" color="48,48,48" vspace="1">
-				<banner file_name="" />
-				<border style="page_border" />
-			</page>
-			<page style="portrait" default="true" orientation="portrait" size="letter" margin="7,7,7,7" color="48,48,48" vspace="1">
-				<banner file_name="" />
-				<border style="page_border" />
-				<row style="page_header">
-				  <text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
-				</row>
-				<row height="10" />
-			</page>
-			<page style="landscape" default="false" orientation="landscape" size="letter" margin="7,7,7,7" color="48,48,48" vspace="1">
-				<banner file_name="" />
-				<border style="page_border" />
-				<row style="page_header" rotate="true">
-					<text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
-				</row>
-				<row rotate="true">
-					<image absolute="true" align="left" valign="top" file_name="Pictures\Canada-Post-Logo.png" x="20" y="20" height="32" width="32" stretched="true"></image>
-				</row>
-			</page>
-	</styles>
+    <!-- color="48,48,48" -->
+    <page style="cover" default="false" orientation="portrait" size="letter" margin="7,7,7,17" color="48,48,48" vspace="1">
+      <banner file_name="" />
+      <border style="page_border" />
+    </page>
+    <page style="portrait" default="true" orientation="portrait" size="letter" margin="7,7,7,17" colors="48,48,48" vspace="1">
+      <banner file_name="" />
+      <border style="page_border" />
+      <row style="page_header">
+        <text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
+      </row>
+      <row height="10" bgcolor="MediumAquamarine" bgcolors="MistyRose" />
+    </page>
+    <page style="landscape" default="false" orientation="landscape" size="letter" margin="7,7,7,17" color="48,48,48"  vspace="1"><!--bgcolor="LightCoral"-->
+      <banner file_name="" />
+      <border style="page_border" />
+      <row style="page_header" rotate="true">
+        <text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
+      </row>
+    </page>
+  </styles>	
 	
-	
-	<pages>
-		<!-- Cover -->	
-		<page style="cover" no="1" title="Cover">
-			<row height="110" />
-			<row>
-				<text style="headline" font_size="36" font_style="italic">1 9 8 4  -  2 0 1 0</text>
-			</row>
-		</page>
-		.
-		<!-- 1984 -->
-		<page no="2" title="Commemorative 1984">
-			<row height="10" />
+		<!-- Cover -->
+    <page style="cover" no="1" title="Cover">
+      <row height="110" />
+      <row>
+        <text style="headline" font_size="36" font_style="italic">1 9 8 4  -  2 0 1 0</text>
+      </row>
+    </page>
+  .
+  <page no="21" title="Commemoratives : Volunteers Week">
+    <row height="0" />
 
-			<row space="20" valign="bottom">
-				<column width="36" rem="Yellowknife" >
-					<text style="headline">YELLOWKNIFE</text>
-					<text style="date">1984</text> 
-					<stamp width="30" height="36" title="" image="" i1="32c" i2="" i3="S 1009" f1="" f2="Gold mine head frame in pan" f3="" />
-					<text style="story" width="40">The stamp issued on 15 May 1984, commemorates the 50th anniversary of the gold mining community living in the city of Yellowknife, capital of Northwest Territories.</text>
-				</column>
-				<column width="36" rem="Tall Ships">
-					<text style="headline">TALL SHIPS</text>
-					<text style="date">1984</text>
-					<stamp width="30" height="40" title="" image="" i1="32c" i2="" i3="S 1012" f1="" f2="Tall Ships regatta" f3="" />
-					<text style="story" width="40">Over 85 of majestic two, three and four-masted ships dropped anchor in St. Lawrence River in Quebec City honouring the 450th anniversary of Jacques Cartier's first voyage to North America.</text>
-				</column>
-				<column width="36" rem="Canadian Red Cross">
-					<text style="headline">RED CROSS</text>
-					<text style="date">1984</text>
-					<stamp width="30" height="36" title="" image="" i1="32c" i2="" i3="S 1013" f1="" f2="Meritorious Service Medal" f3="" />
-					<text style="story" width="40">\nIn recognition of their invaluable contribution, Canada Post issued this stamp featuring the medal awarded by The Canadian Red Cross Society for long-standing and meritorious voluntary service.</text>
-				</column>
-			</row>
+    <row height="10" />
+    <row space="10" valign="bottom">
+      <column width="52" rem="Volunteers" >
+        <text style="headline">VOLUNTEERS WEEK</text>
+        <text style="date">1987</text>
+        <stamp width="48" height="26" title="" image="" i1="36c" i2="" i3="S 1132" f1="" f2="Volunteers" f3="" />
+        <text style="story" width="45">The stamp designed by Will Davies salutes the contribution to society of Canadian volunteers. It was issued on April 13, 1987. Volunteer programs suggested in the design include working with youth, and the aged, hospital-related tasks, counseling, and other types of community work.</text>
+      </column>
+      <column width="36" rem="Air Canada" >
+        <text style="headline">AIR CANADA</text>
+        <text style="date">1987</text>
+        <stamp width="30" height="36" title="" image="" i1="36c" i2="" i3="S 1145" f1="" f2="Boeing 767 and globe" f3="" />
+        <text style="story" width="45">The first commercial flight of Trans Canada Airlines (now Air Canada) took place on September 1st, 1937, between Vancouver and Seattle. The present network of the airline extends across the globe. Derrick Carter and Debbie Adams designed this stamp, issued September 1, 1987.</text>
+      </column>
+      <column width="52" rem="Engineering" >
+        <text style="headline">ENGINEERING</text>
+        <text style="date">1987</text>
+        <stamp width="48" height="26" title="" image="" i1="36c" i2="" i3="S 1134" f1="" f2="Engineering symbols" f3="" />
+        <text style="story" width="45">Issued on May 19, 1987, this stamp marks the 100th anniversary of the Engineering Institute of Canada. the adhesive was printed by lithography in eight colours, the largest number of colours for a single Canadian postage stamp. Different elements in the design symbolize areas of engineering.</text>
+      </column>
+    </row>
 
-			<row height="10" />
-
-			<row space="14"  valign="bottom">
-				<column width="46" rem="Montreal Symphony" >
-					<text style="headline">MONTREAL SYMPHONY</text>
-					<text style="date">1984</text>
-					<stamp width="40" height="24" title="" image="" i1="32c" i2="" i3="S 1010" f1="" f2="Orchestra concert" f3="" />
-					<text style="story" width="40">The Montreal Symphony Orchestra, one of the largest principal orchestras in Canada, was founded in 1934 in the middle of the Great Depression by enthusiastic Quebec musicians.\n\n</text>
-				</column>
-				<column width="36" rem="Treffle Berthiaume">
-					<text style="headline">TREFFLÉ BERTHIAUME</text>
-					<text style="date">1984</text>
-					<stamp width="26" height="40" title="" image="" i1="32c" i2="" i3="S 1044" f1="" f2="Trefflé Berthiaume" f3="" />
-					<text style="story" width="40">Trefflé Berthiaume (1848-1915), was a Canadian newspaperman and politician. As the owner of the Montreal newspaper "La Presse" he championed many social causes, including improved conditions for workers and aid to children and the needy.</text>
-				</column>
-				<column width="46" rem="United Empire Loyalists" >
-					<text style="headline">UNITED EMPIRE LOYALISTS</text>
-					<text style="date">1984</text>
-					<stamp width="40" height="24" title="" image="" i1="32c" i2="" i3="S 1028" f1="" f2="Loyalists and British flag" f3="" />
-					<text style="story" width="40">Approximately 100,000 Loyalists fled the United Stated, at the end of American Revolution, about half of them in Canada contributing substantially to the pioneering efforts.\n\n</text>
-				</column>
-			</row>
-		</page>
-		.
-		<page no="7" title="Canadian Lighthouses" style="landscape" >
-			<row height="10" />
-
-			<row space="16" rem="Canadian Lighthouses">
-				<column width="100">
-					<text style="headline">CANADIAN LIGHTHOUSES</text>
-				</column>
-			</row>
-
-			<row height="10" />
-
-			<row space="15" valign="bottom">
-				<column width="86" space="5" align="left">
-					<row>
-						<column width="86">
-							<text style="date">1984</text>
-							<stamp width="80" height="48" title="" image="" i1="32c" i2="" i3="S 1032-1035" f1="" f2="Historic Lighthouses" f3="" />
-						</column>
-					</row>
-					<row>
-						<column width="78">
-							<text style="date">1985</text>
-							<stamp width="72" height="60" title="" image="" i1="34c" i2="" i3="S 1063-1066" f1="" f2="Modern Lighthouses" f3="" />
-						</column>
-						<column width="2" />
-					</row>
-				</column>
-				<column width="114">
-					<text style="story" width="114" align="left">Today's lighthouses warn sailors of shoals and dangerous shorelines under all weather conditions. Day and night, rain or shine, these stations stand out from their surroundings with contrasting forms and colours, making their presence known by powerful beacons and foghorns. Many also emit radio or radar signals.\n\nIn 1984, on the occasion of the 250th anniversary of the completion of Louisbourg, the first Canadian lighthouse, Canada Post initiated a two-years series dedicated to the Canadian lighthouses. The stamps issued in 1984 feature the oldest lighthouses on the East Coast, the St. Lawrence River, the Great Lakes, and the West Coast while the 1985 issue illustrates four modern navigational aid stations. </text>
-					<row height="10" />
-					<text style="date">1985</text>
-					<stamp width="108" height="90" title="" image="" i1="" i2="" i3="S 1066b" f1="" f2="" f3="" />
-				</column>
-				<column width="0" />
-			</row>
-
-			<row space="14">
-			</row>
-
-			<row space="14">
-			</row>
-		</page>
-		.
-	</pages>
+    <row height="30" />
+    <row space="10" valign="center">
+      <column width="60" rem="Canadian Charter of Rights and Freedoms" >
+        <text style="headline" align="right">CHARTER\nOF RIGHTS\nAND FREEDOMS</text>
+        <text style="date" align="right" margin="0,0,5,0">1987</text>
+      </column>
+      <stamp width="30" height="48" title="" image="" i1="36c" i2="" i3="S 1133" f1="" f2="Canada's Coat-of-arms" f3="" />
+      <column width="45">
+        <text style="story" align="left" >The Canadian Charter of Rights and Freedoms came into effect on April 17, 1982, with the signing into law of the Constitution Act by the Queen. It was established to protect the fundamental rights and freedoms of Canadians. the stamp, printed in lithography, was issued on April 15, 1987.</text>
+      </column>
+      <column width="0" />
+    </row>
+  </page>
+  .
 </MyAlbum>
