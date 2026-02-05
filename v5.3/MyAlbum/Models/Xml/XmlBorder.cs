@@ -7,10 +7,10 @@ using System.Xml.Serialization;
 
 namespace MyAlbum.Models.Xml
 {
-    public class XmlBorder
+    public class XmlBorder : XmlBaseElement
     {
-        [XmlAttribute("style")]
-        public string Style { get; set; }
+        //[XmlAttribute("style")]
+        //public string Style { get; set; }
         [XmlAttribute("border-type")]
         public string BorderType { get; set; }
         [XmlAttribute("width")]

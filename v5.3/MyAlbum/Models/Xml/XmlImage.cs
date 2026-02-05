@@ -7,10 +7,10 @@ using System.Xml.Serialization;
 
 namespace MyAlbum.Models.Xml
 {
-    public class XmlImage
+    public class XmlImage : XmlBaseElement
     {
-        [XmlAttribute("style")]
-        public string Style { get; set; }
+        //[XmlAttribute("style")]
+        //public string Style { get; set; }
         [XmlAttribute("color")]
         public string Color { get; set; }
         [XmlAttribute("absolute")]

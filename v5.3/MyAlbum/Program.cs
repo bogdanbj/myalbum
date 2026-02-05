@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection.Metadata;
 using System.Xml.Serialization;
+using MyAlbum.Models.Pdf;
 using MyAlbum.Models.Xml;
 using MyAlbum.Services;
 
@@ -14,6 +15,14 @@ namespace MyAlbum
         static void Main(string[] args)
         {
 
+            //if (args[0] == "TEST")
+            //{
+            //    album.Test();
+            //    album.Save("test.pdf");
+            //    Process.Start("test.pdf");
+            //    return;
+            //}
+            
             String fileName;
             String outputName;
 
@@ -24,19 +33,6 @@ namespace MyAlbum
             }
 
             fileName = Path.Combine(Directory.GetCurrentDirectory(), args[0]);
-            if (!File.Exists(fileName))
-            {
-                Console.WriteLine($"File not found: {fileName}");
-                return;
-            }
-
-            // Deserialize XML file into XML Model objects
-            var serializer = new XmlSerializer(typeof(XmlAlbum));
-            using var stream = File.OpenRead(fileName);
-            var xmlAlbum = (XmlAlbum)serializer.Deserialize(stream);
-
-            // Create the pdfAlbum from xmlAlbum
-
 
             outputName = Path.ChangeExtension(fileName, ".pdf");
             outputName = outputName.Replace("Templates", "Output");
@@ -54,16 +50,37 @@ namespace MyAlbum
                 }
             }
 
-            // Generate album file
-            PdfFactory.CreatePdfFromXmlAlbum(xmlAlbum, outputName);
-
-            var psi = new ProcessStartInfo
+            try
             {
-                FileName = outputName,
-                UseShellExecute = true
-            };
-            Process.Start(psi);
-            //Process.Start(outputName);
+                // Deserialize XML file into XML Model objects
+                var xmlAlbum = XmlFactory.Deserialize(fileName);
+
+
+                // Generate album file
+                PdfFactory.CreatePdfFromXmlAlbum(xmlAlbum, outputName);
+
+                
+                // Open the PDF file
+                var psi = new ProcessStartInfo
+                {
+                    FileName = outputName,
+                    UseShellExecute = true
+                };
+                Process.Start(psi);
+                //Process.Start(outputName);
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine($"XML deserialization error: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error: {ex.Message}");
+            }
 
 #if DEBUG
             Console.WriteLine("Press any key to close...");

@@ -7,10 +7,10 @@ using System.Xml.Serialization;
 
 namespace MyAlbum.Models.Xml
 {
-    public class XmlColumn
+    public class XmlColumn : XmlBaseElement
     {
-        [XmlAttribute("style")]
-        public string Style { get; set; }
+        //[XmlAttribute("style")]
+        //public string Style { get; set; }
         [XmlAttribute("width")]
         public double Width { get; set; }
         [XmlAttribute("align")]

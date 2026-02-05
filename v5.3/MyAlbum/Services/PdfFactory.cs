@@ -8,25 +8,33 @@ namespace MyAlbum.Services
     {
         public static void CreatePdfFromXmlAlbum(XmlAlbum xmlAlbum, string outputPath)
         {
-            var document = new PdfDocument();
+            PdfDocument pdfDocument = new PdfDocument();
 
+            // Create a page in the document for each XmlPage
             foreach (var xmlPage in xmlAlbum.Pages)
             {
-                var page = document.AddPage();
-                var gfx = XGraphics.FromPdfPage(page);
+                // Add a new page to the document
+                PdfPage pdfPage = pdfDocument.AddPage();
 
-                // Example: Draw page title (customize as needed)
-                gfx.DrawString(xmlPage.Title ?? "Untitled",
-                    new XFont("Arial", 20, XFontStyle.Bold),
-                    XBrushes.Black,
-                    new XRect(0, 0, page.Width, page.Height),
-                    XStringFormats.TopCenter);
+                // Get XGraphics context for drawing on the page
+                XGraphics gfx = XGraphics.FromPdfPage(pdfPage);
 
-                // Add more content from xmlPage as needed
+                // Calculate the PDF page from XML definition
+                var layoutPage = PdfCalculator.CalculatePage(xmlPage, xmlAlbum.Styles);
+
+                PdfRenderer.RenderPage(pdfPage, gfx, layoutPage);
+                // Use gfx here to render page content
+                // gfx.DrawString("Hello World", ...);
             }
 
-            document.Save(outputPath);
+            pdfDocument.Save(outputPath);
         }
+
+
+
+
+
+
     }
 
 }

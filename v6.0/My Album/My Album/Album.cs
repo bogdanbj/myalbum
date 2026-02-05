@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyAlbum.Models.Pdf
+namespace MyAlbum
 {
-    internal class PdfPage
+    internal class Album
     {
     }
 }

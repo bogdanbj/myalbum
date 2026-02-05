@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyAlbum.Models.Pdf
 {
-    internal class PdfBorder
+    internal class LayoutBorder
     {
         //{
         //    get 

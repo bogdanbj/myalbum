@@ -7,10 +7,10 @@ using System.Xml.Serialization;
 
 namespace MyAlbum.Models.Xml
 {
-    public class XmlStamp
+    public class XmlStamp : XmlBaseElement
     {
-        [XmlAttribute("style")]
-        public string Style { get; set; }
+        //[XmlAttribute("style")]
+        //public string Style { get; set; }
         [XmlAttribute("vspace")]
         public double VSpace { get; set; }
         [XmlAttribute("width")]

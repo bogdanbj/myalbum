@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyAlbum.Models.Pdf
+namespace MyAlbum
 {
-    internal class PdfAlbum
+    internal class Page
     {
-        internal List<PdfPage> Pages { get; set; }
     }
 }
