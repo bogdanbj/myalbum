@@ -33,7 +33,6 @@ namespace MyAlbum.Models.Layout
         public XUnit WidthLeft { get; set; }
         public PageOrientation Orientation { get; set; }
 
-
         internal void FromXml(XmlBorder xmlBorder, AlbumStyles styles)
         {
             // Find the appropriate page style
@@ -53,7 +52,6 @@ namespace MyAlbum.Models.Layout
             BgColor = ParseColor(xmlBorder.BgColor ?? style.BgColor ?? $"{BgColor.R},{BgColor.G},{BgColor.B}");
 
         }
-        
         internal void CalculateBorderWidths()
         {
             WidthTop = CalculateLineWidth(TypeTop);
@@ -61,7 +59,6 @@ namespace MyAlbum.Models.Layout
             WidthBottom = CalculateLineWidth(TypeBottom);
             WidthLeft = CalculateLineWidth(TypeLeft);
         }
-
         private XUnit CalculateLineWidth(BorderType type) => type switch
         {
             BorderType.None => XUnit.Zero,
@@ -69,7 +66,6 @@ namespace MyAlbum.Models.Layout
             BorderType.Double => LineWidth1 + Offset + LineWidth2,
             _ => XUnit.Zero
         };
-
         internal override void Calculate(XGraphics gfx, XUnit x, XUnit y, XUnit w, XUnit h)
         {
             // If Landscape, shift attributes 90 degrees counterclockwise

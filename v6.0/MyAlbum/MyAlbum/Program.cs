@@ -1,74 +1,64 @@
-﻿//using MyAlbum.Models.Pdf;
-using MyAlbum.Models.Layout;
-using MyAlbum.Models.Xml;
-using MyAlbum.Utils;
-using PdfSharpCore.Fonts;
+﻿
+
+using PdfSharp;
+using PdfSharp.Fonts;
 using System.Diagnostics;
+using System.Reflection.Metadata.Ecma335;
+using System.Xml.Linq;
 
 
 
 
 namespace MyAlbum
-{ 
+{
     class Program
     {
         static void Main(string[] args)
         {
             try
             {
+
                 // Register the custom font resolver
-                GlobalFontSettings.FontResolver = new MyFontResolver();
-                //System.Diagnostics.Debug.WriteLine("FontResolver registered");
+                GlobalFontSettings.FontResolver = new FontResolver();
 
-                Album album = new Album();
-                if (args[0] == "TEST")
-                {
-                    album.Test();
-                    album.Save("test.pdf");
-                    Process.Start("test.pdf");
-                    return;
-                }
-
-                String fileName = Path.Combine(Directory.GetCurrentDirectory(), args[0]);
+                string fileName = args[0];
                 string outputName = GetOutputName(fileName);
 
-                // Deserialize XML file into XML Model objects
-                var xmlAlbum = XmlFactory.Deserialize(fileName);
+                // Read xml
+                XDocument xml = XDocument.Load(fileName);
+                    if (Convert.ToDouble(xml.Root.Attribute("ver").Value) < 3.0) { throw new FormatException("XML file is not compatible with this version."); }
 
-                // Create, draw and save the Album
-                album.FromXml(xmlAlbum);
+                // Create, process, save album
+                Album album = new Album(xml.Root);
+                album.Parse();
                 album.Draw();
                 album.Save(outputName);
 
-                // Open the PDF file
+                // Show album pdf
                 var psi = new ProcessStartInfo
                 {
                     FileName = outputName,
                     UseShellExecute = true
                 };
                 Process.Start(psi);
-
-            }
-            catch (FileNotFoundException ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-            }
-            catch (InvalidOperationException ex)
-            {
-                Console.WriteLine($"XML deserialization error: {ex.Message}");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Unexpected error: {ex.Message}");
+                Console.WriteLine("*** ERROR **");
+                Console.WriteLine();
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
+                Console.WriteLine(ex.Source);
+                Console.WriteLine();
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine();
+                //Console.WriteLine(errXml);
+                //Console.WriteLine();
+                Console.WriteLine("Press any key to close...");
+                Console.ReadKey();
             }
-
-#if DEBUG
-            Console.WriteLine("Press any key to close...");
-            Console.ReadKey();
-#endif
-
-
         }
+
         static string GetOutputName(string fileName)
         {
             string outputName;
@@ -90,5 +80,4 @@ namespace MyAlbum
             return outputName;
         }
     }
-
 }

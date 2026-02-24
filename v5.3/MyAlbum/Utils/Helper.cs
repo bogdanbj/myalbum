@@ -5,17 +5,6 @@ namespace MyAlbum.Utils
 {
     internal static class Helper
     {
-        //XColor color = elem switch
-        //{
-        //    Page => XColors.Bisque,
-        //    //Row => XColors.MistyRose,
-        //    Row => XColors.PaleGoldenrod,
-        //    Text => XColors.Aqua,
-        //    Column => XColors.Brown,
-        //    Image => XColors.Plum,
-        //    Stamp => XColors.LightSkyBlue,
-        //    _ => XColors.Transparent
-        //};
         internal static void Fill(XGraphics gfx, BaseElement elem)
         {
             Fill(gfx, elem, elem.BgColor);
@@ -132,8 +121,5 @@ namespace MyAlbum.Utils
             string text = $"{rect.W.Millimeter:F2}mm x {rect.H.Millimeter:F2}mm";
             Write(gfx, rect, text);
         }
-
-
-        //string dimensionText = $"{pdfPage.Width.Millimeter:F2}mm x {pdfPage.Height.Millimeter:F2}mm";
     }
 }

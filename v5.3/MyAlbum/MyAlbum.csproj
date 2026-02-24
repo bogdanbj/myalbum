@@ -10,10 +10,13 @@
   <ItemGroup>
     <Compile Remove="Models\Business\**" />
     <Compile Remove="Models\NewFolder1\**" />
+    <Compile Remove="Services\**" />
     <EmbeddedResource Remove="Models\Business\**" />
     <EmbeddedResource Remove="Models\NewFolder1\**" />
+    <EmbeddedResource Remove="Services\**" />
     <None Remove="Models\Business\**" />
     <None Remove="Models\NewFolder1\**" />
+    <None Remove="Services\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,7 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="PDFsharp" Version="6.2.4" />
     <PackageReference Include="PdfSharpCore" Version="1.3.67" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="10.0.2" />
   </ItemGroup>

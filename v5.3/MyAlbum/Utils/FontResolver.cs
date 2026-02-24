@@ -1,14 +1,7 @@
-﻿//using PdfSharpCore.Fonts;
-using PdfSharpCore.Fonts;
-using System;
-using System.IO;
-using PdfSharpCore.Utils;
-using System.Configuration;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PdfSharpCore.Fonts;
 using SixLabors.Fonts;
+using System.Configuration;
+
 
 namespace MyAlbum.Utils
 {
