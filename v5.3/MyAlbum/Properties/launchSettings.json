@@ -11,7 +11,7 @@
     },
     "My Album (home)": {
       "commandName": "Project",
-      "commandLineArgs": "Templates\\test.xml",
+      "commandLineArgs": "Templates\\Canada6.album",
       "workingDirectory": "C:\\Git\\myalbum"
     },
     "Test": {
@@ -23,6 +23,11 @@
       "commandName": "Project",
       "commandLineArgs": "Templates\\test.xml",
       "workingDirectory": "C:\\My\\Git\\myalbum"
+    },
+    "My Album TEST (home)": {
+      "commandName": "Project",
+      "commandLineArgs": "Templates\\test.xml",
+      "workingDirectory": "C:\\Git\\myalbum"
     }
   }
 }

@@ -53,23 +53,36 @@ namespace MyAlbum.Utils
 
         public byte[] GetFont(string faceName)
         {
-            string fileName;
-
-            // get the font file name from FontMap dictionary. fallback to default if not found
-            if (!FontMap.TryGetValue(faceName, out fileName))
+            // Get the font file name.
+            if (!FontMap.TryGetValue(faceName, out string? fileName))
             {
                 Console.WriteLine($"⚠️  Font '{faceName}' not found in FontMap. Using fallback: {DefaultFontName}");
                 if (!FontMap.TryGetValue(DefaultFontName, out fileName))
                     throw new FontException($"❌ Default font '{DefaultFontName}' not found in FontMap");
             }
 
-            // verify the file font exists
-            string fontPath = ConfigurationManager.AppSettings["FontPath"] ?? Path.Combine(Environment.CurrentDirectory, "Fonts");
+            // Get the fonts path
+            string? fontPath = ConfigurationManager.AppSettings["FontPath"];
+            if (!string.IsNullOrWhiteSpace(fontPath))
+            {
+                if (!Path.IsPathRooted(fontPath))
+                    fontPath = Path.Combine(Environment.CurrentDirectory, fontPath);
+            }
+            else
+            {
+                fontPath = Path.Combine(Environment.CurrentDirectory, "Fonts");
+            }
+            
+            // Check the fonts path exists
+            if (!Directory.Exists(fontPath))
+                throw new DirectoryNotFoundException($"❌ Font directory not found: {fontPath}");
+
+            // Check the file font exists
             string fullPath = Path.Combine(fontPath, fileName);
             if (!File.Exists(fullPath))
                 throw new FileNotFoundException($"❌ Font file not found: {fullPath}");
 
-            // return the content of the font file
+            // Get the content of the font file
             return File.ReadAllBytes(fullPath);
         }
 
