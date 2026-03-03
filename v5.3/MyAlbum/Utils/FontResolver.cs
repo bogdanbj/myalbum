@@ -65,11 +65,13 @@ namespace MyAlbum.Utils
             string? fontPath = ConfigurationManager.AppSettings["FontPath"];
             if (!string.IsNullOrWhiteSpace(fontPath))
             {
+                // if it's not an absolute path, combine it with the current directory
                 if (!Path.IsPathRooted(fontPath))
                     fontPath = Path.Combine(Environment.CurrentDirectory, fontPath);
             }
             else
             {
+                //default to "Fonts" folder in the current directory
                 fontPath = Path.Combine(Environment.CurrentDirectory, "Fonts");
             }
             
