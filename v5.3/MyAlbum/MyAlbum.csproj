@@ -39,4 +39,19 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="10.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Templates\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\Templates\Archive\myAlbum3.album" Link="Templates\myAlbum3.album" />
+    <None Include="..\..\Templates\Archive\myAlbum3a.album" Link="Templates\myAlbum3a.album" />
+    <None Include="..\..\Templates\Archive\myAlbum4.album" Link="Templates\myAlbum4.album" />
+    <None Include="..\..\Templates\Archive\myAlbum5.album" Link="Templates\myAlbum5.album" />
+    <None Include="..\..\Templates\Canada.album" Link="Templates\Canada.album" />
+    <None Include="..\..\Templates\Canada.styles" Link="Templates\Canada.styles" />
+    <None Include="..\..\Templates\Canada6.album" Link="Templates\Canada6.album" />
+    <None Include="..\..\Templates\Canada7.album" Link="Templates\Canada7.album" />
+  </ItemGroup>
+
 </Project>

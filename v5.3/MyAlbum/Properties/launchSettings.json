@@ -11,8 +11,8 @@
     },
     "My Album (home)": {
       "commandName": "Project",
-      "commandLineArgs": "Templates\\Canada6.album",
-      "workingDirectory": "C:\\Git\\myalbum"
+      "commandLineArgs": "Templates\\Canada.album",
+      "workingDirectory": "..\\..\\"
     },
     "Test": {
       "commandName": "Project",

@@ -2,56 +2,34 @@
 
   <page no="1" title="QV Diamond Jubilee Issue">
     <row height="10" />
-
     <row>
-      <column width="150">
-        <text style="headline">QUEEN VICTORIA JUBILEE ISSUE</text>
-        <text style="date">1897</text>
-      </column>
+      <text style="headline">QUEEN VICTORIA JUBILEE ISSUE</text>
     </row>
-
-    <row height="10" />
-    <row spacing-mode="JS" valign="top">
-      <column width="42">
-        <stamp width="34" height="25" title="" image="" i1="1/2c" i2="black" i3="S 50" f1="" f2="" f3="" />
-        <text style="footer_center" font_size="8">Queen Victoria in 1837 and 1897</text>
-      </column>
+    <row height="2" />
+    <row>
+      <text style="date">1897</text>
+    </row>
+    <row height="15" />
+    <row space="14">
+      <stamp width="34" height="25" title="" image="" i1="1/2c" i2="black" i3="S 50" f1="" f2="" f3="" />
       <stamp width="34" height="25" title="" image="" i1="1c" i2="orange" i3="S 51" f1="" f2="" f3="" />
+    </row>
+    <row height="15" />
+    <row space="14">
       <stamp width="34" height="25" title="" image="" i1="2c" i2="green" i3="S 52" f1="" f2="" f3="" />
       <stamp width="34" height="25" title="" image="" i1="3c" i2="bright rose" i3="S 53" f1="" f2="" f3="" />
-    </row>
-
-    <row spacing-mode="JS" valign="top">
       <stamp width="34" height="25" title="" image="" i1="5c" i2="deep blue" i3="S 54" f1="" f2="" f3="" />
+    </row>
+    <row height="15" />
+    <row space="14">
       <stamp width="34" height="25" title="" image="" i1="6c" i2="yellow brown" i3="S 55" f1="" f2="" f3="" />
       <stamp width="34" height="25" title="" image="" i1="8c" i2="dark violet" i3="S 56" f1="" f2="" f3="" />
       <stamp width="34" height="25" title="" image="" i1="10c" i2="brown violet" i3="S 57" f1="" f2="" f3="" />
     </row>
-
-    <row height="4.8" />
-    <row spacing-mode="JS" valign="top">
-      <stamp width="34" height="25" title="" image="" i1="15c" i2="steel blue" i3="S 58" f1="" f2="" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="20c" i2="vermilion" i3="S 59" f1="" f2="" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="50c" i2="ultramarine" i3="S 60" f1="" f2="" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="$1" i2="lake" i3="S 61" f1="" f2="" f3="" />
-    </row>
-
-    <row height="4.8" />
-    <row spacing-mode="JS" valign="top">
-      <stamp width="34" height="25" title="" image="" i1="$2" i2="dark purple" i3="S 62" f1="" f2="" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="$3" i2="yellow bistre" i3="S 63" f1="" f2="" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="$4" i2="purple" i3="S 64" f1="" f2="" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="$5" i2="olive green" i3="S 65" f1="" f2="" f3="" />
-    </row>
-
     <row height="10" />
     <row>
-      <text style="story" width="150">This issue honors the sixtieth year of reign for Alexandria Victoria, Queen of the United Empire of Great Britain and Ireland, empress of India. She acceded to the trone in 1827 and brought with her an era rich in Empire history. She was honest, devoted to her duty and a shining example of a happy family life. Her reign was the longest in British History. \n\nThe stamp depicts two portraits of Queen Victoria: in 1837 and 1867. The portrait on the left is from a painting by Alfred Edward Chalon, R. A., and portrays Her Majesty on the occasion of the prorogation of Parliament on 17th July, 1837. This is the same portrait reproduced on the 12-pence Canadian stamp of 1851. Between the portraits on the stamps, the initials V.R.I. signify Victoria, Queen and Empress, and below are dates 1837 and 1897, the years of the Queen's accession and her Diamond Jubilee.</text>
+			<text style="story" width="150">This issue honors the sixtieth year of reign for Alexandria Victoria, Queen of the United Empire of Great Britain and Ireland, empress of India. She acceded to the trone in 1827 and brought with her an era rich in Empire history. She was honest, devoted to her duty and a shining example of a happy family life. Her reign was the longest in British History.</text>
     </row>
-
-
-
-
   </page>
 
   <page no="2" title="QV Diamond Jubilee Issue">

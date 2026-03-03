@@ -32,8 +32,21 @@ namespace MyAlbum
                 String fileName = Path.Combine(Directory.GetCurrentDirectory(), args[0]);
                 string outputName = GetOutputName(fileName);
 
+                // 1. Load the album XML as XDocument to extract the styles reference
+                var albumDoc = System.Xml.Linq.XDocument.Load(fileName);
+                var stylesAttr = albumDoc.Root?.Attribute("styles")?.Value;
+
+                AlbumStyles styles = null;
+                if (!string.IsNullOrEmpty(stylesAttr))
+                {
+                    // 2. Load and deserialize the styles XML first
+                    string stylesPath = Path.Combine(Path.GetDirectoryName(fileName), stylesAttr);
+                    styles = XmlFactory.DeserializeStyles(stylesPath);
+                }
+
+
                 // Deserialize XML file into XML Model objects
-                var xmlAlbum = XmlFactory.Deserialize(fileName);
+                var xmlAlbum = XmlFactory.Deserialize(fileName, styles);
 
                 // Create, draw and save the Album
                 album.FromXml(xmlAlbum);
@@ -80,10 +93,10 @@ namespace MyAlbum
             }
             if (File.Exists(outputName))
             {
-                for (int i = 0; i < 10000; i++)
+                for (int i = 1; i < 10000; i++)
                 {
                     ;
-                    if (!(File.Exists(outputName = fileName.Replace("Templates", "Output").Replace(Path.GetExtension(fileName), i.ToString() + ".pdf"))))
+                    if (!(File.Exists(outputName = fileName.Replace("Templates", "Output").Replace(Path.GetExtension(fileName), "_" + i.ToString() + ".pdf"))))
                         break;
                 }
             }
