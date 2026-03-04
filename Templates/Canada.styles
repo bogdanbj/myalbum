@@ -52,7 +52,8 @@
 			<text style="text_default" default="true" align="left" font_name="Century Gothic" font_size="8"/>
 			<text style="story" justify="true" align="center" font_name="Folio" font_size="7"/>
 			<text style="italic" justify="true" align="center" font_name="Garamond" font_size="8" font_style="italic"/>
-			<text style="headline" justify="false" align="center" font_name="Stymie Becker Light" font_size="16" margin="2,0" font_style="italic"/>
+    <!--text style="headline" justify="false" align="center" font_name="Stymie Becker Light" font_size="16" margin="2,0" font_style="italic"/-->
+			<text style="headline" justify="false" align="center" font_name="Stymie Becker Light" font_size="16" margin="2,0"/>
 			<text style="date" justify="true" align="center" font_name="Lubalin Graph" font_size="8" font_style="bold"/>
 			<text style="title" align="center" font_name="Stymie Becker Light" font_size="10"/>
 			<text style="inside" align="center" font_name="Stymie Becker" font_size="6" width="80%"/>
