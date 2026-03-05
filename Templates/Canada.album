@@ -46,7 +46,10 @@
 
     <row height="10" />
     <row>
-      <text style="story" width="150">This issue honors the sixtieth year of reign for Alexandria Victoria, Queen of the United Empire of Great Britain and Ireland, empress of India. She acceded to the trone in 1827 and brought with her an era rich in Empire history. She was honest, devoted to her duty and a shining example of a happy family life. Her reign was the longest in British History. \n\nThe stamp depicts two portraits of Queen Victoria: in 1837 and 1867. The portrait on the left is from a painting by Alfred Edward Chalon, R. A., and portrays Her Majesty on the occasion of the prorogation of Parliament on 17th July, 1837. This is the same portrait reproduced on the 12-pence Canadian stamp of 1851. Between the portraits on the stamps, the initials V.R.I. signify Victoria, Queen and Empress, and below are dates 1837 and 1897, the years of the Queen's accession and her Diamond Jubilee.</text>
+      <column>
+      <text style="story" width="150">This issue honors the sixtieth year of reign for Alexandria Victoria, Queen of the United Empire of Great Britain and Ireland, empress of India. She acceded to the trone in 1827 and brought with her an era rich in Empire history. She was honest, devoted to her duty and a shining example of a happy family life. Her reign was the longest in British History.</text>
+        <!--text style="story" width="150">The stamp depicts two portraits of Queen Victoria: in 1837 and 1867. The portrait on the left is from a painting by Alfred Edward Chalon, R. A., and portrays Her Majesty on the occasion of the prorogation of Parliament on 17th July, 1837. This is the same portrait reproduced on the 12-pence Canadian stamp of 1851. Between the portraits on the stamps, the initials V.R.I. signify Victoria, Queen and Empress, and below are dates 1837 and 1897, the years of the Queen's accession and her Diamond Jubilee.</text-->
+      </column>
     </row>
 
   </page>

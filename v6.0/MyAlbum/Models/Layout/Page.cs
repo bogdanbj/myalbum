@@ -112,6 +112,7 @@ namespace MyAlbum.Models.Layout
             // Ignore the parameters for the page itself 
             // The Page defines its own dimensions based on size and orientation
             pdfPage.Orientation = this.Orientation;
+            pdfPage.Size = this.Size;
 
             // If Landscape, shift attributes 90 degrees counterclockwise
             if (Orientation == PageOrientation.Landscape)

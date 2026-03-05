@@ -4,11 +4,6 @@
       "commandName": "WSL2",
       "distributionName": ""
     },
-    "Test": {
-      "commandName": "Project",
-      "commandLineArgs": "TEST",
-      "workingDirectory": "C:\\My\\Git\\myalbum"
-    },
     "My Album (Canada)": {
       "commandName": "Project",
       "commandLineArgs": "Templates\\Canada.album",

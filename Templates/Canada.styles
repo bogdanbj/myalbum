@@ -39,7 +39,7 @@
 			width: line1, space, line2
 			padding: top, right, bottom, left
 			-->
-			<border style="stamp_frame" default="true" border-type="double" border-width="0.4, 0.3, 0.1" margin="0,0,0,0" padding="3, 3, 3, 3" color="48,48,48" bgcolor="255,255,255" />
+			<border style="stamp_frame" default="true" border-type="double" border-width="0.4, 0.4, 0.1" margin="0,0,0,0" padding="3, 3, 3, 3" color="48,48,48" bgcolor="255,255,255" />
 			<border style="page_border" default="false" border-type="double" border-width="0.5, 0.5, 0.2" margin="0,0,0,0" padding="0, 6, 0, 6" />
 			<border style="white_ace_page" default="false" border-type="white_ace_page" margin="0,0,0,0" padding="3, 3, 3, 3" color="67,143,189" bgcolor="255,255,255" />
 			<border style="white_ace_stamp" default="false" border-type="white_ace_stamp" border-width="0.2, 0.9, 0.2" margin="0,0,0,0" padding="3, 3, 3, 3" bgcolor="255,255,255" />
@@ -56,7 +56,8 @@
 			<text style="headline" justify="false" align="center" font_name="Stymie Becker Light" font_size="16" margin="2,0"/>
 			<text style="date" justify="true" align="center" font_name="Lubalin Graph" font_size="8" font_style="bold"/>
 			<text style="title" align="center" font_name="Stymie Becker Light" font_size="10"/>
-			<text style="inside" align="center" font_name="Stymie Becker" font_size="6" width="80%"/>
+			<!--text style="inside" align="center" font_name="Stymie Becker" font_size="6" width="80%"/-->
+		  <text style="inside" align="center" font_name="Century Gothic" font_size="6" width="80%"/>
 			<text style="footer_left" justify="true" align="left" font_name="Garamond" font_size="8" font_style="italic" margin="0,0,2,0" />
 			<text style="footer_center" justify="true" align="center" font_name="Garamond" font_size="10" font_style="italic" width="100%" margin="0,0,2,0" />
 			<text style="footer_right" justify="true" align="right" font_name="Garamond" font_size="8" font_style="italic" margin="0,0,2,0" />
