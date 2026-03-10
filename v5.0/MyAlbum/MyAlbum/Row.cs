@@ -12,7 +12,7 @@ namespace MyAlbum
     {
         #region Properties
         public Styles.SpacingModes Spacing { get; set; }
-        public XUnit Space { get; set; }
+        public XUnitPt Space { get; set; }
         public string Rotate { get; set; }
         #endregion
 
@@ -42,7 +42,7 @@ namespace MyAlbum
         }
         public override void Calculate()
         {
-            if (w == XUnit.Zero)
+            if (w == XUnitPt.Zero)
             {
                 if (Rotate.ToLower() == "true")
                 {
@@ -56,7 +56,7 @@ namespace MyAlbum
             
             if (Elements.Count==0)
             {
-                this.TopAlign = XUnit.Zero;
+                this.TopAlign = XUnitPt.Zero;
                 this.MiddleAlign = this.h / 2;
                 this.BottomAlign = this.h;
 
@@ -113,8 +113,8 @@ namespace MyAlbum
             //brush = new XSolidBrush(XColors.MediumSlateBlue);
             //gfx.DrawRectangle(brush, x, y, w, h);
 
-            XUnit xPos, yPos;
-            XUnit width = XUnit.Zero;
+            XUnitPt xPos, yPos;
+            XUnitPt width = XUnitPt.Zero;
             int elementCount = 0;
             switch (Spacing)
             {
@@ -225,7 +225,8 @@ namespace MyAlbum
                 {
                     if (this.Rotate.ToLower() == "true")
                     {
-                        PdfSharp.Pdf.PdfPage page = element.GetPage();
+                        //PdfSharp.Pdf.PdfPage page = element.GetPage();
+                        Page page = element.GetPage();
                         element.x += (page.Width - page.Height) / 2;
                         element.y += (page.Height - page.Width) / 2;
                     }
@@ -329,11 +330,11 @@ namespace MyAlbum
             {
                 try
                 {
-                    this.Space = XUnit.FromMillimeter(double.Parse(Xml.Attribute("space").Value));
+                    this.Space = XUnitPt.FromMillimeter(double.Parse(Xml.Attribute("space").Value));
                 }
                 catch (Exception)
                 {
-                    this.Space = XUnit.Zero;
+                    this.Space = XUnitPt.Zero;
                 }
             }
         }

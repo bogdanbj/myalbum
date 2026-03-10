@@ -1,0 +1,147 @@
+	<styles>
+    <!--  Colors can be specified by name or by RGB values (0-255, 0-255, 0-255).
+					When using RGB values, the color attribute should be a tupple of 3 RGB values separated by commas.
+					When using color names, the color attribute should be one of the following known names:
+          
+						AliceBlue						DarkOrchid					LavenderBlush						MidnightBlue			SeaShell
+						AntiqueWhite				DarkRed							LawnGreen								MintCream					Sienna
+						Aqua								DarkSalmon					LemonChiffon						MistyRose					Silver
+						Aquamarine					DarkSeaGreen				LightBlue								Moccasin					SkyBlue
+						Azure								DarkSlateBlue				LightCoral							NavajoWhite				SlateBlue
+						Beige								DarkSlateGray				LightCyan								Navy							SlateGray
+						Bisque							DarkTurquoise				LightGoldenrodYellow		OldLace						Snow
+						Black								DarkViolet					LightGray								Olive							SpringGreen
+						BlanchedAlmond			DeepPink						LightGreen							OliveDrab					SteelBlue
+						Blue								DeepSkyBlue					LightPink								Orange						Tan
+						BlueViolet					DimGray							LightSalmon							OrangeRed					Teal
+						Brown								DodgerBlue					LightSeaGreen						Orchid						Thistle
+						BurlyWood						Firebrick						LightSkyBlue						PaleGoldenrod			Tomato
+						CadetBlue						FloralWhite					LightSlateGray					PaleGreen					Transparent
+						Chartreuse					ForestGreen					LightSteelBlue					PaleTurquoise			Turquoise
+						Chocolate						Fuchsia							LightYellow							PaleVioletRed			Violet
+						Coral								Gainsboro						Lime										PapayaWhip				Wheat
+						CornflowerBlue			GhostWhite					LimeGreen								PeachPuff					White
+						Cornsilk						Gold								Linen										Peru							WhiteSmoke
+						Crimson							Goldenrod						Magenta									Pink							Yellow
+						Cyan								Gray								Maroon									Plum							YellowGreen
+						DarkBlue						Green								MediumAquamarine				PowderBlue
+						DarkCyan						GreenYellow					MediumBlue							Purple
+						DarkGoldenrod				Honeydew						MediumOrchid						Red
+						DarkGray						HotPink							MediumPurple						RosyBrown
+						DarkGreen						IndianRed						MediumSeaGreen					RoyalBlue
+						DarkKhaki						Indigo							MediumSlateBlue					SaddleBrown
+						DarkMagenta					Ivory								MediumSpringGreen				Salmon
+						DarkOliveGreen			Khaki								MediumTurquoise					SandyBrown
+						DarkOrange					Lavender						MediumVioletRed					SeaGreen
+    -->
+		<!-- BORDER
+			type: none, single, double, white ace, custom
+			width: line1, space, line2
+			padding: 4 values: top, right, bottom, left 
+							 2 values: top-bottom, left-right
+               1 value: all equal
+		-->
+		<border style="stamp_frame" default="true" border-type="double" border-width="0.4, 0.4, 0.1" margin="0" padding="2" color="48,48,48" bgcolor="255,255,255" />
+		<border style="page_border" default="false" border-type="double" border-width="0.5, 0.5, 0.2" margin="0" padding="0, 6" />
+
+    <!-- TEXT
+			font_size: double
+			font_style: bold, bolditalic, italic, regular, strikeout, underline
+			align: left, center, right
+			valign: top, center, bottom
+		-->
+    <text style="text_default" default="true" align="left" font_name="Century Gothic" font_size="8" font_style="regular" />
+    <text style="date" align="center" font_name="Century Gothic" font_size="14"/>
+    <text style="headline" align="center" font_name="Century Gothic" font_size="10"/>
+    <text style="title" align="center" font_name="Century Gothic" font_size="10"/>
+    <text style="inside" align="center" font_name="Century Gothic" font_size="6" width="80%"/>
+    <text style="footer" font_name="Century Gothic" font_size="6" margin="0,0,2,0"/>
+    <!--
+    <text style="inside" align="center" font_name="Century Gothic" font_size="6" font_style="regular" width="80%"/>
+    <text style="footer_left" align="left" font_name="Century Gothic" font_size="6" font_style="regular" margin="0,0,2,0" />
+    <text style="footer_center" align="center" font_name="Century Gothic" font_size="6" font_style="regular" width="100%" margin="0,0,2,0" />
+    <text style="footer_right" align="right" font_name="Century Gothic" font_size="6" font_style="regular" margin="0,0,2,0" />
+		-->
+		<!-- FRENCH CHARACTERS
+			l'accent aigu (acute accent) – é
+			l'accent grave (grave accent) – à, è, ù
+			la cédille (cedilla) – ç
+			l'accent circonflexe (circumflex) – â, ê, î, ô, û
+			l'accent tréma (trema) – ë, ï, ü
+			
+			L'ACCENT AIGU (ACUTE ACCENT) – É
+			L'ACCENT GRAVE (GRAVE ACCENT) – À, È, Ù
+			LA CÉDILLE (CEDILLA) – Ç
+			L'ACCENT CIRCONFLEXE (CIRCUMFLEX) – Â, Ê, Î, Ô, Û
+			L'ACCENT TRÉMA (TREMA) – Ë, Ï, Ü
+			-->
+		<!-- ESCAPE CHARACTERS
+			ampersand (&) is escaped to &amp; 
+			double quotes (") are escaped to &quot; 
+			single quotes (') are escaped to &apos; 
+			less than (<) is escaped to &lt; 
+			greater than (>) is escaped to &gt;
+			-->
+		<!-- WHITE ACE FONTS
+				The story copy is Folio Lite, the Italic is Garamond Lite Italic, the Headline Type is Stymie Book and the Dates are Lubalin.
+			-->
+		<!-- IMAGE
+		-->
+		<image style="stamp_image" default="true" color="false" />
+
+    <!-- STAMP
+		-->
+		<stamp style="stamp_default" default="true" vspace="1">
+			<border style="stamp_frame" />
+			<!--border style="white_ace_stamp" /-->
+			<image style="image_default" margin="2,2,2,2" />
+			<title style="title" />
+			<inside1 style="inside" />
+			<inside2 style="inside" />
+			<inside3 style="inside" />
+			<footer1 style="footer" align="left" />
+			<footer2 style="footer" align="center" />
+			<footer3 style="footer" aling="right" />
+		</stamp>
+
+    <!-- ROW
+			spacing: FS (fixed space), ES (equal spacing), JS (justified spacing)
+		-->
+		<row style="stamp_FS" default="true" align="center" valign="center" spacing-mode="FS" space="6" bgcolor="PaleGoldenrod"/>
+		<row style="page_header" default="false" align="center" valign="top" spacing-mode="FS" space="8"  bgcolor="PaleGreen"/>
+
+    <!-- COLUMN
+		-->
+		<column style="default_column" default="true" align="center" space="1" bgcolor="SandyBrown"/>
+		
+    <!-- PAGE
+			orientation: portrait, landscape
+			size: letter, A4
+			margin: top, right, bottom, left
+		-->
+		<page style="cover" default="false" orientation="portrait" size="letter" margin="7" color="black" vspace="1">
+			<banner file_name="" />
+			<border style="page_border" />
+		</page>
+
+    <page style="portrait" default="true" orientation="portrait" size="letter" margin="7" color="black" vspace="1">
+      <banner file_name="" />
+			<border style="page_border" />
+			<row style="page_header">
+				<text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
+			</row>
+      <!--row height="10" bgcolor="MistyRose" /-->
+      <space height="10" bgcolor="MistyRose" />
+    </page>
+		
+    <page style="landscape" default="false" orientation="landscape" size="letter" margin="7" color="black" bgcolor="LightCoral" vspace="1">
+			<banner file_name="" />
+			<border style="page_border" />
+			<row style="page_header" rotate="true">
+				<text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
+			</row>
+      <!--row rotate="true">
+				<image absolute="true" align="left" valign="top" file_name="Pictures\Canada-Post-Logo.png" x="20" y="20" height="32" width="32" stretched="true"></image>
+			</row-->
+		</page>
+	</styles>

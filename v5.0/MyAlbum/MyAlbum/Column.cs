@@ -12,7 +12,7 @@ namespace MyAlbum
     {
         #region Properties
         public Styles.SpacingModes Spacing { get; set; }
-        public XUnit MinWidth { get; set; }
+        public XUnitPt MinWidth { get; set; }
         #endregion
  
         #region Constructors
@@ -36,7 +36,7 @@ namespace MyAlbum
         }
         public override void Calculate()
         {
-            XUnit height = XUnit.Zero;
+            XUnitPt height = XUnitPt.Zero;
             //foreach (BaseElement element in Elements.Where(b => typeof(Container).IsAssignableFrom(b.GetType())))// b.Elements != null))
             if (Elements.Count() > 0)
             {
@@ -46,7 +46,7 @@ namespace MyAlbum
                     element.Calculate();
                     this.w = Math.Max(this.w, element.w);
                 }
-                if (Parent.w != XUnit.Zero)
+                if (Parent.w != XUnitPt.Zero)
                 {
                     this.w = Math.Min(this.w, Parent.w);
                 }
@@ -73,7 +73,7 @@ namespace MyAlbum
 
         public override void Draw()
         {
-            XUnit yPos = this.y + MarginTop;
+            XUnitPt yPos = this.y + MarginTop;
 
             DrawBackground();
             //DrawBox();
@@ -212,7 +212,7 @@ namespace MyAlbum
             {
                 try
                 {
-                    this.VSpace = XUnit.FromMillimeter(double.Parse(Xml.Attribute("space").Value));
+                    this.VSpace = XUnitPt.FromMillimeter(double.Parse(Xml.Attribute("space").Value));
                 }
                 catch (Exception)
                 {

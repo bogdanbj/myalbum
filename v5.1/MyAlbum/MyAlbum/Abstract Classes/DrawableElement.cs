@@ -1,0 +1,141 @@
+﻿using MyAlbum;
+using PdfSharp.Drawing;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MyAlbum
+{
+    internal class DrawableElement : StyleElement
+    {
+<<<<<<< Updated upstream
+        #region properties
+=======
+        #region fields
+        DrawableElement? _canvas;
+        #endregion
+
+        #region properties
+        public DrawableElement Canvas
+        {
+            get
+            {
+                if (_canvas == null) { _canvas = new DrawableElement(); }
+                return _canvas;
+            }
+        }
+
+
+        public XColor BoxColor { get; set; }
+>>>>>>> Stashed changes
+        public XGraphics? gfx { get; set; }
+        public XUnitPt x { get; set; }
+        public XUnitPt y { get; set; }
+        public XUnitPt h { get; set; }
+        public XUnitPt w { get; set; }
+        public DrawableElement? Parent { get; set; }
+<<<<<<< Updated upstream
+        public  XColor BoxColor { get; set; }
+        #endregion
+
+=======
+        #endregion
+        
+>>>>>>> Stashed changes
+        #region public methods - must be overriden
+        public virtual void Calculate()
+        {
+            throw new NotImplementedException();
+        }
+        public virtual void Draw()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region private methods
+        //internal void ParseVSpaceAttribute()
+        //{
+        //    if (xml.Attribute("vspace") != null)
+        //    {
+        //        try
+        //        {
+        //            VSpace = XUnitPt.FromMillimeter(double.Parse(xml.Attribute("vspace")!.Value));
+        //        }
+        //        catch (Exception)
+        //        {
+        //            VSpace = XUnitPt.Zero;
+        //        }
+        //    }
+        //}
+        #endregion
+
+        #region Helper Methods
+        public void DrawBox()
+        {
+            if (BoxColor.IsEmpty)
+            {
+                DrawBox(Color);
+            }
+            else
+            {
+                DrawBox(BoxColor);
+            }
+        }
+        public void DrawBox(XColor color)
+        {
+            if (h >= 0)
+                DrawBox(color, new XPoint(x, y), new XSize(w, h));
+            else
+                DrawBox(color, new XPoint(x, y + h), new XSize(w, -h));
+        }
+        public void DrawBox(XPoint point, XSize size)
+        {
+            if (BoxColor.IsEmpty)
+            {
+                DrawBox(Color, point, size);
+            }
+            else
+            {
+                DrawBox(BoxColor, point, size);
+            }
+        }
+        public void DrawBox(XColor color, XPoint point, XSize size)
+        {
+            gfx.DrawRectangle(new XPen(color, 0.1), point.X, point.Y, size.Width, size.Height);
+        }
+        public void DrawCross(XPoint point)
+        {
+            DrawCross(point, Color);
+        }
+        public void DrawCross(XPoint point, XColor color)
+        {
+            XUnitPt d = XUnitPt.FromMillimeter(7);
+            gfx.DrawLine(new XPen(color, 0.1), point.X - d, point.Y, point.X + d, point.Y);
+            gfx.DrawLine(new XPen(color, 0.1), point.X, point.Y - d, point.X, point.Y + d);
+        }
+        public void DrawBackground()
+        {
+            if (Brush is XSolidBrush solidBrush)
+            {
+                XColor color = solidBrush.Color;
+                DrawBackground(color);
+            }
+        }
+        public void DrawBackground(XColor color)
+        {
+            XBrush brush;
+            brush = new XSolidBrush(color);
+            if (h >= 0)
+                gfx.DrawRectangle(brush, x, y, w, h);
+            else
+                gfx.DrawRectangle(brush, x, y + h, w, -h);
+        }
+        #endregion
+
+    }
+
+}
+

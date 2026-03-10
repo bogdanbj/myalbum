@@ -1,0 +1,33 @@
+{
+  "profiles": {
+    "WSL": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    },
+    "MyAlbum (work)": {
+      "commandName": "Project",
+      "commandLineArgs": "Templates\\Canada6.album",
+      "workingDirectory": "C:\\My\\Git\\myalbum"
+    },
+    "My Album (home)": {
+      "commandName": "Project",
+      "commandLineArgs": "Templates\\Canada.album",
+      "workingDirectory": "..\\..\\"
+    },
+    "Test": {
+      "commandName": "Project",
+      "commandLineArgs": "TEST",
+      "workingDirectory": "C:\\My\\Git\\myalbum"
+    },
+    "My Album TEST (work)": {
+      "commandName": "Project",
+      "commandLineArgs": "Templates\\test.xml",
+      "workingDirectory": "C:\\My\\Git\\myalbum"
+    },
+    "My Album TEST (home)": {
+      "commandName": "Project",
+      "commandLineArgs": "Templates\\test.xml",
+      "workingDirectory": "C:\\Git\\myalbum"
+    }
+  }
+}

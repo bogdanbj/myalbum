@@ -21,7 +21,7 @@ namespace MyAlbum
             set { _elements = value; }
         }
 
-        public XUnit VSpace { get; set; }
-        public XUnit HSpace { get; set; }
+        public XUnitPt VSpace { get; set; }
+        public XUnitPt HSpace { get; set; }
     }
 }

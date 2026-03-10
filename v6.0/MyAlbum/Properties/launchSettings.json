@@ -1,0 +1,18 @@
+{
+  "profiles": {
+    "WSL": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    },
+    "My Album (Canada)": {
+      "commandName": "Project",
+      "commandLineArgs": "-i Templates\\Canada.album\r\n-p all\r\n",
+      "workingDirectory": "..\\..\\"
+    },
+    "My Album (test)": {
+      "commandName": "Project",
+      "commandLineArgs": "Templates\\test.xml",
+      "workingDirectory": "..\\..\\"
+    }
+  }
+}
