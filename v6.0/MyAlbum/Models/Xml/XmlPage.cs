@@ -34,6 +34,7 @@ namespace MyAlbum.Models.Xml
         [XmlElement("stamp", typeof(XmlStamp))]
         [XmlElement("image", typeof(XmlImage))]
         [XmlElement("border", typeof(XmlBorder))]
+        [XmlElement("space", typeof(XmlSpace))]
         public List<XmlElement> Elements { get; set; }
         //[XmlElement("row")]
         //public List<XmlRow> Rows { get; set; }

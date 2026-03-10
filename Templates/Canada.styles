@@ -37,30 +37,31 @@
 		<!-- BORDER
 			type: none, single, double, white ace, custom
 			width: line1, space, line2
-			padding: top, right, bottom, left
-			-->
-			<border style="stamp_frame" default="true" border-type="double" border-width="0.4, 0.4, 0.1" margin="0,0,0,0" padding="3, 3, 3, 3" color="48,48,48" bgcolor="255,255,255" />
-			<border style="page_border" default="false" border-type="double" border-width="0.5, 0.5, 0.2" margin="0,0,0,0" padding="0, 6, 0, 6" />
-			<border style="white_ace_page" default="false" border-type="white_ace_page" margin="0,0,0,0" padding="3, 3, 3, 3" color="67,143,189" bgcolor="255,255,255" />
-			<border style="white_ace_stamp" default="false" border-type="white_ace_stamp" border-width="0.2, 0.9, 0.2" margin="0,0,0,0" padding="3, 3, 3, 3" bgcolor="255,255,255" />
-		<!-- TEXT
+			padding: 4 values: top, right, bottom, left 
+							 2 values: top-bottom, left-right
+               1 value: all equal
+		-->
+		<border style="stamp_frame" default="true" border-type="double" border-width="0.4, 0.4, 0.1" margin="0" padding="2" color="48,48,48" bgcolor="255,255,255" />
+		<border style="page_border" default="false" border-type="double" border-width="0.5, 0.5, 0.2" margin="0" padding="0, 6" />
+
+    <!-- TEXT
 			font_size: double
 			font_style: bold, bolditalic, italic, regular, strikeout, underline
 			align: left, center, right
 			valign: top, center, bottom
-			-->
-			<text style="text_default" default="true" align="left" font_name="Century Gothic" font_size="8"/>
-			<text style="story" justify="true" align="center" font_name="Folio" font_size="7"/>
-			<text style="italic" justify="true" align="center" font_name="Garamond" font_size="8" font_style="italic"/>
-    <!--text style="headline" justify="false" align="center" font_name="Stymie Becker Light" font_size="16" margin="2,0" font_style="italic"/-->
-			<text style="headline" justify="false" align="center" font_name="Stymie Becker Light" font_size="16" margin="2,0"/>
-			<text style="date" justify="true" align="center" font_name="Lubalin Graph" font_size="8" font_style="bold"/>
-			<text style="title" align="center" font_name="Stymie Becker Light" font_size="10"/>
-			<!--text style="inside" align="center" font_name="Stymie Becker" font_size="6" width="80%"/-->
-		  <text style="inside" align="center" font_name="Century Gothic" font_size="6" width="80%"/>
-			<text style="footer_left" justify="true" align="left" font_name="Garamond" font_size="8" font_style="italic" margin="0,0,2,0" />
-			<text style="footer_center" justify="true" align="center" font_name="Garamond" font_size="10" font_style="italic" width="100%" margin="0,0,2,0" />
-			<text style="footer_right" justify="true" align="right" font_name="Garamond" font_size="8" font_style="italic" margin="0,0,2,0" />
+		-->
+    <text style="text_default" default="true" align="left" font_name="Century Gothic" font_size="8" font_style="regular" />
+    <text style="date" align="center" font_name="Century Gothic" font_size="14"/>
+    <text style="headline" align="center" font_name="Century Gothic" font_size="10"/>
+    <text style="title" align="center" font_name="Century Gothic" font_size="10"/>
+    <text style="inside" align="center" font_name="Century Gothic" font_size="6" width="80%"/>
+    <text style="footer" font_name="Century Gothic" font_size="6" margin="0,0,2,0"/>
+    <!--
+    <text style="inside" align="center" font_name="Century Gothic" font_size="6" font_style="regular" width="80%"/>
+    <text style="footer_left" align="left" font_name="Century Gothic" font_size="6" font_style="regular" margin="0,0,2,0" />
+    <text style="footer_center" align="center" font_name="Century Gothic" font_size="6" font_style="regular" width="100%" margin="0,0,2,0" />
+    <text style="footer_right" align="right" font_name="Century Gothic" font_size="6" font_style="regular" margin="0,0,2,0" />
+		-->
 		<!-- FRENCH CHARACTERS
 			l'accent aigu (acute accent) – é
 			l'accent grave (grave accent) – à, è, ù
@@ -85,56 +86,62 @@
 				The story copy is Folio Lite, the Italic is Garamond Lite Italic, the Headline Type is Stymie Book and the Dates are Lubalin.
 			-->
 		<!-- IMAGE
-			-->
-			<image style="stamp_image" default="true" color="false" />
-		<!-- STAMP
-			-->
-			<stamp style="stamp_default" default="true" vspace="1">
-				<border style="stamp_frame" />
-				<!--border style="white_ace_stamp" /-->
-				<image style="image_default" margin="2,2,2,2" />
-				<title style="title" />
-				<inside1 style="inside" />
-				<inside2 style="inside" />
-				<inside3 style="inside" />
-				<footer1 style="footer_left" />
-				<footer2 style="footer_center" />
-				<footer3 style="footer_right" />
-			</stamp>
-		<!-- ROW
+		-->
+		<image style="stamp_image" default="true" color="false" />
+
+    <!-- STAMP
+		-->
+		<stamp style="stamp_default" default="true" vspace="1">
+			<border style="stamp_frame" />
+			<!--border style="white_ace_stamp" /-->
+			<image style="image_default" margin="2,2,2,2" />
+			<title style="title" />
+			<inside1 style="inside" />
+			<inside2 style="inside" />
+			<inside3 style="inside" />
+			<footer1 style="footer" align="left" />
+			<footer2 style="footer" align="center" />
+			<footer3 style="footer" aling="right" />
+		</stamp>
+
+    <!-- ROW
 			spacing: FS (fixed space), ES (equal spacing), JS (justified spacing)
-			-->
-			<row style="stamp_FS" default="true" align="center" valign="center" spacing-mode="FS" space="6" bgcolor="PaleGoldenrod"/>
-			<row style="page_header" default="false" align="center" valign="top" spacing-mode="FS" space="8"  bgcolor="PaleGreen"/>
+		-->
+		<row style="stamp_FS" default="true" align="center" valign="center" spacing-mode="FS" space="6" bgcolor="PaleGoldenrod"/>
+		<row style="page_header" default="false" align="center" valign="top" spacing-mode="FS" space="8"  bgcolor="PaleGreen"/>
+
     <!-- COLUMN
-			-->
-			<column style="default_column" default="true" align="center" space="1" bgcolor="SandyBrown"/>
-		<!-- PAGE
+		-->
+		<column style="default_column" default="true" align="center" space="1" bgcolor="SandyBrown"/>
+		
+    <!-- PAGE
 			orientation: portrait, landscape
 			size: letter, A4
 			margin: top, right, bottom, left
-			-->
-			<!-- color="48,48,48" -->
-			<page style="cover" default="false" orientation="portrait" size="letter" margin="7,7,7,7" color="48,48,48" vspace="1">
-				<banner file_name="" />
-				<border style="page_border" />
-			</page>
-			<page style="portrait" default="true" orientation="portrait" size="letter" margin="7,7,7,7" color="48,48,48" vspace="1">
-				<banner file_name="" />
-				<border style="page_border" />
-				<row style="page_header">
-				  <text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
-				</row>
-        <row height="10" bgcolor="MistyRose" />
-			</page>
-			<page style="landscape" default="false" orientation="landscape" size="letter" margin="7,7,7,7" color="48,48,48" bgcolor="LightCoral" vspace="1">
-				<banner file_name="" />
-				<border style="page_border" />
-				<row style="page_header" rotate="true">
-					<text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
-				</row>
-        <!--row rotate="true">
-					<image absolute="true" align="left" valign="top" file_name="Pictures\Canada-Post-Logo.png" x="20" y="20" height="32" width="32" stretched="true"></image>
-				</row-->
-			</page>
+		-->
+		<page style="cover" default="false" orientation="portrait" size="letter" margin="7" color="black" vspace="1">
+			<banner file_name="" />
+			<border style="page_border" />
+		</page>
+
+    <page style="portrait" default="true" orientation="portrait" size="letter" margin="7" color="black" vspace="1">
+      <banner file_name="" />
+			<border style="page_border" />
+			<row style="page_header">
+				<text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
+			</row>
+      <!--row height="10" bgcolor="MistyRose" /-->
+      <space height="10" bgcolor="MistyRose" />
+    </page>
+		
+    <page style="landscape" default="false" orientation="landscape" size="letter" margin="7" color="black" bgcolor="LightCoral" vspace="1">
+			<banner file_name="" />
+			<border style="page_border" />
+			<row style="page_header" rotate="true">
+				<text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
+			</row>
+      <!--row rotate="true">
+				<image absolute="true" align="left" valign="top" file_name="Pictures\Canada-Post-Logo.png" x="20" y="20" height="32" width="32" stretched="true"></image>
+			</row-->
+		</page>
 	</styles>

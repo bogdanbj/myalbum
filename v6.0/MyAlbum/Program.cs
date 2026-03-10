@@ -18,10 +18,11 @@ namespace MyAlbum
             {
                 // Register the custom font resolver
                 GlobalFontSettings.FontResolver = new MyFontResolver();
-                //System.Diagnostics.Debug.WriteLine("FontResolver registered");
+
+                var options = ParseArgs(args);
 
                 Album album = new Album();
-                if (args[0] == "TEST")
+                if (options.ContainsKey("test"))
                 {
                     album.Test();
                     album.Save("test.pdf");
@@ -29,8 +30,18 @@ namespace MyAlbum
                     return;
                 }
 
-                String fileName = Path.Combine(Directory.GetCurrentDirectory(), args[0]);
-                string outputName = GetOutputName(fileName);
+                string inputFile = options.ContainsKey("input") ? options["input"] : null;
+                string outputFile = options.ContainsKey("output") ? options["output"] : null;
+                int? pageNumber = options.ContainsKey("page") && int.TryParse(options["page"], out var pn) ? pn : null;
+
+                if (string.IsNullOrEmpty(inputFile))
+                {
+                    Console.WriteLine("Error: --input <filename> is required.");
+                    return;
+                }
+
+                String fileName = Path.Combine(Directory.GetCurrentDirectory(), inputFile);
+                string outputName = outputFile ?? GetOutputName(fileName);
 
                 // 1. Load the album XML as XDocument to extract the styles reference
                 var albumDoc = System.Xml.Linq.XDocument.Load(fileName);
@@ -50,7 +61,20 @@ namespace MyAlbum
 
                 // Create, draw and save the Album
                 album.FromXml(xmlAlbum);
-                album.Draw();
+
+                // Determine pages to draw
+                string pageArg = options.ContainsKey("page") ? options["page"] : null;
+                List<int> pagesToDraw = ParsePageSelection(pageArg);//, maxPage);
+
+                if (pagesToDraw.Count == 0)
+                {
+                    album.Draw(); // fallback: draw all
+                }
+                else
+                {
+                    album.Draw(pagesToDraw);
+                }
+
                 album.Save(outputName);
 
                 // Open the PDF file
@@ -103,6 +127,78 @@ namespace MyAlbum
                 }
             }
             return outputName;
+        }
+        static Dictionary<string, string> ParseArgs(string[] args)
+        {
+            var options = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            for (int i = 0; i < args.Length; i++)
+            {
+                string key = null;
+                string value = null;
+
+                if (args[i].StartsWith("--"))
+                {
+                    key = args[i].TrimStart('-');
+                }
+                else if (args[i].StartsWith("-"))
+                {
+                    // Map short option to long key
+                    switch (args[i])
+                    {
+                        case "-i":
+                            key = "input";
+                            break;
+                        case "-o":
+                            key = "output";
+                            break;
+                        case "-p":
+                            key = "page";
+                            break;
+                        case "-t":
+                            key = "test";
+                            break;
+                    }
+                }
+                if (key != null)
+                { 
+                    // If next arg exists and is not another option, treat as value
+                    if (i + 1 < args.Length && !args[i + 1].StartsWith("-"))
+                    {
+                        value = args[i + 1];
+                        i++;
+                    }
+                    options[key] = value;
+                }
+            }
+            return options;
+        }
+        static List<int> ParsePageSelection(string pageArg)//, int maxPage)
+        {
+            List<int> result = new List<int>();
+            if (string.IsNullOrWhiteSpace(pageArg) || pageArg.Equals("all", StringComparison.OrdinalIgnoreCase))
+            {
+                return result;
+            }
+
+            string[] parts = pageArg.Split(',', StringSplitOptions.RemoveEmptyEntries);
+            foreach (string? part in parts)
+            {
+                string? trimmed = part.Trim();
+                if (trimmed.Contains('-'))
+                {
+                    string[] range = trimmed.Split('-', StringSplitOptions.RemoveEmptyEntries);
+                    if (range.Length == 2 && int.TryParse(range[0], out int start) && int.TryParse(range[1], out int end))
+                    {
+                        for (int i = start; i <= end; i++)
+                            result.Add(i);
+                    }
+                }
+                else if (int.TryParse(trimmed, out int page))
+                {
+                    result.Add(page);
+                }
+            }
+            return result.Distinct().OrderBy(x => x).ToList();
         }
     }
 

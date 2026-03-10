@@ -76,9 +76,16 @@ namespace MyAlbum.Models.Layout
 
                     case XmlRow xmlRow:
                         Row row = new Row();
-                        //row.Inherit(this);
+                        row.Inherit(this);
                         row.FromXml(xmlRow, styles);
                         this.Elements.Add(row);
+                        break;
+
+                    case XmlSpace xmlSpace:
+                        Space space= new Space();
+                        space.Inherit(this);
+                        space.FromXml(xmlSpace, styles);
+                        this.Elements.Add(space);
                         break;
 
                 }
@@ -96,11 +103,19 @@ namespace MyAlbum.Models.Layout
                         PageBorder.FromXml(xmlBorder, styles);
                         //this.Elements.Add(PageBorder);
                         break;
+
                     case XmlRow xmlRow:
                         Row row = new Row();
                         row.Inherit(this);
                         row.FromXml(xmlRow, styles);
                         this.Elements.Add(row);
+                        break;
+
+                    case XmlSpace xmlSpace:
+                        Space space = new Space();
+                        space.Inherit(this);
+                        space.FromXml(xmlSpace, styles);
+                        this.Elements.Add(space);
                         break;
                 }
             }
@@ -143,30 +158,41 @@ namespace MyAlbum.Models.Layout
 
             foreach (BaseElement element in Elements)
             {
-                element.CalculateSize(gfx, Canvas.W, Canvas.H);
 
                 if (element is Row row)
                 {
+                    row.CalculateSize(gfx, Canvas.W, Canvas.H);
+
                     // If a row is added to the page, re-adjust the remaining canvas area
                     if (row.Rotate)
                     {
-                        element.X = Canvas.Y;
-                        element.Y = Canvas.X;
+                        row.X = Canvas.Y;
+                        row.Y = Canvas.X;
                         
                         Canvas.X = Canvas.X;           // no change here
                         Canvas.W -= row.H + VSpace;    // shrink the width
                     }
                     else
                     {
-                        element.X = Canvas.X;
-                        element.Y = Canvas.Y;
+                        row.X = Canvas.X;
+                        row.Y = Canvas.Y;
                         
                         Canvas.Y += row.H + VSpace;
                         Canvas.H -= row.H + VSpace;
                     }
+                    row.CalculateInnerPositions();
                 }
 
-                element.CalculateInnerPositions();
+                if (element is Space space)
+                {
+                    space.CalculateSize(gfx, Canvas.W, XUnit.Zero);
+
+                    space.X = Canvas.X;
+                    space.Y = Canvas.Y;
+                    Canvas.Y += space.H;
+                    Canvas.H -= space.H;
+                }
+
             }
 
         }

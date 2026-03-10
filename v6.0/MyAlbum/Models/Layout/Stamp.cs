@@ -178,6 +178,7 @@ namespace MyAlbum.Models.Layout
             Title.X = X + (W - Title.W) / 2;
             Title.Y = Y;
             #endregion
+
             #region frame
             // frame is under the title and starts from the left edge of the stamp
             Frame.X = X;
@@ -210,29 +211,35 @@ namespace MyAlbum.Models.Layout
 
             //inside height
             XUnit h = XUnit.Zero;
-            h = (string.IsNullOrEmpty(I1.Value) ? XUnit.Zero : (I1.H + VSpace))
-                + (string.IsNullOrEmpty(I2.Value) ? XUnit.Zero : (I2.H + VSpace))
-                + (string.IsNullOrEmpty(I3.Value) ? XUnit.Zero : (I3.H + VSpace));
-            
-            if (h > XUnit.Zero)
-                h -= VSpace; // remove the last VSpace
+            //h = (string.IsNullOrEmpty(I1.Value) ? XUnit.Zero : (I1.H + VSpace))
+            //    + (string.IsNullOrEmpty(I2.Value) ? XUnit.Zero : (I2.H + VSpace))
+            //    + (string.IsNullOrEmpty(I3.Value) ? XUnit.Zero : (I3.H + VSpace));
+            h = (string.IsNullOrEmpty(I1.Value) ? XUnit.Zero : (I1.H))
+                + (string.IsNullOrEmpty(I2.Value) ? XUnit.Zero : (I2.H))
+                + (string.IsNullOrEmpty(I3.Value) ? XUnit.Zero : (I3.H));
+
+            //if (h > XUnit.Zero)
+            //    h -= VSpace; // remove the last VSpace
 
             XUnit yPos = Frame.Y + (Frame.H - h) / 2;
             if (!string.IsNullOrEmpty(I1.Value))
             {
                 I1.Y = yPos;
-                yPos += I1.H + VSpace;
+                //yPos += I1.H + VSpace;
+                yPos += I1.H;
             }
             if (!string.IsNullOrEmpty(I2.Value))
             {
                 I2.Y = yPos;
-                yPos += I2.H + VSpace;
+                //yPos += I2.H + VSpace;
+                yPos += I2.H;
             }
             if (!string.IsNullOrEmpty(I3.Value))
             {
                 I3.Y = yPos;
             }
             #endregion
+
             #region footer
             // footer is always at the bottom 
             F1.X = F1.Align switch
@@ -279,6 +286,8 @@ namespace MyAlbum.Models.Layout
             Frame.Draw(gfx);
             Title.Draw(gfx);
             // TODO: Image.Draw(gfx);
+            //I1.Value = this.Y.Millimeter.ToString("F2") + " mm";
+            //I1.CalculateSize(gfx, 0.9 * Width, XUnit.Zero);
             I1.Draw(gfx);
             I2.Draw(gfx);
             I3.Draw(gfx);

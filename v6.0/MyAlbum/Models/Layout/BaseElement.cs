@@ -34,17 +34,7 @@ namespace MyAlbum.Models.Layout
         public VerticalAlignment VAlign { get; set; }
         public  XUnit VSpace { get; set; }
         public bool Rotate { get; set; }
-
-        #region TestAndDebug
-        //public XColor PageCanvasColor => XColors.Bisque;
-        //public XColor EmptyRowColor => XColors.MistyRose;
-        //public XColor TextBgColor => XColors.Aqua;
-        //public XColor ColumnBgColor => XColors.Brown;
-        //public XColor ImageBgColor => XColors.Plum;
-        //public XColor StampBgColor => XColors.LightSkyBlue;
-        //public XColor StampBorderColor => XColors.DeepSkyBlue;
         public int PageNumber { get; set; }
-        #endregion
 
         protected BaseElement()
         {
@@ -121,8 +111,6 @@ namespace MyAlbum.Models.Layout
                 }
             }
             return (marginTop, marginRight, marginBottom, marginLeft);
-
-
         }
         internal (XUnit paddingTop, XUnit paddingRight, XUnit paddingBottom, XUnit paddingLeft) ParsePadding(string padding)
         {
@@ -199,6 +187,10 @@ namespace MyAlbum.Models.Layout
         {
             return Enum.TryParse(value, true, out VerticalAlignment align) ? align : VerticalAlignment.Top;
         }
+        internal SpacingMode ParseSpacingMode(string value)
+        {
+            return Enum.TryParse(value, true, out SpacingMode spacingMode) ? spacingMode : SpacingMode.FS;
+        }
 
         #region helper and debug functions
         internal virtual XColor GetDebugColor()
@@ -211,6 +203,12 @@ namespace MyAlbum.Models.Layout
     }
     public class Rect
     {
+        public Rect()
+        { }
+        public Rect(XUnit x, XUnit y, XUnit w, XUnit h)
+        {
+            X = x; Y = y; W = w; H = h;        
+        }
         public XUnit X { get; set; }
         public XUnit Y { get; set; }
         public XUnit W { get; set; }

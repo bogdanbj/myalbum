@@ -40,9 +40,17 @@ namespace MyAlbum.Models.Layout
             Align = ParseAlignment(xmlRow.Align ?? style.Align ?? "left");
             VAlign = ParseVerticalAlignment(xmlRow.VAlign ?? style.VAlign ?? "top");
             Space = ParseXUnit(xmlRow.Space ?? style.Space ?? $"{Space.Millimeter} mm");
+            Spacing = ParseSpacingMode(xmlRow.SpacingMode ?? style.SpacingMode ?? "FS");
             Rotate = xmlRow.Rotate || style.Rotate;
 
-            H = XUnit.FromMillimeter(xmlRow.Height > 0 ? xmlRow.Height : style.Height > 0 ? style.Height : H.Millimeter);
+            H = XUnit.FromMillimeter(xmlRow.Height != 0 ? xmlRow.Height : style.Height > 0 ? style.Height : H.Millimeter);
+            //H = XUnit.FromMillimeter(
+            //        xmlRow.Height.HasValue
+            //            ? xmlRow.Height.Value
+            //            : style.Height.HasValue
+            //                ? style.Height.Value
+            //                : H.Millimeter
+            //    );
 
 
 
@@ -206,7 +214,7 @@ namespace MyAlbum.Models.Layout
         {
             X += MarginLeft;
 
-            // Align the elements vertically
+            #region Vertical Alignment
             foreach (BaseElement element in Elements)
             {
                 switch (VAlign)
@@ -224,6 +232,7 @@ namespace MyAlbum.Models.Layout
                         break;
                 }
             }
+            #endregion
 
             #region Horizontal Alignment
             XUnit xPos;//, yPos;
@@ -319,136 +328,6 @@ namespace MyAlbum.Models.Layout
             }
             #endregion
 
-
-
-            #region horizontal alignment
-            //XUnit xPos, yPos;
-            //XUnit width = XUnit.Zero;
-            //int elementCount = 0;
-
-            //switch (Spacing)
-            //{
-            //    case SpacingMode.FS:
-            //        foreach (BaseElement element in Elements)
-            //        {
-            //            //if (element.Absolute == false)
-            //            //{
-            //            width += element.W;
-            //            elementCount++;
-            //            //}
-            //        }
-
-            //        width += (elementCount - 1) * Space;
-
-            //        xPos = this.X + (W - width) / 2;
-
-            //        foreach (BaseElement element in Elements)
-            //        {
-            //            //if (element.Absolute == false)
-            //            //{
-            //            element.X = xPos;
-            //            xPos += element.W + Space;
-            //            //}
-            //        }
-            //        break;
-            //    case SpacingMode.ES:
-            //        foreach (BaseElement element in Elements)
-            //        {
-            //            //if (element.Absolute == false)
-            //            //{
-            //            width += element.W;
-            //            elementCount++;
-            //            //}
-            //        }
-
-            //        Space = (W - width) / (elementCount + 1);
-
-            //        xPos = X + Space;
-
-            //        foreach (BaseElement element in Elements)
-            //        {
-            //            //if (element.Absolute == false)
-            //            //{
-            //            element.X = xPos;
-            //            xPos += element.W + Space;
-            //            //}
-            //        }
-            //        break;
-            //    case SpacingMode.JS:
-            //        if (Elements.Count == 1)
-            //        {
-            //            //if (Elements[0].Absolute == false)
-            //            //{
-            //            Elements[0].X = X + (W - Elements[0].W) / 2;
-            //            //}
-            //        }
-            //        else
-            //        {
-            //            foreach (BaseElement element in Elements)
-            //            {
-            //                //if (element.Absolute == false)
-            //                //{
-            //                width += element.W;
-            //                elementCount++;
-            //                //}
-            //            }
-
-            //            Space = (W - width) / (elementCount - 1);
-
-            //            xPos = X + Space;
-
-            //            foreach (BaseElement element in Elements)
-            //            {
-            //                //if (element.Absolute == false)
-            //                //{
-            //                element.X = xPos;
-            //                xPos += element.W + Space;
-            //                //}
-            //            }
-            //        }
-            //        break;
-            //    default:
-            //        break;
-            //}
-            #endregion
-
-            //yPos = this.Y + this.MarginTop;
-            //foreach (BaseElement element in Elements)
-            //{
-            //    //if (element.Absolute == false)
-            //    //{
-            //    switch (this.VAlign)
-            //    {
-            //        case VerticalAlignment.Top:
-            //            element.Y = yPos + this.TopAlign - element.TopAlign;
-            //            break;
-            //        case VerticalAlignment.Middle:
-            //            element.Y = yPos + this.MiddleAlign - element.MiddleAlign;
-            //            break;
-            //        case VerticalAlignment.Bottom:
-            //            element.Y = yPos + this.BottomAlign - element.BottomAlign;
-            //            break;
-            //    }
-            //    //}
-            //    //else
-            //    //{
-            //    if (Rotate)
-            //    {
-            //        //PdfSharp.Pdf.PdfPage page = element.GetPage();
-            //        //Page page = element.GetPage();
-            //        element.X += (W - H) / 2;
-            //        element.Y += (H - W) / 2;
-            //        //element.X += (page.Width - page.Height) / 2;
-            //        //element.y += (page.Height - page.Width) / 2;
-            //    }
-            //    //}
-            //    try
-            //    {
-            //        element.Draw(gfx);
-            //    }
-            //    catch { continue; }
-            //}
-
             //draw the elements
             foreach (BaseElement element in Elements)
             {
@@ -461,162 +340,6 @@ namespace MyAlbum.Models.Layout
                     continue;
                 }
             }
-
-            //if (Rotate)
-            //{
-            //    //row.Y = yPosRotate;
-            //    //row.Draw();
-            //    //yPosRotate += row.h + VSpace;
-            //    //this.w = this.w - row.h;
-            //    gfx.TranslateTransform(W / 2, H / 2);
-            //    gfx.RotateTransform(-90);
-            //    gfx.TranslateTransform(-H / 2, -W / 2);
-            //}
-
-
         }
-        //public override void Draw()
-        //{
-        //    //XSolidBrush brush;
-
-        //    #region horizontal alignment
-        //    //if (Rotate.ToLower() == "true")
-        //    //{
-        //    //    x = Parent.x + (Parent.w - Parent.h) / 2 + this.MarginLeft;
-        //    //    w = Parent.h - (this.MarginLeft + this.MarginRight);
-
-        //    //}
-        //    //else
-        //    //{
-        //    //    x = Parent.x + this.MarginLeft;
-        //    //    w = Parent.w - (this.MarginLeft + this.MarginRight);
-        //    //}
-
-        //    //brush = new XSolidBrush(XColors.MediumSlateBlue);
-        //    //gfx.DrawRectangle(brush, x, y, w, h);
-
-        //    //XUnitPt xPos, yPos;
-        //    //XUnitPt width = XUnitPt.Zero;
-        //    //int elementCount = 0;
-        //    //switch (Spacing)
-        //    //{
-        //    //    case Styles.SpacingModes.FS:
-        //    //        foreach (BaseElement element in Elements)
-        //    //        {
-        //    //            if (element.Absolute == false)
-        //    //            {
-        //    //                width += element.w;
-        //    //                elementCount++;
-        //    //            }
-        //    //        }
-
-        //    //        width += (elementCount - 1) * Space;
-
-        //    //        xPos = this.x + (w - width) / 2;
-
-        //    //        foreach (BaseElement element in Elements)
-        //    //        {
-        //    //            if (element.Absolute == false)
-        //    //            {
-        //    //                element.x = xPos;
-        //    //                xPos += element.w + Space;
-        //    //            }
-        //    //        }
-        //    //        break;
-        //    //    case Styles.SpacingModes.ES:
-        //    //        foreach (BaseElement element in Elements)
-        //    //        {
-        //    //            if (element.Absolute == false)
-        //    //            {
-        //    //                width += element.w;
-        //    //                elementCount++;
-        //    //            }
-        //    //        }
-
-        //    //        Space = (w - width) / (elementCount + 1);
-
-        //    //        xPos = x + Space;
-
-        //    //        foreach (BaseElement element in Elements)
-        //    //        {
-        //    //            if (element.Absolute == false)
-        //    //            {
-        //    //                element.x = xPos;
-        //    //                xPos += element.w + Space;
-        //    //            }
-        //    //        }
-        //    //        break;
-        //    //    case Styles.SpacingModes.JS:
-        //    //        if (Elements.Count == 1)
-        //    //        {
-        //    //            if (Elements[0].Absolute == false)
-        //    //            {
-        //    //                Elements[0].x = x + (w - Elements[0].w) / 2;
-        //    //            }
-        //    //        }
-        //    //        else
-        //    //        {
-        //    //            foreach (BaseElement element in Elements)
-        //    //            {
-        //    //                if (element.Absolute == false)
-        //    //                {
-        //    //                    width += element.w;
-        //    //                    elementCount++;
-        //    //                }
-        //    //            }
-
-        //    //            Space = (w - width) / (elementCount - 1);
-
-        //    //            xPos = x + Space;
-
-        //    //            foreach (BaseElement element in Elements)
-        //    //            {
-        //    //                if (element.Absolute == false)
-        //    //                {
-        //    //                    element.x = xPos;
-        //    //                    xPos += element.w + Space;
-        //    //                }
-        //    //            }
-        //    //        }
-        //    //        break;
-        //    //    default:
-        //    //        break;
-        //    //}
-        //    #endregion
-        //    DrawBackground();
-        //    //DrawBox();
-        //    yPos = this.y + this.MarginTop;
-        //    foreach (BaseElement element in Elements)
-        //    {
-        //        if (element.Absolute == false)
-        //        {
-        //            switch (this.VAlign)
-        //            {
-        //                case Styles.VerticalAlignments.Top:
-        //                    element.y = yPos + this.TopAlign - element.TopAlign;
-        //                    break;
-        //                case Styles.VerticalAlignments.Center:
-        //                    element.y = yPos + this.MiddleAlign - element.MiddleAlign;
-        //                    break;
-        //                case Styles.VerticalAlignments.Bottom:
-        //                    element.y = yPos + this.BottomAlign - element.BottomAlign;
-        //                    break;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            if (this.Rotate.ToLower() == "true")
-        //            {
-        //                //PdfSharp.Pdf.PdfPage page = element.GetPage();
-        //                Page page = element.GetPage();
-        //                element.x += (page.Width - page.Height) / 2;
-        //                element.y += (page.Height - page.Width) / 2;
-        //            }
-        //        }
-        //        element.Draw();
-        //    }
-
-        //}
-
     }
 }

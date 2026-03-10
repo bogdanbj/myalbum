@@ -1,26 +1,26 @@
-﻿<MyAlbum ver="3.0"  styles="Canada.styles">
+﻿<MyAlbum ver="3.0"  styles="Canada_v1.styles">
 
-  <page no="1" style="cover" title="Cover" />
-  <page no="2" title="1851 - 1893" />
+  <page no="1" title="QV Diamond Jubilee Issue">
+    <row height="10" />
 
-  <page no="3" title="QV Diamond Jubilee Issue">
     <row>
-      <text style="date">1897</text>
+      <column width="150">
+        <text style="headline">QUEEN VICTORIA JUBILEE ISSUE</text>
+        <text style="date">1897</text>
+      </column>
     </row>
 
-    <space height="5" />
-    <row>
-      <text style="headline">60th year of Queen Victoria’s reign</text>
-    </row>
-
-    <row>
-      <stamp width="34" height="25" title="" image="" i1="1/2c" i2="black" i3="S 50" f1="" f2="QUEEN VICTORIA &quot;1837&quot; and &quot;1867&quot;" f3="" />
+    <row height="10" />
+    <row valign="top">
+      <column width="42">
+        <stamp width="34" height="25" title="" image="" i1="1/2c" i2="black" i3="S 50" f1="" f2="" f3="" />
+        <text style="footer_center" font_size="8">Queen Victoria in 1837 and 1867</text>
+      </column>
       <stamp width="34" height="25" title="" image="" i1="1c" i2="orange" i3="S 51" f1="" f2="" f3="" />
       <stamp width="34" height="25" title="" image="" i1="2c" i2="green" i3="S 52" f1="" f2="" f3="" />
       <stamp width="34" height="25" title="" image="" i1="3c" i2="bright rose" i3="S 53" f1="" f2="" f3="" />
     </row>
 
-    <!--space height="-2" /-->
     <row>
       <stamp width="34" height="25" title="" image="" i1="5c" i2="deep blue" i3="S 54" f1="" f2="" f3="" />
       <stamp width="34" height="25" title="" image="" i1="6c" i2="yellow brown" i3="S 55" f1="" f2="" f3="" />
@@ -28,7 +28,7 @@
       <stamp width="34" height="25" title="" image="" i1="10c" i2="brown violet" i3="S 57" f1="" f2="" f3="" />
     </row>
 
-    <space height="5" />
+    <row height="5" />
     <row>
       <stamp width="34" height="25" title="" image="" i1="15c" i2="steel blue" i3="S 58" f1="" f2="" f3="" />
       <stamp width="34" height="25" title="" image="" i1="20c" i2="vermilion" i3="S 59" f1="" f2="" f3="" />
@@ -36,7 +36,7 @@
       <stamp width="34" height="25" title="" image="" i1="$1" i2="lake" i3="S 61" f1="" f2="" f3="" />
     </row>
 
-    <space height="5" />
+    <row height="5" />
     <row>
       <stamp width="34" height="25" title="" image="" i1="$2" i2="dark purple" i3="S 62" f1="" f2="" f3="" />
       <stamp width="34" height="25" title="" image="" i1="$3" i2="yellow bistre" i3="S 63" f1="" f2="" f3="" />
@@ -44,159 +44,205 @@
       <stamp width="34" height="25" title="" image="" i1="$5" i2="olive green" i3="S 65" f1="" f2="" f3="" />
     </row>
 
-    <row height="15" />
+    <row height="10" />
     <row>
-      <text style="date">1898</text>
-    </row>
-    
-    <space height="5" />
-    <row valign="top" space="25">
-      <column width="90">
-        <row valign="center">
-          <text style="headline">Imperial Penny Postage</text>
-        </row>
-
-        <row>
-          <stamp width="35" height="26" title="" image="" i1="2c" i2="black, lavender, carmine" i3="S 85" f1="" f2="MAP OF BRITISH EMPIRE ON\nMERCATOR PROJECTION" f3="" />
-          <stamp width="35" height="26" title="" image="" i1="2c" i2="black, blue, carmine" i3="S 86" f1="" f2="" f3="" />
-        </row>
-      </column>
-
-      <column width="41">
-        <row valign="center">
-          <text style="headline" width="80">Special Delivery</text>
-        </row>
-        <row>
-          <stamp width="35" height="26" title="" image="" i1="10c" i2="green" i3="S E1" f1="" f2="" f3="" />
-        </row>
-      </column>
+        <text style="story" width="150">This issue honors the sixtieth year of reign for Alexandria Victoria, Queen of the United Empire of Great Britain and Ireland, empress of India. She acceded to the trone in 1827 and brought with her an era rich in Empire history. She was honest, devoted to her duty and a shining example of a happy family life. Her reign was longer than those of any of her predecessors in British History.</text>
     </row>
   </page>
 
-  <page no="4" title="QV Leaf &amp; Numeral Issue">
-    <row>
-      <text style="date">1897-98</text>
-    </row>
+  <page no="2" title="QV Leaf Issue">
+    <row height="10" />
 
-    <space height="8" />
+    <row valign="center">
+      <column width="150">
+        <text style="headline">QUEEN VICTORIA "MAPLE LEAF" ISSUE</text>
+        <text style="date">1897</text>
+      </column>
+    </row>
+    
+    <row height="10" />
     <row>
-      <stamp width="21" height="25" title="" image="" i1="1/2c" i2="black" i3="S 66" f1="" f2="QUEEN VICTORIA" f3="" />
+      <stamp width="21" height="25" title="" image="" i1="1/2c" i2="black" i3="S 66" f1="" f2="Queen Victoria" f3="" />
       <stamp width="21" height="25" title="" image="" i1="1c" i2="blue green" i3="S 67" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="2c" i2="purple" i3="S 68" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="3c" i2="carmine" i3="S 69" f1="" f2="" f3="" />
-      <stamp width="21" height="25" title="" image="" i1="5c" i2="dark blue" i3="S 70" f1="" f2="" f3="" />
     </row>
 
     <row>
+      <stamp width="21" height="25" title="" image="" i1="5c" i2="dark blue" i3="S 70" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="6c" i2="brown" i3="S 71" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="8c" i2="orange" i3="S 72" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="10c" i2="brown violet" i3="S 73" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="2c/3c" i2="carmine, surcharged" i3="S 87" f1="" f2="" f3="" />
     </row>
 
-    <space height="15" />
+    <row height="10" />
     <row>
-      <text style="date">1898-02</text>
+      <text style="story" width="150">The change of contract for the production of stamped postal supplies caused a need for new, regular postage stamps. The new contractors started work on them as soon as they finished the Diamond Jubilee Issue. As a model to work from, the engravers used a photographic portrait of Her Majesty taken at the time of her Diamond Jubilee, and approved and signed by her. Realistic maple leafs decorated all four corners of the stamps. For this reason, stamp collectors refer to them as the Maple Leaves Issue.</text>
     </row>
+  </page>
 
-    <space height="8" />
+  <page no="4" title="QV Numneral Issue">
+    <row height="10" />
+
+    <row valign="center">
+      <column width="150">
+        <text style="headline">QUEEN VICTORIA "NUMERAL" ISSUE</text>
+        <text style="date">1898 - 1902</text>
+      </column>
+    </row>
+    
+    <row height="10" />
     <row>
-      <stamp width="21" height="25" title="" image="" i1="1/2c" i2="black" i3="S 74" f1="" f2="" f3="" />
+      <stamp width="21" height="25" title="" image="" i1="1/2c" i2="black" i3="S 74" f1="" f2="Queen Victoria" f3="" />
       <stamp width="21" height="25" title="" image="" i1="1c" i2="gray green" i3="S 75" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="2c" i2="purple" i3="S 76" f1="" f2="" f3="" />
+    </row>
+
+    <row>
       <stamp width="21" height="25" title="" image="" i1="2c" i2="carmine" i3="S 77" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="3c" i2="carmine" i3="S 78" f1="" f2="" f3="" />
-    </row>
-
-    <space height="5" />
-    <row>
       <stamp width="21" height="25" title="" image="" i1="5c" i2="blue" i3="S 79" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="6c" i2="brown" i3="S 80" f1="" f2="" f3="" />
-      <stamp width="21" height="25" title="" image="" i1="7c" i2="olive yellow" i3="S 81" f1="" f2="" f3="" />
-      <stamp width="21" height="25" title="" image="" i1="8c" i2="orange" i3="S 82" f1="" f2="" f3="" />
     </row>
 
-    <space height="5" />
+    <row height="6" />
     <row>
+      <stamp width="21" height="25" title="" image="" i1="7c" i2="olive yellow" i3="S 81" f1="" f2="" f3="" />
+      <stamp width="21" height="25" title="" image="" i1="8c" i2="orange" i3="S 82" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="10c" i2="brown violet" i3="S 83" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="20c" i2="olive green" i3="S 84" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="2c/3c" i2="carmine, surcharged" i3="S 88" f1="" f2="" f3="" />
     </row>
+    
+    <row height="10" />
+    <row>
+      <text style="story" width="150">The decorative and symbolic use of the maple leaves on the Diamond Jubilee commemorative and the regular issues of 1897 met with instant public approval. But the designers of the Maple Leaves issue failed to give sufficient prominence to the denominations in words rather than figures. As a result, the public was not able to distinguish the face values quickly. The Post Office Department accordingly modified the design and prepared a new issue of postage stamps.</text>
+    </row>
   </page>
 
-  <page no="5" title="King Edward VII &amp; Quebec Tercentenary">
-    <row>
-      <text style="date">1903-08</text>
+  <page no="5" title="Imperial Penny Postage &amp; King Edward VII">
+    <row height="10" />
+
+    <row valign="top" space="25">
+      <column width="90">
+        <row valign="center" space="4">
+          <column>
+            <text style="headline">IMPERIAL PENNY POSTAGE</text>
+            <text style="date">1898</text>
+          </column>
+        </row>
+        
+        <row height="5" />
+        <row space="8">
+          <stamp width="35" height="26" title="" image="" i1="2c" i2="black, lavender, carmine" i3="S 85" f1="" f2="" f3="" />
+          <stamp width="35" height="26" title="" image="" i1="2c" i2="black, blue, carmine" i3="S 86" f1="" f2="" f3="" />
+        </row>
+        <row height="0" />
+        <row>
+          <text style="story" width="90">"We Hold a Vaster Empire Than Has Been" is inscribed on these stamps to commemorate the London Conference on Christmas Day, establishing the one penny rate for all the British Empire.</text>
+        </row>
+      </column>
+      
+      <column width="41">
+        <row valign="center" space="4">
+          <column>
+            <text style="headline" width="80">SPECIAL DELIVERY ISSUE</text>
+            <text style="date">1898</text>
+          </column>
+        </row>
+        <row height="5" />
+        <row>
+          <stamp width="35" height="26" title="" image="" i1="10c" i2="green" i3="S E1" f1="" f2="" f3="" />
+        </row>
+      </column>
+    </row>
+    
+    <row height="20" />
+    <row valign="center">
+      <column width="150">
+        <text style="headline">KING EDWARD VII</text>
+        <text style="date">1903 - 1908</text>
+      </column>
     </row>
 
-    <space height="5" />
+    <row height="5" />
     <row>
-      <stamp width="20" height="25" title="" image="" i1="1c" i2="green" i3="S 89" f1="" f2="KING EDWARD VII" f3="" />
+      <stamp width="20" height="25" title="" image="" i1="1c" i2="green" i3="S 89" f1="" f2="King Edward VII" f3="" />
       <stamp width="20" height="25" title="" image="" i1="2c" i2="carmine" i3="S 90" f1="" f2="" f3="" />
       <stamp width="20" height="25" title="" image="" i1="5c" i2="blue" i3="S 91" f1="" f2="" f3="" />
       <stamp width="20" height="25" title="" image="" i1="7c" i2="olive bistre" i3="S 92" f1="" f2="" f3="" />
-      <stamp width="20" height="25" title="" image="" i1="10c" i2="brown lilac" i3="S 93" f1="" f2="" f3="" />
     </row>
-
-    <space height="-2" />
+    <row height="-5" />
     <row>
+      <stamp width="20" height="25" title="" image="" i1="10c" i2="brown lilac" i3="S 93" f1="" f2="" f3="" />
       <stamp width="20" height="25" title="" image="" i1="20c" i2="olove green" i3="S 94" f1="" f2="" f3="" />
       <stamp width="20" height="25" title="" image="" i1="50c" i2="purple" i3="S 95" f1="" f2="" f3="" />
       <stamp width="42" height="25" title="Imperforated" image="" i1="2c" i2="carmine, imperforated, pair" i3="S 90A" f1="" f2="" f3="" />
     </row>
-
-    <space height="13" />
+    
+    <row height="5" />
     <row>
-      <text style="date">1908</text>
+      <text style="story" width="150">Following the death of Queen Victoria, King Edward VII ascended to the trone of Great Britain. This set issued in 1903, bears the likeliness of the new King and was the only regular postage issue of Canada to honor him. The crown in the upper left and right corners of the design, was introduced for the first time on the regular issue of Canadian postage stamps, and served a decorative and symbolic purpose.</text>
     </row>
-
-    <space height="3"/>
-    <row>
-      <text style="headline">Quebec Tercentenary</text>
-    </row>
-
-    <row space="2">
-      <column width="43">
-        <stamp width="37" height="26" title="" image="" i1="1/2c" i2="black brown" i3="S 96" f1="" f2="" f3="" />
-        <text style="footer" align="center">PRINCE AND PRINCESS OF WALES</text>
-      </column>
-      <column width="51">
-        <stamp width="37" height="26" title="" image="" i1="1c" i2="blue green" i3="S 97" f1="" f2="" f3="" />
-        <text style="footer" align="center">JACQUES CARTIER AND SAMUEL DE CHAMPLAIN</text>
-      </column>
-      <column width="43">
-        <stamp width="37" height="26" title="" image="" i1="2c" i2="carmine" i3="S 98" f1="" f2="" f3="" />
-        <text style="footer" align="center">QUEEN ALEXANDRA AND KING EDWARD</text>
-      </column>
-    </row>
-
-    <row space="6">
-      <stamp width="37" height="26" title="" image="" i1="5c" i2="daark blue" i3="S 99" f1="" f2="CHAMPLAIN’S HOME IN QUEBEC" f3="" />
-      <stamp width="37" height="26" title="" image="" i1="7c" i2="olive green" i3="S 100" f1="" f2="GENERALS MONTCALM AND WOLFE" f3="" />
-    </row>
-
-    <row space="6">
-      <stamp width="37" height="26" title="" image="" i1="10c" i2="dark violet" i3="S 101" f1="" f2="VIEW OF QUEBEC IN 1700" f3="" />
-      <stamp width="37" height="26" title="" image="" i1="15c" i2="red orange" i3="S 102" f1="" f2="CHAMPLAIN’S DEPARTURE FOR WEST" f3="" />
-      <stamp width="37" height="26" title="" image="" i1="20c" i2="yellow brown" i3="S 103" f1="" f2="ARRIVAL OF CARTIER AT QUEBEC" f3="" />
-    </row>
-
   </page>
 
-  <page no="6" title="KGV Admiral Issue">
+  <page no="6" title="Quebec Tercentenary Issue">
+    <row height="10" />
+
     <row>
-      <text style="date">1911-25</text>
+      <column width="150">
+        <text style="headline">QUEBEC TERCENTENARY ISSUE</text>
+        <text style="date">1908</text>
+      </column>
     </row>
 
-    <space height="15" />
+    <row height="10" />
+    <row space="8">
+      <stamp width="37" height="26" title="" image="" i1="1/2c" i2="black brown" i3="S 96" f1="" f2="Prince and Princess of Wales" f3="" />
+      <stamp width="37" height="26" title="" image="" i1="1c" i2="blue green" i3="S 97" f1="" f2="Jacques Cartier and Samuel de Champlain" f3="" />
+      <stamp width="37" height="26" title="" image="" i1="2c" i2="carmine" i3="S 98" f1="" f2="Queen Alexandra and King Edward" f3="" />
+    </row>
+
+    <row height="5" />
+    <row space="8">
+      <stamp width="37" height="26" title="" image="" i1="5c" i2="daark blue" i3="S 99" f1="" f2="Champlain’s Home in Quebec" f3="" />
+      <stamp width="37" height="26" title="" image="" i1="7c" i2="olive green" i3="S 100" f1="" f2="Generals Montcalm and Wolfe" f3="" />
+    </row>
+
+    <row height="5" />
+    <row space="8">
+      <stamp width="37" height="26" title="" image="" i1="10c" i2="dark violet" i3="S 101" f1="" f2="View of Quebec in 1700" f3="" />
+      <stamp width="37" height="26" title="" image="" i1="15c" i2="red orange" i3="S 102" f1="" f2="Champlain’s Departure for West" f3="" />
+      <stamp width="37" height="26" title="" image="" i1="20c" i2="yellow brown" i3="S 103" f1="" f2="Arrival of Cartier at Quebec" f3="" />
+    </row>
+
+    <row height="5" />
     <row>
-      <stamp width="21" height="25" title="" image="" i1="1c" i2="green" i3="S 104" f1="" f2="KING GEORGE V" f3="" />
+      <text style="story" width="150">Quebec, Capital of the Province of Quebec was originally an Indian village called Stadacona and discovered in 1535 by French explorer Jacques Cartier. The present city is founded in 1608 by the French explorer and navigator Samuel de Champlain. Champlain and his crew built a wooden fort which they called "l'habitation" within only a few days of their arrival. This early fort and trading post exists today as a historic site in Old Quebec.</text>
+    </row>
+  </page>
+
+  <page no="7" title="KGV Admiral Issue">
+    <row height="10" />
+
+    <row>
+      <column width="150">
+        <text style="headline">KING GEORGE V "ADMIRAL" ISSUE</text>
+        <text style="date">1911 - 1925</text>
+      </column>
+    </row>
+
+    <row height="5" />
+    <row>
+      <stamp width="21" height="25" title="" image="" i1="1c" i2="green" i3="S 104" f1="" f2="King George V" f3="" />
       <stamp width="21" height="25" title="" image="" i1="1c" i2="orange yellow" i3="S 105" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="2c" i2="carmine" i3="S 106" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="2c" i2="green" i3="S 107" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="3c" i2="brown" i3="S 108" f1="" f2="" f3="" />
     </row>
 
+    <row height="-1"/>
     <row>
       <stamp width="21" height="25" title="" image="" i1="3c" i2="carmine" i3="S 109" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="4c" i2="olive bistre" i3="S 110" f1="" f2="" f3="" />
@@ -204,8 +250,8 @@
       <stamp width="21" height="25" title="" image="" i1="5c" i2="violet" i3="S 112" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="7c" i2="yellow ochre" i3="S 113" f1="" f2="" f3="" />
     </row>
-
-    <space height="5" />
+    
+    <row height="5" />
     <row>
       <stamp width="21" height="25" title="" image="" i1="7c" i2="red brown" i3="S 114" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="8c" i2="blue" i3="S 115" f1="" f2="" f3="" />
@@ -213,8 +259,8 @@
       <stamp width="21" height="25" title="" image="" i1="10c" i2="blue" i3="S 117" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="10c" i2="bistre brown" i3="S 118" f1="" f2="" f3="" />
     </row>
-
-    <space height="5" />
+    
+    <row height="5" />
     <row>
       <stamp width="21" height="25" title="" image="" i1="20c" i2="olive green" i3="S 119" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="50c" i2="black brown" i3="S 120" f1="" f2="" f3="" />
@@ -223,12 +269,9 @@
       <stamp width="21" height="25" title="" image="" i1="2c/3c" i2="carmine" i3="S 140" f1="" f2="" f3="" />
     </row>
 
-    <space height="5" />
+    <row height="1" />
     <row>
-      <column>
-        <text style="headline">Perforated 12x8</text>
-        <stamp width="20" height="25" title="" image="" i1="3c" i2="carmine" i3="S 184" f1="" f2="" f3="" />
-      </column>
+			<stamp width="20" height="25" title="Perforated 12x8" image="" i1="3c" i2="carmine" i3="S 184" f1="" f2="" f3="" />
     </row>
   </page>
 
