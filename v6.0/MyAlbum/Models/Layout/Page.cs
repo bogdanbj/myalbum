@@ -82,10 +82,17 @@ namespace MyAlbum.Models.Layout
                         break;
 
                     case XmlSpace xmlSpace:
-                        Space space= new Space();
+                        Space space = new Space();
                         space.Inherit(this);
                         space.FromXml(xmlSpace, styles);
                         this.Elements.Add(space);
+                        break;
+
+                    case XmlText xmlText:
+                        Text text = new Text();
+                        text.Inherit(this);
+                        text.FromXml(xmlText, styles);
+                        this.Elements.Add(text);
                         break;
 
                 }
@@ -116,6 +123,13 @@ namespace MyAlbum.Models.Layout
                         space.Inherit(this);
                         space.FromXml(xmlSpace, styles);
                         this.Elements.Add(space);
+                        break;
+
+                    case XmlText xmlText:
+                        Text text = new Text();
+                        text.Inherit(this);
+                        text.FromXml(xmlText, styles);
+                        this.Elements.Add(text);
                         break;
                 }
             }
@@ -191,6 +205,16 @@ namespace MyAlbum.Models.Layout
                     space.Y = Canvas.Y;
                     Canvas.Y += space.H;
                     Canvas.H -= space.H;
+                }
+
+                if (element is Text text)
+                {
+                    text.CalculateSize(gfx, Canvas.W, XUnit.Zero);
+
+                    text.X = Canvas.X;
+                    text.Y = Canvas.Y;
+                    Canvas.Y += text.H + VSpace;
+                    Canvas.H -= text.H + VSpace;
                 }
 
             }

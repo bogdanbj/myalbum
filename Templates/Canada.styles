@@ -52,10 +52,11 @@
 		-->
     <text style="text_default" default="true" align="left" font_name="Century Gothic" font_size="8" font_style="regular" />
     <text style="date" align="center" font_name="Century Gothic" font_size="14"/>
-    <text style="headline" align="center" font_name="Century Gothic" font_size="10"/>
+    <text style="chapter" align="center" font_name="Century Gothic" font_size="36"/>
+    <text style="headline" align="center" font_name="Century Gothic" font_size="10" bgcolor="CadetBlue" margin="0,0,1,0"/>
     <text style="title" align="center" font_name="Century Gothic" font_size="10"/>
     <text style="inside" align="center" font_name="Century Gothic" font_size="6" width="80%"/>
-    <text style="footer" font_name="Century Gothic" font_size="6" margin="0,0,2,0"/>
+    <text style="footer" font_name="Century Gothic" font_size="6" margin="0,0,2,0" wrap="false"/>
     <!--
     <text style="inside" align="center" font_name="Century Gothic" font_size="6" font_style="regular" width="80%"/>
     <text style="footer_left" align="left" font_name="Century Gothic" font_size="6" font_style="regular" margin="0,0,2,0" />
@@ -101,7 +102,7 @@
 			<inside3 style="inside" />
 			<footer1 style="footer" align="left" />
 			<footer2 style="footer" align="center" />
-			<footer3 style="footer" aling="right" />
+			<footer3 style="footer" align="right" />
 		</stamp>
 
     <!-- ROW
@@ -118,6 +119,9 @@
 			orientation: portrait, landscape
 			size: letter, A4
 			margin: top, right, bottom, left
+      
+      note: only Row can be roated so for landscape style, 
+      you need the "CANADA" header to be in a <row> element
 		-->
 		<page style="cover" default="false" orientation="portrait" size="letter" margin="7" color="black" vspace="1">
 			<banner file_name="" />

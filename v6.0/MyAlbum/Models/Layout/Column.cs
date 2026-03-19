@@ -11,6 +11,7 @@ namespace MyAlbum.Models.Layout
     {
         //public XUnit VSpace { get; set; }
         public List<BaseElement> Elements { get; set; }
+        public bool CanGrow { get; set; }
 
         public Column()
         {
@@ -105,15 +106,23 @@ namespace MyAlbum.Models.Layout
                 //XUnit xPos = 0;
                 //XUnit yPos = 0;
 
-                XUnit maxWidth = XUnit.Zero;
-                foreach (BaseElement element in Elements)
+                //XUnit maxWidth = XUnit.Zero;
+                for (int i = 0; i < Elements.Count; i++)
                 {
-                    element.CalculateSize(gfx, W, h);
-                    //maxWidth = Math.Max(maxWidth, element.W);
-                    H += element.H + VSpace;
+                    BaseElement element = Elements[i];
+                    bool isLast = (i == Elements.Count - 1);
+                    bool isSpace = element is Space;
 
+                    // Calculate size. For Space CalculateSize does not do anything, for other elements it will calculate based on content and available width.
+                    element.CalculateSize(gfx, W, h);
+                    H += element.H;
+
+                    // Add vertical space between non-Space, non-last elements
+                    if (!isSpace && !isLast)
+                    {
+                        H += VSpace;
+                    }
                 }
-                H -= VSpace;
                 H += MarginTop + MarginBottom;
                 TopAlign = MarginTop + Elements.First().TopAlign;
                 MiddleAlign = MarginTop + (H - MarginTop - MarginBottom) / 2;

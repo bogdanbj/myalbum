@@ -59,21 +59,29 @@ namespace MyAlbum
                 // Deserialize XML file into XML Model objects
                 var xmlAlbum = XmlFactory.Deserialize(fileName, styles);
 
-                // Create, draw and save the Album
-                album.FromXml(xmlAlbum);
-
-                // Determine pages to draw
+                // Determine pages to include in the Album
                 string pageArg = options.ContainsKey("page") ? options["page"] : null;
                 List<int> pagesToDraw = ParsePageSelection(pageArg);//, maxPage);
 
                 if (pagesToDraw.Count == 0)
                 {
-                    album.Draw(); // fallback: draw all
+                    album.FromXml(xmlAlbum);
                 }
                 else
                 {
-                    album.Draw(pagesToDraw);
+                    album.FromXml(xmlAlbum,pagesToDraw);
                 }
+
+                album.Draw(); // fallback: draw all
+
+                //if (pagesToDraw.Count == 0)
+                //{
+                //    album.Draw(); // fallback: draw all
+                //}
+                //else
+                //{
+                //    album.Draw(pagesToDraw);
+                //}
 
                 album.Save(outputName);
 

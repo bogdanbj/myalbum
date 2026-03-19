@@ -23,8 +23,8 @@ namespace MyAlbum.Models.Xml
         public string FontStyle { get; set; }
         [XmlAttribute("width")]
         public string Width { get; set; }
-        //[XmlAttribute("margin")]
-        //public string Margin { get; set; }
+        [XmlAttribute("wrap")]
+        public string Wrap { get; set; }
         [XmlText]
         public string? Value { get; set; }
     }

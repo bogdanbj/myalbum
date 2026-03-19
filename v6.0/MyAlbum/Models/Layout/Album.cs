@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace MyAlbum.Models.Layout
 {
@@ -25,16 +26,35 @@ namespace MyAlbum.Models.Layout
         {
             foreach (var xmlPage in xmlAlbum.Pages)
             {
-                // Create a new album page
-                Page page = new Page();
-
-                // Add the page to the album
-                Pages.Add(page);
-
-                // Populate the page from the XML definition
-                page.FromXml(xmlPage, xmlAlbum.Styles);
+                AddPageFromXml(xmlPage, xmlAlbum.Styles);
             }
         }
+        internal void FromXml(XmlAlbum xmlAlbum, List<int> pageList)
+        {
+            foreach (int pageNumber in pageList)
+            {
+                var xmlPage = xmlAlbum.Pages.FirstOrDefault(p => p.Number == pageNumber);
+                if (xmlPage != null)
+                {
+                    AddPageFromXml(xmlPage, xmlAlbum.Styles);
+                }
+                else
+                {
+                    Console.WriteLine($"Page with number {pageNumber} not found in XML album.");
+                }
+            }
+        }
+
+        private void AddPageFromXml(XmlPage xmlPage, AlbumStyles styles)
+        {
+            // Create a new album page
+            Page page = new Page();
+            // Add the page to the album
+            Pages.Add(page);
+            // Populate the page from the XML definition
+            page.FromXml(xmlPage, styles);
+        }
+
         internal void Draw()
         {
             foreach (var page in Pages)
