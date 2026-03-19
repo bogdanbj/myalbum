@@ -418,7 +418,7 @@ PAGE_TEXT_CENTRE (Pictorials)
 ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
   STAMP_ADD(, 38, 26, 3, , 5c, brown olive, S C1, , ALLEGORY OF FLIGHT\, AIR POST, )
   STAMP_ADD(, 38, 26, 3, , 10c, green, S 155, , MOUNT HURD, )
-  STAMP_ADD(, 38, 26, 3, , 12c, gray, S 156, , QUEBEQ BRIDGE, )
+  STAMP_ADD(, 38, 26, 3, , 12c, gray, S 156, , QUEBEC BRIDGE, )
 ROW_END
 
 SPACE(2)

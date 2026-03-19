@@ -17,8 +17,9 @@ namespace MyAlbum.Models.Layout
         public string FontName { get; set; }
         public double FontSize { get; set; }
         public XFontStyle FontStyle { get; set; }
-        public bool Justify { get; set; }
+        public bool Justify { get; set; }   
         public string Value { get; set; }
+        public bool WordWrap { get; set; } = true;
         public XFont Font
         {
             get
@@ -72,12 +73,7 @@ namespace MyAlbum.Models.Layout
                 FontStyle = ParseFontStyle(xmlText.FontStyle ?? style.FontStyle ?? "Regular");
                 Font = new XFont(FontName, FontSize, FontStyle);
                 Justify = bool.TryParse(xmlText.Justify ?? style.Justify, out var result) ? result : false;
-                //Justify = bool.Parse(xmlText.Justify ?? style.Justify ?? "false");
-                //Justify = !string.IsNullOrEmpty(xmlText.Justify)
-                //            ? bool.Parse(xmlText.Justify)
-                //            : !string.IsNullOrEmpty(style.Justify)
-                //                ? bool.Parse(style.Justify)
-                //                : false;
+                WordWrap = bool.TryParse(xmlText.Wrap ?? style.Wrap, out var wrapResult) ? wrapResult : true;
             }
             catch
             {
@@ -150,7 +146,7 @@ namespace MyAlbum.Models.Layout
                 VAlign = VerticalAlignment.Top;
 
 
-                //DrawBackground();
+                DrawBackground(gfx);
                 //DrawBox();
                 //DrawCross(new XPoint(x, y), XColors.CadetBlue);
 
@@ -161,7 +157,7 @@ namespace MyAlbum.Models.Layout
                         XStringFormat format = new XStringFormat();
 
                         //if ((this.Justify) && (i < arr.Length - 1))
-                        if ((this.Justify) && (arr[i][0] != "LAST"))
+                        if ((this.Justify) && (arr[i][0] != "LAST") && (gfx.MeasureString(arr[i][1], Font).Width < this.W))
                         {
                             startPoint = RowStartPoint(i, true);
                             string[] words = arr[i][1].Split();
@@ -173,7 +169,7 @@ namespace MyAlbum.Models.Layout
                                 wordsWidth += gfx.MeasureString(words[j], Font).Width;
                             }
                             spaceWidth = this.W - wordsWidth;
-                            space = spaceWidth / (words.Length - 1);
+                            space = (words.Length > 1) ? spaceWidth / (words.Length - 1) : 0;
                             for (int j = 0; j < words.Length; j++)
                             {
                                 format.Alignment = XStringAlignment.Near;
@@ -232,25 +228,36 @@ namespace MyAlbum.Models.Layout
                     {
                         result[result.Length - 1][0] = "LAST";
                     }
-                    //words = arr[i].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                    words = arr[i].Split(new char[] { ' ' }, StringSplitOptions.None);
-                    line = words[0];
-                    for (int j = 1; j < words.Length; j++)
+
+                    if (!WordWrap)
                     {
-                        if (gfx.MeasureString(line + " " + words[j], Font).Width < this.W)
-                        {
-                            line += (" " + words[j]);
-                        }
-                        else
-                        {
-                            Array.Resize(ref result, result.Length + 1);
-                            //result.SetValue(line, result.Length - 1);
-                            result.SetValue(new String[2] { "MID", line }, result.Length - 1);
-                            line = words[j];
-                        }
+                        // No word wrapping, keep each section as a single line
+                        Array.Resize(ref result, result.Length + 1);
+                        result.SetValue(new String[2] { "MID", arr[i] }, result.Length - 1);
                     }
-                    Array.Resize(ref result, result.Length + 1);
-                    result.SetValue(new String[2] { "MID", line }, result.Length - 1);
+                    else
+                    {
+                        // Word wrapping enabled, break lines based on width
+                        //words = arr[i].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                        words = arr[i].Split(new char[] { ' ' }, StringSplitOptions.None);
+                        line = words[0];
+                        for (int j = 1; j < words.Length; j++)
+                        {
+                            if (gfx.MeasureString(line + " " + words[j], Font).Width < this.W)
+                            {
+                                line += (" " + words[j]);
+                            }
+                            else
+                            {
+                                Array.Resize(ref result, result.Length + 1);
+                                //result.SetValue(line, result.Length - 1);
+                                result.SetValue(new String[2] { "MID", line }, result.Length - 1);
+                                line = words[j];
+                            }
+                        }
+                        Array.Resize(ref result, result.Length + 1);
+                        result.SetValue(new String[2] { "MID", line }, result.Length - 1);
+                    }
                 }
 
                 result[result.Length - 1][0] = "LAST";

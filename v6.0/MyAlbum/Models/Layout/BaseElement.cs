@@ -197,6 +197,17 @@ namespace MyAlbum.Models.Layout
         {
             return BgColor; // default fallback
         }
+        internal void DrawBackground(XGraphics gfx)
+        {
+            if (Name?.Contains("test", StringComparison.OrdinalIgnoreCase)==true) // XColor.A == 0 means fully transparent (not set)
+            {
+                if (BgColor != XColors.Transparent)
+                {
+                    XBrush brush = new XSolidBrush(BgColor);
+                    gfx.DrawRectangle(brush, X, Y, W, H);
+                }
+            }
+        }
 
         #endregion
 

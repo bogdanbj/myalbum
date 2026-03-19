@@ -1,7 +1,17 @@
 ﻿<MyAlbum ver="3.0"  styles="Canada.styles">
 
-  <page no="1" style="cover" title="Cover" />
-  <page no="2" title="1851 - 1893" />
+  <page no="1" style="cover" title="Cover">
+    <space height="85" />
+    <text style="chapter">C A N A D A</text>
+    <space height="20" />
+    <text style="chapter">1 8 9 7  -  1 9 7 5</text>
+  </page>
+
+  <page no="2" title="1851 - 1893">
+    <row>
+      <text style="date">1851-93</text>
+    </row>
+  </page>
 
   <page no="3" title="QV Diamond Jubilee Issue">
     <row>
@@ -9,9 +19,7 @@
     </row>
 
     <space height="5" />
-    <row>
-      <text style="headline">60th year of Queen Victoria’s reign</text>
-    </row>
+    <text style="headline">60th year of Queen Victoria’s reign</text>
 
     <row>
       <stamp width="34" height="25" title="" image="" i1="1/2c" i2="black" i3="S 50" f1="" f2="QUEEN VICTORIA &quot;1837&quot; and &quot;1867&quot;" f3="" />
@@ -20,7 +28,6 @@
       <stamp width="34" height="25" title="" image="" i1="3c" i2="bright rose" i3="S 53" f1="" f2="" f3="" />
     </row>
 
-    <!--space height="-2" /-->
     <row>
       <stamp width="34" height="25" title="" image="" i1="5c" i2="deep blue" i3="S 54" f1="" f2="" f3="" />
       <stamp width="34" height="25" title="" image="" i1="6c" i2="yellow brown" i3="S 55" f1="" f2="" f3="" />
@@ -28,7 +35,7 @@
       <stamp width="34" height="25" title="" image="" i1="10c" i2="brown violet" i3="S 57" f1="" f2="" f3="" />
     </row>
 
-    <space height="5" />
+    <space height="4" />
     <row>
       <stamp width="34" height="25" title="" image="" i1="15c" i2="steel blue" i3="S 58" f1="" f2="" f3="" />
       <stamp width="34" height="25" title="" image="" i1="20c" i2="vermilion" i3="S 59" f1="" f2="" f3="" />
@@ -36,7 +43,7 @@
       <stamp width="34" height="25" title="" image="" i1="$1" i2="lake" i3="S 61" f1="" f2="" f3="" />
     </row>
 
-    <space height="5" />
+    <space height="4" />
     <row>
       <stamp width="34" height="25" title="" image="" i1="$2" i2="dark purple" i3="S 62" f1="" f2="" f3="" />
       <stamp width="34" height="25" title="" image="" i1="$3" i2="yellow bistre" i3="S 63" f1="" f2="" f3="" />
@@ -45,16 +52,12 @@
     </row>
 
     <row height="15" />
-    <row>
-      <text style="date">1898</text>
-    </row>
+    <text style="date">1898</text>
     
     <space height="5" />
     <row valign="top" space="25">
       <column width="90">
-        <row valign="center">
-          <text style="headline">Imperial Penny Postage</text>
-        </row>
+        <text style="headline">Imperial Penny Postage</text>
 
         <row>
           <stamp width="35" height="26" title="" image="" i1="2c" i2="black, lavender, carmine" i3="S 85" f1="" f2="MAP OF BRITISH EMPIRE ON\nMERCATOR PROJECTION" f3="" />
@@ -63,9 +66,7 @@
       </column>
 
       <column width="41">
-        <row valign="center">
-          <text style="headline" width="80">Special Delivery</text>
-        </row>
+        <text style="headline" width="80">Special Delivery</text>
         <row>
           <stamp width="35" height="26" title="" image="" i1="10c" i2="green" i3="S E1" f1="" f2="" f3="" />
         </row>
@@ -142,7 +143,7 @@
     <row>
       <stamp width="20" height="25" title="" image="" i1="20c" i2="olove green" i3="S 94" f1="" f2="" f3="" />
       <stamp width="20" height="25" title="" image="" i1="50c" i2="purple" i3="S 95" f1="" f2="" f3="" />
-      <stamp width="42" height="25" title="Imperforated" image="" i1="2c" i2="carmine, imperforated, pair" i3="S 90A" f1="" f2="" f3="" />
+      <stamp width="41" height="25" title="Imperforated" image="" i1="2c" i2="carmine, imperforated, pair" i3="S 90A" f1="" f2="" f3="" />
     </row>
 
     <space height="13" />
@@ -157,16 +158,13 @@
 
     <row space="2">
       <column width="43">
-        <stamp width="37" height="26" title="" image="" i1="1/2c" i2="black brown" i3="S 96" f1="" f2="" f3="" />
-        <text style="footer" align="center">PRINCE AND PRINCESS OF WALES</text>
+        <stamp width="37" height="26" title="" image="" i1="1/2c" i2="black brown" i3="S 96" f1="" f2="PRINCE AND PRINCESS OF WALES" f3="" />
       </column>
       <column width="51">
-        <stamp width="37" height="26" title="" image="" i1="1c" i2="blue green" i3="S 97" f1="" f2="" f3="" />
-        <text style="footer" align="center">JACQUES CARTIER AND SAMUEL DE CHAMPLAIN</text>
+        <stamp width="37" height="26" title="" image="" i1="1c" i2="blue green" i3="S 97" f1="" f2="JACQUES CARTIER AND SAMUEL DE CHAMPLAIN" f3="" />
       </column>
       <column width="43">
-        <stamp width="37" height="26" title="" image="" i1="2c" i2="carmine" i3="S 98" f1="" f2="" f3="" />
-        <text style="footer" align="center">QUEEN ALEXANDRA AND KING EDWARD</text>
+        <stamp width="37" height="26" title="" image="" i1="2c" i2="carmine" i3="S 98" f1="" f2="QUEEN ALEXANDRA AND KING EDWARD" f3="" />
       </column>
     </row>
 
@@ -197,6 +195,7 @@
       <stamp width="21" height="25" title="" image="" i1="3c" i2="brown" i3="S 108" f1="" f2="" f3="" />
     </row>
 
+    <space height="1" />
     <row>
       <stamp width="21" height="25" title="" image="" i1="3c" i2="carmine" i3="S 109" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="4c" i2="olive bistre" i3="S 110" f1="" f2="" f3="" />
@@ -205,7 +204,7 @@
       <stamp width="21" height="25" title="" image="" i1="7c" i2="yellow ochre" i3="S 113" f1="" f2="" f3="" />
     </row>
 
-    <space height="5" />
+    <space height="6" />
     <row>
       <stamp width="21" height="25" title="" image="" i1="7c" i2="red brown" i3="S 114" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="8c" i2="blue" i3="S 115" f1="" f2="" f3="" />
@@ -214,7 +213,7 @@
       <stamp width="21" height="25" title="" image="" i1="10c" i2="bistre brown" i3="S 118" f1="" f2="" f3="" />
     </row>
 
-    <space height="5" />
+    <space height="6" />
     <row>
       <stamp width="21" height="25" title="" image="" i1="20c" i2="olive green" i3="S 119" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="50c" i2="black brown" i3="S 120" f1="" f2="" f3="" />
@@ -232,10 +231,179 @@
     </row>
   </page>
 
+  <page no="7" title="KGV Admiral Issue">
+    <text style="date">1911-25</text>
+    <space height="10" />
+
+    <text style="headline">Perforated 8 Vertically</text>
+
+    <row>
+      <stamp width="42" height="24" title="" image="" i1="1c" i2="green" i3="S 125pa" f1="" f2="" f3="" />
+      <stamp width="42" height="24" title="" image="" i1="1c" i2="orange yellow" i3="S 126pa" f1="" f2="" f3="" />
+      <stamp width="42" height="24" title="" image="" i1="2c" i2="carmine" i3="S 127pa" f1="" f2="" f3="" />
+    </row>
+
+    <space height="5" />
+    <row>
+      <stamp width="42" height="24" title="" image="" i1="2c" i2="green" i3="S 128pa" f1="" f2="" f3="" />
+      <stamp width="42" height="24" title="" image="" i1="3c" i2="brown" i3="S 129pa" f1="" f2="" f3="" />
+      <stamp width="42" height="24" title="" image="" i1="4c" i2="carmine" i3="S 130pa" f1="" f2="" f3="" />
+    </row>
+
+    <space height="12" />
+    <row space="10">
+      <column width="58">
+        <text style="headline">Perforated 8 Horizontally</text>
+        <row space="4">
+          <stamp width="21" height="50" title="" image="" i1="1c" i2="dark green" i3="S 123pa" f1="" f2="" f3="" />
+          <stamp width="21" height="50" title="" image="" i1="2c" i2="carmine" i3="S 124pa" f1="" f2="" f3="" />
+        </row>
+
+      </column>
+      <column width="120">
+        <text style="headline">Perforated 12 Horizontally</text>
+        <row space="4">
+          <stamp width="21" height="50" title="" image="" i1="1c" i2="dark green" i3="S 131pa" f1="" f2="" f3="" />
+          <stamp width="21" height="50" title="" image="" i1="2c" i2="carmine" i3="S 132pa" f1="" f2="" f3="" />
+          <stamp width="21" height="50" title="" image="" i1="2c" i2="yellow green" i3="S 133pa" f1="" f2="" f3="" />
+          <stamp width="21" height="50" title="" image="" i1="3c" i2="brown" i3="S 134pa" f1="" f2="" f3="" />
+        </row>
+
+      </column>
+    </row>
+
+    <space height="12" />
+    <text style="headline">Imperforated</text>
+    <row>
+      <stamp width="21" height="25" title="" image="" i1="1c" i2="orange yellow" i3="S 136" f1="" f2="" f3="" />
+      <stamp width="21" height="25" title="" image="" i1="2c" i2="green" i3="S 137" f1="" f2="" f3="" />
+      <stamp width="21" height="25" title="" image="" i1="3c" i2="carmine" i3="S 138" f1="" f2="" f3="" />
+    </row>
+  </page>
+
+  <page no="8" title="50th anniv. of the Canadian Confederation. (1917)">
+    <text style="date">1917</text>
+    <space height="5" />
+
+    <text style="headline">50th anniv. of the Canadian Confederation</text>
+    <row>
+      <stamp width="38" height="26" title="" image="" i1="3c" i2="brown" i3="S 135" f1="" f2="THE FATHERS OF CONFEDERATION" f3="" />
+    </row>
+
+    <space height="10" />
+    <text style="date">1927</text>
+    <space height="3" />
+    <text style="headline">60th year of the Canadian Confederation</text>
+    <row>
+      <stamp width="22" height="26" title="" image="" i1="1c" i2="orange" i3="S 141" f1="" f2="SIR JOHN A. MACDONALD" f3="" />
+      <stamp width="38" height="26" title="" image="" i1="2c" i2="green" i3="S 142" f1="" f2="THE FATHERS OF CONFEDERATION" f3="" />
+      <stamp width="38" height="26" title="" image="" i1="3c" i2="brown carmine" i3="S 143" f1="" f2="PARLIAMENT BUILDING AT OTTAWA" f3="" />
+      <stamp width="38" height="26" title="" image="" i1="5c" i2="violet" i3="S 144" f1="" f2="SIR WILFRID LAURIER" f3="" />
+    </row>
+    
+    <space height="2" />
+    <row>
+      <stamp width="38" height="26" title="" image="" i1="12c" i2="dark blue" i3="S 145" f1="" f2="MAP OF CANADA" f3="" />
+      <stamp width="26" height="38" title="" image="" i1="20c" i2="orange" i3="S E3" f1="" f2="FIVE STAGES OF MAIL TRANSPORTATION,\nSPECIAL DELIVERY" f3="" />
+    </row>
+
+    <space height="10" />
+    <text style="date">1927</text>
+    <space height="3" />
+    <row>
+      <stamp width="38" height="26" title="" image="" i1="12c" i2="green" i3="S 147" f1="" f2="LAURIER AND MACDONALD" f3="" />
+      <stamp width="22" height="26" title="" image="" i1="5c" i2="violet" i3="S 146" f1="" f2="THOMAS D'ARCY MCGEE" f3="" />
+      <stamp width="38" height="26" title="" image="" i1="20c" i2="brown carmine" i3="S 148" f1="" f2="BALDWIN AND LAFONTAINE" f3="" />
+    </row>
+  </page>
+
+  <page no="9" title="King George V, Scroll Issue (1928-29)">
+    <text style="date">1928-29</text>
+    <space height="10" />
+
+    <row>
+      <stamp width="22" height="26" title="" image="" i1="1c" i2="orange" i3="S 149" f1="" f2="KING GEORGE V" f3="" />
+      <stamp width="22" height="26" title="" image="" i1="2c" i2="green" i3="S 150" f1="" f2="" f3="" />
+      <stamp width="22" height="26" title="" image="" i1="3c" i2="dark carmine" i3="S 151" f1="" f2="" f3="" />
+      <stamp width="22" height="26" title="" image="" i1="4c" i2="bister" i3="S 152" f1="" f2="" f3="" />
+    </row>
+
+    <row>
+      <stamp width="22" height="26" title="" image="" i1="5c" i2="deep violet" i3="S 153" f1="" f2="" f3="" />
+      <stamp width="22" height="26" title="" image="" i1="8c" i2="blue" i3="S 154" f1="" f2="" f3="" />
+    </row>
+
+    <space height="10" />
+    <text style="headline">Pictorials</text>
+    <row>
+      <stamp width="38" height="26" title="" image="" i1="5c" i2="brown olive" i3="S C1" f1="" f2="ALLEGORY OF FLIGHT, AIR POST" f3="" />
+      <stamp width="38" height="26" title="" image="" i1="10c" i2="green" i3="S 155" f1="" f2="MOUNT HURD" f3="" />
+      <stamp width="38" height="26" title="" image="" i1="12c" i2="gray" i3="S 156" f1="" f2="QUEBEC BRIDGE" f3="" />
+    </row>
+
+    <space height="2" />
+    <row>
+      <stamp width="38" height="26" title="" image="" i1="20c" i2="dark carmine" i3="S 157" f1="" f2="HARVESTING WHEAT" f3="" />
+      <stamp width="38" height="26" title="" image="" i1="50c" i2="dark blue" i3="S 158" f1="" f2="SCHOONER &quot;BLUENOSE&quot;" f3="" />
+      <stamp width="38" height="26" title="" image="" i1="$1" i2="olive green" i3="S 159" f1="" f2="PARLIAMENT BUILDING" f3="" />
+    </row>
+
+    <space height="7" />
+    <text style="headline">Coil Stamps: Perforated 8 Vertically</text>
+    <row>
+      <stamp width="44" height="26" title="" image="" i1="1c" i2="orange" i3="S 160pa" f1="" f2="" f3="" />
+      <stamp width="44" height="26" title="" image="" i1="2c" i2="green" i3="S 1161pa" f1="" f2="" f3="" />
+    </row>
+  </page>
+
+  <page no="10" title="King George V, Arch Issue (1930-31)">
+    <text style="date">1930-31</text>
+    <space height="10" />
+
+    <row>
+      <stamp width="22" height="26" title="" image="" i1="1c" i2="orange" i3="S 162" f1="" f2="KING GEORGE V" f3="" />
+      <stamp width="22" height="26" title="" image="" i1="1c" i2="deep green" i3="S 163" f1="" f2="" f3="" />
+      <stamp width="22" height="26" title="" image="" i1="2c" i2="dull green" i3="S 164" f1="" f2="" f3="" />
+      <stamp width="22" height="26" title="" image="" i1="2c" i2="dull red" i3="S 165" f1="" f2="" f3="" />
+      <stamp width="22" height="26" title="" image="" i1="2c" i2="dark brown" i3="S 166" f1="" f2="" f3="" />
+    </row>
+
+    <space height="2" />
+    <row>
+      <stamp width="22" height="26" title="" image="" i1="3c" i2="deep red" i3="S 167" f1="" f2="" f3="" />
+      <stamp width="22" height="26" title="" image="" i1="4c" i2="yellow bister" i3="S 168" f1="" f2="" f3="" />
+      <stamp width="22" height="26" title="" image="" i1="5c" i2="dull violet" i3="S 169" f1="" f2="" f3="" />
+      <stamp width="22" height="26" title="" image="" i1="5c" i2="dull blue" i3="S 170" f1="" f2="" f3="" />
+      <stamp width="22" height="26" title="" image="" i1="8c" i2="dark blue" i3="S 171" f1="" f2="" f3="" />
+    </row>
+
+    <space height="5" />
+    <row>
+      <stamp width="22" height="26" title="" image="" i1="8c" i2="red orange" i3="S 172" f1="" f2="" f3="" />
+      <stamp width="22" height="26" title="" image="" i1="3c/2c" i2="deep red" i3="S 191" f1="" f2="" f3="" />
+    </row>
+
+    <space height="10" />
+    <text style="headline">Pictorials</text>
+    <row>
+      <stamp width="38" height="26" title="" image="" i1="5c" i2="brown olive" i3="S C2" f1="" f2="ALLEGORY-AIR MAIL CIRCLES GLOBE,\nAIR POST" f3="" />
+      <stamp width="22" height="26" title="" image="" i1="10c" i2="olive green" i3="S 173" f1="" f2="LIBRARY OF PARLIAMENT" f3="" />
+      <stamp width="38" height="26" title="" image="" i1="12c" i2="gray black" i3="S 174" f1="" f2="THE CITADEL AT QUEBEC" f3="" />
+      <stamp width="38" height="26" title="" image="" i1="20c" i2="brown red" i3="S 175" f1="" f2="HARVESTING WHEAT" f3="" />
+    </row>
+
+    <space height="2" />
+    <row>
+      <stamp width="38" height="26" title="" image="" i1="50c" i2="dull blue" i3="S C2" f1="" f2="MUSEUM AT GRAND PRE" f3="" />
+      <stamp width="38" height="26" title="" image="" i1="$1" i2="dark olive green" i3="S 175" f1="" f2="MT. EDITH CAVELL" f3="" />
+    </row>
+  </page>
+
+    <page no="100" title="last" />
+  <text style="date">1917</text>
 
 
-
-<!--
+  <!--
   
   <page no="2" title="Provincial and territorial flags">
     <row height="5"/>
