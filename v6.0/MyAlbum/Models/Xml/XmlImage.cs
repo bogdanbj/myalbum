@@ -11,27 +11,25 @@ namespace MyAlbum.Models.Xml
     {
         //[XmlAttribute("style")]
         //public string Style { get; set; }
-        [XmlAttribute("color")]
-        public string Color { get; set; }
-        [XmlAttribute("absolute")]
-        public bool Absolute { get; set; }
+        //[XmlAttribute("color")]
+        //public string Color { get; set; }
+        //[XmlAttribute("absolute")]
+        //public bool Absolute { get; set; }
         //[XmlAttribute("align")]
         //public string Align { get; set; }
         //[XmlAttribute("valign")]
         //public string Valign { get; set; }
         [XmlAttribute("file_name")]
         public string FileName { get; set; }
-        [XmlAttribute("x")]
-        public double X { get; set; }
-        [XmlAttribute("y")]
-        public double Y { get; set; }
+        //[XmlAttribute("x")]
+        //public double X { get; set; }
+        //[XmlAttribute("y")]
+        //public double Y { get; set; }
         [XmlAttribute("height")]
-        public double Height { get; set; }
+        public string Height { get; set; }
         [XmlAttribute("width")]
-        public double Width { get; set; }
+        public string Width { get; set; }
         [XmlAttribute("stretched")]
         public bool Stretched { get; set; }
-        [XmlAttribute("margin")]
-        public string Margin { get; set; }
     }
 }

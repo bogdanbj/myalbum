@@ -123,12 +123,12 @@
       note: only Row can be roated so for landscape style, 
       you need the "CANADA" header to be in a <row> element
 		-->
-		<page style="cover" default="false" orientation="portrait" size="letter" margin="7" color="black" vspace="1">
+		<page style="cover" default="false" orientation="portrait" size="letter" margin="7" color="black" bgcolor="Ivory" vspace="1">
 			<banner file_name="" />
 			<border style="page_border" />
 		</page>
 
-    <page style="portrait" default="true" orientation="portrait" size="letter" margin="7" color="black" vspace="1">
+    <page style="portrait" default="true" orientation="portrait" size="letter" margin="7" color="black" bgcolor="Ivory" vspace="1">
       <banner file_name="" />
 			<border style="page_border" />
 			<row style="page_header">
