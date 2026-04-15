@@ -208,7 +208,6 @@ namespace MyAlbum.Models.Layout
                 }
             }
         }
-
         #endregion
 
     }

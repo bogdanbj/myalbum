@@ -74,6 +74,70 @@
     </row>
   </page>
 
+  <page no="1003" title="QV Diamond Jubilee Issue">
+    <row>
+      <text style="date">1897</text>
+    </row>
+
+    <space height="5" />
+    <text style="headline">DIAMOND JUBILEE ISSUE</text>
+
+    <row>
+      <stamp width="34" height="25" title="" image="" i1="1/2c" i2="black" i3="S 50" f1="" f2="Two portraits of Queen Victoria 1837 and 1867" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="1c" i2="orange" i3="S 51" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="2c" i2="green" i3="S 52" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="3c" i2="bright rose" i3="S 53" f1="" f2="" f3="" />
+    </row>
+
+    <row>
+      <stamp width="34" height="25" title="" image="" i1="5c" i2="deep blue" i3="S 54" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="6c" i2="yellow brown" i3="S 55" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="8c" i2="dark violet" i3="S 56" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="10c" i2="brown violet" i3="S 57" f1="" f2="" f3="" />
+    </row>
+
+    <space height="4" />
+    <row>
+      <stamp width="34" height="25" title="" image="" i1="15c" i2="steel blue" i3="S 58" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="20c" i2="vermilion" i3="S 59" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="50c" i2="ultramarine" i3="S 60" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="$1" i2="lake" i3="S 61" f1="" f2="" f3="" />
+    </row>
+
+    <space height="4" />
+    <row>
+      <stamp width="34" height="25" title="" image="" i1="$2" i2="dark purple" i3="S 62" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="$3" i2="yellow bistre" i3="S 63" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="$4" i2="purple" i3="S 64" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="$5" i2="olive green" i3="S 65" f1="" f2="" f3="" />
+    </row>
+
+    <row height="5" />
+	<text width="160" align="center">Issued to commemorate the 60th anniversary of the reign of Queen Victoria. The portrait on the left is from a painting by Alfred Edward Chalon, R. A., and portrays Her Majesty on the occasion of the prorogation of Parliament on 17th July, 1837. This is the same portrait reproduced on the 12-pence Canadian stamp of 1851. The portrait at the right is from a painting by Professor von Angelo of Vienna, which now hangs in Buckingham Palace. It was painted by Royal Command on the occasion of Her Majesty's assumption of the title "Emprtess of India." Between the portraits on the stamps, the initials V.R.I. signify Victoria, Queen and Empress, and below are dates 1837 and 1897, the years of the Queen's accession and her Diamond Jubilee.</text>
+
+    <row height="15" />
+    <text style="date">1898</text>
+    
+    <space height="5" />
+    <row valign="top" space="25">
+      <column width="90">
+        <text style="headline">Imperial Penny Postage</text>
+
+        <row>
+          <stamp width="35" height="26" title="" image="" i1="2c" i2="black, lavender, carmine" i3="S 85" f1="" f2="MAP OF BRITISH EMPIRE ON\nMERCATOR PROJECTION" f3="" />
+          <stamp width="35" height="26" title="" image="" i1="2c" i2="black, blue, carmine" i3="S 86" f1="" f2="" f3="" />
+        </row>
+      </column>
+
+      <column width="41">
+        <text style="headline" width="80">Special Delivery</text>
+        <row>
+          <stamp width="35" height="26" title="" image="" i1="10c" i2="green" i3="S E1" f1="" f2="" f3="" />
+        </row>
+      </column>
+    </row>
+  </page>
+
   <page no="4" title="QV Leaf &amp; Numeral Issue">
     <row>
       <text style="date">1897-98</text>
@@ -397,6 +461,40 @@
       <stamp width="38" height="26" title="" image="" i1="50c" i2="dull blue" i3="S C2" f1="" f2="MUSEUM AT GRAND PRE" f3="" />
       <stamp width="38" height="26" title="" image="" i1="$1" i2="dark olive green" i3="S 175" f1="" f2="MT. EDITH CAVELL" f3="" />
     </row>
+  </page>
+
+  <page no="11" style="landscape" title="The Second World War">
+    <text style="date">1989-95</text>
+    <space height="10" />
+    <row space ="8" align="top">
+      <column width="101.8">
+        <text style="headline" font_size="16">Second World War</text>
+        <text style="headline">50th Anniversary</text>
+      </column>
+      <stamp width="96" height="60" title="Reluctantly at War Again" image="" i1="4x38c" i2="" i3="S 1263a" f1="" f2="" f3="" />
+    </row>
+    <space height="2" />
+    <row space="8">
+      <stamp width="96" height="60" title="Canada Mobilizes its Resources" image="" i1="4x38c" i2="" i3="S 1301a" f1="" f2="" f3="" />
+      <stamp width="96" height="60" title="Total War" image="" i1="4x38c" i2="" i3="S 1348a" f1="" f2="" f3="" />
+    </row>
+
+
+  </page>
+  <page no="12" style="landscape" title="The Second World War">
+    <text style="date">1989-95</text>
+    <space height="10" />
+    <row space ="8" align="top">
+      <stamp width="96" height="60" title="Dark Days Indeed" image="" i1="4x42c" i2="" i3="S 1451a" f1="" f2="" f3="" />
+      <stamp width="96" height="60" title="The Tide Begins to Turn" image="" i1="4x43c" i2="" i3="S 1506a" f1="" f2="" f3="" />
+    </row>
+    <space height="2" />
+    <row space="8">
+      <stamp width="96" height="60" title="Victory in Sight" image="" i1="4x43c" i2="" i3="S 1540a" f1="" f2="" f3="" />
+      <stamp width="96" height="60" title="Peace" image="" i1="4x43c" i2="" i3="S 1544a" f1="" f2="" f3="" />
+    </row>
+
+
   </page>
 
   <page no="10" title="King George V, Arch Issue (1930-31)">

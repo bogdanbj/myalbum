@@ -1,0 +1,40 @@
+<MyAlbum ver="3.0"  styles="Canada.styles">
+  <page rem="Page 1">
+    <column />
+    <image />
+    <row />
+    <stamp />
+    <text />
+  </page>
+  .
+  <page rem="Page 2" style="landscape">
+  </page>
+  .
+  <!--
+  <page rem="Page 3">
+  </page>
+  .
+  <page rem="Page 4">
+  </page>
+  .
+  <page rem="Page 5">
+  </page>
+  .
+  <page rem="Page 6">
+  </page>
+  .
+  <page rem="Page 7">
+  </page>
+  .
+  <page rem="Page 8">
+  </page>
+  .
+  <page rem="Page 9">
+  </page>
+  .
+  <page rem="Page 10">
+  </page>
+  .
+  -->
+
+</MyAlbum>
