@@ -8,27 +8,22 @@ using MyAlbum.Utilities;
 
 namespace MyAlbum.Models
 {
-    internal class PageStyle: BaseElementStyle
+    internal class PageStyle : BaseElementStyle
     {
-        #region Fields
-        //protected PageOrientation? _orientation;
-        //protected PageSize? _size;
-        //margins
-        //vspace
-        #endregion
-
         public PageOrientation? Orientation { get; set; }
         public PageSize? Size { get; set; }
-        //public string? Margin { get; set; }
+        //public string? Padding { get; set; }
         //public string? VSpace { get; set; }
+        public List<XElement> ChildElements { get; set; } = new List<XElement>();
 
-        internal new void ParseXml(XElement elem)
+        internal override void ParseXml(XElement xPage)
         {
-            base.ParseXml(elem); 
-            Orientation = XmlParser.ParseOrientation(elem.Attribute("orientation")?.Value);
-            Size = XmlParser.ParsePageSize(elem.Attribute("size")?.Value);
-            //Margin = elem.Attribute("margin")?.Value ?? null;
+            base.ParseXml(xPage);
+            Orientation = XmlParser.ParseOrientation(xPage.Attribute("orientation")?.Value);
+            Size = XmlParser.ParsePageSize(xPage.Attribute("size")?.Value);
             //VSpace = elem.Attribute("vspace")?.Value ?? null;
+
+            ChildElements = xPage.Elements().ToList();
         }
     }
 }

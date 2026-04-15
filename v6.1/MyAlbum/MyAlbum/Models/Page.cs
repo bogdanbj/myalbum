@@ -1,12 +1,14 @@
-﻿using PdfSharpCore;
+﻿using MyAlbum.Utilities;
+using PdfSharpCore;
 using PdfSharpCore.Drawing;
 using PdfSharpCore.Pdf;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Xml;
 using System.Xml.Linq;
-using MyAlbum.Utilities;
 
 namespace MyAlbum.Models
 {
@@ -20,7 +22,7 @@ namespace MyAlbum.Models
         #endregion
 
         #region Properties accepting Styles 
-        public new PageStyle Style 
+        public new PageStyle? Style 
         { 
             get => (PageStyle)base.Style; 
             set => base.Style = value; 
@@ -35,21 +37,12 @@ namespace MyAlbum.Models
             get => _size ?? Style?.Size ?? PageSize.Letter; 
             set => _size = value; 
         }
-        //public XColor Color
-        //{
-        //    get => _color ?? Style?.Color ?? _parentColor ?? XColors.Black;
-        //    set => _color = value;
-        //}
-        //public XColor BgColor
-        //{
-        //    get => _bgColor ?? Style?.BgColor ?? _parentBgColor ?? XColors.Transparent;
-        //    set => _bgColor = value;
-        //}
+
         #endregion
 
         #region Other properties
         public string? Title { get; set; }
-        public Border PageBorder { get; set; }
+        public PageBorder PageBorder { get; set; }
         public List<BaseElement> Elements { get; set; }
         public PdfPage pdfPage { get; set; }
         #endregion
@@ -57,167 +50,186 @@ namespace MyAlbum.Models
         #region Constructors
         public Page() : base()
         {
-            PageBorder = new Border();
+            PageBorder = new PageBorder();
             Elements = new List<BaseElement>();
         }
-
         #endregion
 
         internal void ParseXml(XElement xPage)
         {
-            base.ParseXml(xPage);
             Style = Styles.Page.GetStyle(xPage.Attribute("style")?.Value);
+            base.ParseXml(xPage);
+
             Title = xPage.Attribute("title")?.Value ?? "";
             _orientation = XmlParser.ParseOrientation(xPage.Attribute("orientation")?.Value);
             _size = XmlParser.ParsePageSize(xPage.Attribute("size")?.Value);
 
-
-
-            //PageNumber = int.Parse(pageElement.Attribute("no")?.Value ?? "0");
-
-            foreach (XElement xElement in xPage.Elements())
+            // Add elements from style first
+            if (Style?.ChildElements != null)
             {
-                switch (xElement.Name.LocalName)
+                foreach (var styleElement in Style.ChildElements)
                 {
-                    case "border":
-                        Border border = new Border();
-                        border.Inherit(this);
-                        border.ParseXml(xElement);
-                        this.Elements.Add(border);
-                        break;
-                    case "column":
-                        Column column = new Column();
-                        column.Inherit(this);
-                        column.ParseXml(xElement);
-                        this.Elements.Add(column);
-                        break;
-                    case "image":
-                        Image image = new Image();
-                        image.Inherit(this);
-                        image.ParseXml(xElement);
-                        this.Elements.Add(image);
-                        break;
-                    case "row":
-                        Row row = new Row();
-                        row.Inherit(this);
-                        row.ParseXml(xElement);
-                        this.Elements.Add(row);
-                        break;
-                    case "stamp":
-                        Stamp stamp = new Stamp();
-                        stamp.Inherit(this);
-                        stamp.ParseXml(xElement);
-                        this.Elements.Add(stamp);
-                        break;
-                    case "text":
-                        Text text = new Text();
-                        text.Inherit(this);
-                        text.ParseXml(xElement);
-                        this.Elements.Add(text);
-                        break;
+                    InstantiateElement(styleElement);
                 }
-                //// Add Element to the layoutPage
-                //switch (xmlElement)
-                //{
-                //    case XmlBorder xmlBorder:
-                //        PageBorder = new Border();
-                //        PageBorder.Inherit(this);
-                //        PageBorder.FromXml(xmlBorder, styles);
-                //        //this.Elements.Add(PageBorder);
-                //        break;
-
-                //    case XmlRow xmlRow:
-                //        Row row = new Row();
-                //        row.Inherit(this);
-                //        row.FromXml(xmlRow, styles);
-                //        this.Elements.Add(row);
-                //        break;
-
-                //    case XmlSpace xmlSpace:
-                //        Space space = new Space();
-                //        space.Inherit(this);
-                //        space.FromXml(xmlSpace, styles);
-                //        this.Elements.Add(space);
-                //        break;
-
-                //    case XmlText xmlText:
-                //        Text text = new Text();
-                //        text.Inherit(this);
-                //        text.FromXml(xmlText, styles);
-                //        this.Elements.Add(text);
-                //        break;
-                //}
             }
 
-
+            // Then parse page-specific elements
+            foreach (XElement xElement in xPage.Elements())
+            {
+                InstantiateElement(xElement);
+            }
+            //PageNumber = int.Parse(pageElement.Attribute("no")?.Value ?? "0");
         }
-
-        internal /*override*/ void Calculate(XGraphics gfx)
+        private void InstantiateElement(XElement xElement)
+        {
+            switch (xElement.Name.LocalName)
+            {
+                case "banner":
+                    // Handle banner element
+                    break;
+                case "frame":
+                    PageBorder = new PageBorder();
+                    PageBorder.Inherit(this);
+                    PageBorder.ParseXml(xElement);
+                    //this.Elements.Add(PageBorder);
+                    break;
+                case "row":
+                    Row row = new Row();
+                    row.Inherit(this);
+                    row.ParseXml(xElement);
+                    this.Elements.Add(row);
+                    break;
+                case "column":
+                    Column column = new Column();
+                    column.Inherit(this);
+                    column.ParseXml(xElement);
+                    this.Elements.Add(column);
+                    break;
+                case "image":
+                    Image image = new Image();
+                    image.Inherit(this);
+                    image.ParseXml(xElement);
+                    this.Elements.Add(image);
+                    break;
+                case "stamp":
+                    Stamp stamp = new Stamp();
+                    stamp.Inherit(this);
+                    stamp.ParseXml(xElement);
+                    this.Elements.Add(stamp);
+                    break;
+                case "text":
+                    Text text = new Text();
+                    text.Inherit(this);
+                    text.ParseXml(xElement);
+                    this.Elements.Add(text);
+                    break;
+            }
+        }
+        internal void Calculate(XGraphics gfx)
         {
             pdfPage.Orientation = this.Orientation;
             pdfPage.Size = this.Size;
+            X = XUnit.Zero;
+            Y = XUnit.Zero;
+            W = pdfPage.Width;
+            H = pdfPage.Height;
 
-            // If Landscape, the page rotates counterclockwise. Shift attributes 90 degrees clockwise.
-            if (Orientation == PageOrientation.Landscape)
-            {
-                // margins
-                XUnit m = MarginTop;
-                MarginTop = MarginLeft;
-                MarginLeft = MarginBottom;
-                MarginBottom = MarginRight;
-                MarginRight = m;
-            }
-            
             // Adjust the Canvas area based on margins
-            Canvas.X = MarginLeft;
-            Canvas.Y = MarginTop;
-            Canvas.W = pdfPage.Width - MarginLeft - MarginRight;
-            Canvas.H = pdfPage.Height - MarginTop - MarginBottom;
+            Canvas.X = X + PaddingLeft;
+            Canvas.Y = Y + PaddingTop;
+            Canvas.W = W - PaddingLeft - PaddingRight;
+            Canvas.H = H - PaddingTop - PaddingBottom;
+
 
             // Calculate the border
-            PageBorder.Inherit(this);
-            PageBorder.Calculate(gfx, Canvas);
+            PageBorder.Calculate(gfx, Canvas, Orientation);
 
             // Adjust the canvas to border's internal space
             Canvas.X = PageBorder.Canvas.X;
             Canvas.Y = PageBorder.Canvas.Y;
             Canvas.W = PageBorder.Canvas.W;
             Canvas.H = PageBorder.Canvas.H;
+
+            // Calculate each element and adjust canvas for next element
+            foreach (var element in Elements)
+            {
+                element.Calculate(gfx, Canvas);
+
+                // Adjust canvas for next element (assuming vertical stacking)
+                // Move Y down by element height + margins
+                Canvas.Y += element.H + element.MarginTop + element.MarginBottom;
+                Canvas.H -= element.H + element.MarginTop + element.MarginBottom;
+            }
+
+
         }
 
         internal void Draw(XGraphics gfx)
         {
-#if DEBUG
-            Console.WriteLine($"Drawing page {PageNo} with title '{Title}'.");
-            gfx.DrawRectangle(
-                new XSolidBrush(BgColor),
-                0,
-                0,
-                pdfPage.Width,
-                pdfPage.Height);
-#endif
-            foreach (var element in Elements)
+            Console.WriteLine();
+            Console.WriteLine($"Page {this.PageNo} - {this.Title}.");
+            //Console.WriteLine($"Drawing {this.GetType().Name} at ({X.Millimeter:F1}, {Y.Millimeter:F1}) with width {W.Millimeter:F1} and height {H.Millimeter:F1}.");
+            base.Draw(gfx);
+
+            #region Testing only
+            //gfx.DrawRectangle(
+            //    new XSolidBrush(BgColor),
+            //    0,
+            //    0,
+            //    pdfPage.Width,
+            //    pdfPage.Height);
+            //gfx.DrawRectangle(
+            //    new XSolidBrush(XColors.MistyRose),
+            //    Canvas.X,
+            //    Canvas.Y,
+            //    Canvas.W,
+            //    Canvas.H);
+            //// Debug: Draw page bounds
+            //gfx.DrawRectangle(new XPen(XColors.Red, XUnit.FromMillimeter(1)), X, Y, W, H);
+            //// Debug: Draw border dimensions
+            //gfx.DrawRectangle(new XPen(XColors.Green, XUnit.FromMillimeter(1)), PageBorder.X, PageBorder.Y, PageBorder.W, PageBorder.H);
+            //// Debug: Draw page canvas
+            //gfx.DrawRectangle(new XPen(XColors.Blue, XUnit.FromMillimeter(1)), Canvas.X, Canvas.Y, Canvas.W, Canvas.H);
+            #endregion
+            
+            
+            PageBorder.Draw(gfx);
+
+
+            // Implement drawing logic for the page and its elements
+            foreach (BaseElement element in Elements)
             {
+                // rotate
+                if (element is Row { Rotate: true })
+                {
+                    gfx.TranslateTransform(pdfPage.Width / 2, pdfPage.Height / 2);
+                    gfx.RotateTransform(90);
+                    gfx.TranslateTransform(-pdfPage.Height / 2, -pdfPage.Width / 2);
+                }
+                // draw
                 element.Draw(gfx);
+                // rotate back
+                if (element is Row { Rotate: true })
+                {
+                    gfx.TranslateTransform(pdfPage.Height / 2, pdfPage.Width / 2);
+                    gfx.RotateTransform(-90);
+                    gfx.TranslateTransform(-pdfPage.Width / 2, -pdfPage.Height / 2);
+                }
+
+
+                // If maore than one element has Rotate
+                //bool shouldRotate = element switch
+                //{
+                //    Row r => r.Rotate,
+                //    Column c => c.Rotate,  // if Column also has Rotate
+                //    _ => false
+                //};
+
+                //if (shouldRotate)
+                //{
+                //    // rotation logic
+                //}
             }
         }
-
-        //private static PageOrientation ParseOrientation(string orientation)
-        //{
-        //    if (!string.IsNullOrWhiteSpace(orientation) && Enum.TryParse(orientation, true, out PageOrientation result))
-        //    {
-        //        return result;
-        //    }
-        //    return default;
-        //}
-        //private static PageSize ParsePageSize(string size)
-        //{
-        //    if (!string.IsNullOrWhiteSpace(size) && Enum.TryParse(size, true, out PageSize result))
-        //    {
-        //        return result;
-        //    }
-        //    return default;
-        //}
-
     }
 }

@@ -1,4 +1,5 @@
 ﻿using PdfSharpCore.Drawing;
+using PdfSharpCore.Pdf;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,6 +22,13 @@ namespace MyAlbum.Models
             W = w;
             H = h;
         }
+
+        //public void Draw(XGraphics gfx) 
+        //{
+        //    gfx.DrawRectangle(
+        //        new XSolidBrush(XColors.MistyRose), 
+        //        X, Y, W, H);
+        //}
     }
 
 }

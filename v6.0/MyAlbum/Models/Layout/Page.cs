@@ -143,7 +143,7 @@ namespace MyAlbum.Models.Layout
             pdfPage.Orientation = this.Orientation;
             pdfPage.Size = this.Size;
 
-            // If Landscape, shift attributes 90 degrees counterclockwise
+            // If Landscape, the page rotates clockwise. Shift attributes 90 degrees counterclockwise
             if (Orientation == PageOrientation.Landscape)
             {
                 // margins

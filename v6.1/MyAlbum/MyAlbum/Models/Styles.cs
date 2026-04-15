@@ -8,9 +8,9 @@ namespace MyAlbum.Models
     {
         // Style collections accessible by all classes
         public static Dictionary<string, PageStyle> Page { get; } = new();
-        //public static Dictionary<string, BorderStyle> Border { get; } = new();
+        public static Dictionary<string, FrameStyle> Frame { get; } = new();
+        public static Dictionary<string, RowStyle> Row { get; } = new();
         //public static Dictionary<string, TextStyle> Text { get; } = new();
-        //public static Dictionary<string, RowStyle> Row { get; } = new();
         //public static Dictionary<string, ColumnStyle> Column { get; } = new();
         //public static Dictionary<string, ImageStyle> Image { get; } = new();
         //public static Dictionary<string, StampStyle> Stamp { get; } = new();

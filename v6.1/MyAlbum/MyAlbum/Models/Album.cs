@@ -13,11 +13,6 @@ namespace MyAlbum.Models
         public PdfDocument PdfDoc { get; set; }
         internal List<Page> Pages { get; set; } = new List<Page>();
 
-        #region styles
-        internal Dictionary<string, PageStyle> PageStyles { get; set; } = new();
-        //internal Dictionary<string, BorderStyle> BorderStyles { get; set; } = new();
-
-        #endregion
 
         public Album()
         {
@@ -29,25 +24,32 @@ namespace MyAlbum.Models
             if (styles == null)
                 return;
 
-            foreach (XElement xPage in styles.Elements("page"))
-            {
-                PageStyle pageStyle = new PageStyle();
-                pageStyle.ParseXml(xPage);
+            ParseStyleElements<PageStyle>(styles, "page", Styles.Page);
+            ParseStyleElements<FrameStyle>(styles, "frame", Styles.Frame);
+            ParseStyleElements<RowStyle>(styles, "row", Styles.Row);
 
-                string? styleName = xPage.Attribute("style")?.Value;
+        }
+        private void ParseStyleElements<T>(XElement styles, string elementName, Dictionary<string, T> styleDictionary)
+            where T : BaseElementStyle, new()
+        {
+            foreach (XElement element in styles.Elements(elementName))
+            {
+                T style = new T();
+                style.ParseXml(element);
+
+                string? styleName = element.Attribute("style")?.Value;
                 if (!string.IsNullOrEmpty(styleName))
                 {
-                    Styles.Page[styleName] = pageStyle;
+                    styleDictionary[styleName] = style;
                 }
 
-                bool isDefault = bool.Parse(xPage.Attribute("default")?.Value ?? "false");
+                bool isDefault = bool.Parse(element.Attribute("default")?.Value ?? "false");
                 if (isDefault)
                 {
-                    Styles.Page["default"] = pageStyle;
+                    styleDictionary["default"] = style;
                 }
             }
         }
-
         internal void ParseXml(XElement root, PageSelection pageSelection)
         {
             if (root == null || root.Name != "MyAlbum")
@@ -80,6 +82,7 @@ namespace MyAlbum.Models
                 // Create and parse the page
                 Page page = new Page();
                 page.PageNo = pageNo;
+                page.NestingLevel = 0;
                 page.ParseXml(pageElement);
                 Pages.Add(page);
             }
