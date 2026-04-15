@@ -399,7 +399,42 @@
     </row>
   </page>
 
-    <page no="100" title="last" />
+  <page no="10" title="King George V, Arch Issue (1930-31)">
+    <text style="date">1930-31</text>
+    <space height="10" />
+    <text style="headline">Perforated 8 1/2 Vertically</text>
+
+    <row>
+      <stamp width="44" height="26" title="" image="" i1="1c" i2="orange" i3="S 178pa" f1="" f2="KING GEORGE V" f3="" />
+      <stamp width="44" height="26" title="" image="" i1="1c" i2="deep green" i3="S 179pa" f1="" f2="" f3="" />
+      <stamp width="44" height="26" title="" image="" i1="2c" i2="dull green" i3="S 180pa" f1="" f2="" f3="" />
+    </row>
+  
+    <row>
+      <stamp width="44" height="26" title="" image="" i1="2c" i2="deep red" i3="S 181pa" f1="" f2="" f3="" />
+      <stamp width="44" height="26" title="" image="" i1="3c" i2="dark brown" i3="S 82pa" f1="" f2="" f3="" />
+      <stamp width="44" height="26" title="" image="" i1="3c" i2="deep red" i3="S 183pa" f1="" f2="" f3="" />
+    </row>
+
+    <space height="17" />
+    <row space="17">
+      <column width="58">
+        <text style="date">1931</text>
+        <stamp width="22" height="26" title="" image="" i1="10c" i2="dark green" i3="S 190" f1="" f2="SIR GEORGE ETIENNE CARTIER" f3="" />
+      </column>
+
+      <column width="58">
+        <text style="date">1932</text>
+        <stamp width="38" height="26" title="" image="" i1="6c/5c" i2="brown olive" i3="S C3" f1="" f2="ALLEGORY OF FLIGHT,\nAIR POST, SURCHARGED" f3="" />
+      </column>
+    </row>
+
+
+  </page>
+  
+  
+  
+  <page no="100" title="last" />
   <text style="date">1917</text>
 
 
