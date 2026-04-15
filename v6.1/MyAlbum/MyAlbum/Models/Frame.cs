@@ -10,6 +10,7 @@ namespace MyAlbum.Models
 {
     internal class Frame : BaseElement
     {
+        #region fields
         protected FrameType? _typeTop;
         protected FrameType? _typeRight;
         protected FrameType? _typeBottom;
@@ -17,7 +18,14 @@ namespace MyAlbum.Models
         protected XUnit? _lineWidth1;
         protected XUnit? _lineWidth2;
         protected XUnit? _offset;
+        #endregion
 
+        #region style properties
+        public new FrameStyle Style
+        {
+            get => (FrameStyle)base.Style;
+            set => base.Style = value;
+        }
         public FrameType TypeTop 
         { 
             get => _typeTop ?? Style.TypeTop ?? FrameType.None; 
@@ -53,34 +61,31 @@ namespace MyAlbum.Models
             get => _offset ?? Style.Offset ?? XUnit.Zero;
             set => _offset = value;
         }
+        #endregion
+
+        #region other properties
         public XUnit WidthTop { get; set; }
         public XUnit WidthRight { get; set; }
         public XUnit WidthBottom { get; set; }
         public XUnit WidthLeft { get; set; }
-
-        #region Properties accepting Styles 
-        public new FrameStyle Style
-        {
-            get => (FrameStyle)base.Style;
-            set => base.Style = value;
-        }
         #endregion
 
-
+        #region constructors
         public Frame()
         {
             Style = Styles.Frame.GetStyle("default") ?? new FrameStyle();
         }
+        #endregion
 
-        internal new void ParseXml(XElement xFrame)
+        #region inherited methods
+        internal override void ParseXml(XElement xFrame)
         {
             Style = Styles.Frame.GetStyle(xFrame.Attribute("style")?.Value);
             base.ParseXml(xFrame);
 
             (_typeTop, _typeRight, _typeBottom, _typeLeft) = XmlParser.ParseFrameType(xFrame.Attribute("frame-type")?.Value);
             (_lineWidth1, _offset, _lineWidth2) = XmlParser.ParseFrameWidth(xFrame.Attribute("frame-width")?.Value);
-            
-
         }
+        #endregion
     }
 }

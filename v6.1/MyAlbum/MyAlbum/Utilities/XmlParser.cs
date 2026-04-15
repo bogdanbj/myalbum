@@ -99,9 +99,13 @@ namespace MyAlbum.Utilities
             }
             return (top, right, bottom, left);
         }
-        internal static XUnit ParseXUnit(string value)
+        internal static XUnit? ParseXUnit(string? value)
         {
-            return XUnit.FromMillimeter(double.Parse(value));
+            if (!string.IsNullOrWhiteSpace(value) && double.TryParse(value, out double result))
+            {
+                return result;
+            }
+            return null;
         }
         internal static (FrameType? typeTop, FrameType? typeRight, FrameType? typeBottom, FrameType? typeLeft) ParseFrameType(string? frameType)
         {
@@ -205,21 +209,49 @@ namespace MyAlbum.Utilities
 
             return (lineWidth1, offset, lineWidth2);
         }
-        internal static Alignment ParseAlignment(string value)
+        internal static Alignment? ParseAlignment(string? value)
         {
-            return Enum.TryParse(value, true, out Alignment align) ? align : Alignment.Center;
+            if (!string.IsNullOrWhiteSpace(value) && Enum.TryParse(value, true, out Alignment align))
+            {
+                return align;
+            }
+            return null;
         }
-        internal static VerticalAlignment ParseVerticalAlignment(string value)
+        internal static VerticalAlignment? ParseVerticalAlignment(string? value)
         {
-            return Enum.TryParse(value, true, out VerticalAlignment align) ? align : VerticalAlignment.Top;
+            if (!string.IsNullOrWhiteSpace(value) && Enum.TryParse(value, true, out VerticalAlignment align))
+            {
+                return align;
+            }
+            return null;
         }
-        internal static SpacingMode ParseSpacingMode(string value)
+        internal static SpacingMode? ParseSpacingMode(string? value)
         {
-            return Enum.TryParse(value, true, out SpacingMode spacingMode) ? spacingMode : SpacingMode.FS;
+            if (!string.IsNullOrWhiteSpace(value) && Enum.TryParse(value, true, out SpacingMode mode))
+            {
+                return mode;
+            }
+            return null;
         }
         internal static bool ParseBool(string? value)
         {
             return bool.TryParse(value, out bool result) && result;
+        }
+        internal static double? ParseDouble(string? value)
+        {
+            if (!string.IsNullOrWhiteSpace(value) && double.TryParse(value, out double result))
+            {
+                return result;
+            }
+            return null;
+        }
+        internal static XFontStyle? ParseFontStyle(string? value)
+        {
+            if (!string.IsNullOrWhiteSpace(value) && Enum.TryParse(value, true, out XFontStyle style))
+            {
+                return style;
+            }
+            return null;
         }
     }
 }

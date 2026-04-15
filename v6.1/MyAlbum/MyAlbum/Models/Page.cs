@@ -18,7 +18,7 @@ namespace MyAlbum.Models
         protected PageOrientation? _orientation;
         protected PageSize? _size;
         //margins
-        //vspace
+        protected XUnit? _vSpace;
         #endregion
 
         #region Properties accepting Styles 
@@ -37,7 +37,11 @@ namespace MyAlbum.Models
             get => _size ?? Style?.Size ?? PageSize.Letter; 
             set => _size = value; 
         }
-
+        public XUnit VSpace 
+        { 
+            get => _vSpace ?? Style?.VSpace ?? XUnit.Zero;
+            set => _vSpace = value; 
+        }
         #endregion
 
         #region Other properties
@@ -55,7 +59,7 @@ namespace MyAlbum.Models
         }
         #endregion
 
-        internal void ParseXml(XElement xPage)
+        internal override void ParseXml(XElement xPage)
         {
             Style = Styles.Page.GetStyle(xPage.Attribute("style")?.Value);
             base.ParseXml(xPage);
@@ -63,6 +67,7 @@ namespace MyAlbum.Models
             Title = xPage.Attribute("title")?.Value ?? "";
             _orientation = XmlParser.ParseOrientation(xPage.Attribute("orientation")?.Value);
             _size = XmlParser.ParsePageSize(xPage.Attribute("size")?.Value);
+            _vSpace = XmlParser.ParseXUnit(xPage.Attribute("vspace")?.Value);
 
             // Add elements from style first
             if (Style?.ChildElements != null)
@@ -156,9 +161,17 @@ namespace MyAlbum.Models
                 element.Calculate(gfx, Canvas);
 
                 // Adjust canvas for next element (assuming vertical stacking)
-                // Move Y down by element height + margins
-                Canvas.Y += element.H + element.MarginTop + element.MarginBottom;
-                Canvas.H -= element.H + element.MarginTop + element.MarginBottom;
+                if (element is Row { Rotate: true })
+                {
+                    // Shrink the Canvas width by rotated row height + margins
+                    Canvas.W -= element.H + element.MarginTop + element.MarginBottom + VSpace;
+                }
+                else
+                {
+                    // Move Y down by element height + margins
+                    Canvas.Y += element.H + element.MarginTop + element.MarginBottom + VSpace;
+                    Canvas.H -= element.H + element.MarginTop + element.MarginBottom + VSpace;
+                }
             }
 
 
@@ -191,8 +204,9 @@ namespace MyAlbum.Models
             //// Debug: Draw page canvas
             //gfx.DrawRectangle(new XPen(XColors.Blue, XUnit.FromMillimeter(1)), Canvas.X, Canvas.Y, Canvas.W, Canvas.H);
             #endregion
-            
-            
+
+
+            Console.Write("  ");
             PageBorder.Draw(gfx);
 
 
@@ -207,6 +221,7 @@ namespace MyAlbum.Models
                     gfx.TranslateTransform(-pdfPage.Height / 2, -pdfPage.Width / 2);
                 }
                 // draw
+                Console.Write("  ");
                 element.Draw(gfx);
                 // rotate back
                 if (element is Row { Rotate: true })
@@ -230,6 +245,10 @@ namespace MyAlbum.Models
                 //    // rotation logic
                 //}
             }
+
+            // Draw remaining canvas
+            gfx.DrawRectangle(new XPen(Color, 0.5), new XSolidBrush(XColors.MistyRose), Canvas.X, Canvas.Y, Canvas.W, Canvas.H);
+
         }
     }
 }

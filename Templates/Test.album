@@ -1,10 +1,11 @@
 <MyAlbum ver="3.0"  styles="Canada.styles">
   <page rem="Page 1">
+    <row />
+    <text />
+    <paragraph />
     <column />
     <image />
-    <row />
     <stamp />
-    <text />
   </page>
   .
   <page rem="Page 2" style="landscape">

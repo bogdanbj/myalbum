@@ -11,11 +11,12 @@ namespace MyAlbum.Models
     internal class PageBorder : Frame
     {
 
-        internal new void ParseXml(XElement xBorder)
+        internal override void ParseXml(XElement xBorder)
         {
             base.ParseXml(xBorder);
         }
-        internal void Calculate(XGraphics gfx, Canvas parentCanvas)
+        
+        internal override void Calculate(XGraphics gfx, Canvas parentCanvas)
         {
             // Adjust the border X, Y, W, H with the exterior line width
             X = parentCanvas.X + MarginLeft + LineWidth1 / 2;
@@ -61,7 +62,6 @@ namespace MyAlbum.Models
             }
 
             Calculate (gfx, parentCanvas);
-            //Helper.DrawCorner(gfx, Canvas.X, Canvas.Y, XColors.Green);
         }
         internal override void Draw(XGraphics gfx)
         {

@@ -32,7 +32,6 @@ namespace MyAlbum.Models
         public XUnit? PaddingRight { get; set; }
         public XUnit? PaddingBottom { get; set; }
         public XUnit? PaddingLeft { get; set; }
-
         #endregion Region
 
         #region Methods

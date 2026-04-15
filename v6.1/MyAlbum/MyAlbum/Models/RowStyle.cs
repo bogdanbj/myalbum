@@ -4,16 +4,17 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices.JavaScript;
 using System.Text;
 using System.Xml.Linq;
+using PdfSharpCore.Drawing;
 
 namespace MyAlbum.Models
 {
     internal class RowStyle : BaseElementStyle
     {
         #region Properties
-        public string? Align { get; set; }
-        public string? VAlign { get; set; }
-        public string? SpacingMode { get; set; }
-        public string? Space { get; set; }
+        public Alignment? Align { get; set; }
+        public VerticalAlignment? VAlign { get; set; }
+        public SpacingMode? SpacingMode { get; set; }
+        public XUnit? Space { get; set; }
         public bool? Rotate { get; set; }
         #endregion
 
@@ -21,10 +22,10 @@ namespace MyAlbum.Models
         {
             base.ParseXml(xRow);
 
-            Align = xRow.Attribute("align")?.Value;
-            VAlign = xRow.Attribute("valign")?.Value;
-            SpacingMode = xRow.Attribute("spacing-mode")?.Value;
-            Space = xRow.Attribute("space")?.Value;
+            Align = XmlParser.ParseAlignment(xRow.Attribute("align")?.Value);
+            VAlign = XmlParser.ParseVerticalAlignment(xRow.Attribute("valign")?.Value);
+            SpacingMode = XmlParser.ParseSpacingMode(xRow.Attribute("spacing-mode")?.Value);
+            Space = XmlParser.ParseXUnit(xRow.Attribute("space")?.Value);
             Rotate = XmlParser.ParseBool(xRow.Attribute("rotate")?.Value);
         }
     }

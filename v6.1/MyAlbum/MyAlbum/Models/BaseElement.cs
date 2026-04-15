@@ -101,7 +101,7 @@ namespace MyAlbum.Models
             Canvas = new Canvas();
         }
 
-        internal void ParseXml(XElement element)
+        internal virtual void ParseXml(XElement element)
         {
             //#region For testing only, remove later
             //X = XUnit.FromMillimeter(double.Parse(element.Attribute("x")?.Value ?? "0"));
