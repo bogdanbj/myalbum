@@ -38,47 +38,47 @@ namespace MyAlbum.Models
 
         #region Properties accepting Styles 
         public BaseElementStyle Style { get; set; }
-        public XColor Color 
+        public XColor Color
         {
             get => _color ?? Style.Color ?? _parentColor ?? XColors.Black;
-            set => _color=value;
+            set => _color = value;
         }
-        public XColor BgColor 
-        { 
-            get => _bgColor ?? Style.BgColor ?? _parentBgColor ?? XColors.Transparent; 
-            set => BgColor = value; 
+        public XColor BgColor
+        {
+            get => _bgColor ?? Style.BgColor ?? _parentBgColor ?? XColors.Transparent;
+            set => BgColor = value;
         }
-        public XUnit MarginTop 
-        { 
-            get => _marginTop ?? Style.MarginTop ?? XUnit.Zero; 
-            set => _marginTop = value; 
+        public XUnit MarginTop
+        {
+            get => _marginTop ?? Style.MarginTop ?? XUnit.Zero;
+            set => _marginTop = value;
         }
-        public XUnit MarginRight 
-        { 
-            get => _marginRight ?? Style.MarginRight ?? XUnit.Zero; 
-            set => _marginRight = value; 
+        public XUnit MarginRight
+        {
+            get => _marginRight ?? Style.MarginRight ?? XUnit.Zero;
+            set => _marginRight = value;
         }
-        public XUnit MarginBottom 
-        { 
-            get => _marginBottom ?? Style.MarginBottom ?? XUnit.Zero; 
-            set => _marginBottom = value; 
+        public XUnit MarginBottom
+        {
+            get => _marginBottom ?? Style.MarginBottom ?? XUnit.Zero;
+            set => _marginBottom = value;
         }
-        public XUnit MarginLeft 
-        { 
-            get => _marginLeft ?? Style.MarginLeft ?? XUnit.Zero; 
-            set => _marginLeft = value; 
+        public XUnit MarginLeft
+        {
+            get => _marginLeft ?? Style.MarginLeft ?? XUnit.Zero;
+            set => _marginLeft = value;
         }
-        public XUnit PaddingTop 
-        { 
-            get => _paddingTop ?? Style.PaddingTop ?? XUnit.Zero; 
-            set => _paddingTop = value; 
+        public XUnit PaddingTop
+        {
+            get => _paddingTop ?? Style.PaddingTop ?? XUnit.Zero;
+            set => _paddingTop = value;
         }
         public XUnit PaddingRight
         {
             get => _paddingRight ?? Style.PaddingRight ?? XUnit.Zero;
             set => _paddingRight = value;
         }
-        public XUnit PaddingBottom  
+        public XUnit PaddingBottom
         {
             get => _paddingBottom ?? Style.PaddingBottom ?? XUnit.Zero;
             set => _paddingBottom = value;
@@ -138,7 +138,20 @@ namespace MyAlbum.Models
             gfx.DrawRectangle(new XPen(Color, 0.5), new XSolidBrush(BgColor), X, Y, W, H);
         }
 
+        protected BaseElement? CreateElement(string elementName)
+        {
+            return elementName switch
+            {
+                "frame" => new Frame(),
+                "row" => new Row(),
+                "column" => new Column(),
+                "image" => new Image(),
+                "stamp" => new Stamp(),
+                "text" => new Text(),
+                _ => null
+            };
 
+        }
     }
 }
 

@@ -76,20 +76,6 @@ namespace MyAlbum.Models
             _fontSize = XmlParser.ParseDouble(xText.Attribute("font-size")?.Value);
             _fontStyle = XmlParser.ParseFontStyle(xText.Attribute("font-style")?.Value);
             
-            // Add elements from style first
-            if (Style?.ChildElements != null)
-            {
-                foreach (var styleElement in Style.ChildElements)
-                {
-                    InstantiateElement(styleElement);
-                }
-            }
-
-            // Then parse page-specific elements
-            foreach (XElement xElement in xPage.Elements())
-            {
-                InstantiateElement(xElement);
-            }
             //PageNumber = int.Parse(pageElement.Attribute("no")?.Value ?? "0");
         }
     }

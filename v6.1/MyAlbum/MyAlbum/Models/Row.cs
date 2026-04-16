@@ -66,6 +66,18 @@ namespace MyAlbum.Models
             _spacingMode = XmlParser.ParseSpacingMode(xRow.Attribute("spacing-mode")?.Value);
             _space = XmlParser.ParseXUnit(xRow.Attribute("space")?.Value);
             _rotate = XmlParser.ParseBool(xRow.Attribute("rotate")?.Value);
+
+            // Then parse page-specific elements
+            foreach (XElement xElement in xRow.Elements())
+            {
+                var elem = CreateElement(xElement.Name.LocalName);
+                if (elem != null)
+                {
+                    elem.Inherit(this);
+                    elem.ParseXml(xElement);
+                    Elements.Add(elem);
+                }
+            }
         }
         internal override void Calculate(XGraphics gfx, Canvas parentCanvas)
         {

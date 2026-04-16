@@ -74,62 +74,87 @@ namespace MyAlbum.Models
             {
                 foreach (var styleElement in Style.ChildElements)
                 {
-                    InstantiateElement(styleElement);
+                    var elem = CreateElement(styleElement.Name.LocalName);
+                    if (elem != null)
+                    {
+                        elem.Inherit(this);
+                        elem.ParseXml(styleElement);
+                        Elements.Add(elem);
+                    }
                 }
             }
 
             // Then parse page-specific elements
             foreach (XElement xElement in xPage.Elements())
             {
-                InstantiateElement(xElement);
+                var elem = CreateElement(xElement.Name.LocalName);
+                if (elem != null)
+                {
+                    elem.Inherit(this);
+                    elem.ParseXml(xElement);
+                    Elements.Add(elem);
+                }
             }
             //PageNumber = int.Parse(pageElement.Attribute("no")?.Value ?? "0");
         }
-        private void InstantiateElement(XElement xElement)
-        {
-            switch (xElement.Name.LocalName)
-            {
-                case "banner":
-                    // Handle banner element
-                    break;
-                case "frame":
-                    PageBorder = new PageBorder();
-                    PageBorder.Inherit(this);
-                    PageBorder.ParseXml(xElement);
-                    //this.Elements.Add(PageBorder);
-                    break;
-                case "row":
-                    Row row = new Row();
-                    row.Inherit(this);
-                    row.ParseXml(xElement);
-                    this.Elements.Add(row);
-                    break;
-                case "column":
-                    Column column = new Column();
-                    column.Inherit(this);
-                    column.ParseXml(xElement);
-                    this.Elements.Add(column);
-                    break;
-                case "image":
-                    Image image = new Image();
-                    image.Inherit(this);
-                    image.ParseXml(xElement);
-                    this.Elements.Add(image);
-                    break;
-                case "stamp":
-                    Stamp stamp = new Stamp();
-                    stamp.Inherit(this);
-                    stamp.ParseXml(xElement);
-                    this.Elements.Add(stamp);
-                    break;
-                case "text":
-                    Text text = new Text();
-                    text.Inherit(this);
-                    text.ParseXml(xElement);
-                    this.Elements.Add(text);
-                    break;
-            }
-        }
+        //protected BaseElement? CreateElement(string elementName)
+        //{
+        //    return elementName switch
+        //    {
+        //        "frame" => new Frame(),
+        //        "row" => new Row(),
+        //        "column" => new Column(),
+        //        "image" => new Image(),
+        //        "stamp" => new Stamp(),
+        //        "text" => new Text(),
+        //        _ => null
+        //    };
+        //}
+        //private void InstantiateElement(XElement xElement)
+        //{
+        //    switch (xElement.Name.LocalName)
+        //    {
+        //        case "banner":
+        //            // Handle banner element
+        //            break;
+        //        case "frame":
+        //            PageBorder = new PageBorder();
+        //            PageBorder.Inherit(this);
+        //            PageBorder.ParseXml(xElement);
+        //            //this.Elements.Add(PageBorder);
+        //            break;
+        //        case "row":
+        //            Row row = new Row();
+        //            row.Inherit(this);
+        //            row.ParseXml(xElement);
+        //            this.Elements.Add(row);
+        //            break;
+        //        case "column":
+        //            Column column = new Column();
+        //            column.Inherit(this);
+        //            column.ParseXml(xElement);
+        //            this.Elements.Add(column);
+        //            break;
+        //        case "image":
+        //            Image image = new Image();
+        //            image.Inherit(this);
+        //            image.ParseXml(xElement);
+        //            this.Elements.Add(image);
+        //            break;
+        //        case "stamp":
+        //            Stamp stamp = new Stamp();
+        //            stamp.Inherit(this);
+        //            stamp.ParseXml(xElement);
+        //            this.Elements.Add(stamp);
+        //            break;
+        //        case "text":
+        //            Text text = new Text();
+        //            text.Inherit(this);
+        //            text.ParseXml(xElement);
+        //            this.Elements.Add(text);
+        //            break;
+        //    }
+        //}
         internal void Calculate(XGraphics gfx)
         {
             pdfPage.Orientation = this.Orientation;
