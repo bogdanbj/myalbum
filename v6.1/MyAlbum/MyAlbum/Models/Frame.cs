@@ -8,7 +8,7 @@ using MyAlbum.Utilities;
 
 namespace MyAlbum.Models
 {
-    internal class Frame : BaseElement
+    internal class Frame : BaseElement<FrameStyle>
     {
         #region fields
         protected FrameType? _typeTop;
@@ -21,11 +21,11 @@ namespace MyAlbum.Models
         #endregion
 
         #region style properties
-        public new FrameStyle Style
-        {
-            get => (FrameStyle)base.Style;
-            set => base.Style = value;
-        }
+        //public new FrameStyle Style
+        //{
+        //    get => (FrameStyle)base.Style;
+        //    set => base.Style = value;
+        //}
         public FrameType TypeTop 
         { 
             get => _typeTop ?? Style.TypeTop ?? FrameType.None; 

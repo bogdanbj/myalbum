@@ -55,7 +55,7 @@
     <text style="chapter" align="center" font_name="Century Gothic" font_size="36"/>
     <text style="headline" align="center" font_name="Century Gothic" font_size="10" bgcolor="CadetBlue" margin="0,0,1,0"/>
     <text style="title" align="center" font_name="Century Gothic" font_size="10"/>
-    <text style="inside" align="center" font_name="Century Gothic" font_size="6" width="80%"/>
+    <text style="inside" align="center" font_name="Century Gothic" font_size="6"/>
     <text style="footer" font_name="Century Gothic" font_size="6" margin="0,0,2,0" wrap="false"/>
     <!--
     <text style="inside" align="center" font_name="Century Gothic" font_size="6" font_style="regular" width="80%"/>

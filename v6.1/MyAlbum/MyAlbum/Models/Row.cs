@@ -7,7 +7,7 @@ using MyAlbum.Utilities;
 
 namespace MyAlbum.Models
 {
-    internal class Row : BaseElement
+    internal class Row : BaseElement<RowStyle>
     {
         protected Alignment? _align;
         protected VerticalAlignment? _vAlign;
@@ -16,11 +16,11 @@ namespace MyAlbum.Models
         protected XUnit? _space;
 
         #region Properties accepting Styles 
-        public new RowStyle Style
-        {
-            get => (RowStyle)base.Style;
-            set => base.Style = value;
-        }
+        //public new RowStyle Style
+        //{
+        //    get => (RowStyle)base.Style;
+        //    set => base.Style = value;
+        //}
         public Alignment Align 
         { 
             get => _align ?? Style.Align ?? Alignment.Center; 
@@ -54,9 +54,12 @@ namespace MyAlbum.Models
 
         public Row()
         {
+            Style = Styles.Row.GetStyle("default") ?? new RowStyle();
+            Elements = new List<BaseElement>();
+
             this.H = XUnit.FromMillimeter(20);
         }
-        internal new void ParseXml(XElement xRow)
+        internal override void ParseXml(XElement xRow)
         {
             base.ParseXml(xRow);
             Style = Styles.Row.GetStyle(xRow.Attribute("style")?.Value);

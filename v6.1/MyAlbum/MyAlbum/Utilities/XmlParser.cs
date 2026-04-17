@@ -103,7 +103,7 @@ namespace MyAlbum.Utilities
         {
             if (!string.IsNullOrWhiteSpace(value) && double.TryParse(value, out double result))
             {
-                return result;
+                return XUnit.FromMillimeter(result);
             }
             return null;
         }

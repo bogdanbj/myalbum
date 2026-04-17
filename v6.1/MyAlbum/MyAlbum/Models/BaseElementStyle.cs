@@ -32,6 +32,7 @@ namespace MyAlbum.Models
         public XUnit? PaddingRight { get; set; }
         public XUnit? PaddingBottom { get; set; }
         public XUnit? PaddingLeft { get; set; }
+        public string? Name { get; set; }
         #endregion Region
 
         #region Methods
@@ -44,6 +45,7 @@ namespace MyAlbum.Models
             //Padding = element.Attribute("padding")?.Value;
             (MarginTop, MarginRight, MarginBottom, MarginLeft) = XmlParser.ParseMargin(element.Attribute("margin")?.Value);
             (PaddingTop, PaddingRight, PaddingBottom, PaddingLeft) = XmlParser.ParseMargin(element.Attribute("padding")?.Value);
+            Name = element.Attribute("style")?.Value;
         }
         #endregion
     }

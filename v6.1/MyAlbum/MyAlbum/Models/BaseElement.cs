@@ -153,5 +153,14 @@ namespace MyAlbum.Models
 
         }
     }
+    internal abstract class BaseElement<TStyle> : BaseElement
+        where TStyle : BaseElementStyle
+    {
+        public new TStyle? Style
+        {
+            get => (TStyle?)base.Style;
+            set => base.Style = value;
+        }
+    }
 }
 

@@ -12,7 +12,7 @@ using System.Xml.Linq;
 
 namespace MyAlbum.Models
 {
-    internal class Page : BaseElement
+    internal class Page : BaseElement<PageStyle>
     {
         #region Fields
         protected PageOrientation? _orientation;
@@ -22,11 +22,11 @@ namespace MyAlbum.Models
         #endregion
 
         #region Properties accepting Styles 
-        public new PageStyle? Style 
-        { 
-            get => (PageStyle)base.Style; 
-            set => base.Style = value; 
-        }
+        //public new PageStyle? Style 
+        //{ 
+        //    get => (PageStyle)base.Style; 
+        //    set => base.Style = value; 
+        //}
         public PageOrientation Orientation 
         { 
             get => _orientation ?? Style?.Orientation ?? PageOrientation.Portrait; 
@@ -54,8 +54,10 @@ namespace MyAlbum.Models
         #region Constructors
         public Page() : base()
         {
-            PageBorder = new PageBorder();
+            Style = Styles.Page.GetStyle("default") ?? new PageStyle();
             Elements = new List<BaseElement>();
+
+            PageBorder = new PageBorder();
         }
         #endregion
 
