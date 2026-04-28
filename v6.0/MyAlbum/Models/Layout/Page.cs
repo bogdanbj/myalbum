@@ -20,6 +20,7 @@ namespace MyAlbum.Models.Layout
         public PageSize Size { get; set; }
         //public XUnit VSpace { get; set; }
         public Border PageBorder { get; set; }
+        public Image PageBanner { get; set; }
         public List<BaseElement> Elements { get; set; }
         public PdfPage pdfPage { get; set; }
 

@@ -468,7 +468,7 @@
     <space height="10" />
     <row space ="8" align="top">
       <column width="101.8">
-        <text style="headline" font_size="16">Second World War</text>
+        <text style="headline" font-size="16">Second World War</text>
         <text style="headline">50th Anniversary</text>
       </column>
       <stamp width="96" height="60" title="Reluctantly at War Again" image="" i1="4x38c" i2="" i3="S 1263a" f1="" f2="" f3="" />

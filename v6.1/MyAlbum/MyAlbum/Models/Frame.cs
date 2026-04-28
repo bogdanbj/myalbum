@@ -10,7 +10,7 @@ namespace MyAlbum.Models
 {
     internal class Frame : BaseElement<FrameStyle>
     {
-        #region fields
+        #region Fields
         protected FrameType? _typeTop;
         protected FrameType? _typeRight;
         protected FrameType? _typeBottom;
@@ -20,12 +20,7 @@ namespace MyAlbum.Models
         protected XUnit? _offset;
         #endregion
 
-        #region style properties
-        //public new FrameStyle Style
-        //{
-        //    get => (FrameStyle)base.Style;
-        //    set => base.Style = value;
-        //}
+        #region Style properties
         public FrameType TypeTop 
         { 
             get => _typeTop ?? Style.TypeTop ?? FrameType.None; 
@@ -63,28 +58,28 @@ namespace MyAlbum.Models
         }
         #endregion
 
-        #region other properties
+        #region Other properties
         public XUnit WidthTop { get; set; }
         public XUnit WidthRight { get; set; }
         public XUnit WidthBottom { get; set; }
         public XUnit WidthLeft { get; set; }
         #endregion
 
-        #region constructors
+        #region Constructors
         public Frame()
         {
             Style = Styles.Frame.GetStyle("default") ?? new FrameStyle();
         }
         #endregion
 
-        #region inherited methods
-        internal override void ParseXml(XElement xFrame)
+        #region Override methods
+        internal override void ParseXml(XElement xElem)
         {
-            Style = Styles.Frame.GetStyle(xFrame.Attribute("style")?.Value);
-            base.ParseXml(xFrame);
+            Style = Styles.Frame.GetStyle(xElem.Attribute("style")?.Value);
+            base.ParseXml(xElem);
 
-            (_typeTop, _typeRight, _typeBottom, _typeLeft) = XmlParser.ParseFrameType(xFrame.Attribute("frame-type")?.Value);
-            (_lineWidth1, _offset, _lineWidth2) = XmlParser.ParseFrameWidth(xFrame.Attribute("frame-width")?.Value);
+            (_typeTop, _typeRight, _typeBottom, _typeLeft) = XmlParser.ParseFrameType(xElem.Attribute("frame-type")?.Value);
+            (_lineWidth1, _offset, _lineWidth2) = XmlParser.ParseFrameWidth(xElem.Attribute("frame-width")?.Value);
         }
         #endregion
     }

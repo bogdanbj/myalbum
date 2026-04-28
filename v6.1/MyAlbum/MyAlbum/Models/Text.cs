@@ -10,27 +10,23 @@ namespace MyAlbum.Models
 {
     internal class Text : BaseElement<TextStyle>
     {
-        #region fields
+        #region Fields
         protected Alignment? _align;
         protected string? _fontName;
         protected double? _fontSize;
         protected XFontStyle? _fontStyle;
         private XFont _font;
-        private string[][] arr;
+        private string[] lines;
         string[] sep = { "\\n" };
         #endregion
 
-        #region style properties
-        //public new TextStyle Style 
-        //{ 
-        //    get => (TextStyle)base.Style;
-        //    set => base.Style = value;
-        //}
-        public Alignment Align 
-        { 
-            get => _align ?? Style.Align ?? Alignment.Center; 
+        #region Style properties
+        public Alignment Align
+        {
+            get => _align ?? Style.Align ?? Alignment.Center;
             set => _align = value;
         }
+        public VerticalAlignment VAlign { get; set; } = VerticalAlignment.Top;
         public string FontName 
         { 
             get => _fontName ?? Style.FontName ?? "Verdana"; 
@@ -58,57 +54,67 @@ namespace MyAlbum.Models
             }
             set => _font = value; 
         }
+        public XBrush Brush
+        {
+            get
+            {
+                return new XSolidBrush(Color);
+            }
+        }
         public string? Value { get; set; }
         #endregion
 
-        #region constructors
+        #region Constructors
         public Text()
         {
             Style = Styles.Text.GetStyle("default") ?? new TextStyle();
         }
         #endregion
 
-        internal override void ParseXml(XElement xText)
+        #region Override methods
+        internal override void ParseXml(XElement xElem)
         {
-            base.ParseXml(xText);
-            Style = Styles.Text.GetStyle(xText.Attribute("style")?.Value);
+            base.ParseXml(xElem);
+            Style = Styles.Text.GetStyle(xElem.Attribute("style")?.Value);
 
-            _align = XmlParser.ParseAlignment(xText.Attribute("align")?.Value);
-            _fontName = xText.Attribute("font-name")?.Value;
-            _fontSize = XmlParser.ParseDouble(xText.Attribute("font-size")?.Value);
-            _fontStyle = XmlParser.ParseFontStyle(xText.Attribute("font-style")?.Value);
+            _align = XmlParser.ParseAlignment(xElem.Attribute("align")?.Value);
+            _fontName = xElem.Attribute("font-name")?.Value;
+            _fontSize = XmlParser.ParseDouble(xElem.Attribute("font-size")?.Value);
+            _fontStyle = XmlParser.ParseFontStyle(xElem.Attribute("font-style")?.Value);
             Font = new XFont(FontName, FontSize, FontStyle);
 
-            Value = xText.Attribute("value")?.Value;
+            Value = xElem.Value;
+            
 
             //PageNumber = int.Parse(pageElement.Attribute("no")?.Value ?? "0");
         }
         internal override void Calculate(XGraphics gfx, Canvas parentCanvas)
         {
-            // Text does not wrap. Only Paragraph does. For the text element, it is the user responsibility to break the line.
-
-
-
+            // Text does not wrap. Only Paragraph does. For the text element, the user might break the line with \n.
             if (!string.IsNullOrEmpty(Value))
             {
-                arr = SplitText(gfx);
+                lines = Value.Split(sep, StringSplitOptions.None);
 
-                for (int i = 0; i < arr.Length; i++)
+                for (int i = 0; i < lines.Length; i++)
                 {
                     H += XUnit.FromPoint(this.Font.Height);
+                    W = Math.Max(W, gfx.MeasureString(lines[i], this.Font).Width);
                 }
-            }
-            if (H > XUnit.Zero)
-            {
                 H += MarginTop + MarginBottom;
+                W += MarginLeft + MarginRight;
             }
+            //if (H > XUnit.Zero)
+            //{
+            //    H += MarginTop + MarginBottom;
+            //}
 
-            TopAlign = XUnit.Zero;
-            MiddleAlign = H / 2;
-            BottomAlign = H;
+            //TopAlign = XUnit.Zero;
+            //MiddleAlign = H / 2;
+            //BottomAlign = H;
         }
         internal override void Draw(XGraphics gfx)
         {
+            base.Draw(gfx);
             try
             {
                 // TEST : fill canvas
@@ -117,7 +123,7 @@ namespace MyAlbum.Models
 
                 XPoint startPoint;
 
-                VAlign = VerticalAlignment.Top;
+                //VAlign = VerticalAlignment.Top;
 
 
                 //DrawBackground();
@@ -126,34 +132,34 @@ namespace MyAlbum.Models
 
                 if (!string.IsNullOrEmpty(this.Value))
                 {
-                    for (int i = 0; i < arr.Length; i++)
+                    for (int i = 0; i < lines.Length; i++)
                     {
                         XStringFormat format = new XStringFormat();
 
-                        //if ((this.Justify) && (i < arr.Length - 1))
-                        if ((this.Justify) && (arr[i][0] != "LAST"))
-                        {
-                            startPoint = RowStartPoint(i, true);
-                            string[] words = arr[i][1].Split();
-                            double wordsWidth = 0;
-                            double spaceWidth = 0;
-                            double space;
-                            for (int j = 0; j < words.Length; j++)
-                            {
-                                wordsWidth += gfx.MeasureString(words[j], Font).Width;
-                            }
-                            spaceWidth = this.W - wordsWidth;
-                            space = spaceWidth / (words.Length - 1);
-                            for (int j = 0; j < words.Length; j++)
-                            {
-                                format.Alignment = XStringAlignment.Near;
-                                gfx.DrawString(words[j], Font, Brush, (XPoint)startPoint, format);
-                                startPoint.X += gfx.MeasureString(words[j], Font).Width + space;
-                            }
+                        ////if ((this.Justify) && (i < arr.Length - 1))
+                        //if ((this.Justify) && (arr[i][0] != "LAST"))
+                        //{
+                        //    startPoint = RowStartPoint(i, true);
+                        //    string[] words = arr[i][1].Split();
+                        //    double wordsWidth = 0;
+                        //    double spaceWidth = 0;
+                        //    double space;
+                        //    for (int j = 0; j < words.Length; j++)
+                        //    {
+                        //        wordsWidth += gfx.MeasureString(words[j], Font).Width;
+                        //    }
+                        //    spaceWidth = this.W - wordsWidth;
+                        //    space = spaceWidth / (words.Length - 1);
+                        //    for (int j = 0; j < words.Length; j++)
+                        //    {
+                        //        format.Alignment = XStringAlignment.Near;
+                        //        gfx.DrawString(words[j], Font, Brush, (XPoint)startPoint, format);
+                        //        startPoint.X += gfx.MeasureString(words[j], Font).Width + space;
+                        //    }
 
-                        }
-                        else
-                        {
+                        //}
+                        //else
+                        //{
                             startPoint = RowStartPoint(i, false);
                             switch (Align)
                             {
@@ -167,8 +173,8 @@ namespace MyAlbum.Models
                                     format.Alignment = XStringAlignment.Far;
                                     break;
                             }
-                            gfx.DrawString(arr[i][1], Font, this.Brush, startPoint, format);
-                        }
+                            gfx.DrawString(lines[i], Font, this.Brush, startPoint, format);
+                        //}
 
                     }
                 }
@@ -178,53 +184,116 @@ namespace MyAlbum.Models
                 throw;
             }
         }
-        private string[][] SplitText(XGraphics gfx)
+        #endregion
+        //private string[][] SplitText(XGraphics gfx)
+        //{
+        //    try
+        //    {
+        //        //needsProcess = false;
+        //        string[][] result = { };
+
+        //        //string[] arr = Value.Split(sep, StringSplitOptions.RemoveEmptyEntries);
+        //        string[] arr = Value.Split(sep, StringSplitOptions.None);
+        //        //string[] words;
+        //        string line;
+        //        for (int i = 0; i < arr.Length; i++)
+        //        {
+        //            if (result.Length > 0)
+        //            {
+        //                result[result.Length - 1][0] = "LAST";
+        //            }
+        //            //words = arr[i].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        //            words = arr[i].Split(new char[] { ' ' }, StringSplitOptions.None);
+        //            line = words[0];
+        //            for (int j = 1; j < words.Length; j++)
+        //            {
+        //                if (gfx.MeasureString(line + " " + words[j], Font).Width < this.W)
+        //                {
+        //                    line += (" " + words[j]);
+        //                }
+        //                else
+        //                {
+        //                    Array.Resize(ref result, result.Length + 1);
+        //                    //result.SetValue(line, result.Length - 1);
+        //                    result.SetValue(new String[2] { "MID", line }, result.Length - 1);
+        //                    line = words[j];
+        //                }
+        //            }
+        //            Array.Resize(ref result, result.Length + 1);
+        //            result.SetValue(new String[2] { "MID", line }, result.Length - 1);
+        //        }
+
+        //        result[result.Length - 1][0] = "LAST";
+        //        this.arr = result;
+
+        //        return result;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
+        private XPoint RowStartPoint(int index, bool isJustified = false)
         {
-            try
+            XPoint point = new XPoint();
+            switch (VAlign)
             {
-                //needsProcess = false;
-                string[][] result = { };
-
-                //string[] arr = Value.Split(sep, StringSplitOptions.RemoveEmptyEntries);
-                string[] arr = Value.Split(sep, StringSplitOptions.None);
-                //string[] words;
-                string line;
-                for (int i = 0; i < arr.Length; i++)
-                {
-                    if (result.Length > 0)
+                case VerticalAlignment.Top:
+                    switch (Align)
                     {
-                        result[result.Length - 1][0] = "LAST";
+                        case Alignment.Left:
+                            point = new XPoint(this.X,
+                                               this.Y + this.MarginTop + index * this.Font.Height);
+                            break;
+                        case Alignment.Center:
+                            point = new XPoint(this.X + this.W / 2,
+                                               this.Y + this.MarginTop + index * this.Font.Height);
+                            break;
+                        case Alignment.Right:
+                            point = new XPoint(this.X + this.W,
+                                               this.Y + this.MarginTop + index * this.Font.Height);
+                            break;
                     }
-                    //words = arr[i].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                    words = arr[i].Split(new char[] { ' ' }, StringSplitOptions.None);
-                    line = words[0];
-                    for (int j = 1; j < words.Length; j++)
+                    break;
+                case VerticalAlignment.Center:
+                    switch (Align)
                     {
-                        if (gfx.MeasureString(line + " " + words[j], Font).Width < this.W)
-                        {
-                            line += (" " + words[j]);
-                        }
-                        else
-                        {
-                            Array.Resize(ref result, result.Length + 1);
-                            //result.SetValue(line, result.Length - 1);
-                            result.SetValue(new String[2] { "MID", line }, result.Length - 1);
-                            line = words[j];
-                        }
+                        case Alignment.Left:
+                            point = new XPoint(this.X,
+                                               this.Y + this.MarginTop - this.H / 2 + (index + 0.5) * this.Font.Height);
+                            break;
+                        case Alignment.Center:
+                            point = new XPoint(this.X + this.W / 2,
+                                               this.Y + this.MarginTop - this.H / 2 + (index + 0.5) * this.Font.Height);
+                            break;
+                        case Alignment.Right:
+                            point = new XPoint(this.X + this.W,
+                                               this.Y + this.MarginTop - this.H / 2 + (index + 0.5) * this.Font.Height);
+                            break;
                     }
-                    Array.Resize(ref result, result.Length + 1);
-                    result.SetValue(new String[2] { "MID", line }, result.Length - 1);
-                }
-
-                result[result.Length - 1][0] = "LAST";
-                this.arr = result;
-
-                return result;
+                    break;
+                case VerticalAlignment.Bottom:
+                    switch (Align)
+                    {
+                        case Alignment.Left:
+                            point = new XPoint(this.X,
+                                               this.Y + this.MarginTop - this.H + (index + 1) * this.Font.Height);
+                            break;
+                        case Alignment.Center:
+                            point = new XPoint(this.X + this.W / 2,
+                                               this.Y + this.MarginTop - this.H + (index + 1) * this.Font.Height);
+                            break;
+                        case Alignment.Right:
+                            point = new XPoint(this.X + this.W,
+                                               this.Y + this.MarginTop - this.H + (index + 1) * this.Font.Height);
+                            break;
+                    }
+                    break;
             }
-            catch (Exception)
-            {
-                throw;
-            }
+            if (isJustified) { point.X = this.X; }
+
+            //DrawCross(point, XColors.Brown);
+            return point;
         }
     }
 }

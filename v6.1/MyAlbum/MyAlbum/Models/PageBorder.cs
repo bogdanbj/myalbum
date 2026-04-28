@@ -11,11 +11,11 @@ namespace MyAlbum.Models
     internal class PageBorder : Frame
     {
 
-        internal override void ParseXml(XElement xBorder)
+        #region Override methods
+        internal override void ParseXml(XElement xElem)
         {
-            base.ParseXml(xBorder);
+            base.ParseXml(xElem);
         }
-        
         internal override void Calculate(XGraphics gfx, Canvas parentCanvas)
         {
             // Adjust the border X, Y, W, H with the exterior line width
@@ -70,9 +70,10 @@ namespace MyAlbum.Models
             //Console.WriteLine($"  BgColor ARGB: A={BgColor.A}, R={BgColor.R}, G={BgColor.G}, B={BgColor.B}, IsEmpty={BgColor.IsEmpty}");
             base.Draw(gfx);
         }
+        #endregion
 
-
-        internal void CalculateBorderWidths()
+        #region Private Methods
+        private void CalculateBorderWidths()
         {
             WidthTop = CalculateLineWidth(TypeTop);
             WidthRight = CalculateLineWidth(TypeRight);
@@ -86,6 +87,6 @@ namespace MyAlbum.Models
             FrameType.Double => LineWidth1 + Offset + LineWidth2,
             _ => XUnit.Zero
         };
-
+        #endregion
     }
 }

@@ -45,23 +45,23 @@
 		<frame style="page_border" default="false" frame-type="double" frame-width="0.5, 0.5, 0.2" margin="0" padding="0, 6" bgcolor="Ivory"/>
 
     <!-- TEXT
-			font_size: double
-			font_style: bold, bolditalic, italic, regular, strikeout, underline
+			font-size: double
+			font-style: bold, bolditalic, italic, regular, strikeout, underline
 			align: left, center, right
 			valign: top, center, bottom
 		-->
-    <text style="text_default" default="true" align="left" font_name="Century Gothic" font_size="8" font_style="regular" />
-    <text style="date" align="center" font_name="Century Gothic" font_size="14"/>
-    <text style="chapter" align="center" font_name="Century Gothic" font_size="36"/>
-    <text style="headline" align="center" font_name="Century Gothic" font_size="10" bgcolor="CadetBlue" margin="0,0,1,0"/>
-    <text style="title" align="center" font_name="Century Gothic" font_size="10"/>
-    <text style="inside" align="center" font_name="Century Gothic" font_size="6"/>
-    <text style="footer" font_name="Century Gothic" font_size="6" margin="0,0,2,0" wrap="false"/>
+    <text style="text_default" default="true" align="left" font-name="Century Gothic" font-size="8" font-style="regular" />
+    <text style="date" align="center" font-name="Century Gothic" font-size="14"/>
+    <text style="chapter" align="center" font-name="Century Gothic" font-size="36"/>
+    <text style="headline" align="center" font-name="Century Gothic" font-size="10" bgcolor="CadetBlue" margin="0,0,1,0"/>
+    <text style="title" align="center" font-name="Century Gothic" font-size="10"/>
+    <text style="inside" align="center" font-name="Century Gothic" font-size="6"/>
+    <text style="footer" font-name="Century Gothic" font-size="6" margin="0,0,2,0" wrap="false"/>
     <!--
-    <text style="inside" align="center" font_name="Century Gothic" font_size="6" font_style="regular" width="80%"/>
-    <text style="footer_left" align="left" font_name="Century Gothic" font_size="6" font_style="regular" margin="0,0,2,0" />
-    <text style="footer_center" align="center" font_name="Century Gothic" font_size="6" font_style="regular" width="100%" margin="0,0,2,0" />
-    <text style="footer_right" align="right" font_name="Century Gothic" font_size="6" font_style="regular" margin="0,0,2,0" />
+    <text style="inside" align="center" font-name="Century Gothic" font-size="6" font-style="regular" width="80%"/>
+    <text style="footer_left" align="left" font-name="Century Gothic" font-size="6" font-style="regular" margin="0,0,2,0" />
+    <text style="footer_center" align="center" font-name="Century Gothic" font-size="6" font-style="regular" width="100%" margin="0,0,2,0" />
+    <text style="footer_right" align="right" font-name="Century Gothic" font-size="6" font-style="regular" margin="0,0,2,0" />
 		-->
 		<!-- FRENCH CHARACTERS
 			l'accent aigu (acute accent) – é
@@ -123,25 +123,25 @@
       you need the "CANADA" header to be in a <row> element
 		-->
 		<page style="cover" default="false" orientation="portrait" size="letter" padding="7" color="black" bgcolor="Ivory" vspace="1">
-			<banner file_name="" />
+			<banner file_name="flag_of_canada.jpg" />
 			<frame style="page_border" />
 		</page>
 
     <page style="portrait" default="true" orientation="portrait" size="letter" padding="7,7,7,20" color="black" bgcolor="Silver" vspace="1">
-      <banner file_name="" />
+      <banner file_name="flag_of_canada.jpg" />
 			<frame style="page_border" />
 			<row style="page_header">
-				<text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
+				<text align="center" font-name="Century Gothic" font-size="12" font-style="bolditalic" bgcolor="LightSkyBlue">C   A   N   A   D   A</text>
 			</row>
       <!--row height="10" bgcolor="MistyRose" /-->
       <space height="10" bgcolor="MistyRose" />
     </page>
 		
     <page style="landscape" default="false" orientation="landscape" size="letter" padding="20,7,7,7" color="black" bgcolor="SeaShell" vspace="1">
-			<banner file_name="" />
+			<banner file_name="flag_of_canada.jpg"  rotate="true" />
 			<frame style="page_border" />
 			<row style="page_header" rotate="true">
-				<text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
+				<text align="center" font-name="Century Gothic" font-size="12" font-style="bolditalic" bgcolor="LightSkyBlue">C   A   N   A   D   A</text>
 			</row>
       <!--row rotate="true">
 				<image absolute="true" align="left" valign="top" file_name="Pictures\Canada-Post-Logo.png" x="20" y="20" height="32" width="32" stretched="true"></image>

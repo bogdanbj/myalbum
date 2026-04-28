@@ -203,6 +203,5 @@ namespace MyAlbum.Utilities
             }
             return fullPath;
         }
-
     }
 }

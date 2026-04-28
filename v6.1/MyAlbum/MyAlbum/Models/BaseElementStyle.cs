@@ -11,12 +11,6 @@ namespace MyAlbum.Models
 {
     internal class BaseElementStyle
     {
-        #region Fields
-        //protected XColor? _color;
-        //protected XColor? _bgColor;
-        //protected double? _rotate;
-        #endregion
-
         #region Properties
         public bool IsDefalut { get; set; } = false;
         public XColor? Color { get; set; }
@@ -32,6 +26,8 @@ namespace MyAlbum.Models
         public XUnit? PaddingRight { get; set; }
         public XUnit? PaddingBottom { get; set; }
         public XUnit? PaddingLeft { get; set; }
+        public string? Height { get; set; }
+        public string? Width { get; set; }
         public string? Name { get; set; }
         #endregion Region
 
@@ -45,6 +41,8 @@ namespace MyAlbum.Models
             //Padding = element.Attribute("padding")?.Value;
             (MarginTop, MarginRight, MarginBottom, MarginLeft) = XmlParser.ParseMargin(element.Attribute("margin")?.Value);
             (PaddingTop, PaddingRight, PaddingBottom, PaddingLeft) = XmlParser.ParseMargin(element.Attribute("padding")?.Value);
+            Height = element.Attribute("height")?.Value;
+            Width = element.Attribute("width")?.Value;
             Name = element.Attribute("style")?.Value;
         }
         #endregion

@@ -10,15 +10,19 @@ namespace MyAlbum.Models
 {
     internal class Album
     {
+        #region Properties
         public PdfDocument PdfDoc { get; set; }
         internal List<Page> Pages { get; set; } = new List<Page>();
-
-
+        #endregion
+        
+        #region Constructors
         public Album()
         {
             PdfDoc = new PdfDocument();
         }
-
+        #endregion
+        
+        #region Methods
         internal void ParseStyles(XElement styles)
         {
             if (styles == null)
@@ -83,7 +87,6 @@ namespace MyAlbum.Models
                 // Create and parse the page
                 Page page = new Page();
                 page.PageNo = pageNo;
-                page.NestingLevel = 0;
                 page.ParseXml(pageElement);
                 Pages.Add(page);
             }
@@ -114,5 +117,6 @@ namespace MyAlbum.Models
         internal void Test()
         {
         }
+        #endregion
     }
 }

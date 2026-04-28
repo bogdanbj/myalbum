@@ -21,7 +21,7 @@ namespace MyAlbum.Models
         protected XUnit? _vSpace;
         #endregion
 
-        #region Properties accepting Styles 
+        #region Style properties
         //public new PageStyle? Style 
         //{ 
         //    get => (PageStyle)base.Style; 
@@ -47,6 +47,7 @@ namespace MyAlbum.Models
         #region Other properties
         public string? Title { get; set; }
         public PageBorder PageBorder { get; set; }
+        public PageBanner PageBanner { get; set; }
         public List<BaseElement> Elements { get; set; }
         public PdfPage pdfPage { get; set; }
         #endregion
@@ -58,36 +59,52 @@ namespace MyAlbum.Models
             Elements = new List<BaseElement>();
 
             PageBorder = new PageBorder();
+            PageBanner = new PageBanner();
         }
         #endregion
 
-        internal override void ParseXml(XElement xPage)
+        #region Override methods
+        internal override void ParseXml(XElement xElem)
         {
-            Style = Styles.Page.GetStyle(xPage.Attribute("style")?.Value);
-            base.ParseXml(xPage);
+            Style = Styles.Page.GetStyle(xElem.Attribute("style")?.Value);
+            base.ParseXml(xElem);
 
-            Title = xPage.Attribute("title")?.Value ?? "";
-            _orientation = XmlParser.ParseOrientation(xPage.Attribute("orientation")?.Value);
-            _size = XmlParser.ParsePageSize(xPage.Attribute("size")?.Value);
-            _vSpace = XmlParser.ParseXUnit(xPage.Attribute("vspace")?.Value);
+            Title = xElem.Attribute("title")?.Value ?? "";
+            _orientation = XmlParser.ParseOrientation(xElem.Attribute("orientation")?.Value);
+            _size = XmlParser.ParsePageSize(xElem.Attribute("size")?.Value);
+            _vSpace = XmlParser.ParseXUnit(xElem.Attribute("vspace")?.Value);
 
             // Add elements from style first
             if (Style?.ChildElements != null)
             {
                 foreach (var styleElement in Style.ChildElements)
                 {
-                    var elem = CreateElement(styleElement.Name.LocalName);
-                    if (elem != null)
+                    switch(styleElement.Name.LocalName)
                     {
-                        elem.Inherit(this);
-                        elem.ParseXml(styleElement);
-                        Elements.Add(elem);
+                        case "frame":
+                            PageBorder.Inherit(this);
+                            PageBorder.ParseXml(styleElement); 
+                            break;
+                        case "banner":
+                            PageBanner.Inherit(this);
+                            PageBanner.ParseXml(styleElement);
+                            // handle banner element
+                            break;
+                        default:
+                            var elem = CreateElement(styleElement.Name.LocalName);
+                            if (elem != null)
+                            {
+                                elem.Inherit(this);
+                                elem.ParseXml(styleElement);
+                                Elements.Add(elem);
+                            }
+                            break;
                     }
                 }
             }
 
             // Then parse page-specific elements
-            foreach (XElement xElement in xPage.Elements())
+            foreach (XElement xElement in xElem.Elements())
             {
                 var elem = CreateElement(xElement.Name.LocalName);
                 if (elem != null)
@@ -173,6 +190,15 @@ namespace MyAlbum.Models
             Canvas.H = H - PaddingTop - PaddingBottom;
 
 
+            // Calculate the banner
+            PageBanner.Calculate(gfx, Canvas, Orientation);
+
+            //// Adjust the canvas to banner's internal space
+            //Canvas.X = PageBanner.Canvas.X;
+            //Canvas.Y = PageBanner.Canvas.Y;
+            //Canvas.W = PageBanner.Canvas.W;
+            //Canvas.H = PageBanner.Canvas.H;
+
             // Calculate the border
             PageBorder.Calculate(gfx, Canvas, Orientation);
 
@@ -203,7 +229,6 @@ namespace MyAlbum.Models
 
 
         }
-
         internal void Draw(XGraphics gfx)
         {
             Console.WriteLine();
@@ -277,5 +302,6 @@ namespace MyAlbum.Models
             gfx.DrawRectangle(new XPen(Color, 0.5), new XSolidBrush(XColors.MistyRose), Canvas.X, Canvas.Y, Canvas.W, Canvas.H);
 
         }
+        #endregion
     }
 }

@@ -180,9 +180,9 @@ namespace MyAlbum.Utilities
         internal static (XUnit? lineWidth1, XUnit? offset, XUnit? lineWidth2) ParseFrameWidth(string? frameWidth)
         {
             // Default values
-            XUnit lineWidth1 = 0;
-            XUnit offset = 0;
-            XUnit lineWidth2 = 0;
+            XUnit? lineWidth1 = null;
+            XUnit? offset = null;
+            XUnit? lineWidth2 = null;
 
             if (!string.IsNullOrWhiteSpace(frameWidth))
             {

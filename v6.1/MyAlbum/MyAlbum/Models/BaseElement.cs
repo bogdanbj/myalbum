@@ -24,6 +24,8 @@ namespace MyAlbum.Models
         protected XUnit? _paddingRight;
         protected XUnit? _paddingBottom;
         protected XUnit? _paddingLeft;
+        protected string? _height;
+        protected string? _width;
         #endregion
 
         #region Core Properties
@@ -88,11 +90,24 @@ namespace MyAlbum.Models
             get => _paddingLeft ?? Style.PaddingLeft ?? XUnit.Zero;
             set => _paddingLeft = value;
         }
+        public string Height
+        {
+            get => _height ?? Style.Height ?? "";
+            set => _height = value;
+        }   
+        public string Width
+        {
+            get => _width ?? Style.Width ?? "";
+            set => _width = value;
+        }
         #endregion
 
         #region Additional Properties
         public int PageNo { get; set; }
-        public int NestingLevel { get; set; }
+        //public int NestingLevel { get; set; }
+        public XUnit TopAlign { get; set; }
+        public XUnit MiddleAlign { get; set; }
+        public XUnit BottomAlign { get; set; }
         #endregion
 
         public BaseElement()
@@ -113,6 +128,8 @@ namespace MyAlbum.Models
             _bgColor = XmlParser.ParseColor(element.Attribute("bgcolor")?.Value);
             (_marginTop, _marginRight, _marginBottom, _marginLeft) = XmlParser.ParseMargin(element.Attribute("margin")?.Value);// ?? Style?.Margin ?? "0");
             (_paddingTop, _paddingRight, _paddingBottom, _paddingLeft) = XmlParser.ParsePadding(element.Attribute("padding")?.Value);
+            _height = element.Attribute("height")?.Value;
+            _width = element.Attribute("width")?.Value;
         }
         internal virtual void Inherit(BaseElement parent)
         {
@@ -128,9 +145,52 @@ namespace MyAlbum.Models
             // Default implementation - position at top of available canvas
             X = parentCanvas.X + MarginLeft;
             Y = parentCanvas.Y + MarginTop;
-            W = parentCanvas.W - (MarginLeft + MarginRight);
+            
+            // Width
+            if (!string.IsNullOrEmpty(Width))
+            {
+                if (Width.Contains('%'))
+                {
+                    double widthPercent;
+                    try
+                    {
+                        widthPercent = double.Parse(Width.TrimEnd(new char[] { '%', ' ' }));
+                    }
+                    catch
+                    {
+                        Console.WriteLine($"Invalid width percentage: {Width}. Defaulting to 100%.");
+                        widthPercent = 100;
+                    }
+                    W = parentCanvas.W * widthPercent / 100 - (MarginLeft + MarginRight);
+                }
+                else
+                    W = XmlParser.ParseXUnit(Width) ?? XUnit.Zero;
+            }
+            else
+            {
+                W = parentCanvas.W - (MarginLeft + MarginRight);
+            }
+
+            // Height
+            if (!string.IsNullOrEmpty(Height))
+            {
+                H = XmlParser.ParseXUnit(Height) ?? XUnit.Zero;
+            }
+            else
+            {
+                H = XUnit.Zero;
+            }
             //H = parentCanvas.H - (MarginTop + MarginBottom);            
             // W and H should already be set or calculated by derived classes
+
+            this.Canvas = new Canvas
+            {
+                X = X + PaddingLeft,
+                Y = Y + PaddingTop,
+                W = W - (PaddingLeft + PaddingRight),
+                H = H - (PaddingTop + PaddingBottom)
+            };
+
         }
         internal virtual void Draw(XGraphics gfx)
         {
@@ -142,12 +202,14 @@ namespace MyAlbum.Models
         {
             return elementName switch
             {
+                "banner" => new Image(),
                 "frame" => new Frame(),
                 "row" => new Row(),
                 "column" => new Column(),
                 "image" => new Image(),
                 "stamp" => new Stamp(),
                 "text" => new Text(),
+                "paragraph" => new Paragraph(),
                 _ => null
             };
 
