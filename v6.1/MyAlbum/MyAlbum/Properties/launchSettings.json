@@ -4,6 +4,11 @@
       "commandName": "Project",
       "commandLineArgs": "-i Test.album\r\n-p 1-2\r\n",
       "workingDirectory": "..\\..\\..\\"
+    },
+    "Test": {
+      "commandName": "Project",
+      "commandLineArgs": "-t\r\n",
+      "workingDirectory": "..\\..\\..\\"
     }
   }
 }

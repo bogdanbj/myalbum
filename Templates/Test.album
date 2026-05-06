@@ -4,7 +4,7 @@
     <text />
     <paragraph />
     <column />
-    <image absolute="true" align="left" valign="top" file_name="Canada-Post-Logo.png" x="20" y="20" height="32" width="32" stretched="true"></image>
+    <image absolute="true" align="left" valign="top" file-name="Canada-Post-Logo.png" x="20" y="20" height="32" width="32" stretched="true"></image>
     <stamp />
   </page>
   .

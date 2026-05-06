@@ -193,7 +193,7 @@ namespace MyAlbum.Models
             // Calculate the banner
             PageBanner.Calculate(gfx, Canvas, Orientation);
 
-            //// Adjust the canvas to banner's internal space
+            //// Adjust the canvas to exclude banner
             //Canvas.X = PageBanner.Canvas.X;
             //Canvas.Y = PageBanner.Canvas.Y;
             //Canvas.W = PageBanner.Canvas.W;

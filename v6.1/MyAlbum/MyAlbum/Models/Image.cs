@@ -12,6 +12,8 @@ namespace MyAlbum.Models
     internal class Image : BaseElement
     {
         public string? FileName { get; set; }
+        public bool Absolute { get; set; }
+        public bool Stretched { get; set; }
         public XImage? XImg { get; set; }
 
         #region Override methods
@@ -22,26 +24,46 @@ namespace MyAlbum.Models
 
             FileName = xElem.Attribute("file-name")?.Value;
             XImg = Load(FileName);
+            Absolute = XmlParser.ParseBool(xElem.Attribute("absolute")?.Value);
+            Stretched = XmlParser.ParseBool(xElem.Attribute("stretched")?.Value);
+            if (Absolute)
+            {
+                X = XUnit.FromMillimeter(XmlParser.ParseDouble(xElem.Attribute("x")?.Value) ?? 0);
+                Y = XUnit.FromMillimeter(XmlParser.ParseDouble(xElem.Attribute("y")?.Value) ?? 0);
+                H = XUnit.FromMillimeter(XmlParser.ParseDouble(xElem.Attribute("height")?.Value) ?? 0);
+                W = XUnit.FromMillimeter(XmlParser.ParseDouble(xElem.Attribute("width")?.Value) ?? 0);
+            }
+
         }
         internal override void Calculate(XGraphics gfx, Canvas parentCanvas)
         { }
         internal override void Draw(XGraphics gfx)
         {
             base.Draw(gfx);
-            gfx.DrawImage(XImg,)
+            if (XImg != null)
+            {
+                if (this.Stretched)
+                {
+                    gfx.DrawImage(XImg, X, Y, W, H);
+                }
+                else
+                {
+                    gfx.DrawImage(XImg, X, Y);
+                }
+            }
         }
         #endregion
 
-            #region Private Methods
+        #region Private Methods
         private XImage? Load(string? fileName)
         {
             if (string.IsNullOrEmpty(fileName))
             {
-                Console.WriteLine("Image's FileName is null or emplty.");
+                Console.WriteLine("Image's FileName is null or empty.");
                 return null;
             }
 
-            XImage? result = null;
+            //XImage? result = null;
             try
             {
                 string? imagePath = ConfigurationManager.AppSettings["ImagePath"];
@@ -63,21 +85,24 @@ namespace MyAlbum.Models
 
                 string fullPath = Path.Combine(imagePath, fileName);
 
-                if (XImage.ExistsFile(fullPath))
+                if (!File.Exists(fullPath))
                 {
-                    result = XImage.FromFile(fullPath);
+                    Console.WriteLine($"✗ File not found: {fullPath}");
+                    return null;
                 }
-                else
-                {
-                    Console.WriteLine($"Warning: Image file not found at '{fullPath}'");
-                }
+
+                // Now safely call FromFile
+                XImage result = XImage.FromFile(fullPath);
+                //string jpegSamplePath = "C:\\Git\\myalbum\\Images\\0284.jpg";
+                //XImage image = XImage.FromFile(jpegSamplePath);
+                return result;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error loading image '{fileName}': {ex.Message}");
             }
 
-            return result;
+            return null;
         }
         #endregion
 

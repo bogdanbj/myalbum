@@ -1,5 +1,6 @@
 ﻿using MyAlbum.Models;
 using MyAlbum.Utilities;
+using MyAlbum.Samples;
 using PdfSharpCore.Fonts;
 using System.Diagnostics;
 using System.Xml.Linq;
@@ -23,7 +24,8 @@ namespace MyAlbum
                 // Option: -t, --test
                 if (options.ContainsKey("test"))
                 {
-                    Test.Run();
+                    Test test = new Test();
+                    test.Run();
                     return;
                 }
 
