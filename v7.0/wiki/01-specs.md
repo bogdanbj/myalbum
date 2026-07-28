@@ -5,29 +5,26 @@
 1. [Overview](#1-overview)
 2. [Input](#2-input)
 3. [Output](#3-output)
-4. [Units of Measurement](#4-units-of-measurement)
-5. [Layout Elements](#5-layout-elements)
-6. [Page Structure](#6-page-structure)
-7. [Stamp Structure](#7-stamp-structure)
-8. [Style System](#8-style-system)
-9. [Page Layout Features](#9-page-layout-features)
-10. [Configuration](#10-configuration)
-11. [Technical Stack](#11-technical-stack)
-12. [Cross-Platform Support](#12-cross-platform-support)
-13. [Architecture Principles](#13-architecture-principles)
-14. [Error Handling](#14-error-handling)
-15. [Decisions Summary](#15-decisions-summary)
-16. [Alignment Guides](#16-alignment-guides)
-17. [Row Positioning](#17-row-positioning)
-18. [Column Positioning](#18-column-positioning)
-19. [Text Width Rules](#19-text-width-rules)
-20. [To Be Defined](#20-to-be-defined)
+4. [Layout Elements](#4-layout-elements)
+5. [Album](#5-album)
+6. [Page](#6-page)
+7. [Row](#7-row)
+8. [Column](#8-column)
+9. [Stamp](#9-stamp)
+10. [Text](#10-text)
+11. [Image](#11-image)
+12. [Frame](#12-frame)
+13. [Space](#13-space)
+14. [Style System](#14-style-system)
+15. [Configuration](#15-configuration)
+16. [Technical Implementation](#16-technical-implementation)
+17. [To Be Defined](#17-to-be-defined)
 
 ---
 
 ## 1. Overview
 
-**MyAlbum v7.0** is a stamp album PDF generator for philatelists. Users provide album definition files (`.album`) describing content and styling, and the application generates professional PDF album pages.
+**MyAlbum** is a stamp album PDF generator for philatelists. Users provide album definition files (`.album`) describing content and styling, and the application generates professional PDF album pages.
 
 | Aspect | Description |
 |--------|-------------|
@@ -39,14 +36,24 @@
 
 ## 2. Input
 
+The application accepts the following input files:
+
+| File Type | Extension | Description |
+|-----------|-----------|-------------|
+| Album files | `.album` | Album definition (content and structure) |
+| Style files | `.style` | Reusable style definitions |
+| Image files | `.jpg`, `.png`, `.tiff`, `.webp`, `.gif` | Images for stamps, banners, backgrounds |
+| Font files | `.ttf`, `.otf` | Custom fonts for text rendering |
+
 ### 2.1 Album Files
 
 | Property | Value |
 |----------|-------|
 | **Extension** | `.album` |
 | **Default folder** | `/MyAlbum/Templates` (configurable) |
+| **Format** | Auto-detected from content |
 
-**Format auto-detection** (based on content, not extension):
+**Format detection rules:**
 
 | Format | Detection |
 |--------|-----------|
@@ -54,34 +61,15 @@
 | JSON | Starts with `{` or `[` |
 | YAML | Starts with `---` or key-value pattern |
 
-### 2.2 Album File Structure
+### 2.2 Style Files
 
-```yaml
-album:
-  title: "Canada - Queen Elizabeth II Definitives"
-  author: "Collector Name"
-  subject: "Stamp collection album"
+| Property | Value |
+|----------|-------|
+| **Extension** | `.style` |
+| **Default folder** | `/MyAlbum/Templates` (configurable) |
+| **Format** | Auto-detected (same rules as album files) |
 
-styleFile: "classic.style"    # Optional: external style file
-
-styles:                       # Optional: embedded styles
-  - name: my_stamp
-    type: stamp
-    default: true
-    frame: double
-    width: 25
-    height: 30
-
-pages:
-  - number: 1
-    style: my_page
-    children:
-      - stamp:
-          title: "1c Green"
-      - stamp:
-          style: large_stamp
-          title: "5c Blue"
-```
+See [14. Style System](#14-style-system) for details.
 
 ### 2.3 Image Files
 
@@ -98,29 +86,7 @@ pages:
 | **Loading** | All fonts loaded at program start |
 | **Supported formats** | TrueType (.ttf), OpenType (.otf) |
 
-**Text Font Attributes:**
-
-| Attribute | Description | Values |
-|-----------|-------------|--------|
-| `font-name` | Font family name | Name of loaded font |
-| `font-size` | Size in points | Numeric value |
-| `font-style` | Style variant | `regular`, `bold`, `italic`, `bold-italic` |
-
-### 2.5 Color Specification
-
-Colors are specified by name or RGB values:
-
-| Format | Example | Description |
-|--------|---------|-------------|
-| Named | `color="DarkGreen"` | PDFsharp named color |
-| RGB | `color="72, 43, 145"` | Red, Green, Blue (0-255 each) |
-
-**Color Attributes:**
-
-| Attribute | Description |
-|-----------|-------------|
-| `color` | Foreground/text color |
-| `bgcolor` | Background color (exception to naming convention) |
+See [14.4 Font Attributes](#144-font-attributes) for styling options.
 
 ---
 
@@ -136,228 +102,351 @@ Colors are specified by name or RGB values:
 
 ### 3.2 Summary Page
 
-First page of PDF (not for printing):
+First page of generated PDF (informational, not for printing):
 - Input file name
-- MyAlbum version (e.g., v7.0)
+- MyAlbum version
 - Total page count
 
 ### 3.3 PDF Metadata
 
-Populated from album file: `title`, `author`, `subject`
+Populated from album properties: `title`, `author`, `subject`
 
 ---
 
-## 4. Units of Measurement
+## 4. Layout Elements
 
-All dimensions use **millimeters (mm)** only. Inches and points are not supported.
+### 4.1 Element Hierarchy
 
-### 4.1 Margin and Padding Notation
+```
+Album
+└── Page
+    ├── Row
+    │   ├── Stamp, Text, Image, Frame, Space
+    │   └── Column (nested)
+    ├── Column
+    |   ├── Stamp, Text, Image, Frame, Space
+    |   └── Row (nested)
+    └── Stamp, Text, Image, Frame, Space
+```
 
-Values can be expressed as tuples of 1, 2, or 4 values:
-
-| Values | Meaning | Example |
-|--------|---------|---------|
-| 1 | All sides equal | `padding: 5` → all sides = 5 |
-| 2 | Vertical, Horizontal | `padding: 5, 10` → top/bottom=5, left/right=10 |
-| 4 | Top, Right, Bottom, Left | `padding: 5, 10, 15, 20` → clockwise from top |
-
----
-
-## 5. Layout Elements
-
-### 5.1 Container Elements
+### 4.2 Container Elements
 
 | Element | Description |
 |---------|-------------|
+| **Album** | Root container; holds metadata and pages |
 | **Page** | Single album page |
 | **Row** | Horizontal arrangement of children |
 | **Column** | Vertical arrangement of children |
 
-### 5.2 Content Elements
+### 4.3 Drawable Elements
 
 | Element | Description |
 |---------|-------------|
-| **Stamp** | Composite element (see [Section 7](#7-stamp-structure)) |
-| **Text** | Free-form text block |
-| **Image** | Decorative/informational image |
-| **Frame** | Border element |
-| **Space** | Empty space control |
-
-#### Space Element
-
-Inserts empty space in the layout. Orientation is determined by parent container:
-
-| Parent | Attribute | Description |
-|--------|-----------|-------------|
-| Page, Column | `height` | Vertical space (mm) |
-| Row | `width` | Horizontal space (mm) |
+| **Stamp** | Composite element with frame, title, interior, footer |
+| **Text** | Text block with wrapping and alignment |
+| **Image** | Rendered image with scaling options |
+| **Frame** | Decorative border element |
+| **Space** | Empty space (vertical in Page/Column, horizontal in Row) |
 
 ---
 
-## 6. Page Structure
+## 5. Album
 
-### 6.1 Page Properties
+### 5.1 Description
 
-| Property | Description | Default |
-|----------|-------------|---------|
-| `number` | Page number (required) | - |
-| `title` | Metadata only, not rendered | - |
-| `style` | Reference to page style | - |
-| `padding` | Interior spacing | 0 |
-| `space` | Space between rows (row-based) | - |
-| `vspace` | Space between columns (column-based) | - |
-| `children` | Row, Column, or content elements | - |
+The Album is the root container representing an entire stamp album.
 
-**Note**: Pages have no margin (exterior spacing).
+### 5.2 Properties
 
-### 6.2 Page Style Elements
+| Property | Type | Description | Required |
+|----------|------|-------------|----------|
+| `title` | string | Album title (PDF metadata) | No |
+| `author` | string | Author name (PDF metadata) | No |
+| `subject` | string | Subject description (PDF metadata) | No |
+| `style-file` | string | Reference to external `.style` file | No |
+| `styles` | list | Embedded style definitions | No |
+| `pages` | list | Collection of Page elements | Yes |
 
-Defined in page style, applied to all pages using that style:
+### 5.3 Structure Example
+
+```yaml
+album:
+  title: "Canada - Queen Elizabeth II Definitives"
+  author: "Collector Name"
+  subject: "Stamp collection album"
+
+style-file: "classic.style"
+
+styles:
+  - name: my-stamp
+    type: stamp
+    default: true
+    frame: double
+    width: 25
+    height: 30
+
+pages:
+  - number: 1
+    style: my-page
+    children:
+      - stamp:
+          title: "1c Green"
+      - stamp:
+          style: large-stamp
+          title: "5c Blue"
+```
+
+---
+
+## 6. Page
+
+### 6.1 Description
+
+The Page element represents a single album page in the PDF output.
+
+### 6.2 Properties
+
+| Property | Type | Description | Default |
+|----------|------|-------------|---------|
+| `number` | integer | Page number | Required |
+| `title` | string | Metadata only (not rendered) | - |
+| `style` | string | Reference to page style | - |
+| `size` | string | `letter`, `a4`, `legal` | TBD |
+| `orientation` | string | `portrait`, `landscape` | TBD |
+| `padding` | number/list | Interior spacing (mm) | 0 |
+| `row-spacing` | number | Space between rows (mm) | 0 |
+| `column-spacing` | number | Space between columns (mm) | 0 |
+| `children` | list | Child elements | - |
+
+**Notes:**
+- Pages have no margin (exterior spacing)
+- `padding` accepts 1, 2, or 4 values (see [14.1 Units](#141-units-of-measurement))
+
+### 6.3 Page Style Elements
+
+Defined in page styles; applied to all pages using that style:
 
 | Element | Description |
 |---------|-------------|
+| `background` | Background image (rendered first, lowest z-order) |
 | `banner` | Image at top of page |
 | `border` | Frame around content area |
-| `background` | Background image (absolute positioned, rendered first) |
 | `header` | Text at top of content area |
 | `footer` | Text at bottom of content area |
 
-**Background Image**:
-- Rendered before any other elements (lowest z-order)
-- Absolute positioned image (uses `x`, `y`, `width`, `height` attributes)
-- Page child elements are rendered on top of the background
-- Standard image sizing rules apply (see [Image Element](#image-element))
+**Background behavior:**
+- Absolute positioned (uses `x`, `y`, `width`, `height`)
+- Page children render on top
+- Standard image sizing rules apply
 
-**Orientation behavior**: Style elements are NOT affected by page orientation - they remain on the same physical edge regardless of portrait/landscape.
+**Orientation behavior:**
+Style elements remain on the same physical edge regardless of portrait/landscape orientation.
 
-### 6.3 Page Canvas Calculation
+### 6.4 Canvas Calculation
 
-The content area is calculated by reducing page dimensions in order:
+The content area (canvas) is calculated by reducing page dimensions:
 
-| Step | Element | Reduction |
-|------|---------|-----------|
+| Order | Element | Reduction |
+|-------|---------|-----------|
 | 1 | Page padding | All sides |
-| 2 | Banner | Height (from top) |
+| 2 | Banner | Height from top |
 | 3 | Border | Thickness + padding |
-| 4 | Header | Height (from top) |
-| 5 | Footer | Height (from bottom) |
-| 6 | **Content area** | Remaining space |
+| 4 | Header | Height from top |
+| 5 | Footer | Height from bottom |
+| 6 | **Canvas** | Remaining space |
 
-**Banner**:
-- Position: Top of page (portrait reference)
-- Coordinates: `x=0, y=0` relative to top-left corner (after padding)
-- If banner has `margin != 0`, its position and size are adjusted
+### 6.5 Layout Mode
 
-**Border**:
-- Has `thickness` and `padding` only (no margin)
+Determined by the **first child element**:
 
-### 6.4 Page Layout Modes
+| First Child | Mode | Behavior |
+|-------------|------|----------|
+| Column | Column-based | Children are columns arranged horizontally |
+| Any other | Row-based | Children are rows stacked vertically |
 
-Layout mode is determined by the **first child element**:
+### 6.6 Absolute Positioning
 
-| First Child | Layout Mode |
-|-------------|-------------|
-| Column | Column-based |
-| Any other | Row-based |
+Elements with `x`, `y` coordinates are absolutely positioned:
+- Position relative to page top-left corner (after padding)
+- Removed from normal flow
+- Do not affect subsequent elements
 
-#### Column-Based Layout
-
-| Property | Description |
-|----------|-------------|
-| Column height | Sum of children heights + vspace between children |
-| Column width | Specified (mm or %), last column = remainder |
-| Column alignment | Always aligned at **top** |
-| `vspace` | Space between columns |
-
-Percentage widths calculated from: `canvas width − total vspace`
+### 6.7 Example
 
 ```yaml
 pages:
   - number: 1
-    vspace: 5
+    style: standard-page
+    padding: 10
+    row-spacing: 5
     children:
-      - column:
-          width: 40%
-          children: [...]
-      - column:
-          width: 50
-          children: [...]
-      - column:           # width = remainder
-          children: [...]
-```
-
-#### Row-Based Layout
-
-| Property | Description |
-|----------|-------------|
-| Row width | 100% of canvas (default) |
-| Row height | Calculated from children (see [Section 17](#17-row-positioning)) |
-| Row alignment | Rows stack from top |
-| `space` | Space between rows |
-
-```yaml
-pages:
-  - number: 1
-    space: 5
-    children:
+      - text:
+          content: "Canada - 1937 Definitives"
+          align: center
       - row:
-          padding: 2
-          children: [...]
-      - row:
-          children: [...]
+          children:
+            - stamp:
+                title: "1c Green"
+                width: 25
+                height: 30
 ```
-
-### 6.5 Content Elements on Page
-
-#### Text Element
-
-| Condition | Behavior |
-|-----------|----------|
-| Default | Width = 100% of canvas |
-| Custom `width` | Overrides default |
-| `x`, `y` declared | Absolute position (page top-left) |
-
-#### Image Element
-
-**Size Calculation:**
-
-| Condition | Behavior |
-|-----------|----------|
-| Neither `width` nor `height` specified | Rendered at original (native) size |
-| Only `width` specified | Scale factor = width / native width; apply to both dimensions |
-| Only `height` specified | Scale factor = height / native height; apply to both dimensions |
-| Both `width` and `height` specified | Behavior depends on `scale-mode` attribute (see below) |
-
-**`scale-mode` Attribute** (when both `width` and `height` are specified):
-
-| Value | Behavior |
-|-------|----------|
-| `fit` | Scale to fit inside the box, preserving aspect ratio (default) |
-| `fill` | Scale to fill the box, preserving aspect ratio (may crop) |
-| `stretch` | Stretch to exact dimensions (may distort aspect ratio) |
-
-**Positioning:**
-
-| Condition | Behavior |
-|-----------|----------|
-| `width` is percent | Percentage of canvas width |
-| `width` is absolute | Centered horizontally |
-| `x`, `y` declared | Absolute position (page top-left) |
-
-#### Stamp Element
-
-- Always centered horizontally on canvas
-
-#### Absolute Positioning
-
-Elements with `x`, `y` coordinates are **absolutely positioned**:
-- Position relative to original page top-left corner
-- **Do not affect canvas** - taken out of flow
-- **Do not affect following elements** - subsequent elements ignore them
 
 ---
 
-## 7. Stamp Structure
+## 7. Row
+
+### 7.1 Description
+
+The Row element arranges its children horizontally.
+
+### 7.2 Properties
+
+| Property | Type | Description | Default |
+|----------|------|-------------|---------|
+| `style` | string | Reference to row style | - |
+| `padding` | number/list | Interior spacing (mm) | 0 |
+| `spacing` | number/string | Horizontal spacing between children | TBD |
+| `align` | string | Vertical alignment: `top`, `center`, `bottom` | TBD |
+| `children` | list | Child elements | - |
+
+### 7.3 Permitted Children
+
+| Element | Width Behavior |
+|---------|----------------|
+| Stamp | Fixed (frame width) |
+| Text | Must be specified |
+| Image | Must be specified |
+| Frame | Must be specified |
+| Space | Must be specified |
+| Column | Percentage or fixed |
+
+### 7.4 Dimensions
+
+| Property | Value |
+|----------|-------|
+| Width | 100% of parent canvas |
+| Height | Calculated from children + alignment |
+
+### 7.5 Height Calculation
+
+Based on vertical alignment:
+
+1. For each child, calculate height above and below alignment line
+2. Row height = max(height above) + max(height below)
+
+**Top alignment:** Alignment line at top; height = tallest child
+**Center alignment:** Alignment line at vertical center
+**Bottom alignment:** Alignment line at bottom; height = tallest child
+
+### 7.6 Spacing Modes
+
+| Mode | Value | Behavior |
+|------|-------|----------|
+| Fixed | `spacing: 5` | Fixed mm between children; group centered |
+| Equal | `spacing: equal` | `(row width - children) / (n - 1)`; edges touch row edges |
+| Justified | `spacing: justified` | `(row width - children) / (n + 1)`; equal gaps including edges |
+
+### 7.7 Stamp Alignment
+
+In rows, stamps align based on their **frame** (not total bounding box including title/footer):
+
+```
+Stamp A (1-line title)      Stamp B (2-line title)
+
+                                  [Title Line 1]
+         [Title]                  [Title Line 2]
+    ┌─────────────┐          ┌─────────────┐      ← Frames aligned at top
+    │   Frame     │          │   Frame     │
+    └─────────────┘          └─────────────┘
+```
+
+### 7.8 Example
+
+```yaml
+- row:
+    spacing: 10
+    align: top
+    children:
+      - stamp:
+          title: "1c Green"
+          width: 25
+          height: 30
+      - stamp:
+          title: "2c Red"
+          width: 25
+          height: 30
+```
+
+---
+
+## 8. Column
+
+### 8.1 Description
+
+The Column element arranges its children vertically.
+
+### 8.2 Properties
+
+| Property | Type | Description | Default |
+|----------|------|-------------|---------|
+| `style` | string | Reference to column style | - |
+| `width` | number/string | Width in mm or percentage | Remainder |
+| `padding` | number/list | Interior spacing (mm) | 0 |
+| `spacing` | number | Vertical space between children (mm) | 0 |
+| `children` | list | Child elements | - |
+
+### 8.3 Permitted Children
+
+| Element | Width Behavior |
+|---------|----------------|
+| Stamp | Fixed (frame width), centered |
+| Text | Defaults to column width |
+| Image | Should be specified |
+| Frame | Should be specified |
+| Space | Height must be specified |
+| Row | 100% of column width |
+
+### 8.4 Dimensions
+
+| Property | Value |
+|----------|-------|
+| Width | Specified (mm or %); last column gets remainder |
+| Height | Sum of children heights + spacing |
+
+### 8.5 Child Positioning
+
+**Horizontal:** All children centered within column width
+
+**Vertical:** Children stack from top with spacing between
+
+**Important:** In columns, stamps align by their total bounding box (including title), not by frame.
+
+### 8.6 Example
+
+```yaml
+- column:
+    width: 50%
+    spacing: 5
+    children:
+      - stamp:
+          title: "1c Green"
+          width: 25
+          height: 30
+      - stamp:
+          title: "2c Red"
+          width: 25
+          height: 30
+```
+
+---
+
+## 9. Stamp
+
+### 9.1 Description
+
+The Stamp element is a composite drawable representing a philatelic stamp mount.
+
+### 9.2 Structure
 
 ```
 ┌────────────────────────────────────┐
@@ -365,112 +454,72 @@ Elements with `x`, `y` coordinates are **absolutely positioned**:
 ├────────────────────────────────────┤
 │  ┌──────────────────────────────┐  │
 │  │                              │  │
-│  │        [Stamp Image]         │  │  ← Interior: Image OR Text
-│  │            -OR-              │  │
-│  │        [Inside Text]         │  │
+│  │        [Interior]            │  │  ← Image OR text lines
 │  │                              │  │
 │  └──────────────────────────────┘  │  ← Frame border
-│  [Footer L] [Footer C] [Footer R]  │  ← Footer: 3 positions
+│  [Footer L] [Footer C] [Footer R]  │  ← Three footer positions
 └────────────────────────────────────┘
 ```
 
-### 7.1 Size Calculation
+### 9.3 Properties
 
-**Stamp size** (`width`, `height`) is required for every stamp, in mm.
+| Property | Type | Description | Default |
+|----------|------|-------------|---------|
+| `style` | string | Reference to stamp style | - |
+| `width` | number | Stamp interior width (mm) | Required |
+| `height` | number | Stamp interior height (mm) | Required |
+| `title` | string | Text above frame | - |
+| `title-padding` | number | Space between title and frame (mm) | 0 |
+| `image` | string | Interior image filename | - |
+| `i1`, `i2`, `i3` | string | Interior text lines (max 3) | - |
+| `f1`, `f2`, `f3` | string | Footer text (left, center, right) | - |
+| `footer-padding` | number | Space between frame and footer (mm) | 0 |
 
-**Frame dimensions**:
-```
-Frame width  = stamp width  + (thickness × 2) + (padding × 2)
-Frame height = stamp height + (thickness × 2) + (padding × 2)
-```
+**Notes:**
+- `width` and `height` refer to the interior stamp area (not including frame thickness/padding)
+- Interior contains either `image` OR text lines (`i1`-`i3`), not both
 
-**Total stamp dimensions**:
+### 9.4 Size Calculation
+
 ```
+Frame width  = stamp width  + (frame thickness × 2) + (frame padding × 2)
+Frame height = stamp height + (frame thickness × 2) + (frame padding × 2)
+
 Total width  = frame width
-Total height = title height (incl. padding) + frame height + footer height (incl. padding)
+Total height = title height + title-padding + frame height + footer-padding + footer height
 ```
 
-### 7.2 Title
+### 9.5 Title
 
-| Property | Description |
-|----------|-------------|
-| Position | Above frame, centered horizontally |
-| Height | Calculated from text + font size |
-| Width | Not limited (user controls with `\n`) |
-| Padding | Optional `titlePadding` |
-| Spacing | No space between title and frame (other than padding) |
+| Property | Value |
+|----------|-------|
+| Position | Centered horizontally above frame |
+| Width | Unlimited (user controls line breaks with `\n`) |
+| Height | Calculated from text content |
+
+### 9.6 Interior
+
+**Image:** Scaled to fit stamp interior dimensions
+
+**Text lines:** Up to 3 lines (`i1`, `i2`, `i3`), centered as a block
+
+### 9.7 Footer
+
+Three positions: `f1` (left), `f2` (center), `f3` (right)
+- Aligned relative to frame width
+- Unlimited width (user controls with `\n`)
+
+### 9.8 Example
 
 ```yaml
 - stamp:
+    style: classic-stamp
+    width: 25
+    height: 30
     title: "King George VI\n1937 Coronation"
-    titlePadding: 2
-    width: 25
-    height: 30
-```
-
-### 7.3 Interior
-
-Contains either **image** OR **text lines** (mutually exclusive).
-
-#### Inside Text
-
-| Property | Description |
-|----------|-------------|
-| Lines | Up to 3: `i1`, `i2`, `i3` (all optional) |
-| Width | Limited to 90% of stamp width |
-| Wrapping | Follows text wrapping logic (TBD) |
-| Alignment | Centered horizontally and vertically |
-| Multiple lines | Treated as block, centered vertically |
-
-```yaml
-- stamp:
-    width: 25
-    height: 30
-    i1: "1c Green"
-    i2: "Perf 12"
-    i3: "Mint NH"
-```
-
-#### Inside Image
-
-```yaml
-- stamp:
-    width: 25
-    height: 30
-    image: "canada-1c-green.png"
-```
-
-### 7.4 Footer
-
-| Property | Description |
-|----------|-------------|
-| Positions | `f1` (left), `f2` (center), `f3` (right) |
-| Alignment | Relative to frame width |
-| Padding | Optional `footerPadding` |
-| Spacing | No space between footer and frame (other than padding) |
-| Height | Calculated from text + font size |
-| Width | Not limited (user controls with `\n`) |
-
-### 7.5 Complete Stamp Example
-
-```yaml
-- stamp:
-    style: classic_stamp       # Optional
-    width: 25                  # Required (mm)
-    height: 30                 # Required (mm)
-    
-    # Title
-    title: "King George VI\n1937 Coronation"
-    titlePadding: 2
-    
-    # Interior (image OR text)
+    title-padding: 2
     image: "canada-1c.png"
-    # i1: "1c Green"
-    # i2: "Perf 12"
-    # i3: "Mint NH"
-    
-    # Footer
-    footerPadding: 1
+    footer-padding: 1
     f1: "Scott #123"
     f2: "1937"
     f3: "Michel #456"
@@ -478,107 +527,268 @@ Contains either **image** OR **text lines** (mutually exclusive).
 
 ---
 
-## 8. Style System
+## 10. Text
 
-### 8.1 Style Storage
+### 10.1 Description
 
-Styles follow the **HTML/CSS paradigm** - content and presentation can be separated:
+The Text element renders a block of text with alignment and wrapping.
+
+### 10.2 Properties
+
+| Property | Type | Description | Default |
+|----------|------|-------------|---------|
+| `style` | string | Reference to text style | - |
+| `content` | string | Text content | Required |
+| `width` | number/string | Width in mm or % | Context-dependent |
+| `align` | string | `left`, `right`, `center`, `justified` | TBD |
+| `font-name` | string | Font family | TBD |
+| `font-size` | number | Size in points | TBD |
+| `font-style` | string | `regular`, `bold`, `italic`, `bold-italic` | `regular` |
+| `color` | string | Text color | TBD |
+| `bgcolor` | string | Background color | - |
+| `x`, `y` | number | Absolute position (mm) | - |
+
+### 10.3 Width Rules
+
+| Context | Default Width |
+|---------|---------------|
+| Page | 100% of canvas |
+| Column | 100% of column |
+| Row | **Must be specified** |
+
+### 10.4 Height
+
+Text height is unlimited and grows based on content:
+
+```
+Height = (line height × lines) + (line spacing × (lines - 1))
+```
+
+### 10.5 Alignment and Wrapping
+
+| Alignment | Behavior |
+|-----------|----------|
+| `left` | Left-aligned, wrap at word boundaries |
+| `right` | Right-aligned, wrap at word boundaries |
+| `center` | Centered, wrap at word boundaries |
+| `justified` | Stretched to fill width; last line left-aligned |
+
+Manual line breaks: `\n` forces a break in all modes.
+
+### 10.6 Example
+
+```yaml
+- text:
+    content: "Canada - Queen Elizabeth II Definitives"
+    width: 90%
+    align: center
+    font-size: 14
+    font-style: bold
+```
+
+---
+
+## 11. Image
+
+### 11.1 Description
+
+The Image element renders an image from a file.
+
+### 11.2 Properties
+
+| Property | Type | Description | Default |
+|----------|------|-------------|---------|
+| `style` | string | Reference to image style | - |
+| `src` | string | Image filename | Required |
+| `width` | number/string | Width in mm or % | Native |
+| `height` | number | Height in mm | Native |
+| `scale-mode` | string | `fit`, `fill`, `stretch` | `fit` |
+| `x`, `y` | number | Absolute position (mm) | - |
+
+### 11.3 Size Calculation
+
+| Condition | Behavior |
+|-----------|----------|
+| Neither specified | Rendered at native size |
+| Only `width` | Scale both dimensions proportionally |
+| Only `height` | Scale both dimensions proportionally |
+| Both specified | Behavior depends on `scale-mode` |
+
+### 11.4 Scale Mode
+
+| Mode | Behavior |
+|------|----------|
+| `fit` | Scale to fit inside box, preserve aspect ratio (default) |
+| `fill` | Scale to fill box, preserve aspect ratio (may crop) |
+| `stretch` | Stretch to exact dimensions (may distort) |
+
+### 11.5 Positioning
+
+- In Page/Column: Centered horizontally
+- With `x`, `y`: Absolute position from page top-left
+
+### 11.6 Example
+
+```yaml
+- image:
+    src: "decorative.png"
+    width: 50
+    height: 30
+    scale-mode: fit
+```
+
+---
+
+## 12. Frame
+
+### 12.1 Description
+
+The Frame element renders a decorative border, typically used for visual grouping.
+
+### 12.2 Properties
+
+| Property | Type | Description | Default |
+|----------|------|-------------|---------|
+| `style` | string | Reference to frame style | - |
+| `width` | number | Frame width (mm) | Required |
+| `height` | number | Frame height (mm) | Required |
+| `type` | string | `single`, `double`, `white-ace`, `custom` | `single` |
+| `thickness` | number | Line thickness (mm) | TBD |
+| `padding` | number | Interior padding (mm) | 0 |
+| `color` | string | Stroke color | TBD |
+| `x`, `y` | number | Absolute position (mm) | - |
+
+### 12.3 Frame Types
+
+| Type | Description |
+|------|-------------|
+| `single` | Single line border |
+| `double` | Double line border (classic album style) |
+| `white-ace` | White Ace album style |
+| `custom` | User-defined parameters |
+
+### 12.4 Example
+
+```yaml
+- frame:
+    width: 100
+    height: 50
+    type: double
+    thickness: 0.5
+    padding: 2
+```
+
+---
+
+## 13. Space
+
+### 13.1 Description
+
+The Space element inserts empty space in the layout.
+
+### 13.2 Properties
+
+| Property | Type | Description | Default |
+|----------|------|-------------|---------|
+| `width` | number | Horizontal space in mm (for Row) | - |
+| `height` | number | Vertical space in mm (for Page/Column) | - |
+
+### 13.3 Behavior
+
+| Parent | Required Property |
+|--------|-------------------|
+| Page, Column | `height` |
+| Row | `width` |
+
+### 13.4 Example
+
+```yaml
+# Vertical space
+- space:
+    height: 10
+
+# Horizontal space (in row)
+- row:
+    children:
+      - stamp: { width: 25, height: 30 }
+      - space: { width: 15 }
+      - stamp: { width: 25, height: 30 }
+```
+
+---
+
+## 14. Style System
+
+### 14.1 Units of Measurement
+
+All dimensions use **millimeters (mm)**, except `font-size` which uses **points (pt)**.
+
+**Margin/Padding notation:**
+
+| Values | Meaning | Example |
+|--------|---------|---------|
+| 1 | All sides | `padding: 5` |
+| 2 | Vertical, Horizontal | `padding: 5, 10` |
+| 4 | Top, Right, Bottom, Left | `padding: 5, 10, 15, 20` |
+
+### 14.2 Style Storage
+
+Styles follow the HTML/CSS paradigm:
 
 | Storage | Description |
 |---------|-------------|
 | External | `.style` files (recommended for reuse) |
-| Embedded | Defined directly in `.album` file |
+| Embedded | Defined in `.album` file |
 | Combined | Both; embedded processed after external |
 
-**External style file**:
-```yaml
-# classic.style
-styles:
-  - name: classic_stamp
-    type: stamp
-    default: true
-    frame: single
-    padding: 2
-
-  - name: standard_page
-    type: page
-    default: true
-    size: Letter
-```
-
-**Album referencing external styles**:
-```yaml
-album:
-  title: "Canada Definitives"
-
-styleFile: "classic.style"
-
-pages:
-  - number: 1
-    children:
-      - stamp:
-          title: "1c Green"
-```
-
-### 8.2 Style File Format
-
-| Property | Value |
-|----------|-------|
-| Extension | `.style` |
-| Format | Auto-detected (XML/JSON/YAML) |
-| Location | Same folder as album, or `/MyAlbum/Templates` |
-
-### 8.3 Style Attributes
+### 14.3 Style Definition
 
 | Attribute | Required | Description |
 |-----------|----------|-------------|
 | `name` | Yes | Unique identifier |
 | `type` | Yes | `page`, `stamp`, `text`, `row`, `column`, `image`, `frame` |
-| `default` | No | If `true`, used when no explicit style |
+| `default` | No | If `true`, used when no explicit style specified |
 | *(other)* | No | Type-specific properties |
 
-### 8.4 Style Resolution
+### 14.4 Font Attributes
 
-Cascade order:
+| Attribute | Description | Values |
+|-----------|-------------|--------|
+| `font-name` | Font family | Name of loaded font |
+| `font-size` | Size in points | Numeric |
+| `font-style` | Variant | `regular`, `bold`, `italic`, `bold-italic` |
 
-1. **Explicit style** - Referenced by name (`style: large_stamp`)
-2. **Default style** - Style with `default: true` for element type
-3. **Built-in defaults** - Hardcoded sensible values
+### 14.5 Color Attributes
 
-**Rules**:
-- One default per element type; if multiple, **last wins**
-- Missing attributes fall through to next level
+**Formats:**
 
-### 8.5 Frame/Border Styles
+| Format | Example |
+|--------|---------|
+| Named | `color: DarkGreen` |
+| RGB | `color: "72, 43, 145"` |
 
-| Style | Description |
-|-------|-------------|
-| `single` | Single line border |
-| `double` | Double line border (classic) |
-| `white-ace` | White Ace album style |
-| `custom` | User-defined parameters |
+**Attributes:**
 
-**Frame properties**: `thickness` and `padding` only (no margin)
+| Attribute | Description |
+|-----------|-------------|
+| `color` | Foreground/text color |
+| `bgcolor` | Background color |
 
----
+### 14.6 Style Resolution
 
-## 9. Page Layout Features
-
-| Feature | Status |
-|---------|--------|
-| Letter, A4, Legal sizes | Supported |
-| Custom dimensions | Future |
-| Portrait/Landscape | Supported |
-| Mixed orientation | Supported |
-| Duplex/book layout | Supported |
+Cascade order (highest to lowest priority):
+1. **Inline** - Attributes on element
+2. **Explicit style** - Referenced by `style` property
+3. **Default style** - Style with `default: true` for element type
+4. **Built-in defaults** - Hardcoded values
 
 ---
 
-## 10. Configuration
+## 15. Configuration
 
-### 10.1 Config File
+### 15.1 Config File
 
-**File**: `myalbum.config` (JSON, in application directory)
+**File:** `myalbum.config` (JSON, in application directory)
 
 ```json
 {
@@ -591,7 +801,7 @@ Cascade order:
 }
 ```
 
-### 10.2 CLI Interface
+### 15.2 CLI Interface
 
 ```
 myalbum <input-file> [options]
@@ -606,23 +816,18 @@ Options:
 
 ---
 
-## 11. Technical Stack
+## 16. Technical Implementation
+
+### 16.1 Technology Stack
 
 | Component | Choice | Rationale |
 |-----------|--------|-----------|
-| Framework | .NET 10 | Latest LTS, modern C# |
+| Framework | .NET 10 | Latest LTS |
 | PDF Library | PDFsharp 6.x | MIT license, coordinate-based API |
 | Testing | xUnit + NSubstitute | Modern, parallel execution |
 | Architecture | Layered | Parsing → Model → Layout → Render |
 
----
-
-## 12. Cross-Platform Support
-
-| Property | Value |
-|----------|-------|
-| **Platforms** | Windows, Linux, macOS (Intel + ARM) |
-| **Distribution** | Self-contained single-file executable |
+### 16.2 Cross-Platform Support
 
 | Platform | Runtime ID |
 |----------|------------|
@@ -631,383 +836,97 @@ Options:
 | macOS Intel | `osx-x64` |
 | macOS ARM | `osx-arm64` |
 
----
+**Distribution:** Self-contained single-file executable
 
-## 13. Architecture Principles
+### 16.3 Architecture Principles
 
 1. **Simple & working first** - Core features before complexity
 2. **Decoupled core** - Separate parsing, model, layout, rendering
 3. **Testable** - Unit tests for calculations, integration tests for output
 4. **Future-proof** - Design for GUI/web without over-engineering
 
----
+### 16.4 Error Handling
 
-## 14. Error Handling
+**Strategy:** Fail fast - stop on first error with clear message
 
-**Strategy**: Fail fast - stop on first error with clear message
+### 16.5 Supported Page Sizes
 
----
+| Feature | Status |
+|---------|--------|
+| Letter, A4, Legal sizes | Supported |
+| Custom dimensions | Future |
+| Portrait/Landscape | Supported |
+| Mixed orientation | Supported |
+| Duplex/book layout | Supported |
 
-## 15. Decisions Summary
+### 16.6 Key Decisions
 
 | Topic | Decision |
 |-------|----------|
-| Units | Millimeters (mm) only |
+| Units | Millimeters (mm); font-size in points |
 | Input format | Auto-detect XML/JSON/YAML |
 | Style storage | External `.style` or embedded |
-| Style resolution | Explicit → Default → Built-in |
+| Style resolution | Inline → Explicit → Default → Built-in |
 | Image formats | JPEG, PNG, TIFF, WebP, GIF |
 | Font handling | Embedded in PDF |
-| Catalog numbers | Free-form text |
-| Page numbering | Explicit only |
-| Batch processing | Single file per invocation |
 | Error handling | Fail fast |
 
 ---
 
-## 16. Alignment Guides
+## 17. To Be Defined
 
-Elements have alignment guides for positioning within containers (rows, columns).
+The following items require decisions before implementation:
 
-### 16.1 Text and Image Elements
+### 17.1 Defaults
 
-Guides relative to **bounding box**:
-
-| Guide | Position | Description |
-|-------|----------|-------------|
-| `left` | x | Left edge |
-| `right` | x + width | Right edge |
-| `hcenter` | x + width/2 | Horizontal center |
-| `top` | y | Top edge |
-| `bottom` | y + height | Bottom edge |
-| `vcenter` | y + height/2 | Vertical center |
-
-### 16.2 Stamp Elements
-
-Stamps align relative to **frame** (not total bounding box):
-
-| Guide | Position | Description |
-|-------|----------|-------------|
-| `left` | frame x | Frame left edge |
-| `right` | frame x + frame width | Frame right edge |
-| `hcenter` | frame x + frame width/2 | Frame horizontal center |
-| `top` | frame y | Frame top edge |
-| `bottom` | frame y + frame height | Frame bottom edge |
-| `vcenter` | frame y + frame height/2 | Frame vertical center |
-
-### 16.3 Alignment Examples
-
-**Example 1 - Top alignment**:
-
-Frames align at top; titles sit directly on frames (no space):
-
-```
-Stamp A (1-line title)      Stamp B (2-line title)
-
-                                  [Title Line 1]
-         [Title]                  [Title Line 2]
-    ┌─────────────┐          ┌─────────────┐      ← Frames aligned at top
-    │             │          │             │
-    │   Frame     │          │   Frame     │
-    │             │          │             │
-    └─────────────┘          └─────────────┘
-```
-
-**Example 2 - Vertical center alignment**:
-
-Frame centers align; different heights centered:
-
-```
-Stamp A (short frame)       Stamp B (tall frame)
-
-                                  [Title]
-                            ┌─────────────┐
-                            │             │
-         [Title]            │             │
-    ┌─────────────┐         │             │
-    │             │  ←───→  │   Frame     │   ← Frame centers aligned
-    │   Frame     │         │             │
-    │             │         │             │
-    └─────────────┘         │             │
-                            │             │
-                            └─────────────┘
-```
-
----
-
-## 17. Row Positioning
-
-### 17.1 Row Children
-
-Permitted child elements:
-
-| Element | Notes |
-|---------|-------|
-| **Stamp** | Fixed width (frame width) |
-| **Text** | Width must be specified |
-| **Image** | Width must be specified |
-| **Column** | If present, row should contain only columns |
-
-**Column-based row**: Same rules as page column-based layout:
-- Column height = sum of children heights + vspace
-- Columns aligned at **top**
-- Width rules same as page (see [Section 6.4](#64-page-layout-modes))
-
-### 17.2 Row Dimensions
-
-| Property | Value |
-|----------|-------|
-| Width | 100% of parent canvas (unless overridden) |
-| Height | Calculated from children + alignment |
-
-### 17.3 Row Height Calculation
-
-Based on vertical alignment of children:
-
-1. Determine alignment: `top`, `vcenter`, or `bottom`
-2. For each child, calculate height **above** and **below** alignment line
-3. Find **max above** and **max below** across all children
-4. **Row height** = max above + max below
-
-**Top alignment**:
-```
-Alignment line ───── ┌───────┐  ┌───────────┐
-                     │ Child │  │           │
-                     │   A   │  │  Child B  │
-                     └───────┘  │           │
-                                └───────────┘
-
-Height above = 0
-Height below = max(child heights)
-Row height   = tallest child
-```
-
-**Center alignment**:
-```
-                     ┌───────┐
-                     │ Child │  ┌─────────────┐
-Alignment line ──────│── A ──│──│── Child B ──│───
-                     │       │  └─────────────┘
-                     └───────┘  
-
-Height above = max(top halves)
-Height below = max(bottom halves)
-Row height   = max above + max below
-```
-
-**Bottom alignment**:
-```
-                                ┌───────────┐
-                     ┌───────┐  |   Child   |
-                     │ Child │  │     B     │
-                     │   A   │  │           │
-Alignment line ───── └───────┘  └───────────┘
-
-Height above = max(child heights)
-Height below = 0
-Row height   = tallest child
-```
-
-### 17.4 Row Horizontal Spacing
-
-**Child widths**:
-- **Stamp**: Fixed (frame width)
-- **Text/Image**: Must be specified
-
-**Spacing modes**:
-
-| Mode | Attribute | Formula |
-|------|-----------|---------|
-| **Fixed (FS)** | `spacing: 5` | Fixed mm between children |
-| **Equal (ES)** | `spacing: equal` | `(row - children) / (n - 1)` |
-| **Justified (JS)** | `spacing: justified` | `(row - children) / (n + 1)` |
-
-**Fixed Spacing (FS)** - Children centered:
-```
-├─────[Child 1]─(5mm)─[Child 2]─(5mm)─[Child 3]─────┤
-    ↑                                           ↑
-    └──── remaining / 2 ────────────────────────┘
-```
-
-**Equal Spacing (ES)** - Edge to edge:
-```
-├[Child 1]────────[Child 2]────────[Child 3]┤
-```
-
-**Justified (JS)** - Equal gaps everywhere:
-```
-├────[Child 1]────[Child 2]────[Child 3]────┤
-```
-
----
-
-## 18. Column Positioning
-
-### 18.1 Column Children
-
-Permitted child elements:
-
-| Element | Notes |
-|---------|-------|
-| **Stamp** | Fixed width (frame width) |
-| **Text** | Width should be specified or defaults to column width |
-| **Image** | Width should be specified |
-| **Row** | Nested rows |
-
-### 18.2 Column Dimensions
-
-| Property | Value |
-|----------|-------|
-| Width | Specified (mm or %), last column = remainder |
-| Height | Sum of children heights + vspace between |
-
-### 18.3 Child Positioning
-
-**Horizontal**: All children are **centered** relative to the column width.
-
-**Vertical**: Children stack from top:
-1. First element starts at top of column
-2. Followed by `vspace`
-3. Followed by next element
-4. Repeat until last element
-
-**Important distinction from rows**:
-- In a **row**: Stamps align vertically based on their **frame** (top, center, bottom)
-- In a **column**: The **top of the stamp** (including title) aligns with the column top
-
-If a stamp is the first element in a column, the top of the stamp title aligns with the top of the column.
-
-```
-┌─────────────────┐
-│    [Title]      │  ← Title top aligns with column top
-│  ┌───────────┐  │
-│  │   Frame   │  │
-│  └───────────┘  │
-│                 │
-│    (vspace)     │
-│                 │
-│    [Child 2]    │
-└─────────────────┘
-
-Column height = Stamp total height + vspace + Child2 height + ...
-```
-
----
-
-## 19. Text Width Rules
-
-Text width varies based on the container:
-
-| Container | Default Width | Override |
-|-----------|---------------|----------|
-| **Page** | 100% of canvas | Percent (e.g., `width: 90%`) or fixed (mm) |
-| **Column** | 100% of column width | Percent or fixed (mm) |
-| **Row** | **Must be specified** | Fixed (mm) required |
-| **Stamp** (title, i1, i2, i3, footer) | **Unlimited** | User controls with `\n` |
-
-### 19.1 Page and Column Text
-
-Text inherits canvas/column width by default, but can be overridden:
-
-```yaml
-# Default - full width
-- text:
-    content: "This spans full width"
-
-# Percent width
-- text:
-    width: 90%
-    content: "This spans 90% of canvas"
-
-# Fixed width
-- text:
-    width: 150
-    content: "This is exactly 150mm wide"
-```
-
-### 19.2 Row Text
-
-Text in a row **must** have a fixed width specified:
-
-```yaml
-- row:
-    children:
-      - text:
-          width: 50           # Required
-          content: "Label"
-      - stamp:
-          width: 25
-          height: 30
-```
-
-### 19.3 Stamp Text
-
-All text within a stamp (title, i1, i2, i3, f1, f2, f3) has **unlimited width**. The user is responsible for controlling line breaks with `\n`:
-
-```yaml
-- stamp:
-    title: "Long Title That User\nMust Break Manually"
-    i1: "First line\nSecond line"
-    f1: "Scott #123"
-```
-
-### 19.4 Text Alignment and Wrapping
-
-Text alignment options:
-
-| Alignment | Description |
-|-----------|-------------|
-| `left` | Text aligned to left edge |
-| `right` | Text aligned to right edge |
-| `center` | Text centered within width |
-| `justified` | Text stretched to fill width |
-
-**Word wrapping** (for left, right, center):
-- Text wraps at word boundaries
-- If next word does not fit the line width, it moves to next line
-- `\n` forces a line break
-
-**Justified alignment**:
-- Text wraps at word boundaries (same as above)
-- Word spacing is adjusted equally so line width matches text width
-- **Last line** is treated as left-aligned (not stretched)
-- `\n` forces a line break
-
-**Manual line breaks**: In all alignment modes, `\n` forces a line break.
-
-### 19.5 Text Height
-
-Text height is **never limited** - it grows based on content.
-
-**Height calculation** (in order):
-1. **Font size** → determines base character height
-2. **Line height** → height of each line (typically font size × multiplier)
-3. **Line spacing** → additional space between lines
-
-```
-Total height = (line height × number of lines) + (line spacing × (number of lines - 1))
-```
-
-```yaml
-- text:
-    width: 100
-    align: justified
-    content: "This text will be stretched to fill the full 100mm width, with spacing adjusted between words. The last line remains left-aligned."
-```
-
----
-
-## 20. To Be Defined
-
-| Item | Section | Notes |
+| Item | Context | Notes |
 |------|---------|-------|
-| Default font | 2.4 | Default `font-name` when not specified |
-| Default font-size | 2.4 | Default `font-size` value |
-| Default font-style | 2.4 | Clarify `regular` is default |
-| Inside text width | 7.3 vs 19.3 | Contradiction: 90% of stamp width vs unlimited |
-| Color/bgcolor usage | 2.5 | Which elements support color attributes |
-| Frame color | 8.5 | Frame stroke color attribute |
-| Default page size | 9 | Letter, A4, or other default |
-| Default orientation | 9 | Portrait or landscape default |
-| Space element style | 8.3 | Add `space` to style types list |
-| Banner sizing | 6.2 | Banner image sizing rules |
+| Default page size | Page | `letter` or `a4`? |
+| Default orientation | Page | `portrait` assumed |
+| Default font-name | Text | System default or bundled font? |
+| Default font-size | Text | Suggest 10pt or 12pt |
+| Default text alignment | Text | `left` assumed |
+| Default row spacing mode | Row | `fixed` with 0mm? |
+| Default row vertical align | Row | `top` assumed |
+| Default frame thickness | Frame, Stamp | Suggest 0.3mm |
+| Default frame color | Frame, Stamp | Black assumed |
+
+### 17.2 Clarifications Needed
+
+| Item | Context | Issue |
+|------|---------|-------|
+| Inside text width | Stamp | Is `i1`-`i3` text width limited (90% of stamp) or unlimited? |
+| Banner sizing | Page | How is banner sized? Image rules or custom? |
+| Color support | Elements | Which elements support `color`/`bgcolor`? |
+
+### 17.3 Conventions
+
+- Attribute naming uses **lowercase with dashes** (e.g., `font-size`, `title-padding`)
+- Exception: `bgcolor` (not `bg-color`) for brevity
+
+---
+
+## Appendix A: Alignment Reference
+
+### A.1 Alignment Guides
+
+All elements use bounding box for alignment, except stamps in rows which align by frame.
+
+| Guide | Position |
+|-------|----------|
+| `left` | x |
+| `right` | x + width |
+| `hcenter` | x + width/2 |
+| `top` | y |
+| `bottom` | y + height |
+| `vcenter` | y + height/2 |
+
+### A.2 Stamp Alignment in Rows
+
+Stamps align by **frame**, not total bounding box:
+
+| Guide | Position |
+|-------|----------|
+| `top` | frame.y |
+| `bottom` | frame.y + frame.height |
+| `vcenter` | frame.y + frame.height/2 |
