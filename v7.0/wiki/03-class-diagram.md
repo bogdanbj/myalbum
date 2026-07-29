@@ -2,268 +2,551 @@
 
 ## Overview
 
-This document contains the class diagram for the current implementation of MyAlbum v7.0 after completing Phase 1 (Foundation) and Phase 2 (Stamp Support).
+Class diagram for MyAlbum v7.0 based on the architecture design. Shows two model namespaces (Definition and Layout), parsing, style resolution, layout calculation, and rendering.
 
 ---
 
-## Class Diagram
+## 1. Definition Model (Parsed)
 
 ```mermaid
 classDiagram
     direction TB
 
-    %% INTERFACES
-    class IAlbumParser {
-        <<interface>>
-        +Parse(filePath: string) Album
-        +Parse(stream: Stream) Album
-        +CanParse(filePath: string) bool
+    namespace Definition {
+        class Album {
+            +Title: string?
+            +Author: string?
+            +Subject: string?
+            +StyleFile: string?
+            +Styles: List~StyleDef~
+            +Pages: List~Page~
+        }
+
+        class StyleDef {
+            +Name: string
+            +Type: string
+            +Default: bool
+            +Properties: Dictionary~string,object~
+        }
+
+        class Page {
+            +Number: int
+            +Title: string?
+            +Style: string?
+            +Size: string?
+            +Orientation: string?
+            +Padding: double[]
+            +RowSpacing: double
+            +ColumnSpacing: double
+            +Children: List~Element~
+        }
+
+        class Element {
+            <<abstract>>
+            +Style: string?
+            +X: double?
+            +Y: double?
+        }
+
+        class Row {
+            +Padding: double[]
+            +Spacing: string
+            +Align: string?
+            +Children: List~Element~
+        }
+
+        class Column {
+            +Width: string?
+            +Padding: double[]
+            +Spacing: double
+            +Children: List~Element~
+        }
+
+        class Stamp {
+            +Width: double
+            +Height: double
+            +Title: string?
+            +TitlePadding: double
+            +Image: string?
+            +I1: string?
+            +I2: string?
+            +I3: string?
+            +F1: string?
+            +F2: string?
+            +F3: string?
+            +FooterPadding: double
+        }
+
+        class Text {
+            +Content: string
+            +Width: string?
+            +Align: string?
+            +FontName: string?
+            +FontSize: double?
+            +FontStyle: string?
+            +Color: string?
+            +BgColor: string?
+        }
+
+        class Image {
+            +Src: string
+            +Width: string?
+            +Height: double?
+            +ScaleMode: string?
+        }
+
+        class Frame {
+            +Width: double
+            +Height: double
+            +Lines: double[]
+            +Padding: double
+            +Color: string?
+        }
+
+        class Space {
+            +Width: double?
+            +Height: double?
+        }
     }
 
-    class IRenderer {
-        <<interface>>
-        +Render(album: Album, outputPath: string) void
-        +Render(album: Album, outputStream: Stream) void
-    }
+    Element <|-- Row
+    Element <|-- Column
+    Element <|-- Stamp
+    Element <|-- Text
+    Element <|-- Image
+    Element <|-- Frame
+    Element <|-- Space
 
-    %% ENUMERATIONS
-    class BorderStyle {
-        <<enumeration>>
-        None
-        Single
-        Double
-        WhiteAce
-    }
-
-    class HorizontalAlignment {
-        <<enumeration>>
-        Left
-        Center
-        Right
-    }
-
-    class VerticalAlignment {
-        <<enumeration>>
-        Top
-        Center
-        Bottom
-    }
-
-    %% ROOT MODEL
-    class Album {
-        +Title: string?
-        +Version: string?
-        +Pages: List~Page~
-        +AddPage(page: Page) void
-    }
-
-    %% ELEMENT HIERARCHY
-    class BaseElement {
-        <<abstract>>
-        +X, Y, Width, Height: XUnit
-        +MarginTop/Right/Bottom/Left: XUnit
-        +PaddingTop/Right/Bottom/Left: XUnit
-        +StyleName: string?
-        +Color: XColor
-        +BackgroundColor: XColor
-        +OuterWidth: XUnit
-        +OuterHeight: XUnit
-        +ContentWidth: XUnit
-        +ContentHeight: XUnit
-        +Calculate(gfx, availWidth, availHeight)* void
-        +Draw(gfx: XGraphics)* void
-    }
-
-    class ContainerElement {
-        <<abstract>>
-        +Children: List~BaseElement~
-        +Spacing: XUnit
-        +AddChild(child: BaseElement) void
-        #DrawChildren(gfx: XGraphics) void
-    }
-
-    class Page {
-        +PageNumber: int
-        +Title: string?
-        +PageSize: PageSize
-        +Orientation: PageOrientation
-        +VerticalSpacing: XUnit
-        +PdfPage: PdfPage?
-        +Calculate() void
-        +Draw() void
-    }
-
-    class Row {
-        +HAlign: HorizontalAlignment
-        +VAlign: VerticalAlignment
-        +HorizontalSpacing: XUnit
-        +FixedHeight: XUnit?
-        +Calculate() void
-        +Draw() void
-    }
-
-    class Text {
-        +Content: string
-        +FontFamily: string
-        +FontSize: double
-        +Bold: bool
-        +Italic: bool
-        +HAlign: HorizontalAlignment
-        +VAlign: VerticalAlignment
-        +Calculate() void
-        +Draw() void
-    }
-
-    class Frame {
-        +BorderStyle: BorderStyle
-        +LineWidth: double
-        +SecondaryLineWidth: double
-        +LineGap: double
-        +BorderColor: XColor
-        +CornerRadius: double
-        +BorderThickness: double
-        +InnerX/Y/Width/Height: XUnit
-        +Calculate() void
-        +Draw() void
-        -DrawSingleBorder() void
-        -DrawDoubleBorder() void
-        -DrawWhiteAceBorder() void
-    }
-
-    class Stamp {
-        +Title: string?
-        +InsideLine1/2/3: string?
-        +FooterLeft/Center/Right: string?
-        +StampWidth: double
-        +StampHeight: double
-        +Frame: Frame
-        +FontFamily: string
-        +TitleFontSize: double
-        +InsideFontSize: double
-        +FooterFontSize: double
-        +Calculate() void
-        +Draw() void
-        -DrawTitle() void
-        -DrawInsideText() void
-        -DrawFooter() void
-    }
-
-    %% PARSING
-    class ParserFactory {
-        <<static>>
-        -Parsers: List~IAlbumParser~
-        +GetParser(filePath: string) IAlbumParser
-        +SupportedExtensions: IEnumerable~string~
-    }
-
-    class XmlAlbumParser {
-        +Parse(filePath: string) Album
-        +Parse(stream: Stream) Album
-        +CanParse(filePath: string) bool
-        -ParseAlbum() Album
-        -ParsePage() Page
-        -ParseElement() BaseElement?
-        -ParseRow() Row
-        -ParseText() Text
-        -ParseStamp() Stamp
-        -ParseCommonAttributes() void
-        -TryParseUnit() bool
-        -TryParseColor() bool
-    }
-
-    %% RENDERING
-    class PdfRenderer {
-        +Render(album: Album, outputPath: string) void
-        +Render(album: Album, outputStream: Stream) void
-        -RenderPage(document: PdfDocument, page: Page) void
-    }
-
-    %% UTILITIES
-    class ArgsParser {
-        <<static>>
-        +Parse(args: string[]) Dictionary~string,string~
-        +GetInputFile(options) string
-        +GetOutputFile(options, inputFile) string
-        +PrintHelp() void
-        +PrintVersion() void
-    }
-
-    %% INHERITANCE
-    BaseElement <|-- ContainerElement : extends
-    BaseElement <|-- Text : extends
-    BaseElement <|-- Frame : extends
-    BaseElement <|-- Stamp : extends
-    ContainerElement <|-- Page : extends
-    ContainerElement <|-- Row : extends
-
-    %% INTERFACE IMPLEMENTATIONS
-    IAlbumParser <|.. XmlAlbumParser : implements
-    IRenderer <|.. PdfRenderer : implements
-
-    %% COMPOSITION
-    Album "1" *-- "0..*" Page : contains
-    ContainerElement "1" o-- "0..*" BaseElement : Children
-    Stamp "1" *-- "1" Frame : has
-
-    %% DEPENDENCIES
-    ParserFactory ..> XmlAlbumParser : creates
-    XmlAlbumParser ..> Album : creates
-    PdfRenderer ..> Album : renders
-
-    %% ENUM USAGE
-    Frame ..> BorderStyle : uses
-    Text ..> HorizontalAlignment : uses
-    Text ..> VerticalAlignment : uses
-    Row ..> HorizontalAlignment : uses
-    Row ..> VerticalAlignment : uses
+    Album "1" *-- "0..*" Page
+    Album "1" *-- "0..*" StyleDef
+    Page "1" *-- "0..*" Element
+    Row "1" *-- "0..*" Element
+    Column "1" *-- "0..*" Element
 ```
 
 ---
 
-## Class Summary
+## 2. Layout Model (Computed)
 
-### Models Layer
+```mermaid
+classDiagram
+    direction TB
 
-| Class | Type | Description |
-|-------|------|-------------|
-| `Album` | Model | Root container holding pages and metadata |
-| `BaseElement` | Abstract | Base class for all renderable elements |
-| `ContainerElement` | Abstract | Base for elements that contain children |
-| `Page` | Container | Represents a single album page |
-| `Row` | Container | Horizontal layout of child elements |
-| `Text` | Leaf | Text content with font styling |
-| `Frame` | Leaf | Border/frame with multiple styles |
-| `Stamp` | Composite | Philatelic stamp with title, frame, text, footer |
+    namespace Layout {
+        class Album {
+            +Pages: List~Page~
+        }
 
-### Parsing Layer
+        class Page {
+            +Width: double
+            +Height: double
+            +MasterElements: MasterElements
+            +ContentElements: List~Element~
+            +Calculate()
+            +Draw(gfx: XGraphics)
+        }
 
-| Class | Type | Description |
-|-------|------|-------------|
-| `IAlbumParser` | Interface | Contract for album file parsers |
-| `ParserFactory` | Static | Selects appropriate parser by file extension |
-| `XmlAlbumParser` | Implementation | Parses XML/album files |
+        class MasterElements {
+            +Background: Image?
+            +Banner: Image?
+            +Border: Frame?
+            +Header: Text?
+            +Footer: Text?
+        }
 
-### Rendering Layer
+        class Element {
+            <<abstract>>
+            +X: double
+            +Y: double
+            +Width: double
+            +Height: double
+            +Calculate()*
+            +Draw(gfx: XGraphics)*
+        }
 
-| Class | Type | Description |
-|-------|------|-------------|
-| `IRenderer` | Interface | Contract for output renderers |
-| `PdfRenderer` | Implementation | Generates PDF using PdfSharpCore |
+        class Container {
+            <<abstract>>
+            +Children: List~Element~
+            +Calculate()
+            +Draw(gfx: XGraphics)
+        }
 
-### Utilities Layer
+        class IComposite {
+            <<interface>>
+            +GetSubElements(): List~Element~
+        }
 
-| Class | Type | Description |
-|-------|------|-------------|
-| `ArgsParser` | Static | CLI argument parsing |
+        class Row {
+            +BgColor: XColor?
+            +Calculate()
+            +Draw(gfx: XGraphics)
+        }
+
+        class Column {
+            +BgColor: XColor?
+            +Calculate()
+            +Draw(gfx: XGraphics)
+        }
+
+        class Stamp {
+            +Title: Text?
+            +Frame: Frame
+            +Image: Image?
+            +I1: Text?
+            +I2: Text?
+            +I3: Text?
+            +F1: Text?
+            +F2: Text?
+            +F3: Text?
+            +Calculate()
+            +Draw(gfx: XGraphics)
+            +GetSubElements(): List~Element~
+        }
+
+        class Text {
+            +Content: string
+            +FontName: string
+            +FontSize: double
+            +FontStyle: string
+            +Color: XColor
+            +BgColor: XColor?
+            +Align: string
+            +Calculate()
+            +Draw(gfx: XGraphics)
+        }
+
+        class Image {
+            +Src: string
+            +ScaleMode: string
+            +Calculate()
+            +Draw(gfx: XGraphics)
+        }
+
+        class Frame {
+            +Lines: double[]
+            +Padding: double
+            +Color: XColor
+            +Calculate()
+            +Draw(gfx: XGraphics)
+        }
+
+        class Space {
+            +Calculate()
+            +Draw(gfx: XGraphics)
+        }
+    }
+
+    Element <|-- Container
+    Element <|-- Text
+    Element <|-- Image
+    Element <|-- Frame
+    Element <|-- Space
+    Element <|-- Stamp
+
+    Container <|-- Row
+    Container <|-- Column
+
+    IComposite <|.. Stamp
+    IComposite <|.. Page
+
+    Album "1" *-- "0..*" Page
+    Page "1" *-- "1" MasterElements
+    Page "1" *-- "0..*" Element
+    Container "1" *-- "0..*" Element
+
+    Stamp "1" *-- "0..1" Text : Title
+    Stamp "1" *-- "1" Frame
+    Stamp "1" *-- "0..1" Image
+    Stamp "1" *-- "0..1" Text : I1
+    Stamp "1" *-- "0..1" Text : I2
+    Stamp "1" *-- "0..1" Text : I3
+    Stamp "1" *-- "0..1" Text : F1
+    Stamp "1" *-- "0..1" Text : F2
+    Stamp "1" *-- "0..1" Text : F3
+```
 
 ---
 
-## Key Relationships
+## 3. Parsing Layer
 
-1. **Inheritance Chain**: `BaseElement` → `ContainerElement` → `Page` / `Row`
-2. **Inheritance Chain**: `BaseElement` → `Text`, `Frame`, `Stamp`
-3. **Composition**: `Album` contains `Page` list
-4. **Composition**: `Stamp` contains `Frame`
-5. **Aggregation**: `ContainerElement` holds `BaseElement` children
-6. **Implementation**: `XmlAlbumParser` implements `IAlbumParser`
-7. **Implementation**: `PdfRenderer` implements `IRenderer`
+```mermaid
+classDiagram
+    direction LR
+
+    class AlbumLoader {
+        +Load(filePath: string): Definition.Album
+        -LoadStyles(styleFile: string): List~StyleDef~
+    }
+
+    class FormatDetector {
+        +Detect(content: string): Format
+    }
+
+    class Format {
+        <<enumeration>>
+        Xml
+        Json
+        Yaml
+    }
+
+    class IAlbumParser {
+        <<interface>>
+        +Parse(content: string): Definition.Album
+    }
+
+    class XmlAlbumParser {
+        +Parse(content: string): Definition.Album
+    }
+
+    class JsonAlbumParser {
+        +Parse(content: string): Definition.Album
+    }
+
+    class YamlAlbumParser {
+        +Parse(content: string): Definition.Album
+    }
+
+    IAlbumParser <|.. XmlAlbumParser
+    IAlbumParser <|.. JsonAlbumParser
+    IAlbumParser <|.. YamlAlbumParser
+
+    AlbumLoader ..> FormatDetector : uses
+    AlbumLoader ..> IAlbumParser : uses
+    FormatDetector ..> Format : returns
+```
+
+---
+
+## 4. Style Resolution
+
+```mermaid
+classDiagram
+    direction LR
+
+    class StyleResolver {
+        +Resolve(album: Definition.Album): void
+        -ResolveElement(element: Definition.Element): void
+        -MergeStyles(base: StyleDef, override: StyleDef): StyleDef
+    }
+
+    class StyleSheet {
+        +Styles: Dictionary~string,StyleDef~
+        +GetDefault(elementType: string): StyleDef?
+        +Get(styleName: string): StyleDef?
+    }
+
+    class StyleLoader {
+        +Load(filePath: string): StyleSheet
+    }
+
+    StyleResolver ..> StyleSheet : uses
+    StyleLoader ..> StyleSheet : creates
+```
+
+---
+
+## 5. Layout Engine
+
+```mermaid
+classDiagram
+    direction LR
+
+    class LayoutEngine {
+        +Calculate(album: Definition.Album): Layout.Album
+    }
+
+    class PageCalculator {
+        +Calculate(page: Definition.Page): Layout.Page
+        -CalculateCanvas(): Rect
+        -CalculateMasterElements(): MasterElements
+    }
+
+    class ElementCalculator {
+        +Calculate(element: Definition.Element, availableWidth: double): Layout.Element
+    }
+
+    class TextMeasurer {
+        +Measure(text: string, font: XFont, maxWidth: double): Size
+        +WrapText(text: string, font: XFont, maxWidth: double): List~string~
+    }
+
+    LayoutEngine ..> PageCalculator : uses
+    LayoutEngine ..> ElementCalculator : uses
+    PageCalculator ..> ElementCalculator : uses
+    ElementCalculator ..> TextMeasurer : uses
+```
+
+---
+
+## 6. Rendering Pipeline
+
+```mermaid
+classDiagram
+    direction LR
+
+    class PdfRenderer {
+        +Render(album: Layout.Album, outputPath: string): void
+        -CreateDocument(): PdfDocument
+        -SetMetadata(doc: PdfDocument, album: Layout.Album): void
+        -RenderSummaryPage(doc: PdfDocument): void
+    }
+
+    class PageRenderer {
+        +Render(gfx: XGraphics, page: Layout.Page): void
+        -RenderMasterElements(gfx: XGraphics): void
+        -RenderContentElements(gfx: XGraphics): void
+    }
+
+    class ElementRenderer {
+        <<abstract>>
+        +Render(gfx: XGraphics, element: Layout.Element)*
+    }
+
+    class RowRenderer {
+        +Render(gfx: XGraphics, row: Layout.Row): void
+    }
+
+    class ColumnRenderer {
+        +Render(gfx: XGraphics, column: Layout.Column): void
+    }
+
+    class StampRenderer {
+        +Render(gfx: XGraphics, stamp: Layout.Stamp): void
+    }
+
+    class TextRenderer {
+        +Render(gfx: XGraphics, text: Layout.Text): void
+        +RenderWrapped(gfx: XGraphics, text: Layout.Text): void
+    }
+
+    class ImageRenderer {
+        +Render(gfx: XGraphics, image: Layout.Image): void
+        -RenderPlaceholder(gfx: XGraphics, bounds: Rect): void
+    }
+
+    class FrameRenderer {
+        +Render(gfx: XGraphics, frame: Layout.Frame): void
+        -DrawLines(gfx: XGraphics, lines: double[]): void
+    }
+
+    PdfRenderer ..> PageRenderer : uses
+    PageRenderer ..> ElementRenderer : uses
+    ElementRenderer <|-- RowRenderer
+    ElementRenderer <|-- ColumnRenderer
+    ElementRenderer <|-- StampRenderer
+    ElementRenderer <|-- TextRenderer
+    ElementRenderer <|-- ImageRenderer
+    ElementRenderer <|-- FrameRenderer
+```
+
+---
+
+## 7. Resources & Startup
+
+```mermaid
+classDiagram
+    direction LR
+
+    class ResourceManager {
+        +GetFont(name: string, style: FontStyle): XFont
+        +GetImage(filename: string): XImage?
+        +ImageExists(filename: string): bool
+    }
+
+    class FontLoader {
+        +LoadAll(fontsFolder: string): void
+        +GetFont(name: string, style: FontStyle): XFont
+    }
+
+    class ImageLoader {
+        +Load(filename: string): XImage?
+        +Exists(filename: string): bool
+    }
+
+    class ConfigLoader {
+        +Load(configPath: string): Config
+    }
+
+    class Config {
+        +TemplatesFolder: string
+        +OutputFolder: string
+        +ImagesFolder: string
+        +FontsFolder: string
+    }
+
+    class ArgsParser {
+        +Parse(args: string[]): Options
+    }
+
+    class Options {
+        +InputFile: string
+        +OutputFile: string?
+        +Verbose: bool
+        +Quiet: bool
+    }
+
+    ResourceManager ..> FontLoader : uses
+    ResourceManager ..> ImageLoader : uses
+    ConfigLoader ..> Config : creates
+    ArgsParser ..> Options : creates
+```
+
+---
+
+## 8. Class Summary
+
+### Definition Namespace (Parsed Model)
+
+| Class | Type | Description |
+|-------|------|-------------|
+| `Album` | Model | Root container with metadata and pages |
+| `StyleDef` | Model | Style definition with properties |
+| `Page` | Model | Page definition with children |
+| `Element` | Abstract | Base for all elements |
+| `Row` | Container | Horizontal layout |
+| `Column` | Container | Vertical layout |
+| `Stamp` | Composite | Stamp with title, frame, interior, footer |
+| `Text` | Leaf | Text content |
+| `Image` | Leaf | Image reference |
+| `Frame` | Leaf | Border/frame |
+| `Space` | Leaf | Empty space |
+
+### Layout Namespace (Computed Model)
+
+| Class | Type | Description |
+|-------|------|-------------|
+| `Album` | Model | Computed album with pages |
+| `Page` | Container + Composite | Computed page with master and content |
+| `MasterElements` | Model | Page master elements (banner, border, etc.) |
+| `Element` | Abstract | Base with X, Y, Width, Height, Calculate(), Draw() |
+| `Container` | Abstract | Base for Row, Column with children |
+| `IComposite` | Interface | For elements with fixed sub-elements |
+| `Row` | Container | Computed row |
+| `Column` | Container | Computed column |
+| `Stamp` | Composite | Computed stamp with sub-elements |
+| `Text` | Leaf | Computed text |
+| `Image` | Leaf | Computed image |
+| `Frame` | Leaf | Computed frame |
+| `Space` | Leaf | Computed space |
+
+### Other Layers
+
+| Layer | Key Classes |
+|-------|-------------|
+| **Parsing** | AlbumLoader, FormatDetector, IAlbumParser, XmlAlbumParser, JsonAlbumParser, YamlAlbumParser |
+| **Styles** | StyleResolver, StyleSheet, StyleLoader |
+| **Layout** | LayoutEngine, PageCalculator, ElementCalculator, TextMeasurer |
+| **Rendering** | PdfRenderer, PageRenderer, ElementRenderer (Row, Column, Stamp, Text, Image, Frame) |
+| **Resources** | ResourceManager, FontLoader, ImageLoader |
+| **Startup** | ConfigLoader, ArgsParser |
+
+---
+
+## 9. Key Relationships
+
+1. **Definition.Element hierarchy**: Element (abstract) → Row, Column, Stamp, Text, Image, Frame, Space
+2. **Layout.Element hierarchy**: Element (abstract) → Container (abstract) → Row, Column; Element → Text, Image, Frame, Space, Stamp
+3. **IComposite implementers**: Layout.Stamp, Layout.Page
+4. **Parser pattern**: AlbumLoader uses FormatDetector to select IAlbumParser implementation
+5. **Two-pass processing**: StyleResolver (pass 1) → LayoutEngine (pass 2)
+6. **Rendering delegation**: PdfRenderer → PageRenderer → ElementRenderer subclasses
