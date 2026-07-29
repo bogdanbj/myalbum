@@ -1,123 +1,509 @@
 # MyAlbum v7.0 Architecture Design
 
-## Overview
+## 1. Overview
 
 A layered architecture that separates concerns and enables future GUI/web interfaces.
 
 ---
 
-## Components
+## 2. High-Level Layers
 
-### Layer 1: Input/Parsing
-- **IAlbumParser** - Interface for format-specific parsers
-- **XmlAlbumParser** - Parse XML album files
-- **JsonAlbumParser** - Parse JSON album files (future)
-- **YamlAlbumParser** - Parse YAML album files (future)
-- **ParserFactory** - Select parser based on file extension
+```
+┌─────────────────────────────────────────────────────────────┐
+│                         Startup                             │
+│  ┌─────────────────┐    ┌─────────────────────────────────┐ │
+│  │   CLI Parser    │    │       Resource Loader           │ │
+│  │ (args, config)  │    │ (fonts, images from app.config) │ │
+│  └─────────────────┘    └─────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────┘
+                              │
+┌─────────────────────────────────────────────────────────────┐
+│                     Application Layer                       │
+│      (orchestrates resources → parsing → layout → render)   │
+└─────────────────────────────────────────────────────────────┘
+                              │
+   ┌──────────────┬───────────┼───────────┬──────────────┐
+   ▼              ▼           ▼           ▼              ▼
+┌────────┐  ┌──────────┐  ┌────────┐  ┌─────────┐ ┌───────────┐
+│Parsing │  │  Style   │  │ Layout │  │Rendering│ │   PDF     │
+│        │  │Resolution│  │        │  │         │ │  Output   │
+└────────┘  └──────────┘  └────────┘  └─────────┘ └───────────┘
+     │            │            │           │
+     └────────────┴────────────┴───────────┘
+                       ▼
+┌─────────────────────────────────────────────────────────────┐
+│                       Domain Models                         │
+│         Definition.* (parsed)  |  Layout.* (computed)       │
+└─────────────────────────────────────────────────────────────┘
+```
 
-### Layer 2: Domain Model
-- **Album** - Root container with metadata and pages
-- **Page** - Single page with layout elements
-- **Stamp** - Composite stamp element
-- **Row/Column** - Layout containers
-- **Text/Image/Spacer/Separator** - Leaf elements
-- **Styles** - Named style definitions
+**Layer responsibilities:**
 
-### Layer 3: Layout Engine
-- **LayoutCalculator** - Compute positions and sizes
-- **Canvas** - Available drawing area tracker
-- **Measurement** - Unit conversions (mm, pt, in)
-
-### Layer 4: Rendering
-- **IRenderer** - Interface for output format renderers
-- **PdfRenderer** - Generate PDF using PdfSharpCore
-- **HtmlRenderer** - Generate HTML (future)
-
-### Layer 5: CLI
-- **Program** - Entry point and argument parsing
-- **CommandHandler** - Execute user commands
+| Layer | Responsibility |
+|-------|----------------|
+| **Startup** | Parse CLI args, load config, load resources (fonts) |
+| **Application** | Coordinate parsing → style resolution → layout → rendering |
+| **Parsing** | Read .album/.style files, detect format, build Definition.* model |
+| **Style Resolution** | Resolve cascade: inline → explicit → default → built-in |
+| **Layout** | Calculate positions, sizes → Layout.* model |
+| **Rendering** | Generate PDF from Layout.* using PDFsharp |
+| **Domain Models** | Definition.* (parsed) and Layout.* (computed) |
 
 ---
 
-## Key Flows
+## 3. Domain Models
 
-### 1. Album Generation Flow
+### 3.1 Two Separate Models
+
+| Model | Purpose |
+|-------|---------|
+| **Definition.*** | Parsed from file; immutable input data |
+| **Layout.*** | Computed for rendering; positions and resolved styles |
+
+### 3.2 Definition Model (Parsed)
+
 ```
-CLI Args → Parser Selection → Parse Input File
-    → Build Domain Model → Apply Styles
-    → Calculate Layout → Render to PDF
-    → Save Output File
+Definition.Album
+├── title, author, subject (metadata)
+├── style-file (reference)
+├── styles[] (StyleDef)
+└── pages[] (Definition.Page)
+
+Definition.Page
+├── number, title, style
+├── size, orientation, padding
+├── row-spacing, column-spacing
+└── children[] (Definition.Element)
+
+Definition.Element (abstract base)
+├── style (reference)
+├── x, y (optional absolute position)
+└── ... element-specific properties
+
+Concrete elements:
+  Definition.Row      → padding, spacing, align, children[]
+  Definition.Column   → width, padding, spacing, children[]
+  Definition.Stamp    → width, height, title, title-padding, image, i1-i3, f1-f3, footer-padding
+  Definition.Text     → content, width, align, font-*, color, bgcolor
+  Definition.Image    → src, width, height, scale-mode
+  Definition.Frame    → width, height, lines[], padding, color
+  Definition.Space    → width, height
+
+StyleDef
+├── name, type, default
+└── ... type-specific properties
 ```
 
-### 2. Style Resolution Flow
+### 3.3 Layout Model (Computed)
+
+Layout model wraps Definition elements and adds computed properties.
+
+**Coordinate model:** All positions are **relative to parent's content area**.
+
+### 3.4 Element Categories
+
+| Category | Elements | Characteristics |
+|----------|----------|-----------------|
+| **Leaf** | Text, Image, Frame, Space | No children; draw themselves |
+| **Composite** | Stamp, Page | Fixed named sub-elements |
+| **Container** | Row, Column, Page | Variable children list |
+
+Note: Page is both Composite (master elements) and Container (content children).
+
+### 3.5 Class Hierarchy
+
 ```
-Element requests style → Check inline properties
-    → Fall back to named style → Fall back to defaults
+Layout.Element (abstract base)
+├── X, Y (relative to parent)
+├── Width, Height
+├── Calculate()                  (compute position and size)
+├── Draw()                       (render to PDF)
+└── (resolved style properties)
+
+Layout.Container : Layout.Element (abstract)
+├── children[]
+├── Calculate()                  (iterates children)
+└── Draw()                       (iterates children)
+
+IComposite (interface)
+└── GetSubElements()             (returns fixed sub-elements)
+
+Concrete elements:
+  Layout.Text   : Layout.Element
+  Layout.Image  : Layout.Element
+  Layout.Frame  : Layout.Element
+  Layout.Space  : Layout.Element
+  Layout.Row    : Layout.Container
+  Layout.Column : Layout.Container
+  Layout.Stamp  : Layout.Element, IComposite
+  Layout.Page   : Layout.Container, IComposite
 ```
 
-### 3. Layout Calculation Flow
+### 3.6 Layout.Page Structure
+
 ```
-Page.Calculate() → Set page dimensions
-    → Calculate border/margins → Get content area
-    → For each child element:
-        → Calculate element size
-        → Position within available space
-        → Reduce available space for next element
+Layout.Page : Layout.Container, IComposite
+├── Width, Height (page dimensions)
+├── masterElements[] (fixed sub-elements via IComposite)
+│   ├── Background : Layout.Image
+│   ├── Banner : Layout.Image
+│   ├── Border : Layout.Frame
+│   ├── Header : Layout.Text
+│   └── Footer : Layout.Text
+└── contentElements[] (variable children via Container)
+    └── relative to canvas origin
+```
+
+### 3.7 Layout.Stamp Structure
+
+```
+Layout.Stamp : Layout.Element, IComposite
+├── X, Y, Width, Height (total bounding box)
+├── Title : Layout.Text          (optional)
+├── Frame : Layout.Frame
+├── Image : Layout.Image         (interior image, optional)
+├── I1 : Layout.Text             (interior text line 1, optional)
+├── I2 : Layout.Text             (interior text line 2, optional)
+├── I3 : Layout.Text             (interior text line 3, optional)
+├── F1 : Layout.Text             (footer left, optional)
+├── F2 : Layout.Text             (footer center, optional)
+└── F3 : Layout.Text             (footer right, optional)
+
+Note: Either Image is set, OR I1/I2/I3 are set — not both.
+All sub-elements are Layout.Element instances with their own X, Y, Width, Height.
 ```
 
 ---
 
-## Interfaces
+## 4. Parser Abstraction
 
-### IAlbumParser
+Auto-detect format and parse to Definition model.
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                      AlbumLoader                            │
+│         (entry point: Load(filePath) → Definition.Album)    │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    FormatDetector                           │
+│      (peek first chars → XML | JSON | YAML)                 │
+└─────────────────────────────────────────────────────────────┘
+                              │
+            ┌─────────────────┼─────────────────┐
+            ▼                 ▼                 ▼
+     ┌───────────┐     ┌───────────┐     ┌───────────┐
+     │ XmlParser │     │JsonParser │     │YamlParser │
+     └───────────┘     └───────────┘     └───────────┘
+            │                 │                 │
+            └─────────────────┼─────────────────┘
+                              ▼
+                 ┌────────────────────────┐
+                 │ Definition.Album       │
+                 └────────────────────────┘
+```
+
+**Interface:**
+
 ```csharp
 public interface IAlbumParser
 {
-    Album Parse(string filePath);
-    Album Parse(Stream stream);
-    bool CanParse(string filePath);
+    Definition.Album Parse(string content);
 }
 ```
 
-### IRenderer
-```csharp
-public interface IRenderer
-{
-    void Render(Album album, string outputPath);
-    void Render(Album album, Stream outputStream);
-}
+**Implementations:**
+- `XmlAlbumParser` — uses `System.Xml.Linq`
+- `JsonAlbumParser` — uses `System.Text.Json`
+- `YamlAlbumParser` — uses `YamlDotNet`
+
+**Format detection rules:**
+
+| Format | Detection |
+|--------|-----------|
+| XML | Starts with `<?xml` or `<` |
+| JSON | Starts with `{` or `[` |
+| YAML | Starts with `---` or key-value pattern |
+
+**StyleLoader** follows same pattern for `.style` files.
+
+---
+
+## 5. Style Resolution
+
+Two-pass approach: resolve styles first, then calculate layout.
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                     StyleResolver                           │
+│    (entry point: Resolve(Definition.Album) → void)          │
+│    (mutates Definition elements with resolved styles)       │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                      StyleSheet                             │
+│  (loaded from .style files + embedded styles in .album)     │
+│                                                             │
+│  - GetDefault(elementType) → StyleDef                       │
+│  - Get(styleName) → StyleDef                                │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**Resolution cascade (highest to lowest priority):**
+
+1. **Inline** — properties on the element itself
+2. **Explicit** — referenced by `style` property
+3. **Default** — style with `default: true` for that element type
+4. **Built-in** — hardcoded fallback values
+
+**Process:**
+
+```
+For each element in Definition tree:
+  1. Start with built-in defaults for element type
+  2. Merge default style (if exists)
+  3. Merge explicit style (if referenced)
+  4. Merge inline properties
+  5. Store resolved values on element
 ```
 
 ---
 
-## Folder Structure
+## 6. Layout Engine
+
+Transforms Definition.* (with resolved styles) into Layout.* (with computed positions).
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                     LayoutEngine                            │
+│        (entry point: Calculate(Definition.Album)            │
+│                         → Layout.Album)                     │
+└─────────────────────────────────────────────────────────────┘
+                              │
+         ┌────────────────────┼────────────────────┐
+         ▼                    ▼                    ▼
+┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐
+│  PageCalculator │  │ ElementCalculator│ │  TextMeasurer   │
+│ (canvas, master │  │ (row, column,   │  │ (text height,   │
+│  elements)      │  │  stamp, etc.)   │  │  word wrap)     │
+└─────────────────┘  └─────────────────┘  └─────────────────┘
+```
+
+**Process per page:**
+
+1. Calculate canvas (page size − padding − banner − border − header − footer)
+2. Determine layout mode (row-based or column-based from first child)
+3. Calculate children recursively — all positions relative to parent
+
+**Coordinate model:**
+
+```
+Layout.Page (origin: page top-left after padding)
+│
+├── masterElements[] (relative to page origin)
+│   ├── Background: X=0, Y=0
+│   ├── Banner: X=0, Y=0
+│   └── Border: X=0, Y=bannerHeight
+│
+└── contentElements[] (relative to canvas origin)
+    └── Layout.Row: X=0, Y=0
+        ├── Layout.Stamp: X=0, Y=0 (relative to row)
+        └── Layout.Stamp: X=35, Y=0 (relative to row)
+```
+
+---
+
+## 7. Rendering Pipeline
+
+Draws Layout.* elements to PDF using PDFsharp with coordinate transforms.
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                      PdfRenderer                            │
+│         (entry point: Render(Layout.Album) → PDF file)      │
+└─────────────────────────────────────────────────────────────┘
+                              │
+         ┌────────────────────┼────────────────────┐
+         ▼                    ▼                    ▼
+┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐
+│  PageRenderer   │  │ ElementRenderers│  │  TextRenderer   │
+│                 │  │                 │  │                 │
+│ - Summary page  │  │ - RowRenderer   │  │ - Word wrap     │
+│ - Master elems  │  │ - ColumnRenderer│  │ - Alignment     │
+│ - Content elems │  │ - StampRenderer │  │ - Font lookup   │
+│                 │  │ - ImageRenderer │  │ - Measure       │
+│                 │  │ - FrameRenderer │  │                 │
+└─────────────────┘  └─────────────────┘  └─────────────────┘
+```
+
+**Process:**
+
+1. Create `PdfDocument`
+2. Add summary page (info, not for printing)
+3. For each `Layout.Page`:
+   - Create `PdfPage` with size/orientation
+   - `gfx.Save()` + `gfx.TranslateTransform()` to page origin
+   - Draw master elements
+   - Translate to canvas origin
+   - Draw content elements recursively (each container saves/translates/restores)
+   - `gfx.Restore()`
+4. Set PDF metadata (title, author, subject)
+5. Save to file
+
+**Rendering pattern for containers:**
+
+```csharp
+void RenderRow(XGraphics gfx, Layout.Row row)
+{
+    var state = gfx.Save();
+    gfx.TranslateTransform(row.X, row.Y);
+    
+    // Draw optional bgcolor
+    if (row.BgColor != null)
+        gfx.DrawRectangle(new XSolidBrush(row.BgColor), 0, 0, row.Width, row.Height);
+    
+    foreach (var child in row.Children)
+        RenderElement(gfx, child);  // child draws at its relative position
+    
+    gfx.Restore(state);
+}
+```
+
+**Element rendering:**
+
+| Element | Renderer draws |
+|---------|----------------|
+| **Row** | Optional bgcolor; translate & render children |
+| **Column** | Optional bgcolor; translate & render children |
+| **Stamp** | Title text, frame lines, interior (image or text), footer texts |
+| **Text** | Wrapped text block with font, color, alignment, optional bgcolor |
+| **Image** | Scaled/clipped image, or placeholder if missing |
+| **Frame** | Line/gap/line pattern rectangles |
+| **Space** | Nothing (layout only) |
+
+**Frame rendering (lines pattern):**
+
+```
+lines: [0.3, 1, 0.3]
+
+┌──────────────────────────────┐  ← outer line (0.3mm)
+│                              │
+│  ┌────────────────────────┐  │  ← gap (1mm)
+│  │                        │  │
+│  │  ┌──────────────────┐  │  │  ← inner line (0.3mm)
+│  │  │    interior      │  │  │
+│  │  └──────────────────┘  │  │
+│  │                        │  │
+│  └────────────────────────┘  │
+│                              │
+└──────────────────────────────┘
+```
+
+**Missing image placeholder:**
+
+Light gray rectangle with border and two diagonal lines (corner to corner).
+
+**Image clipping (fill mode):**
+
+```csharp
+gfx.Save();
+gfx.IntersectClip(new XRect(0, 0, targetWidth, targetHeight));
+gfx.DrawImage(image, x, y, scaledWidth, scaledHeight);
+gfx.Restore();
+```
+
+---
+
+## 8. Folder Structure
 
 ```
 v7.0/
 ├── MyAlbum.slnx
-├── wiki/                       # Documentation
-├── samples/                    # Sample XML files
+├── wiki/                           # Documentation
+├── samples/                        # Sample album files
 └── src/
     └── MyAlbum/
         ├── Program.cs
         ├── MyAlbum.csproj
-        ├── Models/
+        │
+        ├── Definition/             # Parsed model
         │   ├── Album.cs
-        │   └── Elements/
-        │       ├── BaseElement.cs
-        │       ├── ContainerElement.cs
-        │       ├── Page.cs
-        │       ├── Row.cs
-        │       ├── Text.cs
-        │       ├── Frame.cs
-        │       └── Stamp.cs
+        │   ├── Page.cs
+        │   ├── Element.cs
+        │   ├── Row.cs
+        │   ├── Column.cs
+        │   ├── Stamp.cs
+        │   ├── Text.cs
+        │   ├── Image.cs
+        │   ├── Frame.cs
+        │   ├── Space.cs
+        │   └── StyleDef.cs
+        │
+        ├── Layout/                 # Computed model
+        │   ├── Album.cs
+        │   ├── Page.cs
+        │   ├── Element.cs
+        │   ├── Row.cs
+        │   ├── Column.cs
+        │   ├── Stamp.cs
+        │   ├── Text.cs
+        │   ├── Image.cs
+        │   ├── Frame.cs
+        │   └── Space.cs
+        │
         ├── Parsing/
         │   ├── IAlbumParser.cs
-        │   ├── ParserFactory.cs
-        │   └── XmlAlbumParser.cs
+        │   ├── AlbumLoader.cs
+        │   ├── FormatDetector.cs
+        │   ├── XmlAlbumParser.cs
+        │   ├── JsonAlbumParser.cs
+        │   └── YamlAlbumParser.cs
+        │
+        ├── Styles/
+        │   ├── StyleSheet.cs
+        │   ├── StyleResolver.cs
+        │   └── StyleLoader.cs
+        │
+        ├── Layout/
+        │   ├── LayoutEngine.cs
+        │   ├── PageCalculator.cs
+        │   ├── ElementCalculator.cs
+        │   └── TextMeasurer.cs
+        │
         ├── Rendering/
-        │   ├── IRenderer.cs
-        │   └── PdfRenderer.cs
-        └── Utilities/
-            └── ArgsParser.cs
+        │   ├── PdfRenderer.cs
+        │   ├── PageRenderer.cs
+        │   ├── ElementRenderers/
+        │   │   ├── RowRenderer.cs
+        │   │   ├── ColumnRenderer.cs
+        │   │   ├── StampRenderer.cs
+        │   │   ├── TextRenderer.cs
+        │   │   ├── ImageRenderer.cs
+        │   │   └── FrameRenderer.cs
+        │   └── TextRenderer.cs
+        │
+        ├── Resources/
+        │   ├── ResourceManager.cs
+        │   ├── FontLoader.cs
+        │   └── ImageLoader.cs
+        │
+        └── Cli/
+            ├── ArgsParser.cs
+            └── ConfigLoader.cs
 ```
+
+---
+
+## 9. Key Design Decisions
+
+| Decision | Rationale |
+|----------|-----------|
+| Two separate models (Definition/Layout) | Clean separation; parsed is immutable, layout is computed |
+| Relative coordinates | Simpler calculations; matches PDFsharp transform model |
+| Two-pass (styles then layout) | Styles are appearance, layout is positioning — separate concerns |
+| Auto-detect input format | Single `.album` extension, flexible format choice |
+| Style cascade (inline → explicit → default → built-in) | Familiar HTML/CSS paradigm |
+| Frame lines as array | Implicit type from length; extensible to any pattern |
+| Clipping not cropping | Image data unchanged; rendering bounded |

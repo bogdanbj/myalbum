@@ -619,10 +619,18 @@ The Image element renders an image from a file.
 | Mode | Behavior |
 |------|----------|
 | `fit` | Scale to fit inside box, preserve aspect ratio (default) |
-| `fill` | Scale to fill box, preserve aspect ratio (may crop) |
+| `fill` | Scale to fill box, preserve aspect ratio, clipped to box |
 | `stretch` | Stretch to exact dimensions (may distort) |
 
-### 11.5 Positioning
+**Note:** `fill` mode uses clipping (not cropping) — image data is unchanged, rendering is bounded.
+
+### 11.5 Missing Image
+
+If the image file is not found, a placeholder is rendered:
+- Light gray rectangle with border
+- Two diagonal lines (corner to corner) in light gray
+
+### 11.6 Positioning
 
 - In Page/Column: Centered horizontally
 - With `x`, `y`: Absolute position from page top-left
@@ -652,20 +660,22 @@ The Frame element renders a decorative border, typically used for visual groupin
 | `style` | string | Reference to frame style | - |
 | `width` | number | Frame width (mm) | Required |
 | `height` | number | Frame height (mm) | Required |
-| `type` | string | `single`, `double`, `white-ace`, `custom` | `single` |
-| `thickness` | number | Line thickness (mm) | TBD |
+| `lines` | list | Line/gap pattern (mm) | `[]` (none) |
 | `padding` | number | Interior padding (mm) | 0 |
 | `color` | string | Stroke color | TBD |
 | `x`, `y` | number | Absolute position (mm) | - |
 
-### 12.3 Frame Types
+### 12.3 Frame Lines Pattern
 
-| Type | Description |
-|------|-------------|
-| `single` | Single line border |
-| `double` | Double line border (classic album style) |
-| `white-ace` | White Ace album style |
-| `custom` | User-defined parameters |
+The `lines` property defines the frame structure as a list of widths in mm, alternating between line and gap, starting from the exterior toward the interior.
+
+| Values | Result | Description |
+|--------|--------|-------------|
+| `[0.3]` | Single line | One 0.3mm line |
+| `[0.3, 1, 0.3]` | Double line | 0.3mm line, 1mm gap, 0.3mm line |
+| `[0.2, 0.5, 0.3, 0.5, 0.2]` | Triple line | Alternating line/gap/line/gap/line |
+
+**Pattern:** line, gap, line, gap, ... (always starts and ends with line)
 
 ### 12.4 Example
 
@@ -673,8 +683,7 @@ The Frame element renders a decorative border, typically used for visual groupin
 - frame:
     width: 100
     height: 50
-    type: double
-    thickness: 0.5
+    lines: [0.3, 1, 0.3]
     padding: 2
 ```
 
@@ -888,7 +897,7 @@ The following items require decisions before implementation:
 | Default text alignment | Text | `left` assumed |
 | Default row spacing mode | Row | `fixed` with 0mm? |
 | Default row vertical align | Row | `top` assumed |
-| Default frame thickness | Frame, Stamp | Suggest 0.3mm |
+| Default frame lines | Frame, Stamp | `[]` (none) |
 | Default frame color | Frame, Stamp | Black assumed |
 
 ### 17.2 Clarifications Needed
@@ -898,6 +907,7 @@ The following items require decisions before implementation:
 | Inside text width | Stamp | Is `i1`-`i3` text width limited (90% of stamp) or unlimited? |
 | Banner sizing | Page | How is banner sized? Image rules or custom? |
 | Color support | Elements | Which elements support `color`/`bgcolor`? |
+| Row/Column bgcolor | Row, Column | Should support `bgcolor`? (suggested: yes) |
 
 ### 17.3 Conventions
 
