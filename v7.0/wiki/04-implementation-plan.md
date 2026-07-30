@@ -36,55 +36,221 @@ private static void SaveAndOpen(PdfDocument document, string outputPath)
 
 ---
 
-## Iteration 1: Project Setup & Basic Rendering
+## Iteration 1: Solution & Project Setup
 
-**Goal**: Render a single page PDF with text and image using loaded resources
+**Goal**: Create the solution structure with two projects and basic scaffolding
 
 ### Tasks
-- [ ] Create .NET 10 console project
-- [ ] Add PDFsharp 6.x package
-- [ ] Create basic folder structure
-- [ ] Implement CLI with `--test` / `-t` option
-- [ ] Implement FontLoader (load fonts from folder)
-- [ ] Implement ImageLoader (load image on demand)
+- [ ] Create solution file `MyAlbum.sln`
+- [ ] Create `MyAlbum` project - .NET 10 console app
+- [ ] Create `FontManager` project - .NET 10 Windows Forms app
+- [ ] Add App.config to both projects
+- [ ] Create basic folder structure for each project
+- [ ] Verify both projects build and run
 
-### Test: `Iteration_1_Test()`
+### Solution Structure
+
+```
+v7.0/
+├── MyAlbum.sln
+├── src/
+│   ├── MyAlbum/
+│   │   ├── MyAlbum.csproj
+│   │   ├── Program.cs
+│   │   └── App.config
+│   └── FontManager/
+│       ├── FontManager.csproj
+│       ├── Program.cs
+│       ├── MainForm.cs
+│       ├── MainForm.Designer.cs
+│       └── App.config
+└── Output/
+```
+
+### MyAlbum.csproj
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>MyAlbum</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="App.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
+```
+
+### FontManager.csproj
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>FontManager</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="App.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
+```
+
+### MyAlbum/Program.cs
 
 ```csharp
-public static void Iteration_1_Test()
+namespace MyAlbum;
+
+public class Program
 {
-    // Load resources
-    var font = FontLoader.GetFont("Arial", XFontStyle.Regular, 14);
-    var image = ImageLoader.Load("sample.png");
-    
-    // Create PDF with hardcoded PDFsharp calls
-    var document = new PdfDocument();
-    var page = document.AddPage();
-    page.Size = PageSize.Letter;
-    
-    var gfx = XGraphics.FromPdfPage(page);
-    
-    // Draw text with loaded font
-    gfx.DrawString("Iteration 1 - Font & Image Test", font, XBrushes.Black, 100, 50);
-    
-    // Draw loaded image
-    if (image != null)
-        gfx.DrawImage(image, 100, 100, 200, 150);
-    
-    var outputPath = "Output/test-iteration-1.pdf";
-    document.Save(outputPath);
-    
-    // Open PDF in default viewer
-    Process.Start(new ProcessStartInfo(outputPath) { UseShellExecute = true });
-    
-    Console.WriteLine("Iteration 1: PASSED - " + outputPath);
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("MyAlbum v7.0");
+        
+        if (args.Length == 0)
+        {
+            Console.WriteLine("Usage: myalbum <album-file> [options]");
+            Console.WriteLine("       myalbum --test | -t");
+            return;
+        }
+    }
 }
 ```
 
+### MyAlbum/App.config
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <appSettings>
+    <add key="InputFolder" value="Templates" />
+    <add key="OutputFolder" value="Output" />
+    <add key="FontsFolder" value="Resources/Fonts" />
+    <add key="ImagesFolder" value="Resources/Images" />
+  </appSettings>
+</configuration>
+```
+
+### FontManager/Program.cs
+
+```csharp
+namespace FontManager;
+
+static class Program
+{
+    [STAThread]
+    static void Main()
+    {
+        ApplicationConfiguration.Initialize();
+        Application.Run(new MainForm());
+    }
+}
+```
+
+### FontManager/MainForm.cs
+
+```csharp
+namespace FontManager;
+
+public partial class MainForm : Form
+{
+    public MainForm()
+    {
+        InitializeComponent();
+        this.Text = "Font Manager";
+        this.Size = new Size(800, 600);
+    }
+}
+```
+
+### FontManager/MainForm.Designer.cs
+
+```csharp
+namespace FontManager;
+
+partial class MainForm
+{
+    private System.ComponentModel.IContainer components = null;
+
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing && (components != null))
+        {
+            components.Dispose();
+        }
+        base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+        this.SuspendLayout();
+        this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        this.ClientSize = new System.Drawing.Size(800, 600);
+        this.Name = "MainForm";
+        this.ResumeLayout(false);
+    }
+}
+```
+
+### FontManager/App.config
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <appSettings>
+    <add key="FontsFolder" value="Resources/Fonts" />
+  </appSettings>
+</configuration>
+```
+
 ### Verification
-- [ ] PDF opens correctly
-- [ ] Custom font renders (not system fallback)
-- [ ] Image displays correctly
+- [ ] Solution opens in Visual Studio / Rider
+- [ ] `dotnet build` succeeds for entire solution
+- [ ] `dotnet run --project src/MyAlbum` shows usage message
+- [ ] `dotnet run --project src/FontManager` opens empty window
+
+### Commands
+
+```powershell
+cd C:\My\Git\myalbum\v7.0
+
+# Create solution
+dotnet new sln -n MyAlbum
+
+# Create projects
+dotnet new console -n MyAlbum -o src/MyAlbum --framework net10.0
+dotnet new winforms -n FontManager -o src/FontManager --framework net10.0
+
+# Add projects to solution
+dotnet sln add src/MyAlbum/MyAlbum.csproj
+dotnet sln add src/FontManager/FontManager.csproj
+
+# Build solution
+dotnet build
+
+# Test MyAlbum
+dotnet run --project src/MyAlbum
+
+# Test FontManager
+dotnet run --project src/FontManager
+```
 
 ---
 
