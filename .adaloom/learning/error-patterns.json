@@ -1,0 +1,184 @@
+[
+  {
+    "id": "7fb31266-0621-49f8-b351-9aa9c8117fe4",
+    "errorTool": "bash",
+    "errorOutput": "  Determining projects to restore...\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary. [C:\\My\\Git\\myalbum\\v7.0\\MyAlbum.slnx]\r\n  Restored c:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum.Common\\MyAlbum.Common.csproj (in 177 ms).\r\n  Restored C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum\\MyAlbum.csproj (in 673 ms).\r\n  Restored C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj (in 668 ms).\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.\r\n  MyAlbum.Common -> c:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum.Common\\bin\\Debug\\net10.0\\MyAlbum.Common.dll\r\n  MyAlbum -> C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum\\bin\\Debug\\net10.0\\MyAlbum.dll\r\nC:\\Program Files\\d",
+    "fixTool": "rlm_self_healing",
+    "fixDescription": "Self-healed after 1 iterations",
+    "techStack": [],
+    "errorCategory": "test_failure",
+    "createdAt": 1785424823322,
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "projectID": ".adaloom",
+    "occurrences": 1,
+    "confidenceWeight": 0.16666666666666666
+  },
+  {
+    "id": "d45b3aeb-0ec7-4dff-9f35-8ba19b50eb44",
+    "errorTool": "bash",
+    "errorOutput": "  Determining projects to restore...\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary. [C:\\My\\Git\\myalbum\\v7.0\\MyAlbum.slnx]\r\n  Restored c:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum.Common\\MyAlbum.Common.csproj (in 177 ms).\r\n  Restored C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum\\MyAlbum.csproj (in 673 ms).\r\n  Restored C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj (in 668 ms).\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.\r\n  MyAlbum.Common -> c:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum.Common\\bin\\Debug\\net10.0\\MyAlbum.Common.dll\r\n  MyAlbum -> C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum\\bin\\Debug\\net10.0\\MyAlbum.dll\r\nC:\\Program Files\\dotnet\\sdk\\10.0.302\\Microsoft.Common.CurrentVersion.targets(5096,5): warning MSB3026: Could not copy \"c:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum.Common\\bin\\Debug\\net10.0\\MyAlbum.Common.dll\" to \"bin\\Debug\\net10.0-windows\\MyAlbum.Common.dll\". Beginning retry 1 in 1000ms. The process cannot access the file 'C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\bin\\Debug\\net10.0-windows\\MyAlbum.Common.dll' because it is being used by another process. The file is locked by: \"FontManager (40168)\" [C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj]\r\nC:\\Program Files\\dotnet\\sdk\\10.0.302\\Microsoft.Common.CurrentVersion.targets(5096,5): warning MSB3026: Could not copy \"c:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum.Common\\bin\\Debug\\net10.0\\MyAlbum.Common.dll\" to \"bin\\Debug\\net10.0-windows\\MyAlbum.Common.dll\". Beginning retry 2 in 1000ms. The process cannot access the file 'C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\bin\\Debug\\net10.0-windows\\MyAlbum.Common.dll' because it is being used by another process. The file is locked by:",
+    "fixTool": "edit",
+    "fixDescription": "{}",
+    "techStack": [
+      "csharp"
+    ],
+    "errorCategory": "compilation_error",
+    "createdAt": 1785425107816,
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "projectID": ".adaloom",
+    "occurrences": 1,
+    "confidenceWeight": 0.16666666666666666
+  },
+  {
+    "id": "74a762e1-ce6e-48f7-baf2-cf274a5ba6da",
+    "errorTool": "bash",
+    "errorOutput": "  Determining projects to restore...\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary. [C:\\My\\Git\\myalbum\\v7.0\\MyAlbum.slnx]\r\n  Restored c:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum.Common\\MyAlbum.Common.csproj (in 166 ms).\r\n  Restored C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj (in 327 ms).\r\n  Restored C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum\\MyAlbum.csproj (in 331 ms).\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.\r\n  MyAlbum.Common -> c:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum.Common\\bin\\Debug\\net10.0\\MyAlbum.Common.dll\r\n  MyAlbum -> C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum\\bin\\Debug\\net10.0\\MyAlbum.dll\r\nC:\\My\\Git\\myalbum\\",
+    "fixTool": "rlm_self_healing",
+    "fixDescription": "Self-healed after 1 iterations",
+    "techStack": [],
+    "errorCategory": "test_failure",
+    "createdAt": 1785425335966,
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "projectID": ".adaloom",
+    "occurrences": 1,
+    "confidenceWeight": 0.16666666666666666
+  },
+  {
+    "id": "862ec7a4-3348-4b69-8230-5165ee04404a",
+    "errorTool": "bash",
+    "errorOutput": "  Determining projects to restore...\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary. [C:\\My\\Git\\myalbum\\v7.0\\MyAlbum.slnx]\r\n  Restored c:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum.Common\\MyAlbum.Common.csproj (in 166 ms).\r\n  Restored C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj (in 327 ms).\r\n  Restored C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum\\MyAlbum.csproj (in 331 ms).\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.\r\n  MyAlbum.Common -> c:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum.Common\\bin\\Debug\\net10.0\\MyAlbum.Common.dll\r\n  MyAlbum -> C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum\\bin\\Debug\\net10.0\\MyAlbum.dll\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontPreviewForm.cs(12,22): error CS0104: 'FontFamily' is an ambiguous reference between 'MyAlbum.Common.FontFamily' and 'System.Drawing.FontFamily' [C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj]\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontPreviewForm.cs(21,47): error CS0104: 'FontFamily' is an ambiguous reference between 'MyAlbum.Common.FontFamily' and 'System.Drawing.FontFamily' [C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj]\r\n\r\nBuild FAILED.\r\n\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary. [C:\\My\\Git\\myalbum\\v7.0\\MyAlbum.slnx]\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely",
+    "fixTool": "edit",
+    "fixDescription": "{}",
+    "techStack": [
+      "csharp"
+    ],
+    "errorCategory": "compilation_error",
+    "createdAt": 1785425359255,
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "projectID": ".adaloom",
+    "occurrences": 1,
+    "confidenceWeight": 0.16666666666666666
+  },
+  {
+    "id": "112b6fb0-8a98-4492-8015-fef39c4d0f02",
+    "errorTool": "bash",
+    "errorOutput": "  Determining projects to restore...\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary. [C:\\My\\Git\\myalbum\\v7.0\\MyAlbum.slnx]\r\n  Restored c:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum.Common\\MyAlbum.Common.csproj (in 166 ms).\r\n  Restored C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj (in 327 ms).\r\n  Restored C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum\\MyAlbum.csproj (in 331 ms).\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.\r\n  MyAlbum.Common -> c:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum.Common\\bin\\Debug\\net10.0\\MyAlbum.Common.dll\r\n  MyAlbum -> C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum\\bin\\Debug\\net10.0\\MyAlbum.dll\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontPreviewForm.cs(12,22): error CS0104: 'FontFamily' is an ambiguous reference between 'MyAlbum.Common.FontFamily' and 'System.Drawing.FontFamily' [C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj]\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontPreviewForm.cs(21,47): error CS0104: 'FontFamily' is an ambiguous reference between 'MyAlbum.Common.FontFamily' and 'System.Drawing.FontFamily' [C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj]\r\n\r\nBuild FAILED.\r\n\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary. [C:\\My\\Git\\myalbum\\v7.0\\MyAlbum.slnx]\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely",
+    "fixTool": "edit",
+    "fixDescription": "{}",
+    "techStack": [
+      "csharp"
+    ],
+    "errorCategory": "compilation_error",
+    "createdAt": 1785425439543,
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "projectID": ".adaloom",
+    "occurrences": 1,
+    "confidenceWeight": 0.16666666666666666
+  },
+  {
+    "id": "17daaa24-5a9b-4990-9eef-a2b48309703a",
+    "errorTool": "bash",
+    "errorOutput": "  Determining projects to restore...\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary. [C:\\My\\Git\\myalbum\\v7.0\\MyAlbum.slnx]\r\n  All projects are up-to-date for restore.\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.\r\n  MyAlbum.Common -> C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum.Common\\bin\\Debug\\net10.0\\MyAlbum.Common.dll\r\n  MyAlbum -> C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum\\bin\\Debug\\net10.0\\MyAlbum.dll\r\nC:\\Program Files\\dotnet\\sdk\\10.0.302\\Microsoft.Common.CurrentVersion.targets(5397,5): warning MSB3026: Could not copy \"C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\obj\\Debug\\net10.0-windows\\apphost.exe\" to \"bin\\Debug\\net10.0-windows\\FontManager.exe\". Beginning retry 1 in 1000ms. The process cannot access the file 'C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\bin\\Debug\\net10.0-windows\\FontManager.exe' because it is being used by another process. The file is locked by: \"FontManager (44880)\" [C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj]\r\nC:\\Program Files\\dotnet\\sdk\\10.0.302\\Microsoft.Common.CurrentVersion.targets(5397,5): warning MSB3026: Could not copy \"C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\obj\\Debug\\net10.0-windows\\apphost.exe\" to \"bin\\Debug\\net10.0-windows\\FontManager.exe\". Beginning retry 2 in 1000ms. The process cannot access the file 'C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\bin\\Debug\\net10.0-windows\\FontManager.exe' because it is being used by another process. The file is locked by: \"FontManager (44880)\" [C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj]\r\nC:\\Program Files\\dotnet\\sdk\\10.0.302\\Microsoft.Common.CurrentVersion.targets(5397,5): warning MSB3026: Could not copy \"C:\\My\\Git\\myalbu",
+    "fixTool": "edit",
+    "fixDescription": "{}",
+    "techStack": [
+      "csharp"
+    ],
+    "errorCategory": "compilation_error",
+    "createdAt": 1785433247708,
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "projectID": ".adaloom",
+    "occurrences": 1,
+    "confidenceWeight": 0.16666666666666666
+  },
+  {
+    "id": "32cddcae-a84c-40d0-8a4f-a5eeda79adec",
+    "errorTool": "bash",
+    "errorOutput": "  Determining projects to restore...\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary. [C:\\My\\Git\\myalbum\\v7.0\\MyAlbum.slnx]\r\n  All projects are up-to-date for restore.\r\n  MyAlbum.Common -> C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum.Common\\bin\\Debug\\net10.0\\MyAlbum.Common.dll\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.\r\n  MyAlbum -> C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum\\bin\\Debug\\net10.0\\MyAlbum.dll\r\nC:\\Program Files\\dotnet\\sdk\\10.0.302\\Microsoft.Common.CurrentVersion.targets(5397,5): warning MSB3026: Could not copy \"C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\obj\\Debug\\net10.0-windows\\apphost.exe\" to \"bin\\Debug\\net10.0-wi",
+    "fixTool": "rlm_self_healing",
+    "fixDescription": "Self-healed after 1 iterations",
+    "techStack": [],
+    "errorCategory": "test_failure",
+    "createdAt": 1785433282660,
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "projectID": ".adaloom",
+    "occurrences": 1,
+    "confidenceWeight": 0.16666666666666666
+  },
+  {
+    "id": "430a4cb6-c9fd-48b3-b78b-d4bdc5aa088e",
+    "errorTool": "bash",
+    "errorOutput": "  Determining projects to restore...\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary. [C:\\My\\Git\\myalbum\\v7.0\\MyAlbum.slnx]\r\n  All projects are up-to-date for restore.\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.\r\n  MyAlbum.Common -> C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum.Common\\bin\\Debug\\net10.0\\MyAlbum.Common.dll\r\n  MyAlbum -> C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum\\bin\\Debug\\net10.0\\MyAlbum.dll\r\nC:\\Program Files\\dotnet\\sdk\\10.0.302\\Microsoft.Common.CurrentVersion.targets(5397,5): warning MSB3026: Could not copy \"C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\obj\\Debug\\net10.0-windows\\apphost.exe\" to \"bin\\Debug\\net10.0-windows\\FontManager.exe\". Beginning retry 1 in 1000ms. The process cannot access the file 'C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\bin\\Debug\\net10.0-windows\\FontManager.exe' because it is being used by another process. The file is locked by: \"FontManager (44880)\" [C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj]\r\nC:\\Program Files\\dotnet\\sdk\\10.0.302\\Microsoft.Common.CurrentVersion.targets(5397,5): warning MSB3026: Could not copy \"C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\obj\\Debug\\net10.0-windows\\apphost.exe\" to \"bin\\Debug\\net10.0-windows\\FontManager.exe\". Beginning retry 2 in 1000ms. The process cannot access the file 'C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\bin\\Debug\\net10.0-windows\\FontManager.exe' because it is being used by another process. The file is locked by: \"FontManager (44880)\" [C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj]\r\nC:\\Program Files\\dotnet\\sdk\\10.0.302\\Microsoft.Common.CurrentVersion.targets(5397,5): warning MSB3026: Could not copy \"C:\\My\\Git\\myalbu",
+    "fixTool": "edit",
+    "fixDescription": "{}",
+    "techStack": [
+      "csharp"
+    ],
+    "errorCategory": "compilation_error",
+    "createdAt": 1785433292313,
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "projectID": ".adaloom",
+    "occurrences": 1,
+    "confidenceWeight": 0.16666666666666666
+  },
+  {
+    "id": "8e12f503-0b62-47bf-95d0-913b94480c24",
+    "errorTool": "bash",
+    "errorOutput": "  Determining projects to restore...\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary. [C:\\My\\Git\\myalbum\\v7.0\\MyAlbum.slnx]\r\n  All projects are up-to-date for restore.\r\n  MyAlbum.Common -> C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum.Common\\bin\\Debug\\net10.0\\MyAlbum.Common.dll\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.\r\n  MyAlbum -> C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum\\bin\\Debug\\net10.0\\MyAlbum.dll\r\nC:\\Program Files\\dotnet\\sdk\\10.0.302\\Microsoft.Common.CurrentVersion.targets(5397,5): warning MSB3026: Could not copy \"C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\obj\\Debug\\net10.0-windows\\apphost.exe\" to \"bin\\Debug\\net10.0-windows\\FontManager.exe\". Beginning retry 1 in 1000ms. The process cannot access the file 'C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\bin\\Debug\\net10.0-windows\\FontManager.exe' because it is being used by another process. The file is locked by: \"FontManager (51284)\" [C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj]\r\nC:\\Program Files\\dotnet\\sdk\\10.0.302\\Microsoft.Common.CurrentVersion.targets(5397,5): warning MSB3026: Could not copy \"C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\obj\\Debug\\net10.0-windows\\apphost.exe\" to \"bin\\Debug\\net10.0-windows\\FontManager.exe\". Beginning retry 2 in 1000ms. The process cannot access the file 'C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\bin\\Debug\\net10.0-windows\\FontManager.exe' because it is being used by another process. The file is locked by: \"FontManager (51284)\" [C:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj]\r\nC:\\Program Files\\dotnet\\sdk\\10.0.302\\Microsoft.Common.CurrentVersion.targets(5397,5): warning MSB3026: Could not copy \"C:\\My\\Git\\myalbu",
+    "fixTool": "edit",
+    "fixDescription": "{}",
+    "techStack": [
+      "csharp"
+    ],
+    "errorCategory": "compilation_error",
+    "createdAt": 1785433472553,
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "projectID": ".adaloom",
+    "occurrences": 1,
+    "confidenceWeight": 0.16666666666666666
+  },
+  {
+    "id": "141c3252-15c5-47d8-988b-c389e4428157",
+    "errorTool": "bash",
+    "errorOutput": "  Determining projects to restore...\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary. [C:\\My\\Git\\myalbum\\v7.0\\MyAlbum.slnx]\r\n  All projects are up-to-date for restore.\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\FontManager\\FontManager.csproj : warning NU1510: PackageReference System.Configuration.ConfigurationManager will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.\r\n  MyAlbum.Common -> C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum.Common\\bin\\Debug\\net10.0\\MyAlbum.Common.dll\r\nC:\\Program Files\\dotnet\\sdk\\10.0.302\\Microsoft.Common.CurrentVersion.targets(5096,5): warning MSB3026: Could not copy \"C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum.Common\\bin\\Debug\\net10.0\\MyAlbum.Common.dll\" to \"bin\\Debug\\net10.0-windows\\MyAlbum.Common.dll\". Beginning retry 1 in 1000ms. The process cannot ac",
+    "fixTool": "rlm_self_healing",
+    "fixDescription": "Self-healed after 1 iterations",
+    "techStack": [],
+    "errorCategory": "test_failure",
+    "createdAt": 1785440374925,
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "projectID": ".adaloom",
+    "occurrences": 1,
+    "confidenceWeight": 0.16666666666666666
+  },
+  {
+    "id": "7234fc20-f645-4596-8001-de7abb82e161",
+    "errorTool": "bash",
+    "errorOutput": "MyAlbum v7.0\r\n\r\nFonts loaded from: C:\\My\\Git\\myalbum\\v7.0\\Resources\\Fonts\r\nAvailable fonts: Arial, Century Gothic, Folio Bk BT, Garamond, Lubalin Graph, Stymie Becker, Stymie Becker Light, Verdana\r\n\r\nRunning Iteration 2 Tests...\r\n\r\n============================================================\r\nTesting: Templates/Test_Iteration2.xml\r\n============================================================\r\n  Title: Canada 1851-1900\r\n  Pages: 3\r\n  Total Stamps: 21\r\n  PASSED\r\n\r\n============================================================\r\nTesting: Templates/Test_Iteration2.json\r\n============================================================\r\n  Title: Canada 1851-1900\r\n  Pages: 3\r\n  Total Stamps: 21\r\n  PASSED\r\n\r\n============================================================\r\nTesting: Templates/Test_Iteration2.yml\r\n============================================================\r\n  FAILED: An element of type 'String' cannot be converted to a 'System.Double'.\r\n\r\nTests completed.\r\n",
+    "fixTool": "rlm_self_healing",
+    "fixDescription": "Self-healed after 1 iterations",
+    "techStack": [],
+    "errorCategory": "test_failure",
+    "createdAt": 1785440547326,
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "projectID": ".adaloom",
+    "occurrences": 2,
+    "confidenceWeight": 0.2857142857142857
+  },
+  {
+    "id": "8522934c-ae15-4c52-b663-065901d96900",
+    "errorTool": "bash",
+    "errorOutput": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  MyAlbum.Common -> C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum.Common\\bin\\Debug\\net10.0\\MyAlbum.Common.dll\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum\\Program.cs(75,40): error CS0246: The type or namespace name 'AlbumDefinition' could not be found (are you missing a using directive or an assembly reference?) [C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum\\MyAlbum.csproj]\r\n\r\nBuild FAILED.\r\n\r\nC:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum\\Program.cs(75,40): error CS0246: The type or namespace name 'AlbumDefinition' could not be found (are you missing a using directive or an assembly reference?) [C:\\My\\Git\\myalbum\\v7.0\\src\\MyAlbum\\MyAlbum.csproj]\r\n    0 Warning(s)\r\n    1 Error(s)\r\n\r\nTime Elapsed 00:00:06.38\r\n",
+    "fixTool": "write",
+    "fixDescription": "{}",
+    "techStack": [
+      "csharp"
+    ],
+    "errorCategory": "compilation_error",
+    "createdAt": 1785509903081,
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "projectID": ".adaloom",
+    "occurrences": 2,
+    "confidenceWeight": 0.2857142857142857
+  }
+]

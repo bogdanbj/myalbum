@@ -3,5 +3,6 @@
     <Project Path="src/FontManager/FontManager.csproj" />
     <Project Path="src/MyAlbum.Common/MyAlbum.Common.csproj" />
     <Project Path="src/MyAlbum/MyAlbum.csproj" />
+    <Project Path="src/MyAlbum.Tests/MyAlbum.Tests.csproj" />
   </Folder>
 </Solution>

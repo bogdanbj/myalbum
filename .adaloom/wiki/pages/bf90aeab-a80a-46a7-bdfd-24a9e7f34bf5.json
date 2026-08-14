@@ -1,0 +1,26 @@
+{
+  "id": "bf90aeab-a80a-46a7-bdfd-24a9e7f34bf5",
+  "title": "C:\\My\\Git\\myalbum\\v7.0 — Overview",
+  "category": "overview",
+  "content": "Analysis performed in response to: \"review architecture\"\n\n## Overview\n| Aspect | Details |\n|--------|---------|\n| **Purpose** | Generate PDF album pages from `.album` definition files |\n| **Tech Stack** | .NET 10, PDFsharp 6.x, xUnit + NSubstitute |\n| **Input** | `.album` (XML/JSON/YAML), `.style`, images, fonts |\n| **Output** | PDF with summary page + album pages |\n\n## Folder Structure\n```\nsrc/MyAlbum/\n├── Definition/    # Parsed model classes\n├── Layout/        # Computed model classes\n├── Parsing/       # Format detection + parsers (XML, JSON, YAML)\n├── Styles/        # StyleSheet, StyleResolver, StyleLoader\n├── Rendering/     # PdfRenderer + ElementRenderers\n├── Resources/     # Font/Image loaders\n└── Cli/           # Args + Config\n```\n\nAnalysis performed in response to: \"review architecture\"",
+  "summary": "review architecture",
+  "tags": [
+    "auto-analysis"
+  ],
+  "references": [],
+  "links": [
+    {
+      "pageId": "6bd80e8c-6e25-4359-92d6-6cc1111d7238",
+      "title": "C:\\My\\Git\\myalbum — Overview",
+      "relationship": "mentions"
+    },
+    {
+      "pageId": "3eec455a-f897-44b1-8f85-23b7338f48c3",
+      "title": "C:\\My\\Git\\myalbum\\v7.0 — Architecture",
+      "relationship": "mentions"
+    }
+  ],
+  "createdAt": 1786043784365,
+  "updatedAt": 1786044056063,
+  "version": 2
+}

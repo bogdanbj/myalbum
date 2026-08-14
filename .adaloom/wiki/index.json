@@ -1,0 +1,55 @@
+{
+  "pages": [
+    {
+      "id": "ac1d98b5-f332-4ef2-8be8-b2c0f4f42303",
+      "title": "C:\\My\\Git\\myalbum\\v7.0 — Additional Notes",
+      "category": "custom",
+      "summary": "Uncategorized analysis notes for C:\\My\\Git\\myalbum\\v7.0",
+      "tags": [
+        "auto-analysis"
+      ],
+      "updatedAt": 1786044056186
+    },
+    {
+      "id": "3eec455a-f897-44b1-8f85-23b7338f48c3",
+      "title": "C:\\My\\Git\\myalbum\\v7.0 — Architecture",
+      "category": "architecture",
+      "summary": "Architecture and component design for C:\\My\\Git\\myalbum\\v7.0",
+      "tags": [
+        "auto-analysis"
+      ],
+      "updatedAt": 1786044056126
+    },
+    {
+      "id": "bf90aeab-a80a-46a7-bdfd-24a9e7f34bf5",
+      "title": "C:\\My\\Git\\myalbum\\v7.0 — Overview",
+      "category": "overview",
+      "summary": "review architecture",
+      "tags": [
+        "auto-analysis"
+      ],
+      "updatedAt": 1786044056063
+    },
+    {
+      "id": "8eea43fe-0ed2-4d4a-a1d6-50a831e85f61",
+      "title": "C:\\My\\Git\\myalbum — Additional Notes",
+      "category": "custom",
+      "summary": "Uncategorized analysis notes for C:\\My\\Git\\myalbum",
+      "tags": [
+        "auto-analysis"
+      ],
+      "updatedAt": 1785848806213
+    },
+    {
+      "id": "6bd80e8c-6e25-4359-92d6-6cc1111d7238",
+      "title": "C:\\My\\Git\\myalbum — Overview",
+      "category": "overview",
+      "summary": "perfect. explain add font and remove buttons",
+      "tags": [
+        "auto-analysis"
+      ],
+      "updatedAt": 1785425696148
+    }
+  ],
+  "generatedAt": 1786044056242
+}

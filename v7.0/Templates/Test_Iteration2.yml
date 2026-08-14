@@ -1,0 +1,281 @@
+myAlbum:
+  ver: "7.0"
+  styles: "Test.styles"
+  
+  defaults:
+    font:
+      family: Arial
+      size: 12
+    margins:
+      top: 36
+      bottom: 36
+      left: 36
+      right: 36
+
+  pages:
+    # Cover
+    - no: 1
+      title: "Cover"
+      style: cover
+      rows:
+        - height: 110
+        - elements:
+            - type: text
+              style: headline
+              font_size: 36
+              font_style: italic
+              text: "1 9 8 4  -  2 0 1 0"
+
+    # 1984
+    - no: 2
+      title: "Commemorative 1984"
+      rows:
+        - height: 10
+        
+        - space: 20
+          valign: bottom
+          columns:
+            - width: 36
+              rem: "Yellowknife"
+              elements:
+                - type: text
+                  style: headline
+                  text: "YELLOWKNIFE"
+                - type: text
+                  style: date
+                  text: "1984"
+                - type: stamp
+                  width: 30
+                  height: 36
+                  title: ""
+                  image: ""
+                  i1: "32c"
+                  i2: ""
+                  i3: "S 1009"
+                  f1: ""
+                  f2: "Gold mine head frame in pan"
+                  f3: ""
+                - type: text
+                  style: story
+                  width: 40
+                  text: "The stamp issued on 15 May 1984, commemorates the 50th anniversary of the gold mining community living in the city of Yellowknife, capital of Northwest Territories.\n"
+                  
+            - width: 36
+              rem: "Tall Ships"
+              elements:
+                - type: text
+                  style: headline
+                  text: "TALL SHIPS"
+                - type: text
+                  style: date
+                  text: "1984"
+                - type: stamp
+                  width: 30
+                  height: 40
+                  title: ""
+                  image: ""
+                  i1: "32c"
+                  i2: ""
+                  i3: "S 1012"
+                  f1: ""
+                  f2: "Tall Ships regatta"
+                  f3: ""
+                - type: text
+                  style: story
+                  width: 40
+                  text: "Over 85 of majestic two, three and four-masted ships dropped anchor in St. Lawrence River in Quebec City honouring the 450th anniversary of Jacques Cartier's first voyage to North America."
+                  
+            - width: 36
+              rem: "Canadian Red Cross"
+              elements:
+                - type: text
+                  style: headline
+                  text: "RED CROSS"
+                - type: text
+                  style: date
+                  text: "1984"
+                - type: stamp
+                  width: 30
+                  height: 36
+                  title: ""
+                  image: ""
+                  i1: "32c"
+                  i2: ""
+                  i3: "S 1009"
+                  f1: ""
+                  f2: "Meritorious Service Medal"
+                  f3: ""
+                - type: text
+                  style: story
+                  width: 40
+                  text: "In recognition of their invaluable contribution, Canada Post issued this stamp featuring the medal awarded by The Canadian Red Cross Society for long-standing and meritorious voluntary service."
+
+        - height: 10
+        
+        - space: 14
+          valign: bottom
+          columns:
+            - width: 46
+              rem: "Montreal Symphony"
+              elements:
+                - type: text
+                  style: headline
+                  text: "MONTREAL SYMPHONY"
+                - type: text
+                  style: date
+                  text: "1984"
+                - type: stamp
+                  width: 40
+                  height: 24
+                  title: ""
+                  image: ""
+                  i1: "32c"
+                  i2: ""
+                  i3: "S 1010"
+                  f1: ""
+                  f2: "Orchestra concert"
+                  f3: ""
+                - type: text
+                  style: story
+                  width: 40
+                  text: "The Montreal Symphony Orchestra, one of the largest principal orchestras in Canada, was founded in 1934 in the middle of the Great Depression by enthusiastic Quebec musicians."
+                  
+            - width: 36
+              rem: "Treffle Berthiaume"
+              elements:
+                - type: text
+                  style: headline
+                  text: "TREFFLÉ BERTHIAUME"
+                - type: text
+                  style: date
+                  text: "1984"
+                - type: stamp
+                  width: 26
+                  height: 40
+                  title: ""
+                  image: ""
+                  i1: "32c"
+                  i2: ""
+                  i3: "S 1044"
+                  f1: ""
+                  f2: "Trefflé Berthiaume"
+                  f3: ""
+                - type: text
+                  style: story
+                  width: 40
+                  text: "Trefflé Berthiaume (1848-1915), was a Canadian newspaperman and politician. As the owner of the Montreal newspaper \"La Presse\" he championed many social causes, including improved conditions for workers and aid to children and the needy."
+                  
+            - width: 46
+              rem: "United Empire Loyalists"
+              elements:
+                - type: text
+                  style: headline
+                  text: "UNITED EMPIRE LOYALISTS"
+                - type: text
+                  style: date
+                  text: "1984"
+                - type: stamp
+                  width: 40
+                  height: 24
+                  title: ""
+                  image: ""
+                  i1: "32c"
+                  i2: ""
+                  i3: "S 1028"
+                  f1: ""
+                  f2: "Loyalists and British flag"
+                  f3: ""
+                - type: text
+                  style: story
+                  width: 40
+                  text: "Approximately 100,000 Loyalists fled the United Stated, at the end of American Revolution, about half of them in Canada contributing substantially to the pioneering efforts.\n"
+
+    # Canadian Lighthouses
+    - no: 7
+      title: "Canadian Lighthouses"
+      style: landscape
+      rows:
+        - height: 10
+        
+        - space: 16
+          rem: "Canadian Lighthouses"
+          columns:
+            - width: 100
+              elements:
+                - type: text
+                  style: headline
+                  text: "CANADIAN LIGHTHOUSES"
+
+        - height: 10
+        
+        - space: 15
+          valign: bottom
+          columns:
+            - width: 86
+              space: 5
+              align: left
+              rows:
+                - columns:
+                    - width: 86
+                      elements:
+                        - type: text
+                          style: date
+                          text: "1984"
+                        - type: stamp
+                          width: 80
+                          height: 48
+                          title: ""
+                          image: ""
+                          i1: "32c"
+                          i2: ""
+                          i3: "S 1032-1035"
+                          f1: ""
+                          f2: "Historic Lighthouses"
+                          f3: ""
+                - columns:
+                    - width: 78
+                      elements:
+                        - type: text
+                          style: date
+                          text: "1985"
+                        - type: stamp
+                          width: 72
+                          height: 60
+                          title: ""
+                          image: ""
+                          i1: "34c"
+                          i2: ""
+                          i3: "S 1063-1066"
+                          f1: ""
+                          f2: "Modern Lighthouses"
+                          f3: ""
+                    - width: 2
+                    
+            - width: 114
+              elements:
+                - type: text
+                  style: story
+                  width: 114
+                  align: left
+                  text: "Today's lighthouses warn sailors of shoals and dangerous shorelines under all weather conditions. Day and night, rain or shine, these stations stand out from their surroundings with contrasting forms and colours, making their presence known by powerful beacons and foghorns. Many also emit radio or radar signals.\n\nIn 1984, on the occasion of the 250th anniversary of the completion of Louisbourg, the first Canadian lighthouse, Canada Post initiated a two-years series dedicated to the Canadian lighthouses. The stamps issued in 1984 feature the oldest lighthouses on the East Coast, the St. Lawrence River, the Great Lakes, and the West Coast while the 1985 issue illustrates four modern navigational aid stations."
+                - type: row
+                  height: 10
+                - type: text
+                  style: date
+                  text: "1985"
+                - type: stamp
+                  width: 108
+                  height: 90
+                  title: ""
+                  image: ""
+                  i1: ""
+                  i2: ""
+                  i3: "S 1066b"
+                  f1: ""
+                  f2: ""
+                  f3: ""
+                  
+            - width: 0
+
+        - space: 14
+        - space: 14

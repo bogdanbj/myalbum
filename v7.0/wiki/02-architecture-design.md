@@ -104,29 +104,24 @@ Layout model wraps Definition elements and adds computed properties.
 
 | Category | Elements | Characteristics |
 |----------|----------|-----------------|
-| **Leaf** | Text, Image, Frame, Space | No children; draw themselves |
-| **Composite** | Stamp, Page | Fixed named sub-elements |
-| **Container** | Row, Column, Page | Variable children list |
-
-Note: Page is both Composite (master elements) and Container (content children).
+| **Leaf** | Text, Image, Frame, Space | No children; pure data |
+| **Composite** | Stamp | Fixed named sub-elements (title, frame, interior, footer) |
+| **Container** | Row, Column | Variable children list |
+| **Container + Composite** | Page | Master elements (fixed) + content children (variable) |
 
 ### 3.5 Class Hierarchy
+
+Layout classes are **pure data** — they hold computed positions and resolved styles only.
+All calculation logic lives in the Layout Engine; all rendering logic lives in the Rendering layer.
 
 ```
 Layout.Element (abstract base)
 ├── X, Y (relative to parent)
 ├── Width, Height
-├── Calculate()                  (compute position and size)
-├── Draw()                       (render to PDF)
 └── (resolved style properties)
 
 Layout.Container : Layout.Element (abstract)
-├── children[]
-├── Calculate()                  (iterates children)
-└── Draw()                       (iterates children)
-
-IComposite (interface)
-└── GetSubElements()             (returns fixed sub-elements)
+└── children[]
 
 Concrete elements:
   Layout.Text   : Layout.Element
@@ -135,29 +130,29 @@ Concrete elements:
   Layout.Space  : Layout.Element
   Layout.Row    : Layout.Container
   Layout.Column : Layout.Container
-  Layout.Stamp  : Layout.Element, IComposite
-  Layout.Page   : Layout.Container, IComposite
+  Layout.Stamp  : Layout.Element  (sub-elements: Title, Frame, Image, I1-I3, F1-F3)
+  Layout.Page   : Layout.Container (master elements + content children)
 ```
 
 ### 3.6 Layout.Page Structure
 
 ```
-Layout.Page : Layout.Container, IComposite
+Layout.Page : Layout.Container
 ├── Width, Height (page dimensions)
-├── masterElements[] (fixed sub-elements via IComposite)
+├── masterElements (fixed sub-elements)
 │   ├── Background : Layout.Image
 │   ├── Banner : Layout.Image
 │   ├── Border : Layout.Frame
 │   ├── Header : Layout.Text
 │   └── Footer : Layout.Text
-└── contentElements[] (variable children via Container)
+└── contentElements[] (variable children)
     └── relative to canvas origin
 ```
 
 ### 3.7 Layout.Stamp Structure
 
 ```
-Layout.Stamp : Layout.Element, IComposite
+Layout.Stamp : Layout.Element
 ├── X, Y, Width, Height (total bounding box)
 ├── Title : Layout.Text          (optional)
 ├── Frame : Layout.Frame
@@ -501,6 +496,7 @@ v7.0/
 | Decision | Rationale |
 |----------|-----------|
 | Two separate models (Definition/Layout) | Clean separation; parsed is immutable, layout is computed |
+| Pure data models | Models hold only data; calculation in LayoutEngine, rendering in *Renderer classes |
 | Relative coordinates | Simpler calculations; matches PDFsharp transform model |
 | Two-pass (styles then layout) | Styles are appearance, layout is positioning — separate concerns |
 | Auto-detect input format | Single `.album` extension, flexible format choice |

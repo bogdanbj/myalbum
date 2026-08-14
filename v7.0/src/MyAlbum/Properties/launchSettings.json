@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MyAlbum": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\My\\Git\\myalbum\\v7.0\\Templates\\Canada6.album -p \"1,2,5-7,35+\""
+    }
+  }
+}

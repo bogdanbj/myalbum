@@ -1,0 +1,1091 @@
+[
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785419666638,
+    "toolExecutions": 0,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.4
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785419706341,
+    "toolExecutions": 0,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.3825
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785421989358,
+    "toolExecutions": 1,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.365875
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785422030902,
+    "toolExecutions": 2,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.35008124999999995
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785422062743,
+    "toolExecutions": 3,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.3350771875
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785422127866,
+    "toolExecutions": 4,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.32082332812500003
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785422174167,
+    "toolExecutions": 4,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.30728216171875
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785422207956,
+    "toolExecutions": 5,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.2944180536328125
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785422384587,
+    "toolExecutions": 6,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.28219715095117187
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785423107349,
+    "toolExecutions": 29,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.27058729340361326
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785423875686,
+    "toolExecutions": 27,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.25955792873343264
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785424538555,
+    "toolExecutions": 20,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.24908003229676096
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785424887719,
+    "toolExecutions": 17,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.23912603068192295
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785425107848,
+    "toolExecutions": 16,
+    "toolErrors": 0,
+    "errorCorrections": 1,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.2296697291478268
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785425135195,
+    "toolExecutions": 15,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.2206862426904354
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785425359323,
+    "toolExecutions": 15,
+    "toolErrors": 0,
+    "errorCorrections": 1,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.2121519305559137
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785425439559,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 1,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.204044334028118
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785425696241,
+    "toolExecutions": 15,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.19634211732671208
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785425894738,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.18902501146037648
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785425991966,
+    "toolExecutions": 12,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.18207376088735766
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785426087365,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.17547007284298977
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785426223989,
+    "toolExecutions": 11,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.1691965692008403
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785431115614,
+    "toolExecutions": 11,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.16323674074079825
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785431281512,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.15757490370375837
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785431690044,
+    "toolExecutions": 16,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.15219615851857043
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785432165531,
+    "toolExecutions": 15,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.1470863505926419
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785432361680,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.14223203306300983
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785432398958,
+    "toolExecutions": 14,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.13762043140985933
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785433111996,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.13323940983936636
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785433159357,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.12907743934739804
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785433247758,
+    "toolExecutions": 11,
+    "toolErrors": 0,
+    "errorCorrections": 1,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.1251235673800281
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785433292363,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 1,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.12136738901102673
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785433472626,
+    "toolExecutions": 12,
+    "toolErrors": 0,
+    "errorCorrections": 1,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.1177990195604754
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785433613667,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.11440906858245163
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785433683224,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.11118861515332905
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785433847276,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.10812918439566258
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785433934947,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.10522272517587947
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785434168220,
+    "toolExecutions": 15,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.1024615889170855
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785434215401,
+    "toolExecutions": 15,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.09983850947123121
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785434395285,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.09734658399766966
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785434618376,
+    "toolExecutions": 17,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.09497925479778618
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785434689714,
+    "toolExecutions": 17,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.09273029205789686
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785434867085,
+    "toolExecutions": 15,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.09059377745500202
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785436789513,
+    "toolExecutions": 11,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.08856408858225193
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785436813094,
+    "toolExecutions": 9,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.08663588415313932
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785438307947,
+    "toolExecutions": 9,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.08480408994548236
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785438394643,
+    "toolExecutions": 11,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.08306388544820824
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785438449458,
+    "toolExecutions": 14,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.08141069117579783
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785438553416,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.07984015661700794
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785438674381,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.07834814878615753
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785438788515,
+    "toolExecutions": 15,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.07693074134684966
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785438903710,
+    "toolExecutions": 15,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.07558420427950718
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785438943297,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.07430499406553182
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785438980203,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.07308974436225524
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785439110737,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.07193525714414246
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785439794951,
+    "toolExecutions": 11,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.07083849428693534
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785439893745,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.06979656957258858
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785439929010,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.06880674109395915
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785440588977,
+    "toolExecutions": 19,
+    "toolErrors": 0,
+    "errorCorrections": 1,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.0678664040392612
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785441356212,
+    "toolExecutions": 17,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.06697308383729814
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785441437085,
+    "toolExecutions": 15,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.06612442964543322
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785443100572,
+    "toolExecutions": 10,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.06531820816316156
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785443416458,
+    "toolExecutions": 9,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.06455229775500348
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785443564169,
+    "toolExecutions": 9,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.06382468286725332
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785443634017,
+    "toolExecutions": 14,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.06313344872389065
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785443685338,
+    "toolExecutions": 12,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.062476776287696115
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785443722134,
+    "toolExecutions": 12,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.061852937473311304
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785443774552,
+    "toolExecutions": 13,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.06126029059964574
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785443806576,
+    "toolExecutions": 11,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.06069727606966346
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785443836323,
+    "toolExecutions": 10,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.060162412266180285
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785443924445,
+    "toolExecutions": 9,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05965429165287127
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785444032613,
+    "toolExecutions": 6,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.0591715770702277
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785444137765,
+    "toolExecutions": 3,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05871299821671632
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785508414078,
+    "toolExecutions": 3,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.0582773483058805
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785508480335,
+    "toolExecutions": 3,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05786348089058648
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785508596371,
+    "toolExecutions": 2,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.057470306846057154
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785508740528,
+    "toolExecutions": 1,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.057096791503754296
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785508783052,
+    "toolExecutions": 3,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.056741951928566584
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785508818798,
+    "toolExecutions": 4,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05640485433213825
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785509816382,
+    "toolExecutions": 4,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05608461161553134
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785509842230,
+    "toolExecutions": 5,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05578038103475477
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785509903357,
+    "toolExecutions": 7,
+    "toolErrors": 0,
+    "errorCorrections": 1,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05549136198301703
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785510005630,
+    "toolExecutions": 8,
+    "toolErrors": 0,
+    "errorCorrections": 1,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05521679388386618
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785510057651,
+    "toolExecutions": 8,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.054955954189672876
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785512579988,
+    "toolExecutions": 5,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05470815648018923
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785512619784,
+    "toolExecutions": 5,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05447274865617977
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785512734224,
+    "toolExecutions": 4,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05424911122337078
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785512782567,
+    "toolExecutions": 4,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05403665566220224
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785513001034,
+    "toolExecutions": 3,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05383482287909213
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785513059301,
+    "toolExecutions": 3,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05364308173513752
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785513134303,
+    "toolExecutions": 3,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.053460927648380646
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785513249276,
+    "toolExecutions": 9,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.053287881265961616
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785513303241,
+    "toolExecutions": 12,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.053123487202663536
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785513377243,
+    "toolExecutions": 12,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05296731284253036
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785513416034,
+    "toolExecutions": 11,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05281894720040384
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785513590126,
+    "toolExecutions": 10,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05267799984038365
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785513671505,
+    "toolExecutions": 11,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.052544099848364466
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785514042457,
+    "toolExecutions": 9,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05241689485594624
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785514092183,
+    "toolExecutions": 9,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05229605011314893
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785514131675,
+    "toolExecutions": 7,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05218124760749149
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785520506090,
+    "toolExecutions": 7,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05207218522711691
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785520589134,
+    "toolExecutions": 7,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.051968575965761064
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785520665770,
+    "toolExecutions": 7,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05187014716747301
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785520725191,
+    "toolExecutions": 7,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05177663980909936
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785520798865,
+    "toolExecutions": 3,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05168780781864439
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785520840328,
+    "toolExecutions": 2,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05160341742771218
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785522842814,
+    "toolExecutions": 1,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05152324655632656
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785522898264,
+    "toolExecutions": 1,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.051447084228510236
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785523048139,
+    "toolExecutions": 0,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05137473001708472
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785523124659,
+    "toolExecutions": 4,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05130599351623049
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785848806341,
+    "toolExecutions": 4,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05124069384041897
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785848877292,
+    "toolExecutions": 4,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05117865914839802
+  },
+  {
+    "sessionID": "ses_04cb23ce9ffe6SNDi3dvIrWYhs",
+    "timestamp": 1785849114541,
+    "toolExecutions": 4,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05111972619097811
+  },
+  {
+    "sessionID": "ses_02784f803ffeARnG7hwG3KQtbv",
+    "timestamp": 1786043373110,
+    "toolExecutions": 0,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05106373988142921
+  },
+  {
+    "sessionID": "ses_02784f803ffeARnG7hwG3KQtbv",
+    "timestamp": 1786043447299,
+    "toolExecutions": 1,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05101055288735775
+  },
+  {
+    "sessionID": "ses_02784f803ffeARnG7hwG3KQtbv",
+    "timestamp": 1786043519954,
+    "toolExecutions": 1,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05096002524298986
+  },
+  {
+    "sessionID": "ses_02784f803ffeARnG7hwG3KQtbv",
+    "timestamp": 1786043561546,
+    "toolExecutions": 1,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05091202398084037
+  },
+  {
+    "sessionID": "ses_02784f803ffeARnG7hwG3KQtbv",
+    "timestamp": 1786043684333,
+    "toolExecutions": 2,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05086642278179835
+  },
+  {
+    "sessionID": "ses_02784f803ffeARnG7hwG3KQtbv",
+    "timestamp": 1786043718938,
+    "toolExecutions": 3,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05082310164270843
+  },
+  {
+    "sessionID": "ses_02784f803ffeARnG7hwG3KQtbv",
+    "timestamp": 1786043784633,
+    "toolExecutions": 4,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.05078194656057301
+  },
+  {
+    "sessionID": "ses_02784f803ffeARnG7hwG3KQtbv",
+    "timestamp": 1786044056251,
+    "toolExecutions": 10,
+    "toolErrors": 0,
+    "errorCorrections": 0,
+    "observedErrorRate": 0,
+    "predictedErrorRate": 0.050742849232544365
+  }
+]

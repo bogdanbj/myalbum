@@ -2,22 +2,22 @@ using MyAlbum.Common;
 using PdfSharp.Drawing;
 using PdfSharp.Fonts;
 
-namespace MyAlbum.Resources;
+namespace MyAlbum.Utilities;
 
 /// <summary>
-/// Loads fonts from the Resources/Fonts folder using fonts.json mapping.
+/// Handles font loading and resolution using fonts.json mapping.
 /// Implements PDFsharp's IFontResolver to provide custom font resolution.
 /// </summary>
-public class FontLoader : IFontResolver
+public class FontHandler : IFontResolver
 {
     private readonly string _fontsFolder;
     private readonly FontMap _fontMap;
     private readonly Dictionary<string, byte[]> _fontDataCache = new();
     private readonly Dictionary<string, XFont> _fontCache = new();
 
-    private static FontLoader? _instance;
+    private static FontHandler? _instance;
 
-    private FontLoader(string fontsFolder)
+    private FontHandler(string fontsFolder)
     {
         _fontsFolder = fontsFolder;
         var fontsJsonPath = Path.Combine(fontsFolder, "fonts.json");
@@ -25,12 +25,12 @@ public class FontLoader : IFontResolver
     }
 
     /// <summary>
-    /// Initialize the FontLoader with the fonts folder path.
+    /// Initialize the FontHandler with the fonts folder path.
     /// Call this once at application startup.
     /// </summary>
     public static void Initialize(string fontsFolder)
     {
-        _instance = new FontLoader(fontsFolder);
+        _instance = new FontHandler(fontsFolder);
         GlobalFontSettings.FontResolver = _instance;
     }
 
@@ -41,7 +41,7 @@ public class FontLoader : IFontResolver
     public static XFont GetFont(string familyName, XFontStyleEx style, double size)
     {
         if (_instance == null)
-            throw new InvalidOperationException("FontLoader not initialized. Call FontLoader.Initialize() first.");
+            throw new InvalidOperationException("FontHandler not initialized. Call FontHandler.Initialize() first.");
 
         var key = $"{familyName}|{style}|{size}";
 

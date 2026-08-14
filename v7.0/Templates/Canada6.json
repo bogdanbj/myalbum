@@ -1,0 +1,409 @@
+{
+  "ver": "4.0",
+  "styles": "Canada.styles",
+  "pages": [
+    {
+      "style": "cover",
+      "no": "1",
+      "title": "Cover",
+      "children": [
+        { "type": "row", "height": 110 },
+        {
+          "type": "row",
+          "children": [
+            { "type": "text", "style": "headline", "font_size": 36, "font_style": "italic", "content": "1 9 8 4  -  2 0 1 0" }
+          ]
+        }
+      ]
+    },
+    {
+      "no": "2",
+      "title": "Commemorative 1984",
+      "children": [
+        { "type": "row", "height": 10 },
+        {
+          "type": "row",
+          "space": 20,
+          "valign": "bottom",
+          "children": [
+            {
+              "type": "column",
+              "width": 36,
+              "rem": "Yellowknife",
+              "children": [
+                { "type": "text", "style": "headline", "content": "YELLOWKNIFE" },
+                { "type": "text", "style": "date", "content": "1984" },
+                { "type": "stamp", "width": 30, "height": 36, "i1": "32c", "i3": "S 1009", "f2": "Gold mine head frame in pan" },
+                { "type": "text", "style": "story", "width": 40, "content": "The stamp issued on 15 May 1984, commemorates the 50th anniversary of the gold mining community living in the city of Yellowknife, capital of Northwest Territories." }
+              ]
+            },
+            {
+              "type": "column",
+              "width": 36,
+              "rem": "Tall Ships",
+              "children": [
+                { "type": "text", "style": "headline", "content": "TALL SHIPS" },
+                { "type": "text", "style": "date", "content": "1984" },
+                { "type": "stamp", "width": 30, "height": 40, "i1": "32c", "i3": "S 1012", "f2": "Tall Ships regatta" },
+                { "type": "text", "style": "story", "width": 40, "content": "Over 85 of majestic two, three and four-masted ships dropped anchor in St. Lawrence River in Quebec City honouring the 450th anniversary of Jacques Cartier's first voyage to North America." }
+              ]
+            },
+            {
+              "type": "column",
+              "width": 36,
+              "rem": "Canadian Red Cross",
+              "children": [
+                { "type": "text", "style": "headline", "content": "RED CROSS" },
+                { "type": "text", "style": "date", "content": "1984" },
+                { "type": "stamp", "width": 30, "height": 36, "i1": "32c", "i3": "S 1013", "f2": "Meritorious Service Medal" },
+                { "type": "text", "style": "story", "width": 40, "content": "In recognition of their invaluable contribution, Canada Post issued this stamp featuring the medal awarded by The Canadian Red Cross Society for long-standing and meritorious voluntary service." }
+              ]
+            }
+          ]
+        },
+        { "type": "row", "height": 10 },
+        {
+          "type": "row",
+          "space": 14,
+          "valign": "bottom",
+          "children": [
+            {
+              "type": "column",
+              "width": 46,
+              "rem": "Montreal Symphony",
+              "children": [
+                { "type": "text", "style": "headline", "content": "MONTREAL SYMPHONY" },
+                { "type": "text", "style": "date", "content": "1984" },
+                { "type": "stamp", "width": 40, "height": 24, "i1": "32c", "i3": "S 1010", "f2": "Orchestra concert" },
+                { "type": "text", "style": "story", "width": 40, "content": "The Montreal Symphony Orchestra, one of the largest principal orchestras in Canada, was founded in 1934 in the middle of the Great Depression by enthusiastic Quebec musicians.\\n\\n" }
+              ]
+            },
+            {
+              "type": "column",
+              "width": 36,
+              "rem": "Treffle Berthiaume",
+              "children": [
+                { "type": "text", "style": "headline", "content": "TREFFLÉ BERTHIAUME" },
+                { "type": "text", "style": "date", "content": "1984" },
+                { "type": "stamp", "width": 26, "height": 40, "i1": "32c", "i3": "S 1044", "f2": "Trefflé Berthiaume" },
+                { "type": "text", "style": "story", "width": 40, "content": "Trefflé Berthiaume (1848-1915), was a Canadian newspaperman and politician. As the owner of the Montreal newspaper \"La Presse\" he championed many social causes, including improved conditions for workers and aid to children and the needy." }
+              ]
+            },
+            {
+              "type": "column",
+              "width": 46,
+              "rem": "United Empire Loyalists",
+              "children": [
+                { "type": "text", "style": "headline", "content": "UNITED EMPIRE LOYALISTS" },
+                { "type": "text", "style": "date", "content": "1984" },
+                { "type": "stamp", "width": 40, "height": 24, "i1": "32c", "i3": "S 1028", "f2": "Loyalists and British flag" },
+                { "type": "text", "style": "story", "width": 40, "content": "Approximately 100,000 Loyalists fled the United Stated, at the end of American Revolution, about half of them in Canada contributing substantially to the pioneering efforts.\\n\\n" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "no": "3",
+      "title": "Commemorative 1984",
+      "children": [
+        { "type": "row", "height": 10 },
+        {
+          "type": "row",
+          "space": 8,
+          "rem": "St. Lawrence Seaway",
+          "children": [
+            {
+              "type": "column",
+              "width": 46,
+              "children": [
+                { "type": "text", "style": "headline", "content": "ST. LAWRENCE SEAWAY" },
+                { "type": "text", "style": "date", "content": "1984" }
+              ]
+            },
+            { "type": "stamp", "width": 56, "height": 26, "i1": "32c", "i3": "S 1015", "f2": "The navigable waterway of St. Lawrence Seaway" },
+            { "type": "stamp", "width": 40, "height": 25, "i1": "20c", "i3": "S 2091(US)", "f2": "Joint issue with US" }
+          ]
+        },
+        {
+          "type": "row",
+          "children": [
+            { "type": "text", "style": "story", "width": 170, "content": "The St. Lawrence River connects the Atlantic Ocean to the farthest reaches of Lake Superior, 3750 km away and 200 m above sea level. The joint effort of Canada and the United States created 2,000 MW in electrical power and replaced the existing \"fourteen foot\" waterway by a channel nine metres deep with half the locks previously needed. The Seaway was officially opened on 26 June 1959." }
+          ]
+        },
+        { "type": "row", "height": 20 },
+        {
+          "type": "row",
+          "space": 16,
+          "rem": "Jaques Cartier",
+          "children": [
+            {
+              "type": "column",
+              "width": 46,
+              "children": [
+                { "type": "text", "style": "headline", "content": "JACQUES CARTIER" },
+                { "type": "text", "style": "date", "content": "1984" }
+              ]
+            },
+            { "type": "stamp", "width": 40, "height": 26, "i1": "32c", "i3": "S 1011", "f2": "Cartier and ship" },
+            { "type": "stamp", "width": 40, "height": 26, "i1": "2.00 Fr", "i3": "S 1923(Fr)", "f2": "Joint issue with France" }
+          ]
+        },
+        {
+          "type": "row",
+          "children": [
+            { "type": "text", "style": "story", "width": 170, "content": "The stamps jointly issued by Canada and France commemorates the 450th anniversary of Jacques Cartier's first voyage to Canada. Cartier left Saint-Malo, France, on 20 April 1534 with two ships and 61 men and returned on 5 September 1534. During this voyage Cartier charted the Gulf of Saint Lawrence and tied relations with Iroquoian-Huron peoples." }
+          ]
+        },
+        { "type": "row", "height": 20 },
+        {
+          "type": "row",
+          "space": 16,
+          "rem": "Papal Visit",
+          "children": [
+            {
+              "type": "column",
+              "width": 46,
+              "children": [
+                { "type": "text", "style": "headline", "content": "PAPAL VISIT" },
+                { "type": "text", "style": "date", "content": "1984" }
+              ]
+            },
+            { "type": "stamp", "width": 40, "height": 24, "i1": "32c", "i3": "S 1030", "f2": "Papal coat-of-arms and map" },
+            { "type": "stamp", "width": 40, "height": 24, "i1": "64c", "i3": "S 1031", "f2": "Papal coat-of-arms and map" }
+          ]
+        },
+        {
+          "type": "row",
+          "space": 8,
+          "children": [
+            { "type": "text", "style": "story", "width": 170, "content": "This issue commemorates the visit of Pope John Paul II in Canada in September 1984. The stamps feature the Pope personal coats of arms: a blue shield quartered by a gold cross with the letter M, all surmounted by ancient symbols of the papacy: the triple crown and the keys of St. Peter." }
+          ]
+        }
+      ]
+    },
+    {
+      "no": "4",
+      "title": "Canada Day 1984",
+      "children": [
+        { "type": "row", "height": 10 },
+        {
+          "type": "row",
+          "valign": "bottom",
+          "space": 15,
+          "children": [
+            {
+              "type": "column",
+              "width": 46,
+              "space": 3,
+              "align": "left",
+              "children": [
+                { "type": "stamp", "width": 27, "height": 40, "i1": "32c", "i3": "S 1024", "f2": "Nova Scotia" },
+                { "type": "stamp", "width": 40, "height": 27, "i1": "32c", "i3": "S 1016", "f2": "New Brunswick" },
+                { "type": "stamp", "width": 40, "height": 27, "i1": "32c", "i3": "S 1019", "f2": "Quebec" },
+                { "type": "stamp", "width": 40, "height": 27, "i1": "32c", "i3": "S 1022", "f2": "Prince Edward Island" }
+              ]
+            },
+            {
+              "type": "column",
+              "width": 46,
+              "space": 3,
+              "children": [
+                {
+                  "type": "row",
+                  "children": [
+                    {
+                      "type": "column",
+                      "children": [
+                        { "type": "text", "style": "headline", "content": "CANADA DAY" },
+                        { "type": "text", "style": "date", "content": "1984" }
+                      ]
+                    }
+                  ]
+                },
+                { "type": "stamp", "width": 40, "height": 27, "i1": "32c", "i3": "S 1017", "f2": "British Columbia" },
+                { "type": "stamp", "width": 40, "height": 27, "i1": "32c", "i3": "S 1020", "f2": "Manitoba" },
+                { "type": "stamp", "width": 40, "height": 27, "i1": "32c", "i3": "S 1023", "f2": "Saskatchewan" },
+                { "type": "stamp", "width": 40, "height": 27, "i1": "32c", "i3": "S 1026", "f2": "Newfoundland" }
+              ]
+            },
+            {
+              "type": "column",
+              "width": 46,
+              "space": 3,
+              "align": "right",
+              "children": [
+                { "type": "stamp", "width": 27, "height": 40, "i1": "32c", "i3": "S 1027", "f2": "Ontario" },
+                { "type": "stamp", "width": 40, "height": 27, "i1": "32c", "i3": "S 1018", "f2": "Yukon Territory" },
+                { "type": "stamp", "width": 40, "height": 27, "i1": "32c", "i3": "S 1021", "f2": "Alberta" },
+                { "type": "stamp", "width": 40, "height": 27, "i1": "32c", "i3": "S 1025", "f2": "Northwest Territories" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "no": "5",
+      "title": "Canada Day 1984 - Miniature Sheet",
+      "children": [
+        { "type": "row", "height": 10 },
+        { "type": "row", "height": 20 },
+        {
+          "type": "row",
+          "children": [
+            { "type": "stamp", "width": 138, "height": 124, "i1": "12 x 32c", "i3": "S 1027a", "f2": "Paintings by Jean Paul Lemieux" }
+          ]
+        },
+        { "type": "row", "height": 4 },
+        {
+          "type": "row",
+          "children": [
+            { "type": "text", "style": "story", "width": 130, "content": "A vision of Canada by one of her most respected and talented artists is the theme of the 1984 Canada Day miniature sheet. This year's commemorative sheet reproduces the work of the Quebec artist as part of the celebrations marking the 450th anniversary of Jacques Cartier's arrival in Canada. The Canada Day stamps feature twelve paintings, which were conceived as a set, giving the artist's interpretation of the provinces and territories of Canada." }
+          ]
+        }
+      ]
+    },
+    {
+      "no": "6",
+      "title": "Commemorative 1984",
+      "children": [
+        { "type": "row", "height": 10 },
+        {
+          "type": "row",
+          "space": 40,
+          "valign": "top",
+          "children": [
+            {
+              "type": "column",
+              "width": 36,
+              "rem": "New Brunswick Bicentennial",
+              "children": [
+                { "type": "text", "style": "headline", "content": "NEW BRUNSWICK BICENTENNIAL" },
+                { "type": "text", "style": "date", "content": "1984" },
+                { "type": "stamp", "width": 30, "height": 36, "i1": "32c", "i3": "S 1014", "f2": "'Lymphad' sailing vessels" },
+                { "type": "text", "style": "story", "width": 40, "content": "The stamp commemorates 200 years since the creation of the \"Colony of New Brunswick\". The Scottish Lymphads represent shipbuilding, one of the province's main industries throughout much of its history." }
+              ]
+            },
+            {
+              "type": "column",
+              "width": 36,
+              "rem": "Roman Catholic Church",
+              "children": [
+                { "type": "text", "style": "headline", "content": "ROMAN CATHOLIC CHURCH" },
+                { "type": "text", "style": "date", "content": "1984" },
+                { "type": "stamp", "width": 30, "height": 36, "i1": "32c", "i3": "S 1029", "f2": "Basilica of St. John's,\\nNewfoundland" },
+                { "type": "text", "style": "story", "width": 40, "content": "The arrival of Father James O'Donnell, a Franciscan, in 1784 marked the formal establishment of the English-speaking Roman Catholic Church in Newfoundland and in North America." }
+              ]
+            }
+          ]
+        },
+        { "type": "row", "height": 15 },
+        {
+          "type": "row",
+          "rem": "Christmas",
+          "children": [
+            {
+              "type": "column",
+              "width": 36,
+              "children": [
+                { "type": "text", "style": "headline", "content": "CHRISTMAS" },
+                { "type": "text", "style": "date", "content": "1984" },
+                {
+                  "type": "row",
+                  "space": 10,
+                  "valign": "bottom",
+                  "children": [
+                    { "type": "stamp", "width": 33, "height": 30, "i1": "32c", "i3": "S 1040", "f2": "L'Annonciation,\\nby Jean Dallaire" },
+                    { "type": "stamp", "width": 33, "height": 30, "i1": "37c", "i3": "S 1041", "f2": "The Three Kings,\\nby Simone Bouchard" },
+                    { "type": "stamp", "width": 33, "height": 30, "i1": "64c", "i3": "S 1042", "f2": "Snow in Bethlehem,\\nby David Milne" }
+                  ]
+                },
+                { "type": "text", "style": "story", "width": 130, "content": "Religious painting filled a pressing need for church decoration in the seventeenth century. In the eighteenth and nineteenth centuries, painters moved away from religious themes, and in the twentieth century their works were enlivened by various fashionable styles. But the Christmas theme still returns with freshness and spontaneity, as we can see from these paintings by Canadian artists." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "no": "7",
+      "title": "Canadian Lighthouses",
+      "style": "landscape",
+      "children": [
+        { "type": "row", "height": 10 },
+        {
+          "type": "row",
+          "space": 16,
+          "rem": "Canadian Lighthouses",
+          "children": [
+            {
+              "type": "column",
+              "width": 100,
+              "children": [
+                { "type": "text", "style": "headline", "content": "CANADIAN LIGHTHOUSES" }
+              ]
+            }
+          ]
+        },
+        { "type": "row", "height": 10 },
+        {
+          "type": "row",
+          "space": 15,
+          "valign": "bottom",
+          "children": [
+            {
+              "type": "column",
+              "width": 86,
+              "space": 5,
+              "align": "left",
+              "children": [
+                {
+                  "type": "row",
+                  "children": [
+                    {
+                      "type": "column",
+                      "width": 86,
+                      "children": [
+                        { "type": "text", "style": "date", "content": "1984" },
+                        { "type": "stamp", "width": 80, "height": 48, "i1": "32c", "i3": "S 1032-1035", "f2": "Historic Lighthouses" }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "children": [
+                    {
+                      "type": "column",
+                      "width": 78,
+                      "children": [
+                        { "type": "text", "style": "date", "content": "1985" },
+                        { "type": "stamp", "width": 72, "height": 60, "i1": "34c", "i3": "S 1063-1066", "f2": "Modern Lighthouses" }
+                      ]
+                    },
+                    { "type": "column", "width": 2 }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "column",
+              "width": 114,
+              "children": [
+                { "type": "text", "style": "story", "width": 114, "align": "left", "content": "Today's lighthouses warn sailors of shoals and dangerous shorelines under all weather conditions. Day and night, rain or shine, these stations stand out from their surroundings with contrasting forms and colours, making their presence known by powerful beacons and foghorns. Many also emit radio or radar signals.\\n\\nIn 1984, on the occasion of the 250th anniversary of the completion of Louisbourg, the first Canadian lighthouse, Canada Post initiated a two-years series dedicated to the Canadian lighthouses. The stamps issued in 1984 feature the oldest lighthouses on the East Coast, the St. Lawrence River, the Great Lakes, and the West Coast while the 1985 issue illustrates four modern navigational aid stations." },
+                { "type": "row", "height": 10 },
+                { "type": "text", "style": "date", "content": "1985" },
+                { "type": "stamp", "width": 108, "height": 90, "i3": "S 1066b" }
+              ]
+            },
+            { "type": "column", "width": 0 }
+          ]
+        },
+        { "type": "row", "space": 14 },
+        { "type": "row", "space": 14 }
+      ]
+    }
+  ]
+}

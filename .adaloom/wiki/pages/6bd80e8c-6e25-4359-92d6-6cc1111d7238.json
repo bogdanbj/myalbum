@@ -1,0 +1,15 @@
+{
+  "id": "6bd80e8c-6e25-4359-92d6-6cc1111d7238",
+  "title": "C:\\My\\Git\\myalbum — Overview",
+  "category": "overview",
+  "content": "Analysis performed in response to: \"perfect. explain add font and remove buttons\"\n\n### Summary\n| Button | Action | Files | fonts.json |\n|--------|--------|-------|------------|\n| Add Font... | Copy selected fonts to Resources/Fonts | Copies new files | Adds entries |\n| Remove | Delete selected family's fonts | Deletes files | Removes entry |\n\nWould you like me to add any safety features like:\n- Confirmation before overwriting existing fonts?\n- \"Remove from list only\" option (keep files)?\n- Undo capability?\n\n### Updated 2026-07-30\n| Button | Action | Files | fonts.json |\n|--------|--------|-------|------------|\n| Add Font... | Copy selected fonts to Resources/Fonts | Copies new files | Adds entries |\n| Remove | Delete selected family's fonts | Deletes files | Removes entry |\n\nWould you like me to add any safety features like:\n- Confirmation before overwriting existing fonts?\n- \"Remove from list only\" option (keep files)?\n- Undo capability?\n\nNow update the Remove button with a checkbox option to keep files:\n\nNow create the RemoveConfirmDialog:\n\nDone! Here's what changed:\n\n---\n\n### Updated 2026-07-30\n| Action | Before | After |\n|--------|--------|-------|\n| Add existing font | Silently overwrites | Asks for confirmation |\n| Remove family | Always deletes files | Option to keep files (default: keep) |\n\nAnalysis performed in response to: \"perfect. explain add font and remove buttons\"",
+  "summary": "perfect. explain add font and remove buttons",
+  "tags": [
+    "auto-analysis"
+  ],
+  "references": [],
+  "links": [],
+  "createdAt": 1785425439425,
+  "updatedAt": 1785425696148,
+  "version": 2
+}

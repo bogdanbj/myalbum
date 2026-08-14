@@ -1,0 +1,26 @@
+{
+  "id": "3eec455a-f897-44b1-8f85-23b7338f48c3",
+  "title": "C:\\My\\Git\\myalbum\\v7.0 — Architecture",
+  "category": "architecture",
+  "content": "## Architecture Overview\n**Layered Design:**\n\n```\nStartup (CLI + Resources)\n    ↓\nApplication Layer (Orchestrator)\n    ↓\n┌─────────┬──────────┬────────┬───────────┬────────────┐\n│ Parsing │  Style   │ Layout │ Rendering │ PDF Output │\n│         │Resolution│        │           │            │\n└─────────┴──────────┴────────┴───────────┴────────────┘\n    ↓           ↓         ↓         ↓\n         Domain Models (Definition.* / Layout.*)\n```\n\n## Diagrams\n```mermaid\ngraph TD\n  A[Entry] --> B[Processing] --> C[Output]\n```",
+  "summary": "Architecture and component design for C:\\My\\Git\\myalbum\\v7.0",
+  "tags": [
+    "auto-analysis"
+  ],
+  "references": [],
+  "links": [
+    {
+      "pageId": "6bd80e8c-6e25-4359-92d6-6cc1111d7238",
+      "title": "C:\\My\\Git\\myalbum — Overview",
+      "relationship": "mentions"
+    },
+    {
+      "pageId": "bf90aeab-a80a-46a7-bdfd-24a9e7f34bf5",
+      "title": "C:\\My\\Git\\myalbum\\v7.0 — Overview",
+      "relationship": "mentions"
+    }
+  ],
+  "createdAt": 1786043784505,
+  "updatedAt": 1786044056126,
+  "version": 2
+}
