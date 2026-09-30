@@ -90,6 +90,8 @@ namespace MyAlbum.Models
         }
         internal override void Calculate(XGraphics gfx, Canvas parentCanvas)
         {
+            base.Calculate(gfx, parentCanvas);
+
             // Text does not wrap. Only Paragraph does. For the text element, the user might break the line with \n.
             if (!string.IsNullOrEmpty(Value))
             {

@@ -28,12 +28,14 @@ namespace MyAlbum.Models
                 Y = parentCanvas.X + MarginTop;
                 W = parentCanvas.H - (MarginLeft + MarginRight);
 
-                // W now spans the page height, so recompute H from the aspect ratio.
-                double aspectRatio = (XImg != null && XImg.PixelHeight != 0)
-                    ? (double)XImg.PixelWidth / XImg.PixelHeight
-                    : 1.0;
-                H = XUnit.FromPoint(W.Point / aspectRatio);
-
+                // W now spans the page height, so  if H is not specified, recompute from the aspect ratio.
+                if (string.IsNullOrEmpty(Height))
+                {
+                    double aspectRatio = (XImg != null && XImg.PixelHeight != 0)
+                        ? (double)XImg.PixelWidth / XImg.PixelHeight
+                        : 1.0;
+                    H = XUnit.FromPoint(W.Point / aspectRatio);
+                }
                 this.Canvas = new Canvas
                 {
                     X = X + PaddingLeft,

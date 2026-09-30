@@ -147,7 +147,7 @@ namespace MyAlbum.Models
             // Default implementation - position at top of available canvas
             X = parentCanvas.X + MarginLeft;
             Y = parentCanvas.Y + MarginTop;
-            Pivot = new XPoint(X, Y);
+            Pivot = new XPoint(parentCanvas.X + parentCanvas.W / 2, parentCanvas.Y + parentCanvas.H / 2);
 
             // Width
             if (!string.IsNullOrEmpty(Width))

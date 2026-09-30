@@ -45,7 +45,7 @@
                1 value: all equal
 		-->
 		<frame style="stamp_frame" default="true" frame-type="double" frame-width="0.4, 0.4, 0.1" margin="0" padding="2" color="48,48,48" bgcolor="255,255,255" />
-		<frame style="page_border" default="false" frame-type="double" frame-width="0.5, 0.5, 0.2" margin="0" padding="0, 6" bgcolor="Ivory"/>
+		<frame style="page_border" default="false" frame-type="double" frame-width="0.5, 0.5, 0.2" margin="0" padding="0, 6" bgcolor2="Goldenrod" bgcolor="Ivory"/>
 
     <!-- TEXT
 			font-size: double
@@ -54,7 +54,7 @@
 			valign: top, center, bottom
 		-->
     <text style="text_default" default="true" align="left" font-name="Century Gothic" font-size="8" font-style="regular" />
-    <text style="date" align="center" font-name="Century Gothic" font-size="14"/>
+    <text style="date" align="center" font-name="Century Gothic" font-size="24" bgcolor="DarkSeaGreen"/>
     <text style="chapter" align="center" font-name="Century Gothic" font-size="36"/>
     <text style="headline" align="center" font-name="Century Gothic" font-size="10" bgcolor="CadetBlue" margin="0,0,1,0"/>
     <text style="title" align="center" font-name="Century Gothic" font-size="10"/>

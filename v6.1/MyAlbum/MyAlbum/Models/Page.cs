@@ -223,6 +223,11 @@ namespace MyAlbum.Models
 
                 bool rotate = element is Row { Rotate: true };
 
+                if (element is Text)
+                {
+                    var a= element as Text;
+                }
+
                 // Adjust canvas for next element (assuming vertical stacking)
                 // A rotated Row occupies a vertical strip.
                 if (rotate)
@@ -272,17 +277,23 @@ namespace MyAlbum.Models
             // Draw the banner separately (it is not part of Elements), before the border.
             if (PageBanner.Rotate)
             {
-                gfx.TranslateTransform(pdfPage.Width / 2, pdfPage.Height / 2);
+                //gfx.TranslateTransform(pdfPage.Width / 2, pdfPage.Height / 2);
+                //gfx.RotateTransform(90);
+                //gfx.TranslateTransform(-pdfPage.Height / 2, -pdfPage.Width / 2);
+                gfx.TranslateTransform(PageBanner.Pivot.X, PageBanner.Pivot.Y);
                 gfx.RotateTransform(90);
-                gfx.TranslateTransform(-pdfPage.Height / 2, -pdfPage.Width / 2);
+                gfx.TranslateTransform(-PageBanner.Pivot.Y, -PageBanner.Pivot.X);
             }
             Console.Write("  ");
             PageBanner.Draw(gfx);
             if (PageBanner.Rotate)
             {
-                gfx.TranslateTransform(pdfPage.Height / 2, pdfPage.Width / 2);
+                //gfx.TranslateTransform(pdfPage.Height / 2, pdfPage.Width / 2);
+                //gfx.RotateTransform(-90);
+                //gfx.TranslateTransform(-pdfPage.Width / 2, -pdfPage.Height / 2);
+                gfx.TranslateTransform(PageBanner.Pivot.Y, PageBanner.Pivot.X);
                 gfx.RotateTransform(-90);
-                gfx.TranslateTransform(-pdfPage.Width / 2, -pdfPage.Height / 2);
+                gfx.TranslateTransform(-PageBanner.Pivot.X, -PageBanner.Pivot.Y);
             }
 
             Console.Write("  ");
@@ -298,9 +309,12 @@ namespace MyAlbum.Models
                 // rotate
                 if (rotate)
                 {
-                    gfx.TranslateTransform(pdfPage.Width / 2, pdfPage.Height / 2);
+                    //gfx.TranslateTransform(pdfPage.Width / 2, pdfPage.Height / 2);
+                    //gfx.RotateTransform(90);
+                    //gfx.TranslateTransform(-pdfPage.Height / 2, -pdfPage.Width / 2);
+                    gfx.TranslateTransform(element.Pivot.X, element.Pivot.Y);
                     gfx.RotateTransform(90);
-                    gfx.TranslateTransform(-pdfPage.Height / 2, -pdfPage.Width / 2);
+                    gfx.TranslateTransform(-element.Pivot.Y, -element.Pivot.X);
                 }
                 // draw
                 Console.Write("  ");
@@ -308,9 +322,12 @@ namespace MyAlbum.Models
                 // rotate back
                 if (rotate)
                 {
-                    gfx.TranslateTransform(pdfPage.Height / 2, pdfPage.Width / 2);
+                    //gfx.TranslateTransform(pdfPage.Height / 2, pdfPage.Width / 2);
+                    //gfx.RotateTransform(-90);
+                    //gfx.TranslateTransform(-pdfPage.Width / 2, -pdfPage.Height / 2);
+                    gfx.TranslateTransform(element.Pivot.Y, element.Pivot.X);
                     gfx.RotateTransform(-90);
-                    gfx.TranslateTransform(-pdfPage.Width / 2, -pdfPage.Height / 2);
+                    gfx.TranslateTransform(-element.Pivot.X, -element.Pivot.Y);
                 }
 
 

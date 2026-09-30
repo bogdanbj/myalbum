@@ -21,10 +21,6 @@
 - Build: `dotnet build v7.0/MyAlbum/MyAlbum.csproj`
 - Run: `dotnet run --project v7.0/MyAlbum/MyAlbum.csproj`
 
-## Domain conventions
-- **Units:** All numeric measurements in `.album`/`.styles` XML (e.g. `margin`, `padding`, `vspace`, `x`, `y`, `width`, `height`, `frame-width`) are in **millimeters**. They are parsed via `XmlParser.ParseXUnit`, which calls `XUnit.FromMillimeter`.
-
-
 ## General guidance
 - Keep changes minimal and focused; match the existing style of surrounding code.
 - When adding new files, place them within the `v7.0/MyAlbum/` project directory.
