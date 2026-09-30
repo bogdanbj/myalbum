@@ -9,47 +9,124 @@ using System.Xml.Linq;
 
 namespace MyAlbum.Models
 {
-    internal class Image : BaseElement
+    internal class Image : BaseElement<ImageStyle>
     {
+        #region Fields
+        protected bool? _absolute;
+        protected bool? _rotate;
+        #endregion
+
+        #region Style properties
         public string? FileName { get; set; }
-        public bool Absolute { get; set; }
-        public bool Stretched { get; set; }
+        public bool Absolute
+        {
+            get => _absolute ?? Style.Absolute ?? false;
+            set => _absolute = value;
+        }
+        public bool Rotate
+        {
+            get => _rotate ?? Style.Rotate ?? false;
+            set => _rotate = value;
+        }
+        #endregion
+
+        #region Other properties
         public XImage? XImg { get; set; }
+        #endregion
+
+        #region Constructors
+        public Image()
+        {
+            Style = Styles.Image.GetStyle("default") ?? new ImageStyle();
+        }
+        #endregion
 
         #region Override methods
         internal override void ParseXml(XElement xElem)
         {
-            Style = Styles.Frame.GetStyle(xElem.Attribute("style")?.Value);
+            Style = Styles.Image.GetStyle(xElem.Attribute("style")?.Value);
             base.ParseXml(xElem);
 
             FileName = xElem.Attribute("file-name")?.Value;
             XImg = Load(FileName);
-            Absolute = XmlParser.ParseBool(xElem.Attribute("absolute")?.Value);
-            Stretched = XmlParser.ParseBool(xElem.Attribute("stretched")?.Value);
+            _absolute = XmlParser.ParseBool(xElem.Attribute("absolute")?.Value);
+            _rotate = XmlParser.ParseBool(xElem.Attribute("rotate")?.Value);
             if (Absolute)
             {
                 X = XUnit.FromMillimeter(XmlParser.ParseDouble(xElem.Attribute("x")?.Value) ?? 0);
                 Y = XUnit.FromMillimeter(XmlParser.ParseDouble(xElem.Attribute("y")?.Value) ?? 0);
-                H = XUnit.FromMillimeter(XmlParser.ParseDouble(xElem.Attribute("height")?.Value) ?? 0);
-                W = XUnit.FromMillimeter(XmlParser.ParseDouble(xElem.Attribute("width")?.Value) ?? 0);
             }
 
         }
         internal override void Calculate(XGraphics gfx, Canvas parentCanvas)
-        { }
+        {
+            /*
+             W and H are always calculated here from the "width" and "height" attributes:
+             - If neither width nor height is provided, we use the image's original dimensions.
+             - If only width is provided, we infer height from the image's aspect ratio.
+             - If only height is provided, we infer width from the image's aspect ratio.
+             - If both are provided, the image is stretched to cover the whole defined area.
+             width may be expressed as a percentage relative to the parent canvas width.
+             At the end, both W and H hold valid XUnit values greater than XUnit.Zero.
+
+             X and Y:
+             - If Absolute is true, we keep the X, Y values parsed from the "x", "y" attributes.
+             - Otherwise they are calculated relative to the parent canvas.
+             */
+
+            // Determine is width and height attributes are provided.
+            bool hasWidth = !string.IsNullOrEmpty(Width);
+            bool hasHeight = !string.IsNullOrEmpty(Height);
+
+            // Store the original X, Y values before calling base.Calculate
+            XUnit absoluteX = X;
+            XUnit absoluteY = Y;
+
+            base.Calculate(gfx, parentCanvas);
+
+            // If Absolute is true, we use the original X, Y values
+            if (Absolute)
+            {
+                // Use the absolute X, Y values as is
+                X = absoluteX;
+                Y = absoluteY;
+            }
+
+            double aspectRatio = (XImg != null && XImg.PixelHeight != 0)
+                ? (double)XImg.PixelWidth / XImg.PixelHeight
+                : 1.0;
+
+            if (hasWidth && hasHeight)
+            {
+                // Both provided: base.Calculate already resolved W and H
+                // (absolute or %). Stretch to cover the defined area.
+            }
+            else if (hasWidth)
+            {
+                // Only width provided: W is resolved by base.Calculate;
+                // infer height from aspect ratio.
+                H = XUnit.FromPoint(W.Point / aspectRatio);
+            }
+            else if (hasHeight)
+            {
+                // Only height provided: H is resolved by base.Calculate;
+                // infer width from aspect ratio.
+                W = XUnit.FromPoint(H.Point * aspectRatio);
+            }
+            else
+            {
+                // Neither provided: use the image's original dimensions.
+                W = XImg != null ? XUnit.FromPoint(XImg.PointWidth) : XUnit.Zero;
+                H = XImg != null ? XUnit.FromPoint(XImg.PointHeight) : XUnit.Zero;
+            }
+
+        }
         internal override void Draw(XGraphics gfx)
         {
             base.Draw(gfx);
             if (XImg != null)
             {
-                if (this.Stretched)
-                {
-                    gfx.DrawImage(XImg, X, Y, W, H);
-                }
-                else
-                {
-                    gfx.DrawImage(XImg, X, Y);
-                }
+                gfx.DrawImage(XImg, X, Y, W, H);
             }
         }
         #endregion

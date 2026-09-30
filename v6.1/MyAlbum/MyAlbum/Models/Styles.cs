@@ -12,7 +12,7 @@ namespace MyAlbum.Models
         public static Dictionary<string, RowStyle> Row { get; } = new();
         public static Dictionary<string, TextStyle> Text { get; } = new();
         //public static Dictionary<string, ColumnStyle> Column { get; } = new();
-        //public static Dictionary<string, ImageStyle> Image { get; } = new();
+        public static Dictionary<string, ImageStyle> Image { get; } = new();
         //public static Dictionary<string, StampStyle> Stamp { get; } = new();
 
         // Helper method to get style or default

@@ -190,14 +190,22 @@ namespace MyAlbum.Models
             Canvas.H = H - PaddingTop - PaddingBottom;
 
 
-            // Calculate the banner
-            PageBanner.Calculate(gfx, Canvas, Orientation);
+            // Calculate the banner against the full page canvas (outside the border)
+            PageBanner.Calculate(gfx, Canvas);
 
-            //// Adjust the canvas to exclude banner
-            //Canvas.X = PageBanner.Canvas.X;
-            //Canvas.Y = PageBanner.Canvas.Y;
-            //Canvas.W = PageBanner.Canvas.W;
-            //Canvas.H = PageBanner.Canvas.H;
+            // Reserve the banner's space so the border and page content start after it.
+            if (PageBanner.Rotate)
+            {
+                // Rotated (landscape) banner occupies a vertical strip on the right
+                // (the page rotates 90 deg clockwise), same as a rotated row.
+                Canvas.W -= PageBanner.H + PageBanner.MarginLeft + PageBanner.MarginRight + VSpace;
+            }
+            else
+            {
+                // Portrait banner occupies a horizontal strip at the top.
+                Canvas.Y += PageBanner.H + PageBanner.MarginTop + PageBanner.MarginBottom + VSpace;
+                Canvas.H -= PageBanner.H + PageBanner.MarginTop + PageBanner.MarginBottom + VSpace;
+            }
 
             // Calculate the border
             PageBorder.Calculate(gfx, Canvas, Orientation);
@@ -213,10 +221,13 @@ namespace MyAlbum.Models
             {
                 element.Calculate(gfx, Canvas);
 
+                bool rotate = element is Row { Rotate: true };
+
                 // Adjust canvas for next element (assuming vertical stacking)
-                if (element is Row { Rotate: true })
+                // A rotated Row occupies a vertical strip.
+                if (rotate)
                 {
-                    // Shrink the Canvas width by rotated row height + margins
+                    // Shrink the Canvas width by rotated element height + margins
                     Canvas.W -= element.H + element.MarginTop + element.MarginBottom + VSpace;
                 }
                 else
@@ -258,6 +269,22 @@ namespace MyAlbum.Models
             #endregion
 
 
+            // Draw the banner separately (it is not part of Elements), before the border.
+            if (PageBanner.Rotate)
+            {
+                gfx.TranslateTransform(pdfPage.Width / 2, pdfPage.Height / 2);
+                gfx.RotateTransform(90);
+                gfx.TranslateTransform(-pdfPage.Height / 2, -pdfPage.Width / 2);
+            }
+            Console.Write("  ");
+            PageBanner.Draw(gfx);
+            if (PageBanner.Rotate)
+            {
+                gfx.TranslateTransform(pdfPage.Height / 2, pdfPage.Width / 2);
+                gfx.RotateTransform(-90);
+                gfx.TranslateTransform(-pdfPage.Width / 2, -pdfPage.Height / 2);
+            }
+
             Console.Write("  ");
             PageBorder.Draw(gfx);
 
@@ -265,8 +292,11 @@ namespace MyAlbum.Models
             // Implement drawing logic for the page and its elements
             foreach (BaseElement element in Elements)
             {
+                // A rotated Row needs the transform applied.
+                bool rotate = element is Row { Rotate: true };
+
                 // rotate
-                if (element is Row { Rotate: true })
+                if (rotate)
                 {
                     gfx.TranslateTransform(pdfPage.Width / 2, pdfPage.Height / 2);
                     gfx.RotateTransform(90);
@@ -276,7 +306,7 @@ namespace MyAlbum.Models
                 Console.Write("  ");
                 element.Draw(gfx);
                 // rotate back
-                if (element is Row { Rotate: true })
+                if (rotate)
                 {
                     gfx.TranslateTransform(pdfPage.Height / 2, pdfPage.Width / 2);
                     gfx.RotateTransform(-90);
@@ -301,6 +331,14 @@ namespace MyAlbum.Models
             // Draw remaining canvas
             gfx.DrawRectangle(new XPen(Color, 0.5), new XSolidBrush(XColors.MistyRose), Canvas.X, Canvas.Y, Canvas.W, Canvas.H);
 
+            // Label the canvas interior in the top-left corner
+            XFont canvasFont = new XFont("Verdana", 12);
+            XRect canvasLabelRect = new XRect(
+                Canvas.X + XUnit.FromMillimeter(2),
+                Canvas.Y + XUnit.FromMillimeter(1),
+                Canvas.W - XUnit.FromMillimeter(2),
+                Canvas.H - XUnit.FromMillimeter(1));
+            gfx.DrawString("Canvas", canvasFont, XBrushes.Black, canvasLabelRect, XStringFormats.TopLeft);
         }
         #endregion
     }

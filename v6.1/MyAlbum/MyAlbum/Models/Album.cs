@@ -32,6 +32,7 @@ namespace MyAlbum.Models
             ParseStyleElements<FrameStyle>(styles, "frame", Styles.Frame);
             ParseStyleElements<RowStyle>(styles, "row", Styles.Row);
             ParseStyleElements<TextStyle>(styles, "text", Styles.Text);
+            ParseStyleElements<ImageStyle>(styles, "image", Styles.Image);
 
         }
         private void ParseStyleElements<T>(XElement styles, string elementName, Dictionary<string, T> styleDictionary)

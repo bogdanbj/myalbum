@@ -35,6 +35,7 @@ namespace MyAlbum.Models
         public XUnit W { get; set; }
         public XUnit H { get; set; }
         public Canvas Canvas { get; set; }
+        public XPoint Pivot { get; set; }
         //public double Rotate { get; set; } = 0;
         #endregion
 
@@ -114,6 +115,7 @@ namespace MyAlbum.Models
         {
             Style = new BaseElementStyle();
             Canvas = new Canvas();
+            Pivot = new XPoint(0, 0);
         }
 
         internal virtual void ParseXml(XElement element)
@@ -145,7 +147,8 @@ namespace MyAlbum.Models
             // Default implementation - position at top of available canvas
             X = parentCanvas.X + MarginLeft;
             Y = parentCanvas.Y + MarginTop;
-            
+            Pivot = new XPoint(X, Y);
+
             // Width
             if (!string.IsNullOrEmpty(Width))
             {

@@ -1,11 +1,16 @@
 <MyAlbum ver="3.0"  styles="Canada.styles">
   <page rem="Page 1">
-    <row />
+    <!--
+    <text style="date">1897</text>
+    <text style="headline">60th year of Queen Victoria’s reign</text>
     <text />
+    <row />
     <paragraph />
     <column />
     <image absolute="true" align="left" valign="top" file-name="Canada-Post-Logo.png" x="20" y="20" height="32" width="32" stretched="true"></image>
+    <image absolute="false" align="left" valign="top" file-name="Canada-Post-Logo.png" x="20" y="20" height="32" width="32" stretched="true"></image>
     <stamp />
+    -->
   </page>
   .
   <page rem="Page 2" style="landscape">

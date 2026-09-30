@@ -34,6 +34,9 @@
 						DarkOliveGreen			Khaki								MediumTurquoise					SandyBrown
 						DarkOrange					Lavender						MediumVioletRed					SeaGreen
     -->
+    <!--	UNITS: 
+					all numeric values (margin, padding, vspace, x, y, width, height) are expressed in millimeters (mm). 
+    -->
 		<!-- FRAME
 			type: none, single, double, white ace, custom
 			width: line1, space, line2
@@ -128,22 +131,24 @@
 		</page>
 
     <page style="portrait" default="true" orientation="portrait" size="letter" padding="7,7,7,20" color="black" bgcolor="Silver" vspace="1">
-      <banner file-name="flag_of_canada.jpg" />
+      <banner file-name="flag_of_canada.jpg" height="20"  />
 			<frame style="page_border" />
 			<row style="page_header">
 				<text align="center" font-name="Century Gothic" font-size="12" font-style="bolditalic" bgcolor="LightSkyBlue">C   A   N   A   D   A</text>
 			</row>
-      <space height="10" bgcolor="MistyRose" />
+      <!-- Not implemented
+      <space height="100" bgcolor="MistyRose" />
+      -->
     </page>
 		
     <page style="landscape" default="false" orientation="landscape" size="letter" padding="20,7,7,7" color="black" bgcolor="SeaShell" vspace="1">
-			<banner file-name="flag_of_canada.jpg"  rotate="true" />
+			<banner file-name="flag_of_canada.jpg" rotate="true" height="20"  />
 			<frame style="page_border" />
 			<row style="page_header" rotate="true">
 				<text align="center" font-name="Century Gothic" font-size="12" font-style="bolditalic" bgcolor="LightSkyBlue">C   A   N   A   D   A</text>
 			</row>
       <!--row rotate="true">
-				<image absolute="true" align="left" valign="top" file_name="Pictures\Canada-Post-Logo.png" x="20" y="20" height="32" width="32" stretched="true"></image>
+				<image absolute="true" align="left" valign="top" file_name="Pictures\Canada-Post-Logo.png" x="20" y="20" height="32" width="32"></image>
 			</row-->
 		</page>
 	</styles>
