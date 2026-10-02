@@ -49,7 +49,7 @@ namespace MyAlbum.Models
         public XColor BgColor
         {
             get => _bgColor ?? Style.BgColor ?? _parentBgColor ?? XColors.Transparent;
-            set => BgColor = value;
+            set => _bgColor = value;
         }
         public XUnit MarginTop
         {
@@ -197,8 +197,12 @@ namespace MyAlbum.Models
         }
         internal virtual void Draw(XGraphics gfx)
         {
-            Console.WriteLine($"Drawing {this.GetType().Name} at ({X.Millimeter:F1}, {Y.Millimeter:F1}) with width {W.Millimeter:F1} and height {H.Millimeter:F1}.");
+            LogDraw();
             gfx.DrawRectangle(new XPen(Color, 0.5), new XSolidBrush(BgColor), X, Y, W, H);
+        }
+        internal virtual void LogDraw()
+        {
+            Console.WriteLine($"Drawing {this.GetType().Name} at ({X.Millimeter:F1}, {Y.Millimeter:F1}) with width {W.Millimeter:F1} and height {H.Millimeter:F1}.");
         }
 
         protected BaseElement? CreateElement(string elementName)
@@ -213,6 +217,7 @@ namespace MyAlbum.Models
                 "stamp" => new Stamp(),
                 "text" => new Text(),
                 "paragraph" => new Paragraph(),
+                "p" => new Paragraph(),
                 _ => null
             };
 

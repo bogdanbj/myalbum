@@ -223,10 +223,10 @@ namespace MyAlbum.Models
 
                 bool rotate = element is Row { Rotate: true };
 
-                if (element is Text)
-                {
-                    var a= element as Text;
-                }
+                //if (element is Text)
+                //{
+                //    var a = element as Text;
+                //}
 
                 // Adjust canvas for next element (assuming vertical stacking)
                 // A rotated Row occupies a vertical strip.
@@ -346,7 +346,8 @@ namespace MyAlbum.Models
             }
 
             // Draw remaining canvas
-            gfx.DrawRectangle(new XPen(Color, 0.5), new XSolidBrush(XColors.MistyRose), Canvas.X, Canvas.Y, Canvas.W, Canvas.H);
+            //gfx.DrawRectangle(new XPen(Color, 0.5), new XSolidBrush(XColors.MistyRose), Canvas.X, Canvas.Y, Canvas.W, Canvas.H);
+            gfx.DrawRectangle(new XSolidBrush(XColors.MistyRose), Canvas.X, Canvas.Y, Canvas.W, Canvas.H);
 
             // Label the canvas interior in the top-left corner
             XFont canvasFont = new XFont("Verdana", 12);
@@ -355,7 +356,8 @@ namespace MyAlbum.Models
                 Canvas.Y + XUnit.FromMillimeter(1),
                 Canvas.W - XUnit.FromMillimeter(2),
                 Canvas.H - XUnit.FromMillimeter(1));
-            gfx.DrawString("Canvas", canvasFont, XBrushes.Black, canvasLabelRect, XStringFormats.TopLeft);
+            gfx.DrawString($"Canvas - Page {this.PageNo} - {this.Title}.", canvasFont, XBrushes.Black, canvasLabelRect, XStringFormats.TopLeft);
+            //Console.WriteLine($"Page {this.PageNo} - {this.Title}.");
         }
         #endregion
     }

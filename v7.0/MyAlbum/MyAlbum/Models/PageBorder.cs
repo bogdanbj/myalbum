@@ -19,13 +19,12 @@ namespace MyAlbum.Models
         internal override void Calculate(XGraphics gfx, Canvas parentCanvas)
         {
             // Adjust the border X, Y, W, H with the exterior line width
-            X = parentCanvas.X + MarginLeft + LineWidth1 / 2;
-            Y = parentCanvas.Y + MarginTop + LineWidth1 / 2;
-            W = parentCanvas.W - (MarginLeft + MarginRight + LineWidth1);
-            H = parentCanvas.H - (MarginTop + MarginBottom + LineWidth1);
+            X = parentCanvas.X + MarginLeft;
+            Y = parentCanvas.Y + MarginTop;
+            W = parentCanvas.W - (MarginLeft + MarginRight);
+            H = parentCanvas.H - (MarginTop + MarginBottom);
 
             CalculateBorderWidths();
-
 
             this.Canvas.X = parentCanvas.X + MarginLeft + WidthLeft + PaddingLeft;
             this.Canvas.Y = parentCanvas.Y + MarginTop + WidthTop + PaddingTop;

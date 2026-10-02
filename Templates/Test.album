@@ -1,14 +1,57 @@
 <MyAlbum ver="3.0"  styles="Canada.styles">
+  <styles>
+    <frame style="test1" default="false" frame-type="none" frame-width="0.5, 0.5, 0.2" margin="0" padding="0, 6" bgcolor2="Goldenrod" bgcolor="Ivory"/>
+    <frame style="test2" default="false" frame-type="single" frame-width="0.5, 0.5, 0.2" margin="0" padding="0, 6" bgcolor2="Goldenrod" bgcolor="Ivory"/>
+    <frame style="test3" default="false" frame-type="double" frame-width="0.5, 0.5, 0.2" margin="0" padding="0, 6" bgcolor2="Goldenrod" bgcolor="Ivory"/>
+    <frame style="test4" default="false" frame-type="double, none" frame-width="0.5, 0.5, 0.2" margin="0" padding="0, 6" bgcolor2="Goldenrod" bgcolor="Ivory"/>
+    <frame style="test5" default="false" frame-type="double, single" frame-width="0.5, 0.5, 0.2" margin="0" padding="0, 6" bgcolor2="Goldenrod" bgcolor="Ivory"/>
+    <frame style="test6" default="false" frame-type="single, none" frame-width="0.5, 0.5, 0.2" margin="0" padding="0, 6" bgcolor2="Goldenrod" bgcolor="Ivory"/>
+    <frame style="test7" default="false" frame-type="none, double" frame-width="0.5, 0.5, 0.2" margin="0" padding="0, 6" bgcolor2="Goldenrod" bgcolor="Ivory"/>
+    <frame style="test8" default="false" frame-type="double" frame-width="1, 2, 1" margin="0" padding="0, 6" bgcolor2="Goldenrod" bgcolor="Ivory"/>
+    <frame style="test9" default="false" frame-type="double" frame-width="3, 1, 1" margin="0" padding="0, 6" bgcolor2="Goldenrod" bgcolor="Ivory"/>
+    <frame style="test10" default="false" frame-type="double" frame-width="0.5, 2, 3" margin="0" padding="0, 6" bgcolor2="Goldenrod" bgcolor="Ivory"/>
+
+    <page style="test1" default="false" orientation="portrait" size="letter" padding="7,7,7,20" color="black" bgcolor="Silver" vspace="1">
+      <frame style="test1" />
+    </page>
+    <page style="test2" default="false" orientation="portrait" size="letter" padding="7,7,7,20" color="black" bgcolor="Silver" vspace="1">
+      <frame style="test2" />
+    </page>
+    <page style="test3" default="false" orientation="portrait" size="letter" padding="7,7,7,20" color="black" bgcolor="Silver" vspace="1">
+      <frame style="test3" />
+    </page>
+    <page style="test4" default="false" orientation="portrait" size="letter" padding="7,7,7,20" color="black" bgcolor="Silver" vspace="1">
+      <frame style="test4" />
+    </page>
+    <page style="test5" default="false" orientation="portrait" size="letter" padding="7,7,7,20" color="black" bgcolor="Silver" vspace="1">
+      <frame style="test5" />
+    </page>
+    <page style="test6" default="false" orientation="portrait" size="letter" padding="7,7,7,20" color="black" bgcolor="Silver" vspace="1">
+      <frame style="test6" />
+    </page>
+    <page style="test7" default="false" orientation="portrait" size="letter" padding="7,7,7,20" color="black" bgcolor="Silver" vspace="1">
+      <frame style="test7" />
+    </page>
+    <page style="test8" default="false" orientation="portrait" size="letter" padding="7,7,7,20" color="black" bgcolor="Silver" vspace="1">
+      <frame style="test8" />
+    </page>
+    <page style="test9" default="false" orientation="portrait" size="letter" padding="7,7,7,20" color="black" bgcolor="Silver" vspace="1">
+      <frame style="test9" />
+    </page>
+    <page style="test10" default="false" orientation="portrait" size="letter" padding="7,7,7,20" color="black" bgcolor="Silver" vspace="1">
+      <frame style="test10" />
+    </page>
+
+  </styles>
   <page rem="Page 1">
+    <stamp width="34" height="25" title="" image="" i1="1/2c" i2="black" i3="S 50" f1="" f2="Two portraits of Queen Victoria 1837 and 1867" f3="" />
+    <!--
     <image align="left" valign="top" file-name="Canada-Post-Logo.png" height="32" width="32"></image>
     <text style="date">1897</text>
     <text style="headline">60th year of Queen Victoria’s reign</text>
-    <!--
-    <text style="date">1897</text>
-    <text style="headline">60th year of Queen Victoria’s reign</text>
-    <text />
+    <paragraph style="headline">60th year of Queen Victoria’s reign</paragraph>
+    <p>The Diamond Jubilee issue of 1897 commemorated the sixtieth anniversary of Queen Victoria's accession to the throne. The set comprises sixteen values, ranging from one-half cent to five dollars, and remains one of the most celebrated series in Canadian philately.</p>
     <row />
-    <paragraph />
     <column />
     <image absolute="true" align="left" valign="top" file-name="Canada-Post-Logo.png" x="20" y="20" height="32" width="32" stretched="true"></image>
     <image absolute="false" align="left" valign="top" file-name="Canada-Post-Logo.png" x="20" y="20" height="32" width="32" stretched="true"></image>
@@ -17,34 +60,38 @@
   </page>
   .
   <page rem="Page 2" style="landscape">
-    <image align="left" valign="top" file-name="Canada-Post-Logo.png" height="32" width="32"></image>
-    <text style="date">1897</text>
-    <text style="headline">60th year of Queen Victoria’s reign</text>
+    <stamp width="34" height="25" title="" image="" i1="1/2c" i2="black" i3="S 50" f1="" f2="Two portraits of Queen Victoria 1837 and 1867" f3="" />
   </page>
   .
   <!--
-  <page rem="Page 3">
+  <page rem="Page 3" style="test1">
   </page>
   .
-  <page rem="Page 4">
+  <page rem="Page 4" style="test2">
   </page>
   .
-  <page rem="Page 5">
+  <page rem="Page 5" style="test3">
   </page>
   .
-  <page rem="Page 6">
+  <page rem="Page 6" style="test4">
   </page>
   .
-  <page rem="Page 7">
+  <page rem="Page 7" style="test5">
   </page>
   .
-  <page rem="Page 8">
+  <page rem="Page 8" style="test6">
   </page>
   .
-  <page rem="Page 9">
+  <page rem="Page 9" style="test7">
   </page>
   .
-  <page rem="Page 10">
+  <page rem="Page 10" style="test8">
+  </page>
+  .
+  <page rem="Page 11" style="test9">
+  </page>
+  .
+  <page rem="Page 12" style="test10">
   </page>
   .
   -->

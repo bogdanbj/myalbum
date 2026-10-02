@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml.Linq;
 using PdfSharpCore.Drawing;
+using System.Configuration;
 
 namespace MyAlbum.Models
 {
@@ -16,8 +17,8 @@ namespace MyAlbum.Models
         protected double? _fontSize;
         protected XFontStyle? _fontStyle;
         private XFont _font;
-        private string[] lines;
-        string[] sep = { "\\n" };
+        protected string[] lines;
+        protected string[] sep = { "\\n" };
         #endregion
 
         #region Style properties
@@ -26,7 +27,7 @@ namespace MyAlbum.Models
             get => _align ?? Style.Align ?? Alignment.Center;
             set => _align = value;
         }
-        public VerticalAlignment VAlign { get; set; } = VerticalAlignment.Top;
+        public VerticalAlignment VAlign { get; } = VerticalAlignment.Top;
         public string FontName 
         { 
             get => _fontName ?? Style.FontName ?? "Verdana"; 
@@ -95,42 +96,52 @@ namespace MyAlbum.Models
             // Text does not wrap. Only Paragraph does. For the text element, the user might break the line with \n.
             if (!string.IsNullOrEmpty(Value))
             {
-                lines = Value.Split(sep, StringSplitOptions.None);
-
-                for (int i = 0; i < lines.Length; i++)
-                {
-                    H += XUnit.FromPoint(this.Font.Height);
-                    W = Math.Max(W, gfx.MeasureString(lines[i], this.Font).Width);
-                }
-                H += MarginTop + MarginBottom;
-                W += MarginLeft + MarginRight;
+                lines = Split(gfx);
+                H = CalculateHeight(gfx);
+                W = CalculateWidth(gfx);
             }
-            //if (H > XUnit.Zero)
-            //{
-            //    H += MarginTop + MarginBottom;
-            //}
-
-            //TopAlign = XUnit.Zero;
-            //MiddleAlign = H / 2;
-            //BottomAlign = H;
         }
+        /* 
+         * XGraphics gfx parameter is not used here. this is intentional 
+         * The Split method is designed to be overridden in derived classes, 
+         * where the gfx parameter will be used for word wrapping
+         */
+        protected virtual string[] Split(XGraphics gfx)
+        {
+            if (string.IsNullOrEmpty(Value))
+                return new string[] { "" };
+
+            return Value.Split(sep, StringSplitOptions.None);
+        }
+
+        protected virtual XUnit CalculateHeight(XGraphics gfx)
+        {
+            XUnit h = XUnit.Zero;
+            for (int i = 0; i < lines.Length; i++)
+            {
+                h += XUnit.FromPoint(this.Font.Height);
+            }
+            h += MarginTop + MarginBottom;
+            return h;
+        }
+
+        protected virtual XUnit CalculateWidth(XGraphics gfx)
+        {
+            XUnit w = XUnit.Zero;
+            for (int i = 0; i < lines.Length; i++)
+            {
+                w = Math.Max(w, gfx.MeasureString(lines[i], this.Font).Width);
+            }
+            w += MarginLeft + MarginRight;
+            return w;
+        }
+
         internal override void Draw(XGraphics gfx)
         {
             base.Draw(gfx);
             try
             {
-                // TEST : fill canvas
-                //XBrush textBgBrush = new XSolidBrush(TextBgColor);
-                //gfx.DrawRectangle(textBgBrush, X, Y, W, H);
-
                 XPoint startPoint;
-
-                //VAlign = VerticalAlignment.Top;
-
-
-                //DrawBackground();
-                //DrawBox();
-                //DrawCross(new XPoint(x, y), XColors.CadetBlue);
 
                 if (!string.IsNullOrEmpty(this.Value))
                 {
@@ -158,24 +169,24 @@ namespace MyAlbum.Models
                         //        gfx.DrawString(words[j], Font, Brush, (XPoint)startPoint, format);
                         //        startPoint.X += gfx.MeasureString(words[j], Font).Width + space;
                         //    }
-
                         //}
                         //else
                         //{
-                            startPoint = RowStartPoint(i, false);
-                            switch (Align)
-                            {
-                                case Alignment.Left:
-                                    format.Alignment = XStringAlignment.Near;
-                                    break;
-                                case Alignment.Center:
-                                    format.Alignment = XStringAlignment.Center;
-                                    break;
-                                case Alignment.Right:
-                                    format.Alignment = XStringAlignment.Far;
-                                    break;
-                            }
-                            gfx.DrawString(lines[i], Font, this.Brush, startPoint, format);
+                        format.LineAlignment = XLineAlignment.Near;
+                        startPoint = RowStartPoint(i, false);
+                        switch (Align)
+                        {
+                            case Alignment.Left:
+                                format.Alignment = XStringAlignment.Near;
+                                break;
+                            case Alignment.Center:
+                                format.Alignment = XStringAlignment.Center;
+                                break;
+                            case Alignment.Right:
+                                format.Alignment = XStringAlignment.Far;
+                                break;
+                        }
+                        gfx.DrawString(lines[i], Font, this.Brush, startPoint, format);
                         //}
 
                     }

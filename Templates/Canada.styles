@@ -45,7 +45,7 @@
                1 value: all equal
 		-->
 		<frame style="stamp_frame" default="true" frame-type="double" frame-width="0.4, 0.4, 0.1" margin="0" padding="2" color="48,48,48" bgcolor="255,255,255" />
-		<frame style="page_border" default="false" frame-type="double" frame-width="0.5, 0.5, 0.2" margin="0" padding="0, 6" bgcolor2="Goldenrod" bgcolor="Ivory"/>
+    <frame style="page_border" default="false" frame-type="double" frame-width="0.5, 0.5, 0.2" margin="0" padding="0, 6" bgcolor2="Goldenrod" bgcolor="Ivory"/>
 
     <!-- TEXT
 			font-size: double
@@ -59,7 +59,7 @@
     <text style="headline" align="center" font-name="Century Gothic" font-size="10" bgcolor="CadetBlue" margin="0,0,1,0"/>
     <text style="title" align="center" font-name="Century Gothic" font-size="10"/>
     <text style="inside" align="center" font-name="Century Gothic" font-size="6"/>
-    <text style="footer" font-name="Century Gothic" font-size="6" margin="0,0,2,0" wrap="false"/>
+    <text style="footer" font-name="Century Gothic" font-size="6" margin="0,0,2,0" wrap_xxx="false"/>
     <!--
     <text style="inside" align="center" font-name="Century Gothic" font-size="6" font-style="regular" width="80%"/>
     <text style="footer_left" align="left" font-name="Century Gothic" font-size="6" font-style="regular" margin="0,0,2,0" />
@@ -141,14 +141,15 @@
       -->
     </page>
 		
-    <page style="landscape" default="false" orientation="landscape" size="letter" padding="20,7,7,7" color="black" bgcolor="SeaShell" vspace="1">
+    <page style="landscape" default="false" orientation="landscape" size="letter" padding="20,7,7,7" color="black" bgcolor="Silver" bgcolor_2="SeaShell" vspace="1">
 			<banner file-name="flag_of_canada.jpg" rotate="true" height="20"  />
-			<frame style="page_border" />
+			<frame style="page_border" padding="1,0,6,0"/>
 			<row style="page_header" rotate="true">
 				<text align="center" font-name="Century Gothic" font-size="12" font-style="bolditalic" bgcolor="LightSkyBlue">C   A   N   A   D   A</text>
 			</row>
+      <space height="6" bgcolor="MistyRose"></space>
       <!--row rotate="true">
 				<image absolute="true" align="left" valign="top" file_name="Pictures\Canada-Post-Logo.png" x="20" y="20" height="32" width="32"></image>
 			</row-->
 		</page>
-	</styles>
+  </styles>
