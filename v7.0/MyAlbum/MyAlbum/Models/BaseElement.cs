@@ -215,6 +215,7 @@ namespace MyAlbum.Models
                 "column" => new Column(),
                 "image" => new Image(),
                 "stamp" => new Stamp(),
+                "space" => new Space(),
                 "text" => new Text(),
                 "paragraph" => new Paragraph(),
                 "p" => new Paragraph(),

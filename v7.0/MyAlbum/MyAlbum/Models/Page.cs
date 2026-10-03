@@ -221,7 +221,7 @@ namespace MyAlbum.Models
             {
                 element.Calculate(gfx, Canvas);
 
-                bool rotate = element is Row { Rotate: true };
+                bool rotate = element is Row { Rotate: true } or Space { Rotate: true};
 
                 //if (element is Text)
                 //{
@@ -304,7 +304,7 @@ namespace MyAlbum.Models
             foreach (BaseElement element in Elements)
             {
                 // A rotated Row needs the transform applied.
-                bool rotate = element is Row { Rotate: true };
+                bool rotate = element is Row { Rotate: true } or Space { Rotate: true };
 
                 // rotate
                 if (rotate)
