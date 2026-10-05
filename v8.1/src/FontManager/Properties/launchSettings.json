@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FontManager": {
+      "commandName": "Project",
+      "workingDirectory": "..\\..\\"
+    }
+  }
+}

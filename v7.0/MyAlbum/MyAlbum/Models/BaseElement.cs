@@ -111,12 +111,14 @@ namespace MyAlbum.Models
         public XUnit BottomAlign { get; set; }
         #endregion
 
+        #region Constructors
         public BaseElement()
         {
             Style = new BaseElementStyle();
             Canvas = new Canvas();
             Pivot = new XPoint(0, 0);
-        }
+        }        
+        #endregion
 
         internal virtual void ParseXml(XElement element)
         {
@@ -183,8 +185,6 @@ namespace MyAlbum.Models
             {
                 H = XUnit.Zero;
             }
-            //H = parentCanvas.H - (MarginTop + MarginBottom);            
-            // W and H should already be set or calculated by derived classes
 
             this.Canvas = new Canvas
             {

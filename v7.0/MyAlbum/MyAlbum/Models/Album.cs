@@ -34,6 +34,7 @@ namespace MyAlbum.Models
             ParseStyleElements<TextStyle>(styles, "text", Styles.Text);
             ParseStyleElements<ImageStyle>(styles, "image", Styles.Image);
             ParseStyleElements<SpaceStyle>(styles, "space", Styles.Space);
+            ParseStyleElements<StampStyle>(styles, "stamp", Styles.Stamp);
 
         }
         private void ParseStyleElements<T>(XElement styles, string elementName, Dictionary<string, T> styleDictionary)

@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/FontManager/FontManager.csproj" />
+    <Project Path="src/MyAlbum.Common/MyAlbum.Common.csproj" />
+    <Project Path="src/MyAlbum/MyAlbum.csproj" />
+  </Folder>
+  <Folder Name="/Templates/">
+    <File Path="../Templates/Canada.styles" />
+    <File Path="../Templates/Test.album" />
+  </Folder>
+</Solution>

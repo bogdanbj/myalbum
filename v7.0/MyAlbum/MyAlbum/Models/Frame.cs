@@ -84,6 +84,14 @@ namespace MyAlbum.Models
         internal override void Calculate(XGraphics gfx, Canvas parentCanvas)
         {
             base.Calculate(gfx, parentCanvas);
+            CalculateFrameWidths();
+            //WidthTop = CalculateFrameWidth(TypeTop, LineWidth1, Offset, LineWidth2);
+            //WidthRight = CalculateFrameWidth(TypeRight, LineWidth1, Offset, LineWidth2);
+            //WidthBottom = CalculateFrameWidth(TypeBottom, LineWidth1, Offset, LineWidth2);
+            //WidthLeft = CalculateFrameWidth(TypeLeft, LineWidth1, Offset, LineWidth2);
+        }
+        internal void CalculateFrameWidths()
+        {
             WidthTop = CalculateFrameWidth(TypeTop, LineWidth1, Offset, LineWidth2);
             WidthRight = CalculateFrameWidth(TypeRight, LineWidth1, Offset, LineWidth2);
             WidthBottom = CalculateFrameWidth(TypeBottom, LineWidth1, Offset, LineWidth2);

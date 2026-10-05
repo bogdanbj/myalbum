@@ -17,7 +17,7 @@ namespace MyAlbum.Models
         protected double? _fontSize;
         protected XFontStyle? _fontStyle;
         private XFont _font;
-        protected string[] lines;
+        protected string[] lines = Array.Empty<string>();
         protected string[] sep = { "\\n" };
         #endregion
 
@@ -145,50 +145,27 @@ namespace MyAlbum.Models
 
                 if (!string.IsNullOrEmpty(this.Value))
                 {
-                    for (int i = 0; i < lines.Length; i++)
+                    if (lines != null)
                     {
-                        XStringFormat format = new XStringFormat();
-
-                        ////if ((this.Justify) && (i < arr.Length - 1))
-                        //if ((this.Justify) && (arr[i][0] != "LAST"))
-                        //{
-                        //    startPoint = RowStartPoint(i, true);
-                        //    string[] words = arr[i][1].Split();
-                        //    double wordsWidth = 0;
-                        //    double spaceWidth = 0;
-                        //    double space;
-                        //    for (int j = 0; j < words.Length; j++)
-                        //    {
-                        //        wordsWidth += gfx.MeasureString(words[j], Font).Width;
-                        //    }
-                        //    spaceWidth = this.W - wordsWidth;
-                        //    space = spaceWidth / (words.Length - 1);
-                        //    for (int j = 0; j < words.Length; j++)
-                        //    {
-                        //        format.Alignment = XStringAlignment.Near;
-                        //        gfx.DrawString(words[j], Font, Brush, (XPoint)startPoint, format);
-                        //        startPoint.X += gfx.MeasureString(words[j], Font).Width + space;
-                        //    }
-                        //}
-                        //else
-                        //{
-                        format.LineAlignment = XLineAlignment.Near;
-                        startPoint = RowStartPoint(i, false);
-                        switch (Align)
+                        for (int i = 0; i < lines.Length; i++)
                         {
-                            case Alignment.Left:
-                                format.Alignment = XStringAlignment.Near;
-                                break;
-                            case Alignment.Center:
-                                format.Alignment = XStringAlignment.Center;
-                                break;
-                            case Alignment.Right:
-                                format.Alignment = XStringAlignment.Far;
-                                break;
+                            XStringFormat format = new XStringFormat();
+                            format.LineAlignment = XLineAlignment.Near;
+                            startPoint = RowStartPoint(i, false);
+                            switch (Align)
+                            {
+                                case Alignment.Left:
+                                    format.Alignment = XStringAlignment.Near;
+                                    break;
+                                case Alignment.Center:
+                                    format.Alignment = XStringAlignment.Center;
+                                    break;
+                                case Alignment.Right:
+                                    format.Alignment = XStringAlignment.Far;
+                                    break;
+                            }
+                            gfx.DrawString(lines[i], Font, this.Brush, startPoint, format);
                         }
-                        gfx.DrawString(lines[i], Font, this.Brush, startPoint, format);
-                        //}
-
                     }
                 }
             }
