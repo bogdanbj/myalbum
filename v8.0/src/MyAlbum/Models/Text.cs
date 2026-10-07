@@ -281,9 +281,6 @@ namespace MyAlbum.Models
                     }
                     break;
             }
-            if (isJustified) { point.X = this.X.Point; }
-
-            //DrawCross(point, XColors.Brown);
             return point;
         }
     }
