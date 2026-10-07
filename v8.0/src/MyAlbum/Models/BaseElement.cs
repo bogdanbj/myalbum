@@ -32,7 +32,6 @@ namespace MyAlbum.Models
         public XUnit W { get; set; }
         public XUnit H { get; set; }
         public Canvas Canvas { get; set; }
-        public XPoint Pivot { get; set; }
         #endregion
 
         #region Properties accepting Styles
@@ -116,7 +115,6 @@ namespace MyAlbum.Models
         {
             Style = new BaseElementStyle();
             Canvas = new Canvas();
-            Pivot = new XPoint(0, 0);
         }
         #endregion
 
@@ -138,14 +136,7 @@ namespace MyAlbum.Models
         }
         internal virtual void Calculate(XGraphics gfx, Canvas parentCanvas)
         {
-            // Default implementation - position at top of available canvas
-            //X = parentCanvas.X + MarginLeft;
-            //Y = parentCanvas.Y + MarginTop;
             X = Y = XUnit.Zero;
-
-            Pivot = new XPoint(
-                (parentCanvas.X + parentCanvas.W / 2).Point, 
-                (parentCanvas.Y + parentCanvas.H / 2).Point);
 
             // Width
             if (!string.IsNullOrEmpty(Width))

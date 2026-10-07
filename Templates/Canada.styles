@@ -1,3 +1,4 @@
+
 	<styles>
     <!--  Colors can be specified by name or by RGB values (0-255, 0-255, 0-255).
 					When using RGB values, the color attribute should be a tupple of 3 RGB values separated by commas.
@@ -95,7 +96,7 @@
     
     <!-- SPACE
 		-->
-		<space style="default_space" default="true" width="0" height="0" bgcolor="Transparent" bgcolor_2="LavenderBlush" />
+		<space style="default_space" default="true" width="0" height="0" bgcolor_2="Transparent" bgcolor="LavenderBlush" />
 
     <!-- STAMP
 		-->
@@ -137,22 +138,18 @@
     <page style="portrait" default="true" orientation="portrait" size="letter" padding="7,7,7,20" color="black" bgcolor="Silver" vspace="1">
       <banner file-name="banner.jpg" height="20"  />
       <border style="page_border" />
-      <!--
 			<row style="page_header">
-				<text align="center" font-name="Century Gothic" font-size="12" font-style="bolditalic" bgcolor="LightSkyBlue">C   A   N   A   D   A</text>
-			</row>
-      <space height="20" width="10" />
-			-->
+        <text align="center" font-name="Century Gothic" font-size="12" font-style="bolditalic" bgcolor="LightSkyBlue">C   A   N   A   D   A</text>
+      </row>
+      <space height="5" width="100%" />
     </page>
 		
     <page style="landscape" default="false" orientation="landscape" size="letter" padding="20,7,7,7" color="black" bgcolor="Silver" vspace="1">
       <banner file-name="banner.jpg" rotate="true" height="20"  />
 			<border style="page_border" rotate="true"/>
-      <!--
 			<row style="page_header" rotate="true">
 				<text align="center" font-name="Century Gothic" font-size="12" font-style="bolditalic" bgcolor="LightSkyBlue">C   A   N   A   D   A</text>
 			</row>
-      <space height="5" width="10" rotate="true"></space>
- 			-->
+      <space height="5" width="100%" rotate="true"></space>
     </page>
   </styles>

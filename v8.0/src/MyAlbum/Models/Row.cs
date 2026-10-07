@@ -90,13 +90,11 @@ namespace MyAlbum.Models
 
             if (Rotate)
             {
-                X = parentCanvas.Y + MarginLeft;
-                Y = parentCanvas.X + MarginTop;
                 W = parentCanvas.H - (MarginLeft + MarginRight);
                 this.Canvas = new Canvas
                 {
-                    X = X + PaddingLeft,
-                    Y = Y + PaddingTop,
+                    X = PaddingLeft,
+                    Y = PaddingTop,
                     W = W - (PaddingLeft + PaddingRight),
                     H = H - (PaddingTop + PaddingBottom)
                 };
@@ -144,13 +142,16 @@ namespace MyAlbum.Models
                 switch (Align)
                 {
                     case Alignment.Left:
-                        Elements[0].X = Canvas.X;
+                        //Elements[0].X = Canvas.X;
+                        Elements[0].X = XUnit.Zero;
                         break;
                     case Alignment.Center:
-                        Elements[0].X = Canvas.X + (Canvas.W - Elements[0].W) / 2;
+                        //Elements[0].X = Canvas.X + (Canvas.W - Elements[0].W) / 2;
+                        Elements[0].X = (Canvas.W - Elements[0].W) / 2;
                         break;
                     case Alignment.Right:
-                        Elements[0].X = Canvas.X + Canvas.W - Elements[0].W;
+                        //Elements[0].X = Canvas.X + Canvas.W - Elements[0].W;
+                        Elements[0].X = Canvas.W - Elements[0].W;
                         break;
                     default:
                         break;
@@ -234,7 +235,7 @@ namespace MyAlbum.Models
             foreach (BaseElement element in Elements)
             {
                 Console.Write("  ");
-                element.Draw(gfx);
+                DrawElement(gfx, element);
             }
         }
         #endregion

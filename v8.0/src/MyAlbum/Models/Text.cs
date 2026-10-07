@@ -231,16 +231,18 @@ namespace MyAlbum.Models
                     switch (Align)
                     {
                         case Alignment.Left:
-                            point = new XPoint(this.X,
-                                               this.Y + this.MarginTop + index * this.Font.Height);
+                            //point = new XPoint(this.X,
+                            //                   this.Y + this.MarginTop + index * this.Font.Height);
+                            point = new XPoint(0,
+                                               this.MarginTop.Point + index * this.Font.Height);
                             break;
                         case Alignment.Center:
-                            point = new XPoint(this.X + this.W / 2,
-                                               this.Y + this.MarginTop + index * this.Font.Height);
+                            point = new XPoint(this.W.Point / 2,
+                                               this.MarginTop.Point + index * this.Font.Height);
                             break;
                         case Alignment.Right:
-                            point = new XPoint(this.X + this.W,
-                                               this.Y + this.MarginTop + index * this.Font.Height);
+                            point = new XPoint(this.W.Point ,
+                                               this.MarginTop.Point + index * this.Font.Height);
                             break;
                     }
                     break;
@@ -248,16 +250,16 @@ namespace MyAlbum.Models
                     switch (Align)
                     {
                         case Alignment.Left:
-                            point = new XPoint(this.X,
-                                               this.Y + this.MarginTop - this.H / 2 + (index + 0.5) * this.Font.Height);
+                            point = new XPoint(0,
+                                               this.MarginTop.Point - this.H.Point / 2 + (index + 0.5) * this.Font.Height);
                             break;
                         case Alignment.Center:
-                            point = new XPoint(this.X + this.W / 2,
-                                               this.Y + this.MarginTop - this.H / 2 + (index + 0.5) * this.Font.Height);
+                            point = new XPoint(this.W.Point / 2,
+                                               this.MarginTop.Point - this.H.Point / 2 + (index + 0.5) * this.Font.Height);
                             break;
                         case Alignment.Right:
-                            point = new XPoint(this.X + this.W,
-                                               this.Y + this.MarginTop - this.H / 2 + (index + 0.5) * this.Font.Height);
+                            point = new XPoint(this.W.Point,
+                                               this.MarginTop.Point - this.H.Point / 2 + (index + 0.5) * this.Font.Height);
                             break;
                     }
                     break;
@@ -265,21 +267,21 @@ namespace MyAlbum.Models
                     switch (Align)
                     {
                         case Alignment.Left:
-                            point = new XPoint(this.X,
-                                               this.Y + this.MarginTop - this.H + (index + 1) * this.Font.Height);
+                            point = new XPoint(0,
+                                               this.MarginTop.Point - this.H.Point + (index + 1) * this.Font.Height);
                             break;
                         case Alignment.Center:
-                            point = new XPoint(this.X + this.W / 2,
-                                               this.Y + this.MarginTop - this.H + (index + 1) * this.Font.Height);
+                            point = new XPoint(this.W.Point / 2,
+                                               this.MarginTop.Point - this.H.Point + (index + 1) * this.Font.Height);
                             break;
                         case Alignment.Right:
-                            point = new XPoint(this.X + this.W,
-                                               this.Y + this.MarginTop - this.H + (index + 1) * this.Font.Height);
+                            point = new XPoint(this.W.Point,
+                                               this.MarginTop.Point - this.H.Point + (index + 1) * this.Font.Height);
                             break;
                     }
                     break;
             }
-            if (isJustified) { point.X = this.X; }
+            if (isJustified) { point.X = this.X.Point; }
 
             //DrawCross(point, XColors.Brown);
             return point;

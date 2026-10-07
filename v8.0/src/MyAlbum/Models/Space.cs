@@ -47,8 +47,8 @@ namespace MyAlbum.Models
                 W = parentCanvas.H - (MarginLeft + MarginRight);
                 this.Canvas = new Canvas
                 {
-                    X = X + PaddingLeft,
-                    Y = Y + PaddingTop,
+                    X = PaddingLeft,
+                    Y = PaddingTop,
                     W = W - (PaddingLeft + PaddingRight),
                     H = H - (PaddingTop + PaddingBottom)
                 };
@@ -56,8 +56,8 @@ namespace MyAlbum.Models
         }
         internal override void Draw(XGraphics gfx)
         {
-            LogDraw();
-            gfx.DrawRectangle(new XSolidBrush(BgColor), X, Y, W, H);
+            base.Draw(gfx);
+            gfx.DrawRectangle(new XSolidBrush(BgColor), 0, 0, W.Point, H.Point);
 
             //base.Draw(gfx);
         }

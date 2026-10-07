@@ -159,16 +159,16 @@ namespace MyAlbum.Models
                 //    var a = element as Text;
                 //}
 
-                // Adjust canvas for next element (assuming vertical stacking)
-                // A rotated Row occupies a vertical strip.
                 if (rotate)
                 {
-                    // Shrink the Canvas width by rotated element height + margins
+                    element.X = Canvas.X + Canvas.W - element.MarginTop;
+                    element.Y = Canvas.Y + element.MarginLeft;
                     Canvas.W -= element.H + element.MarginTop + element.MarginBottom + VSpace;
                 }
                 else
                 {
-                    // Move Y down by element height + margins
+                    element.X = Canvas.X + element.MarginLeft;
+                    element.Y = Canvas.Y + element.MarginTop;
                     Canvas.Y += element.H + element.MarginTop + element.MarginBottom + VSpace;
                     Canvas.H -= element.H + element.MarginTop + element.MarginBottom + VSpace;
                 }
