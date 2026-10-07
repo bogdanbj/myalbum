@@ -1,4 +1,5 @@
 using MyAlbum.Common;
+using System.Configuration;
 
 namespace FontManager;
 
@@ -21,10 +22,22 @@ public partial class MainForm : Form
     {
         InitializeComponent();
 
+        //private static string ResolvePath(string configKey, string defaultValue)
+        //{
+        //    var configPath = ConfigurationManager.AppSettings[configKey] ?? defaultValue;
+        //    return Path.IsPathFullyQualified(configPath)
+        //        ? configPath
+        //        : Path.Combine(Directory.GetCurrentDirectory(), configPath);
+        //}
+    
         // Get fonts folder from config or use default
-        _fontsFolder = Path.GetFullPath(
-            System.Configuration.ConfigurationManager.AppSettings["FontsFolder"] 
-            ?? "Resources/Fonts");
+        var configPath = ConfigurationManager.AppSettings["FontsFolder"] ?? "Fonts";
+        _fontsFolder = Path.IsPathFullyQualified(configPath)
+            ? configPath
+            : Path.Combine(Directory.GetCurrentDirectory(), configPath);
+        //_fontsFolder = Path.GetFullPath(
+        //    System.Configuration.ConfigurationManager.AppSettings["FontsFolder"] 
+        //    ?? "Resources/Fonts");
         _fontsJsonPath = Path.Combine(_fontsFolder, "fonts.json");
 
         // Ensure fonts folder exists

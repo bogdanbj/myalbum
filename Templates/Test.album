@@ -43,8 +43,8 @@
     </page>
   </styles-->
   <page rem="Page 1">
-    <!--
     <stamp width="34" height="25" title="" image="" i1="1/2c" i2="black" i3="S 50" f1="" f2="Two portraits of Queen Victoria 1837 and 1867" f3="" />
+    <!--
     <stamp width="96" height="60" title="Peace" image="" i1="4x43c" i2="" i3="S 1544a" f1="" f2="" f3="" />
     <image align="left" valign="top" file-name="Canada-Post-Logo.png" height="32" width="32"></image>
     <text style="date">1897</text>

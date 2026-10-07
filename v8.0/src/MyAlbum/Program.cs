@@ -33,9 +33,11 @@ namespace MyAlbum
 
                 // Option: -i, --input <inputFile>
                 string inputFile = ArgsParser.GetInputFileName(options);
+                Console.WriteLine($"Input file name: {inputFile}");
 
                 // Option: -o, --output <outputFile>
                 string outputFile = ArgsParser.GetOutputFileName(options, inputFile);
+                Console.WriteLine($"Output file name: {outputFile}");
 
                 // Option : -p, --page <pages>. Ex: -p 1,3-5,8+
                 PageSelection pageSelection = new();
@@ -107,7 +109,7 @@ namespace MyAlbum
             var configPath = ConfigurationManager.AppSettings[configKey] ?? defaultValue;
             return Path.IsPathFullyQualified(configPath)
                 ? configPath
-                : Path.Combine(AppContext.BaseDirectory, configPath);
+                : Path.Combine(Directory.GetCurrentDirectory(), configPath);
         }
 
         /// <summary>
