@@ -121,27 +121,16 @@ namespace MyAlbum.Models
 
             // Calculate Title
             Title.Calculate(gfx, Canvas);
-            Title.Y = Canvas.Y + Title.MarginTop;
-            this.Canvas.Y += Title.H > XUnit.Zero
-                ? Title.MarginTop + Title.H + Title.MarginBottom + VSpace
-                : XUnit.Zero;
-            this.H = Title.H > XUnit.Zero
+            this.Canvas.H = Title.H > XUnit.Zero
                 ? Title.H + Title.MarginTop + Title.MarginBottom + VSpace
                 : XUnit.Zero;
 
             // Calculate Frame
             Frame.CalculateFrameWidths();
-            Frame.W = this.W + Frame.WidthLeft + Frame.PaddingLeft + Frame.PaddingRight + Frame.WidthRight;
-            Frame.H = this.H + Frame.WidthTop + Frame.PaddingTop + Frame.WidthTop + Frame.PaddingBottom + Frame.WidthBottom;
-
-            Frame.X = Canvas.X + Frame.MarginLeft;
-            Frame.Y = Canvas.Y + Frame.MarginTop;
-            Canvas.Y += Frame.MarginTop + Frame.H + Frame.MarginBottom;
-            Canvas.W = Frame.MarginLeft + Frame.W + Frame.MarginRight;
-
-            // center title with the frame width
-            Title.X = (Canvas.W - Title.W) / 2;
-
+            Frame.W = W + Frame.WidthLeft + Frame.PaddingLeft + Frame.PaddingRight + Frame.WidthRight;
+            Frame.H = H + Frame.WidthTop + Frame.PaddingTop + Frame.WidthTop + Frame.PaddingBottom + Frame.WidthBottom;
+            this.Canvas.H += Frame.H;
+            this.Canvas.W = Frame.W;
 
             // Calculate Image
             Image.Calculate(gfx, Canvas);

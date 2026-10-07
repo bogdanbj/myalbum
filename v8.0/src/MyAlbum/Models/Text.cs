@@ -112,6 +112,7 @@ namespace MyAlbum.Models
 
             return Value.Split(sep, StringSplitOptions.None);
         }
+
         protected virtual XUnit CalculateHeight(XGraphics gfx)
         {
             XUnit h = XUnit.Zero;
@@ -122,6 +123,7 @@ namespace MyAlbum.Models
             h += MarginTop + MarginBottom;
             return h;
         }
+
         protected virtual XUnit CalculateWidth(XGraphics gfx)
         {
             XUnit w = XUnit.Zero;

@@ -1087,50 +1087,5 @@
     "errorCorrections": 0,
     "observedErrorRate": 0,
     "predictedErrorRate": 0.050742849232544365
-  },
-  {
-    "sessionID": "ses_ee9764eb0ffeswlu6PBji5A8t0",
-    "timestamp": 1791379487872,
-    "toolExecutions": 0,
-    "toolErrors": 0,
-    "errorCorrections": 0,
-    "observedErrorRate": 0,
-    "predictedErrorRate": 0.050705706770917146
-  },
-  {
-    "sessionID": "ses_ee9764eb0ffeswlu6PBji5A8t0",
-    "timestamp": 1791379509341,
-    "toolExecutions": 0,
-    "toolErrors": 0,
-    "errorCorrections": 0,
-    "observedErrorRate": 0,
-    "predictedErrorRate": 0.050670421432371285
-  },
-  {
-    "sessionID": "ses_ee9764eb0ffeswlu6PBji5A8t0",
-    "timestamp": 1791379616192,
-    "toolExecutions": 1,
-    "toolErrors": 0,
-    "errorCorrections": 0,
-    "observedErrorRate": 0,
-    "predictedErrorRate": 0.050636900360752725
-  },
-  {
-    "sessionID": "ses_ee9764eb0ffeswlu6PBji5A8t0",
-    "timestamp": 1791379674824,
-    "toolExecutions": 2,
-    "toolErrors": 0,
-    "errorCorrections": 0,
-    "observedErrorRate": 0,
-    "predictedErrorRate": 0.05060505534271509
-  },
-  {
-    "sessionID": "ses_ee9764eb0ffeswlu6PBji5A8t0",
-    "timestamp": 1791379691851,
-    "toolExecutions": 3,
-    "toolErrors": 0,
-    "errorCorrections": 0,
-    "observedErrorRate": 0,
-    "predictedErrorRate": 0.05057480257557933
   }
 ]
