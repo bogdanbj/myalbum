@@ -23,8 +23,8 @@ namespace MyAlbum.Models
 
             if (Rotate)
             {
-                X = parentCanvas.Y + MarginLeft;
-                Y = parentCanvas.X + MarginTop;
+                //X = parentCanvas.Y + MarginLeft;
+                //Y = parentCanvas.X + MarginTop;
                 W = parentCanvas.H - (MarginLeft + MarginRight);
 
                 // W now spans the page height, so  if H is not specified, recompute from the aspect ratio.

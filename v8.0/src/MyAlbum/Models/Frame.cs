@@ -92,25 +92,39 @@ namespace MyAlbum.Models
         }
         internal void CalculateFrameWidths()
         {
-            WidthTop = CalculateFrameWidth(TypeTop, LineWidth1, Offset, LineWidth2);
-            WidthRight = CalculateFrameWidth(TypeRight, LineWidth1, Offset, LineWidth2);
-            WidthBottom = CalculateFrameWidth(TypeBottom, LineWidth1, Offset, LineWidth2);
-            WidthLeft = CalculateFrameWidth(TypeLeft, LineWidth1, Offset, LineWidth2);
+            WidthTop = CalculateFrameWidth(TypeTop);
+            WidthRight = CalculateFrameWidth(TypeRight);
+            WidthBottom = CalculateFrameWidth(TypeBottom);
+            WidthLeft = CalculateFrameWidth(TypeLeft);
         }
-        private XUnit CalculateFrameWidth(FrameType type, XUnit width1, XUnit offset, XUnit width2)
+        private XUnit CalculateFrameWidth(FrameType type) => type switch
         {
-            return type switch
-            {
-                FrameType.None => XUnit.Zero,
-                FrameType.Single => width1,
-                FrameType.Double => width1 + offset + width2,
-                _ => throw new ArgumentOutOfRangeException(nameof(type), $"Unsupported frame type: {type}"),
-            };
-        }
+            FrameType.None => XUnit.Zero,
+            FrameType.Single => LineWidth1,
+            FrameType.Double => LineWidth1 + Offset + LineWidth2,
+            _ => XUnit.Zero
+        };
+        //internal void CalculateFrameWidths()
+        //{
+        //    WidthTop = CalculateFrameWidth(TypeTop, LineWidth1, Offset, LineWidth2);
+        //    WidthRight = CalculateFrameWidth(TypeRight, LineWidth1, Offset, LineWidth2);
+        //    WidthBottom = CalculateFrameWidth(TypeBottom, LineWidth1, Offset, LineWidth2);
+        //    WidthLeft = CalculateFrameWidth(TypeLeft, LineWidth1, Offset, LineWidth2);
+        //}
+        //private XUnit CalculateFrameWidth(FrameType type, XUnit width1, XUnit offset, XUnit width2)
+        //{
+        //    return type switch
+        //    {
+        //        FrameType.None => XUnit.Zero,
+        //        FrameType.Single => width1,
+        //        FrameType.Double => width1 + offset + width2,
+        //        _ => throw new ArgumentOutOfRangeException(nameof(type), $"Unsupported frame type: {type}"),
+        //    };
+        //}
         internal override void Draw(XGraphics gfx)
         {
             base.Draw(gfx);
-            gfx.DrawRectangle(new XSolidBrush(BgColor), X, Y, W, H);
+            gfx.DrawRectangle(new XSolidBrush(BgColor), 0, 0, W.Point, H.Point);
 
             XUnit X1 = XUnit.Zero, 
                   Y1 = XUnit.Zero, 
@@ -122,88 +136,88 @@ namespace MyAlbum.Models
             if (TypeTop == FrameType.Single || TypeTop == FrameType.Double)
             {
                 // Draw first line
-                X1 = X + LineWidth1 / 2.0;
-                Y1 = Y + LineWidth1 / 2.0;
-                X2 = X + W - LineWidth1 / 2.0;
-                Y2 = Y + LineWidth1 / 2.0;
+                X1 = LineWidth1 / 2.0;
+                Y1 = LineWidth1 / 2.0;
+                X2 = W - LineWidth1 / 2.0;
+                Y2 = LineWidth1 / 2.0;
                 pen.Width = LineWidth1.Point;
-                gfx.DrawLine(pen, X1, Y1, X2, Y2);
+                gfx.DrawLine(pen, X1.Point, Y1.Point, X2.Point, Y2.Point);
             }
             if (TypeTop == FrameType.Double)
             {
                 // Draw second line
-                X1 = X + (TypeLeft == FrameType.Double ? LineWidth1 + Offset : XUnit.Zero) + LineWidth2 / 2.0;
-                Y1 = Y + LineWidth1 + Offset + LineWidth2 / 2.0;
-                X2 = X + W - (TypeRight == FrameType.Double ? LineWidth1 + Offset : XUnit.Zero) - LineWidth2 / 2.0;
-                Y2 = Y + LineWidth1 + Offset + LineWidth2 / 2.0;
+                X1 = (TypeLeft == FrameType.Double ? LineWidth1 + Offset : XUnit.Zero) + LineWidth2 / 2.0;
+                Y1 = LineWidth1 + Offset + LineWidth2 / 2.0;
+                X2 = W - (TypeRight == FrameType.Double ? LineWidth1 + Offset : XUnit.Zero) - LineWidth2 / 2.0;
+                Y2 = LineWidth1 + Offset + LineWidth2 / 2.0;
                 pen.Width = LineWidth2.Point;
-                gfx.DrawLine(pen, X1, Y1, X2, Y2);
+                gfx.DrawLine(pen, X1.Point, Y1.Point, X2.Point, Y2.Point            );
             }
 
             // Draw RIGHT frame
             if (TypeRight == FrameType.Single || TypeRight == FrameType.Double)
             {
                 // Draw first line
-                X1 = X + W - LineWidth1 / 2.0;
-                Y1 = Y + LineWidth1 / 2.0;
-                X2 = X + W - LineWidth1 / 2.0;
-                Y2 = Y + H - LineWidth1 / 2.0;
+                X1 = W - LineWidth1 / 2.0;
+                Y1 = LineWidth1 / 2.0;
+                X2 = W - LineWidth1 / 2.0;
+                Y2 = H - LineWidth1 / 2.0;
                 pen.Width = LineWidth1.Point;
-                gfx.DrawLine(pen, X1, Y1, X2, Y2);
+                gfx.DrawLine(pen, X1.Point, Y1.Point, X2.Point, Y2.Point);
             }
             if (TypeRight == FrameType.Double)
             {
                 // Draw second line
-                X1 = X + W - LineWidth1 - Offset - LineWidth2 / 2.0;
-                Y1 = Y + (TypeTop == FrameType.Double ? LineWidth1 + Offset : XUnit.Zero) + LineWidth2 / 2.0;
-                X2 = X + W - LineWidth1 - Offset - LineWidth2 / 2.0;
-                Y2 = Y + H - (TypeBottom == FrameType.Double ? LineWidth1 + Offset : XUnit.Zero) - LineWidth2 / 2.0;
+                X1 = W - LineWidth1 - Offset - LineWidth2 / 2.0;
+                Y1 = (TypeTop == FrameType.Double ? LineWidth1 + Offset : XUnit.Zero) + LineWidth2 / 2.0;
+                X2 = W - LineWidth1 - Offset - LineWidth2 / 2.0;
+                Y2 = H - (TypeBottom == FrameType.Double ? LineWidth1 + Offset : XUnit.Zero) - LineWidth2 / 2.0;
                 pen.Width = LineWidth2.Point;
-                gfx.DrawLine(pen, X1, Y1, X2, Y2);
+                gfx.DrawLine(pen, X1.Point, Y1.Point, X2.Point, Y2.Point);
             }
 
             // Draw BOTTOM frame
             if (TypeBottom == FrameType.Single || TypeBottom == FrameType.Double)
             {
                 // Draw first line
-                X1 = X + LineWidth1 / 2.0;
-                Y1 = Y + H - LineWidth1 / 2.0;
-                X2 = X + W - LineWidth1 / 2.0;
-                Y2 = Y + H - LineWidth1 / 2.0;
+                X1 = LineWidth1 / 2.0;
+                Y1 = H - LineWidth1 / 2.0;
+                X2 = W - LineWidth1 / 2.0;
+                Y2 = H - LineWidth1 / 2.0;
                 pen.Width = LineWidth1.Point;
-                gfx.DrawLine(pen, X1, Y1, X2, Y2);
+                gfx.DrawLine(pen, X1.Point, Y1.Point, X2.Point, Y2.Point);
             }
             if (TypeBottom == FrameType.Double)
             {
                 // Draw second line
-                X1 = X + (TypeLeft == FrameType.Double ? LineWidth1 + Offset : XUnit.Zero) + LineWidth2 / 2.0;
-                Y1 = Y + H - LineWidth1 - Offset - LineWidth2 / 2.0;
-                X2 = X + W - (TypeRight == FrameType.Double ? LineWidth1 + Offset : XUnit.Zero) - LineWidth2 / 2.0;
-                Y2 = Y + H - LineWidth1 - Offset - LineWidth2 / 2.0;
+                X1 = (TypeLeft == FrameType.Double ? LineWidth1 + Offset : XUnit.Zero) + LineWidth2 / 2.0;
+                Y1 = H - LineWidth1 - Offset - LineWidth2 / 2.0;
+                X2 = W - (TypeRight == FrameType.Double ? LineWidth1 + Offset : XUnit.Zero) - LineWidth2 / 2.0;
+                Y2 = H - LineWidth1 - Offset - LineWidth2 / 2.0;
                 pen.Width = LineWidth2.Point;
-                gfx.DrawLine(pen, X1, Y1, X2, Y2);
+                gfx.DrawLine(pen, X1.Point, Y1.Point, X2.Point, Y2.Point);
             }
 
             // Draw LEFT frame
             if (TypeLeft == FrameType.Single || TypeLeft == FrameType.Double)
             {
                 // Draw first line
-                X1 = X + LineWidth1 / 2.0;
-                Y1 = Y + LineWidth1 / 2.0;
-                X2 = X + LineWidth1 / 2.0;
-                Y2 = Y + H - LineWidth1 / 2.0;
+                X1 = LineWidth1 / 2.0;
+                Y1 = LineWidth1 / 2.0;
+                X2 = LineWidth1 / 2.0;
+                Y2 = H - LineWidth1 / 2.0;
                 pen.Width = LineWidth1.Point;
-                gfx.DrawLine(pen, X1, Y1, X2, Y2);
+                gfx.DrawLine(pen, X1.Point, Y1.Point, X2.Point, Y2.Point);
             }
             if (TypeLeft == FrameType.Double)
             {
                 // Draw second line
-                X1 = X + LineWidth1 + Offset + LineWidth2 / 2.0;
-                Y1 = Y + (TypeTop == FrameType.Double ? LineWidth1 + Offset : XUnit.Zero) + LineWidth2 / 2.0;
-                X2 = X + LineWidth1 + Offset + LineWidth2 / 2.0;
-                Y2 = Y + H - (TypeBottom == FrameType.Double ? LineWidth1 + Offset : XUnit.Zero) - LineWidth2 / 2.0;
+                X1 = LineWidth1 + Offset + LineWidth2 / 2.0;
+                Y1 = (TypeTop == FrameType.Double ? LineWidth1 + Offset : XUnit.Zero) + LineWidth2 / 2.0;
+                X2 = LineWidth1 + Offset + LineWidth2 / 2.0;
+                Y2 = H - (TypeBottom == FrameType.Double ? LineWidth1 + Offset : XUnit.Zero) - LineWidth2 / 2.0;
                 pen.Width = LineWidth2.Point;
-                gfx.DrawLine(pen, X1, Y1, X2, Y2);
+                gfx.DrawLine(pen, X1.Point, Y1.Point, X2.Point, Y2.Point);
             }
 
 

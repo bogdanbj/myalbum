@@ -12,7 +12,7 @@ namespace MyAlbum.Models
     {
         #region Fields
         protected bool? _absolute;
-        protected bool? _rotate;
+        //protected bool? _rotate;
         #endregion
 
         #region Style properties
@@ -22,11 +22,11 @@ namespace MyAlbum.Models
             get => _absolute ?? Style.Absolute ?? false;
             set => _absolute = value;
         }
-        public bool Rotate
-        {
-            get => _rotate ?? Style.Rotate ?? false;
-            set => _rotate = value;
-        }
+        //public bool Rotate
+        //{
+        //    get => _rotate ?? Style.Rotate ?? false;
+        //    set => _rotate = value;
+        //}
         #endregion
 
         #region Other properties
@@ -49,7 +49,7 @@ namespace MyAlbum.Models
             FileName = xElem.Attribute("file-name")?.Value;
             XImg = Load(FileName);
             _absolute = XmlParser.ParseBool(xElem.Attribute("absolute")?.Value);
-            _rotate = XmlParser.ParseBool(xElem.Attribute("rotate")?.Value);
+            //_rotate = XmlParser.ParseBool(xElem.Attribute("rotate")?.Value);
             if (Absolute)
             {
                 X = XUnit.FromMillimeter(XmlParser.ParseDouble(xElem.Attribute("x")?.Value) ?? 0);
@@ -125,7 +125,7 @@ namespace MyAlbum.Models
             base.Draw(gfx);
             if (XImg != null)
             {
-                gfx.DrawImage(XImg, X, Y, W, H);
+                gfx.DrawImage(XImg, 0, 0, W.Point, H.Point);
             }
         }
         #endregion

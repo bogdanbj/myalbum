@@ -19,49 +19,58 @@ namespace MyAlbum.Models
         internal override void Calculate(XGraphics gfx, Canvas parentCanvas)
         {
             // Adjust the border X, Y, W, H with the exterior line width
-            X = parentCanvas.X + MarginLeft;
-            Y = parentCanvas.Y + MarginTop;
-            W = parentCanvas.W - (MarginLeft + MarginRight);
-            H = parentCanvas.H - (MarginTop + MarginBottom);
+            //X = parentCanvas.X + MarginLeft;
+            //Y = parentCanvas.Y + MarginTop;
+            if (Rotate)
+            {
+                W = parentCanvas.H - (MarginLeft + MarginRight);
+                H = parentCanvas.W - (MarginTop + MarginBottom);
+            }
+            else
+            {
+                W = parentCanvas.W - (MarginLeft + MarginRight);
+                H = parentCanvas.H - (MarginTop + MarginBottom);
+            }
+            CalculateFrameWidths();
 
-            CalculateBorderWidths();
-
-            this.Canvas.X = parentCanvas.X + MarginLeft + WidthLeft + PaddingLeft;
-            this.Canvas.Y = parentCanvas.Y + MarginTop + WidthTop + PaddingTop;
+            //this.Canvas.X = parentCanvas.X + MarginLeft + WidthLeft + PaddingLeft;
+            //this.Canvas.Y = parentCanvas.Y + MarginTop + WidthTop + PaddingTop;
+            this.Canvas.X = MarginLeft + WidthLeft + PaddingLeft;
+            this.Canvas.Y = MarginTop + WidthTop + PaddingTop;
             this.Canvas.W = parentCanvas.W - MarginLeft - WidthLeft - PaddingLeft - MarginRight - WidthRight - PaddingRight;
             this.Canvas.H = parentCanvas.H - MarginTop - WidthTop - PaddingTop - MarginBottom - WidthBottom - PaddingBottom;
             //Helper.DrawCorner(gfx, Canvas.X, Canvas.Y, XColors.Green);
             //Console.WriteLine($"Calculated {this.GetType().Name}: X=({X.Millimeter:F1}, Y={Y.Millimeter:F1}, W={W.Millimeter:F1}, H={H.Millimeter:F1}.");
         }
-        internal void Calculate(XGraphics gfx, Canvas parentCanvas, PageOrientation orientation)
-        {
-            // If Landscape, shift attributes 90 degrees counterclockwise
-            if (orientation == PageOrientation.Landscape)
-            {
-                // border types
-                FrameType t = TypeTop;
-                TypeTop = TypeLeft;
-                TypeLeft = TypeBottom;
-                TypeBottom = TypeRight;
-                TypeRight = t;
+        //internal void Calculate(XGraphics gfx, Canvas parentCanvas, PageOrientation orientation)
+        //{
+        //    // If Landscape, shift attributes 90 degrees counterclockwise
+        //    if (orientation == PageOrientation.Landscape)
+        //    {
+        //        // border types
+        //        FrameType t = TypeTop;
+        //        TypeTop = TypeLeft;
+        //        TypeLeft = TypeBottom;
+        //        TypeBottom = TypeRight;
+        //        TypeRight = t;
 
-                // margins
-                XUnit m = MarginTop;
-                MarginTop = MarginLeft;
-                MarginLeft = MarginBottom;
-                MarginBottom = MarginRight;
-                MarginRight = m;
+        //        // margins
+        //        XUnit m = MarginTop;
+        //        MarginTop = MarginLeft;
+        //        MarginLeft = MarginBottom;
+        //        MarginBottom = MarginRight;
+        //        MarginRight = m;
 
-                // paddings
-                XUnit p = PaddingTop;
-                PaddingTop = PaddingLeft;
-                PaddingLeft = PaddingBottom;
-                PaddingBottom = PaddingRight;
-                PaddingRight = p;
-            }
+        //        // paddings
+        //        XUnit p = PaddingTop;
+        //        PaddingTop = PaddingLeft;
+        //        PaddingLeft = PaddingBottom;
+        //        PaddingBottom = PaddingRight;
+        //        PaddingRight = p;
+        //    }
 
-            Calculate (gfx, parentCanvas);
-        }
+        //    Calculate (gfx, parentCanvas);
+        //}
         internal override void Draw(XGraphics gfx)
         {
             //BgColor = XColors.Bisque; 
@@ -72,20 +81,20 @@ namespace MyAlbum.Models
         #endregion
 
         #region Private Methods
-        private void CalculateBorderWidths()
-        {
-            WidthTop = CalculateLineWidth(TypeTop);
-            WidthRight = CalculateLineWidth(TypeRight);
-            WidthBottom = CalculateLineWidth(TypeBottom);
-            WidthLeft = CalculateLineWidth(TypeLeft);
-        }
-        private XUnit CalculateLineWidth(FrameType type) => type switch
-        {
-            FrameType.None => XUnit.Zero,
-            FrameType.Single => LineWidth1,
-            FrameType.Double => LineWidth1 + Offset + LineWidth2,
-            _ => XUnit.Zero
-        };
+        //private void CalculateBorderWidths()
+        //{
+        //    WidthTop = CalculateLineWidth(TypeTop);
+        //    WidthRight = CalculateLineWidth(TypeRight);
+        //    WidthBottom = CalculateLineWidth(TypeBottom);
+        //    WidthLeft = CalculateLineWidth(TypeLeft);
+        //}
+        //private XUnit CalculateLineWidth(FrameType type) => type switch
+        //{
+        //    FrameType.None => XUnit.Zero,
+        //    FrameType.Single => LineWidth1,
+        //    FrameType.Double => LineWidth1 + Offset + LineWidth2,
+        //    _ => XUnit.Zero
+        //};
         #endregion
     }
 }

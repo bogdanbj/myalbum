@@ -21,6 +21,8 @@ namespace MyAlbum.Models
         protected XUnit? _paddingLeft;
         protected string? _height;
         protected string? _width;
+        protected bool? _rotate;
+
         #endregion
 
         #region Core Properties
@@ -95,6 +97,11 @@ namespace MyAlbum.Models
             get => _width ?? Style.Width ?? "";
             set => _width = value;
         }
+        public bool Rotate
+        {
+            get => _rotate ?? Style.Rotate ?? false;
+            set => _rotate = value;
+        }
         #endregion
 
         #region Additional Properties
@@ -121,6 +128,7 @@ namespace MyAlbum.Models
             (_paddingTop, _paddingRight, _paddingBottom, _paddingLeft) = XmlParser.ParsePadding(element.Attribute("padding")?.Value);
             _height = element.Attribute("height")?.Value;
             _width = element.Attribute("width")?.Value;
+            _rotate = XmlParser.ParseBool(element.Attribute("rotate")?.Value);
         }
         internal virtual void Inherit(BaseElement parent)
         {
@@ -131,8 +139,10 @@ namespace MyAlbum.Models
         internal virtual void Calculate(XGraphics gfx, Canvas parentCanvas)
         {
             // Default implementation - position at top of available canvas
-            X = parentCanvas.X + MarginLeft;
-            Y = parentCanvas.Y + MarginTop;
+            //X = parentCanvas.X + MarginLeft;
+            //Y = parentCanvas.Y + MarginTop;
+            X = Y = XUnit.Zero;
+
             Pivot = new XPoint(
                 (parentCanvas.X + parentCanvas.W / 2).Point, 
                 (parentCanvas.Y + parentCanvas.H / 2).Point);
@@ -183,7 +193,7 @@ namespace MyAlbum.Models
         internal virtual void Draw(XGraphics gfx)
         {
             LogDraw();
-            gfx.DrawRectangle(new XPen(Color, 0.5), new XSolidBrush(BgColor), X, Y, W, H);
+            gfx.DrawRectangle(new XPen(Color, 0.5), new XSolidBrush(BgColor), 0, 0, W.Point, H.Point);
         }
         internal virtual void LogDraw()
         {
@@ -194,7 +204,7 @@ namespace MyAlbum.Models
         {
             return elementName switch
             {
-                "banner" => new Image(),
+                //"banner" => new Image(),
                 "frame" => new Frame(),
                 "row" => new Row(),
                 "column" => new Column(),
@@ -206,6 +216,18 @@ namespace MyAlbum.Models
                 "p" => new Paragraph(),
                 _ => null
             };
+        }
+
+        // Draws a child in its own local coordinate space.
+        // The child renders itself at (0,0); we translate (and optionally rotate) here.
+        protected void DrawElement(XGraphics gfx, BaseElement elem, bool rotate = false)
+        {
+            XGraphicsState state = gfx.Save();
+            gfx.TranslateTransform(elem.X.Point, elem.Y.Point);
+            if (rotate)
+                gfx.RotateTransform(90); 
+            elem.Draw(gfx);
+            gfx.Restore(state);
         }
     }
 

@@ -21,6 +21,7 @@ namespace MyAlbum.Models
         public string? Height { get; set; }
         public string? Width { get; set; }
         public string? Name { get; set; }
+        public bool? Rotate { get; set; }
         #endregion
 
         #region Methods
@@ -33,6 +34,7 @@ namespace MyAlbum.Models
             (PaddingTop, PaddingRight, PaddingBottom, PaddingLeft) = XmlParser.ParseMargin(element.Attribute("padding")?.Value);
             Height = element.Attribute("height")?.Value;
             Width = element.Attribute("width")?.Value;
+            Rotate = XmlParser.ParseBool(element.Attribute("rotate")?.Value);
             Name = element.Attribute("style")?.Value;
         }
         #endregion

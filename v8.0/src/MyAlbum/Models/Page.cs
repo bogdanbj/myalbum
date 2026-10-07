@@ -46,8 +46,8 @@ namespace MyAlbum.Models
 
         #region Other properties
         public string? Title { get; set; }
-        public PageBorder PageBorder { get; set; }
-        public PageBanner PageBanner { get; set; }
+        public PageBanner? PageBanner { get; set; }
+        public PageBorder? PageBorder { get; set; }
         public List<BaseElement> Elements { get; set; }
         public PdfPage pdfPage { get; set; }
         #endregion
@@ -58,8 +58,8 @@ namespace MyAlbum.Models
             Style = Styles.Page.GetStyle("default") ?? new PageStyle();
             Elements = new List<BaseElement>();
 
-            PageBorder = new PageBorder();
-            PageBanner = new PageBanner();
+            //PageBanner = new PageBanner();
+            //PageBorder = new PageBorder();
         }
         #endregion
 
@@ -78,43 +78,13 @@ namespace MyAlbum.Models
             if (Style?.ChildElements != null)
             {
                 foreach (var styleElement in Style.ChildElements)
-                {
-                    switch(styleElement.Name.LocalName)
-                    {
-                        case "frame":
-                            PageBorder.Inherit(this);
-                            PageBorder.ParseXml(styleElement); 
-                            break;
-                        case "banner":
-                            PageBanner.Inherit(this);
-                            PageBanner.ParseXml(styleElement);
-                            // handle banner element
-                            break;
-                        default:
-                            var elem = CreateElement(styleElement.Name.LocalName);
-                            if (elem != null)
-                            {
-                                elem.Inherit(this);
-                                elem.ParseXml(styleElement);
-                                Elements.Add(elem);
-                            }
-                            break;
-                    }
-                }
+                    ParseChild(styleElement);
             }
 
             // Then parse page-specific elements
             foreach (XElement xElement in xElem.Elements())
-            {
-                var elem = CreateElement(xElement.Name.LocalName);
-                if (elem != null)
-                {
-                    elem.Inherit(this);
-                    elem.ParseXml(xElement);
-                    Elements.Add(elem);
-                }
-            }
-            //PageNumber = int.Parse(pageElement.Attribute("no")?.Value ?? "0");
+                ParseChild(xElement);
+
         }
         internal void Calculate(XGraphics gfx)
         {
@@ -134,31 +104,49 @@ namespace MyAlbum.Models
 
 
             // Calculate the banner against the full page canvas (outside the border)
-            PageBanner.Calculate(gfx, Canvas);
+            if (PageBanner != null)
+            {
+                PageBanner.Calculate(gfx, Canvas);
 
-            // Reserve the banner's space so the border and page content start after it.
-            if (PageBanner.Rotate)
-            {
-                // Rotated (landscape) banner occupies a vertical strip on the right
-                // (the page rotates 90 deg clockwise), same as a rotated row.
-                Canvas.W -= PageBanner.H + PageBanner.MarginLeft + PageBanner.MarginRight + VSpace;
-            }
-            else
-            {
-                // Portrait banner occupies a horizontal strip at the top.
-                Canvas.Y += PageBanner.H + PageBanner.MarginTop + PageBanner.MarginBottom + VSpace;
-                Canvas.H -= PageBanner.H + PageBanner.MarginTop + PageBanner.MarginBottom + VSpace;
+                if (PageBanner.Rotate)
+                {
+                    PageBanner.X = Canvas.X + Canvas.W - PageBanner.MarginTop;
+                    PageBanner.Y = Canvas.Y + PageBanner.MarginLeft;
+                    Canvas.W -= PageBanner.H + PageBanner.MarginTop + PageBanner.MarginBottom + VSpace;
+                }
+                else
+                {
+                    PageBanner.X = Canvas.X + PageBanner.MarginLeft;
+                    PageBanner.Y = Canvas.Y + PageBanner.MarginTop;
+                    Canvas.Y += PageBanner.H + PageBanner.MarginTop + PageBanner.MarginBottom + VSpace;
+                    Canvas.H -= PageBanner.H + PageBanner.MarginTop + PageBanner.MarginBottom + VSpace;
+                }
             }
 
             // Calculate the border
-            PageBorder.Calculate(gfx, Canvas, Orientation);
+            if (PageBorder != null)
+            {
+                PageBorder.Calculate(gfx, Canvas);
 
-            // Adjust the canvas to border's internal space
-            Canvas.X = PageBorder.Canvas.X;
-            Canvas.Y = PageBorder.Canvas.Y;
-            Canvas.W = PageBorder.Canvas.W;
-            Canvas.H = PageBorder.Canvas.H;
-
+                if (PageBorder.Rotate)
+                {
+                    PageBorder.X = Canvas.X + Canvas.W - PageBorder.MarginTop;
+                    PageBorder.Y = Canvas.Y + PageBorder.MarginLeft;
+                    Canvas.X = Canvas.X + PageBorder.MarginBottom + PageBorder.WidthBottom + PageBorder.PaddingBottom;
+                    Canvas.Y = Canvas.Y + PageBorder.MarginLeft + PageBorder.WidthLeft + PageBorder.PaddingLeft;
+                    Canvas.W = PageBorder.H - (PageBorder.WidthBottom + PageBorder.PaddingBottom + PageBorder.PaddingTop + PageBorder.WidthTop);
+                    Canvas.H = PageBorder.W - (PageBorder.WidthLeft + PageBorder.PaddingLeft + PageBorder.PaddingRight + PageBorder.WidthRight);
+                }
+                else
+                {
+                    PageBorder.X = Canvas.X + PageBorder.MarginLeft;
+                    PageBorder.Y = Canvas.Y + PageBorder.MarginTop;
+                    Canvas.X = PageBorder.X + PageBorder.WidthLeft + PageBorder.PaddingLeft;
+                    Canvas.Y = PageBorder.Y + PageBorder.WidthTop + PageBorder.PaddingTop;
+                    Canvas.W = PageBorder.W - (PageBorder.WidthLeft + PageBorder.PaddingLeft + PageBorder.PaddingRight + PageBorder.WidthRight);
+                    Canvas.H = PageBorder.H - (PageBorder.WidthTop + PageBorder.PaddingTop + PageBorder.PaddingBottom + PageBorder.WidthBottom);
+                }
+            }
             // Calculate each element and adjust canvas for next element
             foreach (var element in Elements)
             {
@@ -192,56 +180,20 @@ namespace MyAlbum.Models
         {
             Console.WriteLine();
             Console.WriteLine($"Page {this.PageNo} - {this.Title}.");
-            //Console.WriteLine($"Drawing {this.GetType().Name} at ({X.Millimeter:F1}, {Y.Millimeter:F1}) with width {W.Millimeter:F1} and height {H.Millimeter:F1}.");
             base.Draw(gfx);
 
-            #region Testing only
-            //gfx.DrawRectangle(
-            //    new XSolidBrush(BgColor),
-            //    0,
-            //    0,
-            //    pdfPage.Width,
-            //    pdfPage.Height);
-            //gfx.DrawRectangle(
-            //    new XSolidBrush(XColors.MistyRose),
-            //    Canvas.X,
-            //    Canvas.Y,
-            //    Canvas.W,
-            //    Canvas.H);
-            //// Debug: Draw page bounds
-            //gfx.DrawRectangle(new XPen(XColors.Red, XUnit.FromMillimeter(1)), X, Y, W, H);
-            //// Debug: Draw border dimensions
-            //gfx.DrawRectangle(new XPen(XColors.Green, XUnit.FromMillimeter(1)), PageBorder.X, PageBorder.Y, PageBorder.W, PageBorder.H);
-            //// Debug: Draw page canvas
-            //gfx.DrawRectangle(new XPen(XColors.Blue, XUnit.FromMillimeter(1)), Canvas.X, Canvas.Y, Canvas.W, Canvas.H);
-            #endregion
-
-
-            // Draw the banner separately (it is not part of Elements), before the border.
-            if (PageBanner.Rotate)
+            if (PageBanner != null)
             {
-                //gfx.TranslateTransform(pdfPage.Width / 2, pdfPage.Height / 2);
-                //gfx.RotateTransform(90);
-                //gfx.TranslateTransform(-pdfPage.Height / 2, -pdfPage.Width / 2);
-                gfx.TranslateTransform(PageBanner.Pivot.X, PageBanner.Pivot.Y);
-                gfx.RotateTransform(90);
-                gfx.TranslateTransform(-PageBanner.Pivot.Y, -PageBanner.Pivot.X);
-            }
-            Console.Write("  ");
-            PageBanner.Draw(gfx);
-            if (PageBanner.Rotate)
-            {
-                //gfx.TranslateTransform(pdfPage.Height / 2, pdfPage.Width / 2);
-                //gfx.RotateTransform(-90);
-                //gfx.TranslateTransform(-pdfPage.Width / 2, -pdfPage.Height / 2);
-                gfx.TranslateTransform(PageBanner.Pivot.Y, PageBanner.Pivot.X);
-                gfx.RotateTransform(-90);
-                gfx.TranslateTransform(-PageBanner.Pivot.X, -PageBanner.Pivot.Y);
+                Console.Write("  ");
+                DrawElement(gfx, PageBanner, PageBanner.Rotate);
             }
 
-            Console.Write("  ");
-            PageBorder.Draw(gfx);
-
+            if (PageBorder != null)
+            {
+                Console.Write("  ");
+                //PageBorder.Draw(gfx);
+                DrawElement(gfx, PageBorder, PageBorder.Rotate);
+            }
 
             // Implement drawing logic for the page and its elements
             foreach (BaseElement element in Elements)
@@ -249,29 +201,32 @@ namespace MyAlbum.Models
                 // A rotated Row needs the transform applied.
                 bool rotate = element is Row { Rotate: true } or Space { Rotate: true };
 
-                // rotate
-                if (rotate)
-                {
-                    //gfx.TranslateTransform(pdfPage.Width / 2, pdfPage.Height / 2);
-                    //gfx.RotateTransform(90);
-                    //gfx.TranslateTransform(-pdfPage.Height / 2, -pdfPage.Width / 2);
-                    gfx.TranslateTransform(element.Pivot.X, element.Pivot.Y);
-                    gfx.RotateTransform(90);
-                    gfx.TranslateTransform(-element.Pivot.Y, -element.Pivot.X);
-                }
-                // draw
                 Console.Write("  ");
-                element.Draw(gfx);
-                // rotate back
-                if (rotate)
-                {
-                    //gfx.TranslateTransform(pdfPage.Height / 2, pdfPage.Width / 2);
-                    //gfx.RotateTransform(-90);
-                    //gfx.TranslateTransform(-pdfPage.Width / 2, -pdfPage.Height / 2);
-                    gfx.TranslateTransform(element.Pivot.Y, element.Pivot.X);
-                    gfx.RotateTransform(-90);
-                    gfx.TranslateTransform(-element.Pivot.X, -element.Pivot.Y);
-                }
+                DrawElement(gfx, element, rotate);
+
+                //// rotate
+                //if (rotate)
+                //{
+                //    //gfx.TranslateTransform(pdfPage.Width / 2, pdfPage.Height / 2);
+                //    //gfx.RotateTransform(90);
+                //    //gfx.TranslateTransform(-pdfPage.Height / 2, -pdfPage.Width / 2);
+                //    gfx.TranslateTransform(element.Pivot.X, element.Pivot.Y);
+                //    gfx.RotateTransform(90);
+                //    gfx.TranslateTransform(-element.Pivot.Y, -element.Pivot.X);
+                //}
+                //// draw
+                //Console.Write("  ");
+                //element.Draw(gfx);
+                //// rotate back
+                //if (rotate)
+                //{
+                //    //gfx.TranslateTransform(pdfPage.Height / 2, pdfPage.Width / 2);
+                //    //gfx.RotateTransform(-90);
+                //    //gfx.TranslateTransform(-pdfPage.Width / 2, -pdfPage.Height / 2);
+                //    gfx.TranslateTransform(element.Pivot.Y, element.Pivot.X);
+                //    gfx.RotateTransform(-90);
+                //    gfx.TranslateTransform(-element.Pivot.X, -element.Pivot.Y);
+                //}
 
 
                 // If maore than one element has Rotate
@@ -301,6 +256,34 @@ namespace MyAlbum.Models
                 Canvas.H - XUnit.FromMillimeter(1));
             gfx.DrawString($"Canvas - Page {this.PageNo} - {this.Title}.", canvasFont, XBrushes.Black, canvasLabelRect, XStringFormats.TopLeft);
             //Console.WriteLine($"Page {this.PageNo} - {this.Title}.");
+        }
+        #endregion
+
+        #region Private methods
+        private void ParseChild(XElement xElement)
+        {
+            switch (xElement.Name.LocalName)
+            {
+                case "banner":
+                    PageBanner ??= new PageBanner();
+                    PageBanner.Inherit(this);
+                    PageBanner.ParseXml(xElement);
+                    break;
+                case "border":
+                    PageBorder ??= new PageBorder();
+                    PageBorder.Inherit(this);
+                    PageBorder.ParseXml(xElement);
+                    break;
+                default:
+                    var elem = CreateElement(xElement.Name.LocalName);
+                    if (elem != null)
+                    {
+                        elem.Inherit(this);
+                        elem.ParseXml(xElement);
+                        Elements.Add(elem);
+                    }
+                    break;
+            }
         }
         #endregion
     }
