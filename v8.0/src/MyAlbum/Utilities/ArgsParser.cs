@@ -109,19 +109,9 @@ namespace MyAlbum.Utilities
                 throw new ArgumentNullException("input", "The '--input' argument cannot be empty.");
             }
 
-            // Get input folder from app.config. It might be null (not set)
-            string? configFolder = ConfigurationManager.AppSettings["InputFolder"];
-
-            // Get current directory
-            string currentDirectory = Directory.GetCurrentDirectory();
-
-            // Build the input file path.
-            // Note: Path.Combine starts from the rightmost rooted path.
-            string fullPath = Path.Combine(
-                currentDirectory,
-                configFolder ?? string.Empty,
-                fileName
-                );
+            string configFolder = ConfigurationManager.AppSettings["InputFolder"] ?? string.Empty;
+            string inputFolder = ResolveConfiguredPath(configFolder);
+            string fullPath = Path.GetFullPath(Path.Combine(inputFolder, fileName));
 
             // Check if the directory exists
             string directoryPath = Path.GetDirectoryName(fullPath) ?? "";
@@ -158,11 +148,14 @@ namespace MyAlbum.Utilities
                 outputFileName = Path.ChangeExtension(outputFileName, ".pdf");
             }
 
-            // Check if the app.config has an output folder specified
             string? outputFolder = ConfigurationManager.AppSettings["OutputFolder"];
             if (string.IsNullOrWhiteSpace(outputFolder))
             {
-                outputFolder = (Path.GetDirectoryName(inputFileName) ?? "").Replace("Templates", "Output");
+                outputFolder = Path.Combine(Directory.GetCurrentDirectory(), "Output");
+            }
+            else
+            {
+                outputFolder = ResolveConfiguredPath(outputFolder);
             }
 
             // Combine output path with output file name
@@ -188,6 +181,13 @@ namespace MyAlbum.Utilities
                 }
             }
             return fullPath;
+        }
+
+        private static string ResolveConfiguredPath(string path)
+        {
+            return Path.GetFullPath(Path.IsPathFullyQualified(path)
+                ? path
+                : Path.Combine(Directory.GetCurrentDirectory(), path));
         }
     }
 }

@@ -33,9 +33,13 @@ namespace MyAlbum
 
                 // Option: -i, --input <inputFile>
                 string inputFile = ArgsParser.GetInputFileName(options);
+                Console.WriteLine($"Input file: {inputFile}");
+                Console.WriteLine();
 
                 // Option: -o, --output <outputFile>
                 string outputFile = ArgsParser.GetOutputFileName(options, inputFile);
+                Console.WriteLine($"Output file: {outputFile}");
+                Console.WriteLine();
 
                 // Option : -p, --page <pages>. Ex: -p 1,3-5,8+
                 PageSelection pageSelection = new();
@@ -99,15 +103,20 @@ namespace MyAlbum
         }
 
         /// <summary>
-        /// Resolve a path from App.config, making it absolute against the app base directory
+        /// Resolve a path from App.config, making it absolute against the working directory
         /// when the configured value is relative.
         /// </summary>
         private static string ResolvePath(string configKey, string defaultValue)
         {
-            var configPath = ConfigurationManager.AppSettings[configKey] ?? defaultValue;
+            var configPath = ConfigurationManager.AppSettings[configKey];
+            if (string.IsNullOrWhiteSpace(configPath))
+            {
+                configPath = defaultValue;
+            }
+
             return Path.IsPathFullyQualified(configPath)
                 ? configPath
-                : Path.Combine(AppContext.BaseDirectory, configPath);
+                : Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), configPath));
         }
 
         /// <summary>

@@ -146,14 +146,13 @@ namespace MyAlbum.Models
 
                 if (!string.IsNullOrWhiteSpace(imagePath))
                 {
-                    if (!Path.IsPathRooted(imagePath))
-                    {
-                        imagePath = Path.Combine(Directory.GetCurrentDirectory(), imagePath);
-                    }
+                    imagePath = Path.GetFullPath(Path.IsPathFullyQualified(imagePath)
+                        ? imagePath
+                        : Path.Combine(Directory.GetCurrentDirectory(), imagePath));
                 }
                 else
                 {
-                    imagePath = Path.Combine(Environment.CurrentDirectory, "Images");
+                    imagePath = Path.Combine(Directory.GetCurrentDirectory(), "Resources", "Images");
                 }
 
                 if (!Directory.Exists(imagePath))

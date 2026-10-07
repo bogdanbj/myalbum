@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "fonts": {
+    "Arial": {
+      "regular": "Arial Regular.ttf",
+      "bold": "Arial Bold.ttf",
+      "italic": "Arial Italic.ttf",
+      "boldItalic": "Arial Bold Italic.ttf"
+    },
+    "Century Gothic": {
+      "regular": "Century Gothic Regular.ttf",
+      "bold": "Century Gothic Bold.ttf",
+      "italic": "Century Gothic Italic.ttf",
+      "boldItalic": "Century Gothic Bold Italic.ttf"
+    },
+    "Folio Bk BT": {
+      "regular": "Folio BT Book.ttf",
+      "bold": "Folio BT Bold.ttf"
+    },
+    "Garamond": {
+      "regular": "Garamond Regular.ttf",
+      "bold": "Garamond Bold.ttf",
+      "italic": "Garamond Italic.ttf",
+      "boldItalic": "Garamond Bold Italic.ttf"
+    },
+    "Lubalin Graph": {
+      "regular": "Lubalin Graph Regular.ttf",
+      "bold": "Lubalin Graph Bold.ttf",
+      "italic": "Lubalin Graph Italic.ttf",
+      "boldItalic": "Lubalin Graph Bold Italic.ttf"
+    },
+    "Stymie Becker Light": {
+      "regular": "Stymie Becker Light.ttf",
+      "italic": "Stymie Becker Light Italic.otf"
+    },
+    "Stymie Becker": {
+      "regular": "Stymie Becker.ttf"
+    },
+    "Verdana": {
+      "regular": "Verdana.ttf",
+      "bold": "Verdana Bold.ttf",
+      "italic": "Verdana Italic.ttf",
+      "boldItalic": "Verdana Bold Italic.ttf"
+    }
+  }
+}

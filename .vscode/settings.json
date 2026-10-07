@@ -1,3 +1,7 @@
 {
-    "dotnet.preferCSharpExtension": true
+    "dotnet.preferCSharpExtension": true,
+    "files.associations": {
+        "*.album": "xml",
+        "*.styles": "xml"
+    }
 }

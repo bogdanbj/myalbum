@@ -1,0 +1,142 @@
+﻿<MyAlbum ver="3.0">
+	<styles>
+		<!-- BORDER
+			type: none, single, double, white ace, custom
+			width: line1, space, line2
+			padding: top, right, bottom, left
+			-->
+			<border style="stamp_frame" default="true" border_type="double" width="0.4, 0.3, 0.1" margin="0,0,0,0" padding="3, 3, 3, 3" color="48,48,48" background-color="255,255,255" />
+			<border style="page_border" default="false" border_type="double" width="0.5, 0.5, 0.2" margin="0,0,0,0" padding="0, 6, 0, 6" />
+			<border style="white_ace_page" default="false" border_type="white_ace_page" margin="0,0,0,0" padding="3, 3, 3, 3" color="67,143,189" background-color="255,255,255" />
+			<border style="white_ace_stamp" default="false" border_type="white_ace_stamp" width="0.2, 0.9, 0.2" margin="0,0,0,0" padding="3, 3, 3, 3" background-color="255,255,255" />
+			<!-- White Ace fonts
+				The story copy is Folio Lite, the Italic is Garamond Lite Italic, the Headline Type is Stymie Book and the Dates are Lubalin.
+			-->
+		<!-- TEXT
+			font_size: double
+			font_style: bold, bolditalic, italic, regular, strikeout, underline
+			align: left, center, right
+			valign: top, center, bottom
+			-->
+			<text style="text_default" default="true" align="left" font_name="Century Gothic" font_size="8"/>
+			<text style="story" justify="true" align="center" font_name="Folio" font_size="7"/>
+			<text style="italic" justify="true" align="center" font_name="Garamond" font_size="8" font_style="italic"/>
+			<text style="headline" justify="false" align="center" font_name="Stymie Becker Light" font_size="16" margin="2,0"/>
+			<text style="date" justify="true" align="center" font_name="Lubalin Graph" font_size="8" font_style="bold"/>
+			<text style="title" align="center" font_name="Stymie Becker Light" font_size="10"/>
+			<text style="inside" align="center" font_name="Stymie Becker Light" font_size="6" width="80%"/>
+			<text style="footer_left" justify="true" align="left" font_name="Garamond" font_size="8" font_style="italic" />
+			<text style="footer_center" justify="true" align="center" font_name="Garamond" font_size="10" font_style="italic" width="80%" margin="0,0,2,0" />
+			<text style="footer_right" justify="true" align="right" font_name="Garamond" font_size="8" font_style="italic" margin="0,0,2,0" />
+		<!-- ESCAPE CHARACTERS
+			ampersand (&) is escaped to &amp; 
+			double quotes (") are escaped to &quot; 
+			single quotes (') are escaped to &apos; 
+			less than (<) is escaped to &lt; 
+			greater than (>) is escaped to &gt;
+			-->
+		<!-- IMAGE
+			-->
+			<image style="stamp_image" default="true" color="false" />
+		<!-- STAMP
+			-->
+			<stamp style="stamp_default" default="true" vspace="1">
+				<border style="stamp_frame" />
+				<!--border style="white_ace_stamp" /-->
+				<image style="image_default" margin="2,2,2,2" />
+				<title style="title" />
+				<inside1 style="inside" />
+				<inside2 style="inside" />
+				<inside3 style="inside" />
+				<footer1 style="footer_left" />
+				<footer2 style="footer_center" />
+				<footer3 style="footer_right" />
+			</stamp>
+		<!-- ROW
+			spacing: FS (fixed space), ES (equal spacing), JS (justified spacing)
+			-->
+			<row style="stamp_FS" default="true" align="center" valign="center" spacing-mode="FS" space="6" />
+			<row style="page_header" default="false" align="center" valign="top" spacing-mode="FS" space="8" bgcolor="255, 32, 32" />
+		<!-- COLUMN
+			-->
+			<column style="default_column" default="true" align="center" space="1"/>
+		<!-- PAGE
+			orientation: portrait, landscape
+			size: letter, A4
+			margin: top, right, bottom, left
+			-->
+			<!-- color="48,48,48" -->
+			<page style="cover" default="false" orientation="portrait" size="letter" margin="7,7,7,7" color="48,48,48" vspace="1">
+				<banner file_name="" />
+				<border style="page_border" />
+			</page>
+			<page style="portrait" default="true" orientation="portrait" size="letter" margin="7,7,7,7" color="48,48,48" vspace="1">
+				<banner file_name="" />
+				<border style="page_border" />
+				<row style="page_header">
+				  <text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
+				</row>
+				<row height="10" />
+			</page>
+			<page style="landscape" default="false" orientation="landscape" size="letter" margin="7,7,7,7" color="48,48,48" vspace="1">
+				<banner file_name="" />
+				<border style="page_border" />
+				<row style="page_header" rotate="true">
+					<text align="center" font_name="Century Gothic" font_size="12" font_style="bolditalic">C   A   N   A   D   A</text>
+				</row>
+				<row rotate="true">
+					<image absolute="true" align="left" valign="top" file_name="Pictures\Canada-Post-Logo.png" x="20" y="20" height="32" width="32" stretched="true"></image>
+				</row>
+			</page>
+	</styles>
+
+	<!-- 1984 -->
+		<page no="2" title="Commemorative 1984">
+			<row height="10" />
+
+			<row space="20" valign="bottom">
+				<column width="36" rem="Yellowknife" >
+					<text style="headline">YELLOWKNIFE</text>
+					<text style="date">1984</text>
+					<stamp width="30" height="36" title="" image="" i1="32c" i2="" i3="S 1009" f1="" f2="Gold mine head frame in pan" f3="" />
+					<text style="story" width="40">The stamp issued on 15 May 1984, commemorates the 50th anniversary of the gold mining community living in the city of Yellowknife, capital of Northwest Territories.\n</text>
+				</column>
+				<column width="36" rem="Tall Ships">
+					<text style="headline">TALL SHIPS</text>
+					<text style="date">1984</text>
+					<stamp width="30" height="40" title="" image="" i1="32c" i2="" i3="S 1012" f1="" f2="Tall Ships regatta" f3="" />
+					<text style="story" width="40">Over 85 of majestic two, three and four-masted ships dropped anchor in St. Lawrence River in Quebec City honouring the 450th anniversary of Jacques Cartier's first voyage to North America.</text>
+				</column>
+				<column width="36" rem="Canadian Red Cross">
+					<text style="headline">RED CROSS</text>
+					<text style="date">1984</text>
+					<stamp width="30" height="36" title="" image="" i1="32c" i2="" i3="S 1009" f1="" f2="Meritorious Service Medal" f3="" />
+					<text style="story" width="40">In recognition of their invaluable contribution, Canada Post issued this stamp featuring the medal awarded by The Canadian Red Cross Society for long-standing and meritorious voluntary service.</text>
+				</column>
+			</row>
+
+			<row height="10" />
+
+			<row space="14"  valign="bottom">
+				<column width="46" rem="Montreal Symphony" >
+					<text style="headline">MONTREAL SYMPHONY</text>
+					<text style="date">1984</text>
+					<stamp width="40" height="24" title="" image="" i1="32c" i2="" i3="S 1010" f1="" f2="Orchestra concert" f3="" />
+					<text style="story" width="40">The Montreal Symphony Orchestra, one of the largest principal orchestras in Canada, was founded in 1934 in the middle of the Great Depression by enthusiastic Quebec musicians.</text>
+				</column>
+				<column width="36" rem="Treffle Berthiaume">
+					<text style="headline">TREFFLÉ BERTHIAUME</text>
+					<text style="date">1984</text>
+					<stamp width="26" height="40" title="" image="" i1="32c" i2="" i3="S 1044" f1="" f2="Trefflé Berthiaume" f3="" />
+					<text style="story" width="40">Trefflé Berthiaume (1848-1915), was a Canadian newspaperman and politician. As the owner of the Montreal newspaper "La Presse" he championed many social causes, including improved conditions for workers and aid to children and the needy.</text>
+				</column>
+				<column width="46" rem="United Empire Loyalists" >
+					<text style="headline">UNITED EMPIRE LOYALISTS</text>
+					<text style="date">1984</text>
+					<stamp width="40" height="24" title="" image="" i1="32c" i2="" i3="S 1028" f1="" f2="Loyalists and British flag" f3="" />
+					<text style="story" width="40">Approximately 100,000 Loyalists fled the United Stated, at the end of American Revolution, about half of them in Canada contributing substantially to the pioneering efforts.\n</text>
+				</column>
+			</row>
+			</page>
+			.		
+</MyAlbum>

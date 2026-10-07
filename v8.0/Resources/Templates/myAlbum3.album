@@ -1,0 +1,1177 @@
+###################################################################################
+# sample AlbumEasy file. (c) 2005 Bundu Technology Ltd.
+# ---------------------------------------------------------------------------------
+# Note: the # character is used for comments, any text following the # is
+#       ignored.
+#
+# All measurements are in millimeters, except for font sizes which are points.
+###################################################################################
+
+
+# ---------------------------------------------------------------------------------
+# First setup the page elements that are common to all pages in this album.
+# ---------------------------------------------------------------------------------
+
+ALBUM_PAGES_SIZE	 (Letter)				# Letter, A4
+ALBUM_PAGES_MARGINS	 (7.0, 7.0, 7.0, 7.0)			# Top, Right, Bottom, Left
+ALBUM_PAGES_BORDER	 (0.5, 0.1, 0.5)			# Exterior, Interior, Space
+#ALBUM_PAGES_BORDER	 (0.3, 0, 0)			# Exterior, Interior, Space
+ALBUM_PAGE_TITLE_FONT	 (Century Gothic, 12, bold+italic)		# Bold, Italic, Regular, Underline, Strikeout
+ALBUM_PAGES_TITLE	 (C   A   N   A   D   A)
+ALBUM_PAGES_SPACING	 (6.0, 6.0, 1.0)			# LeftIndent, RightIndent, VerticalSpacing
+
+#DEFAULT_STAMP_VSPACING	  (1)					# the space between title and stamp frame
+#DEFAULT_STAMP_TITLE_FONT (Century Gothic, 10, cold+underline)
+#DEFAULT_STAMP_TEXT_FONT  (Century Gothic,  6, regular)
+#DEFAULT_STAMP_BORDER	  (0.4, 0.1, 0.3)			# Exterior, Interior, Space
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 1 - Cover
+# ---------------------------------------------------------------------------------
+
+PAGE_START							# LAND(scape), PORT(rait)
+
+SPACE (75)
+FONT (Century Gothic, 36, italic)
+PAGE_TEXT_CENTRE (C  A  N  A  D  A)
+SPACE(20)
+PAGE_TEXT_CENTRE (1 8 9 7  -  1 9 7 5)
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 2 - Queen Victoria (1870 - 1893)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, regular)
+PAGE_TEXT_CENTRE (1870-93)
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 3 - Diamond Jubilee  (1897)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, regular)
+PAGE_TEXT_CENTRE (1897)
+
+SPACE(5)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (60th year of Queen Victoria’s reign)
+
+ROW_START (JS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 1/2c, black, S 50, , QUEEN VICTORIA "1837" AND "1897", )
+  STAMP_ADD(, 38, 26, 3, , 1c, orange, S 51, , , )
+  STAMP_ADD(, 38, 26, 3, , 2c, green, S 52, , , )
+  STAMP_ADD(, 38, 26, 3, , 3c, bright rose, S 53, , , )
+ROW_END
+SPACE(0)
+ROW_START (JS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 5c, deep blue, S 54, , , )
+  STAMP_ADD(, 38, 26, 3, , 6c, yellow brown, S 55, , , )
+  STAMP_ADD(, 38, 26, 3, , 8c, dark violet, S 56, , , )
+  STAMP_ADD(, 38, 26, 3, , 10c, brown violet, S 57, , , )
+ROW_END
+SPACE(2)
+ROW_START (JS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 15c, steel blue, S 58, , , )
+  STAMP_ADD(, 38, 26, 3, , 20c, vermillion, S 59, , , )
+  STAMP_ADD(, 38, 26, 3, , 50c, ultramarine, S 60, , , )
+  STAMP_ADD(, 38, 26, 3, , $1, lake, S 61, , , )
+ROW_END
+SPACE(2)
+ROW_START (JS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , $2, dark purple, S 62, , , )
+  STAMP_ADD(, 38, 26, 3, , $3, yellow bistre, S 63, , , )
+  STAMP_ADD(, 38, 26, 3, , $4, purple, S 64, , , )
+  STAMP_ADD(, 38, 26, 3, , $5, olive green, S 65, , , )
+ROW_END
+
+
+SPACE (15)
+FONT (Century Gothic, 14, regular)
+PAGE_TEXT_CENTRE (1898)
+SPACE(5)
+
+FONT (Century Gothic, 10,  normal)
+#PAGE_TEXT_CENTRE (Imperial Penny Postage)
+ROW_START (FS, CEN, 0, 0, 0, 0, 0, Century Gothic, 10, regular, Century Gothic, 6, regular)
+  STAMP_ADD(Imperial Penny Postage, 94, 0, 0, , , , , , , )
+  ROW_SPACE(24)
+  STAMP_ADD(Special Delivery, 42, 0, 0, , , , , , , )
+ROW_END
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 2c, black\, levander\, carmine, S 85, , MAP OF BRITISH EMPIRE ON\nMERCATOR PROJECTION, )
+  STAMP_ADD(, 38, 26, 3, , 2c, black\, blue\, carmine, S 86, , , )
+  ROW_SPACE(12)
+  STAMP_ADD(, 36, 26, 3, , 10c, green, S E1, , , )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 4 - Queen Victoria (1897 - 1902)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, regular)
+PAGE_TEXT_CENTRE (1897-98)
+
+SPACE (5)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 1/2c, black, S 66, , QUEEN VICTORIA, )
+  STAMP_ADD(, 22, 26, 3, , 1c, blue green, S 67, , , )
+  STAMP_ADD(, 22, 26, 3, , 2c, purple, S 68, , , )
+  STAMP_ADD(, 22, 26, 3, , 3c, carmine, S 69, , , )
+  STAMP_ADD(, 22, 26, 3, , 5c, blue, S 70, , , )
+ROW_END
+
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 6c, brown, S 71, , , )
+  STAMP_ADD(, 22, 26, 3, , 8c, orange, S 72, , , )
+  STAMP_ADD(, 22, 26, 3, , 10c, brown violet, S 73, , , )
+  STAMP_ADD(, 22, 26, 3, , 2c/3c, carmine, S 87, , , )
+ROW_END
+
+SPACE (13)
+FONT (Century Gothic, 14, regular)
+PAGE_TEXT_CENTRE (1898-02)
+SPACE(5)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 1/2c, black, S 74, , , )
+  STAMP_ADD(, 22, 26, 3, , 1c, gray green, S 75, , , )
+  STAMP_ADD(, 22, 26, 3, , 2c, purple, S 76, , , )
+  STAMP_ADD(, 22, 26, 3, , 2c, carmine, S 77, , , )
+  STAMP_ADD(, 22, 26, 3, , 3c, carmine, S 78, , , )
+ROW_END
+SPACE(3)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 5c, blue, S 79, , , )
+  STAMP_ADD(, 22, 26, 3, , 6c, brown, S 80, , , )
+  STAMP_ADD(, 22, 26, 3, , 7c, olive yellow, S 81, , , )
+  STAMP_ADD(, 22, 26, 3, , 8c, orange, S 82, , , )
+ROW_END
+SPACE(3)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 10c, brown violet, S 83, , , )
+  STAMP_ADD(, 22, 26, 3, , 20c, olive green, S 84, , , )
+  STAMP_ADD(, 22, 26, 3, , 2c/3c, carmine, S 88, , , )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 5 - Quebec Tercentenary (1908)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, regular)
+PAGE_TEXT_CENTRE (1903-08)
+
+SPACE (5)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 1c, green, S 89, , KING EDWARD VII, )
+  STAMP_ADD(, 22, 26, 3, , 2c, carmine, S 90, , , )
+  STAMP_ADD(, 22, 26, 3, , 5c, blue, S 91, , , )
+  STAMP_ADD(, 22, 26, 3, , 7c, olive bister, S 92, , , )
+ROW_END
+SPACE (2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 10c, brown lilac, S 93, , , )
+  STAMP_ADD(, 22, 26, 3, , 20c, olive green, S 94, , , )
+  STAMP_ADD(, 22, 26, 3, , 50c, purple, S 95, , , )
+ROW_END
+
+SPACE (13)
+FONT (Century Gothic, 14, regular)
+PAGE_TEXT_CENTRE (1908)
+
+SPACE (2)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Quebec Tercentenary)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 1/2c, black brown, S 96, , PRINCE AND PRINCESS OF WALES, )
+  STAMP_ADD(, 38, 26, 3, , 1c, blue green, S 97, , JACQUES CARTIER AND SAMUEL DE CHAMPLAIN, )
+  STAMP_ADD(, 38, 26, 3, , 2c, carmine, S 98, , QUEEN ALEXANDRA AND KING EDWARD, )
+ROW_END
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 5c, dark blue, S 99, , CHAMPLAIN'S HOME IN QUEBEC, )
+  STAMP_ADD(, 38, 26, 3, , 7c, olive green, S 100, , GENERALS MONTCALM AND WOLFE, )
+  STAMP_ADD(, 38, 26, 3, , 10c, dark violet, S 101, , VIEW OF QUEBEC IN 1700, )
+ROW_END
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 15c, red orange, S 102, , CHAMPLAIN'S DEPARTURE FOR WEST, )
+  STAMP_ADD(, 38, 26, 3, , 20c, yellow brown, S 103, , ARRIVAL OF CARTIER AT QUEBEC, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 6 - King George V, Admiral Issue (1911 - 1925)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, regular)
+PAGE_TEXT_CENTRE (1911-25)
+
+SPACE (15)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 1c, green, S 104, , KING GEORGE V, )
+  STAMP_ADD(, 22, 26, 3, , 1c, orange yellow, S 105, , , )
+  STAMP_ADD(, 22, 26, 3, , 2c, carmine, S 106, , , )
+  STAMP_ADD(, 22, 26, 3, , 2c, yellow green, S 107, , , )
+  STAMP_ADD(, 22, 26, 3, , 3c, brown, S 108, , , )
+ROW_END
+
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 3c, carmine, S 109, , , )
+  STAMP_ADD(, 22, 26, 3, , 4c, olive bister, S 110, , , )
+  STAMP_ADD(, 22, 26, 3, , 5c, dark blue, S 111, , , )
+  STAMP_ADD(, 22, 26, 3, , 5c, violet, S 112, , , )
+  STAMP_ADD(, 22, 26, 3, , 7c, yellow ocher, S 113, , , )
+ROW_END
+
+SPACE(5)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 7c, red brown, S 114, , , )
+  STAMP_ADD(, 22, 26, 3, , 8c, blue, S 115, , , )
+  STAMP_ADD(, 22, 26, 3, , 10c, plum, S 116, , , )
+  STAMP_ADD(, 22, 26, 3, , 10c, blue, S 117, , , )
+  STAMP_ADD(, 22, 26, 3, , 10c, bister brown, S 118, , , )
+ROW_END
+
+SPACE(5)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 20c, olive green, S 119, , , )
+  STAMP_ADD(, 22, 26, 3, , 50c, black brown, S 120, , , )
+  STAMP_ADD(, 22, 26, 3, , $1, orange, S 122, , , )
+  STAMP_ADD(, 22, 26, 3, , 2c/3c, carmine, S 139, , , )
+  STAMP_ADD(, 22, 26, 3, , 2c/3c, carmine, S 140, , , )
+ROW_END
+
+SPACE(5)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 10, regular, Century Gothic, 6, regular)
+  STAMP_ADD(Perforated 12x8, 22, 26, 3, , 3c, carmine, S 184, , , )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 7 - King George V, Admiral Issue (1911 - 1925)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, regular)
+PAGE_TEXT_CENTRE (1911-25)
+
+SPACE (10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Perforated 8 Vertically)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 42, 24, 3, , 1c, green, S 125pa, , , )
+  STAMP_ADD(, 42, 24, 3, , 1c, orange yellow, S 126pa, , , )
+  STAMP_ADD(, 42, 24, 3, , 2c, carmine, S 127pa, , , )
+ROW_END
+SPACE (5)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 42, 24, 3, , 2c, green, S 128pa, , , )
+  STAMP_ADD(, 42, 24, 3, , 3c, brown, S 129pa, , , )
+  STAMP_ADD(, 42, 24, 3, , 3c, carmine, S 130pa, , , )
+ROW_END
+
+SPACE (10)
+ROW_START (FS, CEN, 4, 1, 0.0, 0.0, 0.0, Century Gothic, 10, regular, Century Gothic, 6, regular)
+  STAMP_ADD(Perforated 8 Horizontally, 52, -6, 3, , , , , , , )
+  ROW_SPACE(2)
+  STAMP_ADD(Perforated 12 Horizontally, 114, -6, 3, , , , , , , )
+ROW_END
+SPACE(-3)
+ROW_START (FS, CEN, 4, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 21, 50, 3, , 1c, dark green, S 123pa, , , )
+  STAMP_ADD(, 21, 50, 3, , 2c, carmine, S 124pa, , , )
+  ROW_SPACE(2)
+  STAMP_ADD(, 21, 50, 3, , 1c, dark green, S 131pa, , , )
+  STAMP_ADD(, 21, 50, 3, , 2c, carmine, S 132pa, , , )
+  STAMP_ADD(, 21, 50, 3, , 2c, yellow green, S 133pa, , , )
+  STAMP_ADD(, 21, 50, 3, , 3c, brown, S 134pa, , , )
+ROW_END
+
+SPACE (10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Imperforated)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 1c, orange yellow, S 136, , , )
+  STAMP_ADD(, 22, 26, 3, , 2c, green, S 137, , , )
+  STAMP_ADD(, 22, 26, 3, , 3c, carmine, S 138, , , )
+ROW_END
+136pa		KGV Admiral, coil, imperf  - orange yellow	1c		$150.00	-	$75.00	-	pic	orange yellow	x	x
+137pa		KGV Admiral, coil, imperf  - green		2c		-	$75.00	-	-	pic	green	x	x
+138pa		KGV Admiral, coil, imperf  - carmine		3c		$75.00	-	-	-	pic	carmine	x	x
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 8 - 50th anniv. of the Canadian Confederation. (1917)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, regular)
+PAGE_TEXT_CENTRE (1917)
+
+SPACE (5)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (50th anniv. of the Canadian Confederation)
+
+ROW_START (FS, CEN, 3, 1, 0.4, 0.1, 0.3, Century Gothic, 10, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 3c, brown, S 135, , "THE FATHERS OF CONFEDERATION", )
+ROW_END
+
+
+SPACE (10)
+FONT (Century Gothic, 14, regular)
+PAGE_TEXT_CENTRE (1927)
+
+SPACE (3)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (60th year of the Canadian Confederation)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 10, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 1c, orange, S 141, , SIR JOHN A. MACDONALD, )
+  STAMP_ADD(, 38, 26, 3, , 2c, green, S 142, , "THE FATHERS OF CONFEDERATION", )
+  STAMP_ADD(, 38, 26, 3, , 3c, brown carmine, S 143, , PARLIAMENT BUILDING AT OTTAWA, )
+  STAMP_ADD(, 22, 26, 3, , 5c, violet, S 144, , SIR WILFRID LAURIER, )
+ROW_END
+
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 10, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 12c, dark blue, S 145, , MAP OF CANADA, )
+  STAMP_ADD(, 26, 38, 3, images\E3-Special Delivery.jpg, 20c, orange, S E3, , FIVE STAGES OF MAIL TRANSPORTATION\,\nSPECIAL DELIVERY, )
+ROW_END
+
+
+SPACE (10)
+FONT (Century Gothic, 14, regular)
+PAGE_TEXT_CENTRE (1927)
+
+SPACE(3)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 12c, green, S 147, , LAURIER AND MACDONALD, )
+  STAMP_ADD(, 22, 26, 3, , 5c, violet, S 146, , THOMAS D'ARCY MCGEE, )
+  STAMP_ADD(, 38, 26, 3, , 20c, brown carmine, S 148, , BALDWIN AND LAFONTAINE, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 9 - King George V, Scroll Issue (1928-29)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1928-29)
+
+SPACE(10)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 1c, orange, S 149, , KING GEORGE V, )
+  STAMP_ADD(, 22, 26, 3, , 2c, green, S 150, , , )
+  STAMP_ADD(, 22, 26, 3, , 3c, dark carmine, S 151, , , )
+  STAMP_ADD(, 22, 26, 3, , 4c, bister, S 152, , , )
+ROW_END
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 5c, deep violet, S 153, , , )
+  STAMP_ADD(, 22, 26, 3, , 8c, blue, S 154, , , )
+ROW_END
+
+
+SPACE(7)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Pictorials)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 5c, brown olive, S C1, , ALLEGORY OF FLIGHT\, AIR POST, )
+  STAMP_ADD(, 38, 26, 3, , 10c, green, S 155, , MOUNT HURD, )
+  STAMP_ADD(, 38, 26, 3, , 12c, gray, S 156, , QUEBEQ BRIDGE, )
+ROW_END
+
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 20c, dark carmine, S 157, , HARVESTING WHEAT, )
+  STAMP_ADD(, 38, 26, 3, images\0158 - Shooner Bluenose.jpg, 50c, dark blue, S 158, , SCHOONER "BLUENOSE", )
+  STAMP_ADD(, 38, 26, 3, images\0159 - Parliament Building.jpg, $1, olive green, S 159, , PARLIAMENT BUILDING, )
+ROW_END
+
+
+SPACE(7)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Coil Stamps: Perforated 8 Vertically)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 44, 26, 3, , 1c, orange, S 160pa, , tata, )
+  STAMP_ADD(, 44, 26, 3, , 2c, green, S 161pa, , , )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 10 - King George V, Arch Issue (1930-31)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+#SPACE (20)
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1930-31)
+
+SPACE (10)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 1c, orange, S 162, , KING GEORGE V, )
+  STAMP_ADD(, 22, 26, 3, , 1c, deep green, S 163, , , )
+  STAMP_ADD(, 22, 26, 3, , 2c, dull green, S 164, , , )
+  STAMP_ADD(, 22, 26, 3, , 2c, dull red, S 165, , , )
+  STAMP_ADD(, 22, 26, 3, , 2c, dark brown, S 166, , , )
+ROW_END
+
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 3c, deep red, S 167, , , )
+  STAMP_ADD(, 22, 26, 3, , 4c, yellow bister, S 168, , , )
+  STAMP_ADD(, 22, 26, 3, , 5c, dull violet, S 169, , , )
+  STAMP_ADD(, 22, 26, 3, , 5c, dull blue,  S 170, , , )
+  STAMP_ADD(, 22, 26, 3, , 8c, dark blue, S 171, , , )
+ROW_END
+
+SPACE(5)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 8c, red orange,  S 172, , , )
+  STAMP_ADD(, 22, 26, 3, , 3c/2c, deep red, S 191, , , )
+ROW_END
+
+SPACE(10)
+FONT (Century Gothic, 10, normal)
+PAGE_TEXT_CENTRE (Pictorials)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 5c, brown olive, S C2, , ALLEGORY-AIR MAIL CIRCLES GLOBE\,\nAIR POST, )
+  STAMP_ADD(, 22, 26, 3, , 10c, olive green, S 173, , LIBRARY OF PARLIAMENT, )
+  STAMP_ADD(, 38, 26, 3, , 12c, gray black, S 174, , THE CITADEL AT QUEBEQ, )
+  STAMP_ADD(, 38, 26, 3, , 20c, brown red, S 175, , HARVESTING WHEAT, )
+ROW_END
+
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, images\0176 - Grand Pre.jpg, 50c, dull blue, S 176, , MUSEUM AT GRAND PRE, )
+  STAMP_ADD(, 38, 26, 3, images\0177 - Mt. Edith Cavell.jpg, $1, dark olive green, S 177, , MT. EDITH CAVELL, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 11 - Imperial Economic Conference, Ottawa (1932)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1930-31)
+
+SPACE (5)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Coil Stamps: Perforated 8 1/2 Vertically)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 44, 26, 3, , 1c, orange, S 178pa, , KGV, )
+  STAMP_ADD(, 44, 26, 3, , 1c, deep green, S 179pa, , , )
+  STAMP_ADD(, 44, 26, 3, , 2c, dull green, S 180pa, , , )
+ROW_END
+
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 44, 26, 3, , 2c, deep red, S 181pa, , , )
+  STAMP_ADD(, 44, 26, 3, , 2c, dark brown, S 182pa, , , )
+  STAMP_ADD(, 44, 26, 3, , 3c, deep red, S 183pa, , , )
+ROW_END
+
+
+SPACE(17)
+ROW_START (ES, CEN, 6, 1, 0, 0, 0, Century Gothic, 14, regular, Century Gothic, 6, regular)
+  STAMP_ADD(1931, 22, 0, 3, , , , , , , )
+  STAMP_ADD(1932, 38, 0, 3, , , , , , , )
+ROW_END
+Space(-5)
+ROW_START (ES, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 10, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 10c, dark green, S 190, , SIR GEORGE ETIENNE CARTIER, )
+  STAMP_ADD(, 38, 26, 3, , 6c/5c, brown olive, S C3, , ALLEGORY OF FLIGHT\,\nAIR POST\, SURCHARGED, )
+ROW_END
+
+
+SPACE(13)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1932)
+
+SPACE(3)
+FONT (Century Gothic, 10, normal)
+PAGE_TEXT_CENTRE (Imperial Economic Conference, Ottawa)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 3c, deep red, S 192, , KING GEORGE V, )
+  STAMP_ADD(, 22, 26, 3, , 5c, dull blue, S 193, , EDWARD\, PRINCE OF WALES, )
+  STAMP_ADD(, 38, 26, 3, , 13c, deep green, S 194, , ALLEGORY OF BRITHISH EMPIRE, )
+  STAMP_ADD(, 38, 26, 3, , 6c/5c, brown olive, S C4, , ALLEGORY-AIR MAIL CIRCLES GLOBE\,\nAIR POST\, SURCHARGED, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 12 - King George V, Medallion Issue (1932)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1932)
+
+SPACE (10)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 1c, dark green, S 195, , KING GEORGE V, )
+  STAMP_ADD(, 22, 26, 3, , 2c, black brown, S 196, , , )
+  STAMP_ADD(, 22, 26, 3, , 3c, deep red, S 197, , , )
+  STAMP_ADD(, 22, 26, 3, , 4c, ocher, S 198, , , )
+ROW_END
+
+SPACE (2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 5c, dark blue, S 199, , , )
+  STAMP_ADD(, 22, 26, 3, , 6c, red orange, S 200, , , )
+ROW_END
+
+
+SPACE(10)
+FONT (Century Gothic, 10, normal)
+PAGE_TEXT_CENTRE (Pictorials)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 13c, dull violet, S 201, , THE CITADEL AT QUEBEC, )
+ROW_END
+
+
+SPACE(15)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Coil Stamps: Perforated 8 1/2 Vertically)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 44, 26, 3, , 1c, dark green, S 205pa, , , )
+  STAMP_ADD(, 44, 26, 3, , 2c, black brown, S 206pa, , , )
+  STAMP_ADD(, 44, 26, 3, , 3c, deep red, S 207pa, , , )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 13 - Commemoratives (1933-34)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1933-34)
+
+SPACE(5)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(Meeting of the Executive\nCommittee of the UPU at Ottawa\,\nMay and June\, 1933, 46, 29, 3, , 5c, dark blue, S 202, , PARLIAMENT BUIDINGS\, OTTAWA, )
+  STAMP_ADD(World's Grain Exhibition and \nConference at Regina, 38, 26, 3, , 20c,  brown red, S 203, , HARVESTING WHEAT\,\nOVERPRINTES, )
+  STAMP_ADD(Centenary of first Trans-Atlantic\npassage under steam all the way, 44, 28, 3, , 5c, dark blue, S 204, , STEAMSHIP ROYAL WILLIAM, )
+ROW_END
+
+SPACE(5)
+ROW_START (FS, CEN, 0, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  ROW_SPACE(7.5)
+  STAMP_ADD(Landing of Jacques Cartier\,\n400th anniv., 31, 42, 3, , 3c,  blue, S 208, , CARTIER'S ARRIVAL AT QUEBEQ, )
+  ROW_SPACE(13.5)
+  STAMP_ADD(Emigration of the United Empire\nLoyalists from the US to Canada\,\n 150th anniv., 38, 26, 3, , 10c, olive green, S 209, , GROUP FROM LOYLISTS MONUMENT \, HAMILTON\, ON, )
+  ROW_SPACE(12.5)
+  STAMP_ADD(150th anniv. \nof the founding of the \nProvince of New Brunswick, 31, 35, 3, , 2c,  brown, S 210, , SEAL OF NEW BRUNSWICK, )
+  ROW_SPACE(6.5)
+ROW_END
+
+
+SPACE (15)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1935)
+
+
+SPACE(5)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (25th Anniv. of the Accession to the Throne of King George V)
+
+SPACE(0)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 1c, green, S 211, , PRINCESS ELIZABETH, )
+  STAMP_ADD(, 22, 26, 3, , 2c, brown, S 212, , DUKE OF YORK, )
+  STAMP_ADD(, 38, 26, 3, , 3c, carmine, S 213, , KING GEORGE V & QUEEN MARY, )
+  STAMP_ADD(, 22, 26, 3, , 5c, blue, S 214, , PRINCE OF WALES, )
+ROW_END
+
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 10c, green, S 215, , WINDSOR CASTLE, )
+  STAMP_ADD(, 38, 26, 3, , 13c, dark blue, S 216, , ROYAL YACHT "BRITANIA", )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 14 - King George V, Pictorial Issue (1935)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1935)
+
+SPACE(10)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 1c, green, S 217, ,KING GEORGE V, )
+  STAMP_ADD(, 22, 26, 3, , 2c, brown, S 218, , , )
+  STAMP_ADD(, 22, 26, 3, , 3c, dark carmine, S 219, , , )
+  STAMP_ADD(, 22, 26, 3, , 4c, yellow orange, S 220, , , )
+ROW_END
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 5c, blue, S 221, , , )
+  STAMP_ADD(, 22, 26, 3, , 8c, orange, S 222, , , )
+ROW_END
+
+
+SPACE(7)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Pictorials)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 6c, red brown, S C5, , DAEDALUS IN FLIGHT\, AIR POST, )
+  STAMP_ADD(, 38, 26, 3, , 10c, carmine rose, S 223, , R.C.M.P., )
+  STAMP_ADD(, 38, 26, 3, , 13c, violet, S 224, , CONFEDERATION CONFERENCE\nCHARLOTTETOWN - 1964, )
+ROW_END
+
+SPACE(0)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 20c, olive green, S 225, , Niagara Falls, )
+  STAMP_ADD(, 38, 26, 3, , 50c, dull violet, S 226, , PARLIAMENT BUILDINGS\,\nVICTORIA\, BC, )
+  STAMP_ADD(, 38, 26, 3, , $1, deep blue, S 227, , CHAMPLAIN MONUMNET\, QUEBEQ, )
+ROW_END
+
+
+SPACE(7)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Coil Stamps: Perforated 8 Vertically)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 8, regular)
+  STAMP_ADD(, 44, 26, 3, , 1c, dark green, S 228pa, , , )
+  STAMP_ADD(, 44, 26, 3, , 2c, black brown, S 229pa, , , )
+  STAMP_ADD(, 44, 26, 3, , 3c, dark carmine, S 230pa, , , )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 15 - King George VI, Mufti Issue (1937)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1937)
+
+SPACE(10)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 1c, green, S 231, , KING GEORGE VI, )
+  STAMP_ADD(, 22, 26, 3, , 2c, brown, S 232, , , )
+  STAMP_ADD(, 22, 26, 3, , 3c, carmine, S 233, , , )
+  STAMP_ADD(, 22, 26, 3, , 4c, yellow, S 234, , , )
+ROW_END
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 5c, blue, S 235, , , )
+  STAMP_ADD(, 22, 26, 3, , 8c, orange, S 236, , , )
+ROW_END
+
+
+SPACE(14)
+FONT (Century Gothic, 10,  normal)
+#PAGE_TEXT_CENTRE (CORONATION ISSUE)
+PAGE_TEXT_CENTRE (Coronation Issue)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 10c, carmine, S 237, , KING GEORGE VI & QUEEN ELIZABETH, )
+ROW_END
+
+
+SPACE(14)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Coil Stamps: Perforated 8 Vertically)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 8, regular)
+  STAMP_ADD(, 44, 26, 3, , 1c, green, S 238pa, , , )
+  STAMP_ADD(, 44, 26, 3, , 2c, brown, S 239pa, , , )
+  STAMP_ADD(, 44, 26, 3, , 3c, carmine, S 240pa, , , )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 16 - Pictorial Issue (1938)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1938)
+
+SPACE(10)
+ROW_START (FS, BOTTOM, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 6c, deep blue, S C6, , MACKENZIE RIVER\, STEAMER AND SEAPLANE\,\nAIR POST, )
+  STAMP_ADD(, 26, 38, 3, , 10c, dark carmine, S 241, , MEMORIAL CHAMBER\,\nPARLIAMENT BUILDING\, OTTAWA, )
+  STAMP_ADD(, 38, 26, 3, , 13c, deep blue, S 242, , ENTRANCE TO HALIFAX HARBOR, )
+ROW_END
+
+SPACE(5)
+ROW_START (FS, BOTTOM, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 20c, red brown, S 243, , FORT GARRY GATE\, WINNIPEG, )
+  STAMP_ADD(, 38, 26, 3, , 50c, green, S 244, , ENTRANCE TO VANCOUVER HARBOR, )
+  STAMP_ADD(, 38, 26, 3, images\0245 - Chateau de Ramezay.jpg, $1, dull violet, S 245, , CHATEAU DE RAMESAY\, MONTREAL, )
+ROW_END
+
+
+SPACE (25)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1939)
+
+SPACE (10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Visit of King George VI and Queen Elizabeth to Canada and the US)
+
+ROW_START (FS, BOTTOM, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 1c, green & black, S 246, , PRINCESS ELIZABETH & PRINCESS MARGARET ROSE, )
+  STAMP_ADD(, 26, 38, 3, , 2c, brown & black, S 247, , WAR MEMORIAL\, OTTAWA, )
+  STAMP_ADD(, 38, 26, 3, , 3c, dark carmine & black, S 248, , KING GEORGE VI and QUEEN ELIZABETH, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 17 - Special Delivery Stamps (1922-39)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1922-39)
+
+SPACE (11.7)
+FONT (Century Gothic, 10, italic)
+PAGE_TEXT_CENTRE (Special Delivery Stamps)
+
+ROW_START (FS, BOT, 8, 1, 0.4, 0.1, 0.3, Century Gothic, 10, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 47, 31, 3, images\E4 - Special Delivery - 20c.jpg, 20c, henna brown, S E4, , 1930, )
+  STAMP_ADD(, 47, 31, 3, images\E5 - Special Delivery - 20c.jpg, 20c, henna brown, S E5, , 1932, )
+  STAMP_ADD(, 47, 31, 3, images\E2 - Special Delivery.jpg, 10c, carmine, S E2, , 1922, )
+ROW_END
+
+SPACE(6)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 10, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 47, 31, 3, images\E6 - Allegory of Progress.jpg, 20c, dark carmine, S E6, , ALLEGORY OF PROGRESS\, 1935, )
+  STAMP_ADD(, 47, 31, 3, images\E8 - Arms of Canada - 20c.jpg, 20c, dark carmine, S E8, , 1938, )
+  STAMP_ADD(, 47, 31, 3, images\E9 - Arms of Canada\, surcharged .jpg, 10c/20c, dark carmine, S E9, , 1939, )
+ROW_END
+
+SPACE(6)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 10, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 47, 31, 3, images\E7 - Arms of Canada - 10c.jpg, 10c, dark green, S E7, , 1939, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 18 - WWII
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (75)
+FONT (Century Gothic, 24, italic)
+PAGE_TEXT_CENTRE (Canada’s contribution to the war effort)
+PAGE_TEXT_CENTRE (of the Allied Nations)
+SPACE(14)
+PAGE_TEXT_CENTRE (1 9 4 2  -  1 9 4 3)
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 19 - KGVI, war issue (1942-43)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1942-43)
+
+SPACE (3)
+FONT (Century Gothic, 10, italic)
+PAGE_TEXT_CENTRE (Canada’s contribution to the war effort of the Allied Nations)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 1c, green, S 249, , KING GEORGE VI IN NAVAL UNIFORM, )
+  STAMP_ADD(, 22, 26, 3, , 2c, brown, S 250, , IN ARMY UNIFORM, )
+  STAMP_ADD(, 22, 26, 3, , 3c, dark carmine, S 251, , IN AIR FORCE UNIFORM, )
+  STAMP_ADD(, 22, 26, 3, , 3c, rose violet, S 252, , IN AIR FORCE UNIFORM, )
+ROW_END
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 26, 22, 3, , 4c, greenish black, S 253, , GRAIN ELEVATORS, )
+  STAMP_ADD(, 22, 26, 3, , 4c, dark carmine, S 254, , IN ARMY UNIFORM, )
+  STAMP_ADD(, 22, 26, 3, , 5c, deep blue, S 255, , IN NAVAL UNIFORM, )
+  STAMP_ADD(, 26, 22, 3, , 8c, red brown, S 256, , FARM SCENE, )
+ROW_END
+
+
+SPACE(7)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Pictorials)
+
+ROW_START (FS, BOT, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 13c, dull green, S 258, , "RAM" TANK, )
+  STAMP_ADD(, 26, 38, 3, , 10c, brown, S 257, , PARLIAMENT BUILDINGS, )
+  STAMP_ADD(, 38, 26, 3, , 14c, dull green, S 225, , "RAM" TANK, )
+ROW_END
+
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 20c, chocolate, S 260, , CORVETTE, )
+  STAMP_ADD(, 38, 26, 3, , 50c, violet, S 261, , MUNITION FACTORY, )
+  STAMP_ADD(, 38, 26, 3, , $1, deep blue, S 262, , DESTROYER, )
+ROW_END
+
+SPACE(2)
+ROW_START (FS, CEN, 12, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 6c, deep blue, S C7, , PLANES AND STUDENT FLYERS\, AIR POST, )
+  STAMP_ADD(, 38, 26, 3, , 7c, deep blue, S C8, , , )
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 20 - KGVI, war issue (1942-43)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1942-43, 1948)
+
+SPACE (15)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Coil Stamps: Perforated 8 Vertically)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 44, 25, 3, , 1c, green, S 263pa, , KING GEORGE VI, )
+  STAMP_ADD(, 44, 25, 3, , 2c, brown, S 264pa, , , )
+  STAMP_ADD(, 44, 25, 3, , 3c, dark carmine, S 265pa, , , )
+ROW_END
+
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 44, 25, 3, , 3c, rose violet, S 266pa, , , )
+  STAMP_ADD(, 44, 25, 3, , 4c, dark carmine, S 267pa, , , )
+ROW_END
+
+SPACE (15)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Coil Stamps: Perforated 9 1/2 Vertically)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 44, 25, 3, , 1c, green, S 278pa, , , )
+  STAMP_ADD(, 44, 25, 3, , 2c, brown, S 279pa, , , )
+  STAMP_ADD(, 44, 25, 3, , 3c, dark carmine, S 280pa, , , )
+ROW_END
+
+SPACE(5)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 44, 25, 3, , 4c, dark carmine, S 281pa, , , )
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 21 - KGVI, war issue (1942-43)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1942-43)
+
+SPACE (15)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Official Stamps)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, , 1c, green, S O1, , , )
+  STAMP_ADD(, 22, 26, 3, , 2c, brown, S O2, , , )
+  STAMP_ADD(, 22, 26, 3, , 3c, rose violet, S O3, , , )
+  STAMP_ADD(, 22, 26, 3, , 4c, dark carmine, S O4, , , )
+ROW_END
+
+
+SPACE (15)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Special Delivery Stamps)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 47, 31, 3, , 10c, green, S E10, , COAT OF ARMS AND FLAGS, )
+  STAMP_ADD(, 47, 31, 3, , 16c, bright ultra, S CE1, , TRANS-CANADA AIRPLANE\, AIR POST, )
+  STAMP_ADD(, 47, 31, 3, , 17c, bright ultra, S CE2, , , )
+ROW_END
+
+
+# ---------------------------------------------------------------------------------
+# Page 22 - Pictorials, Peace Issue (1946)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1946)
+
+SPACE (10)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 7c, deep blue, S C9, , CANADA GEESE IN FLIGHT\, AIR POST, )
+  STAMP_ADD(, 38, 26, 3, , 8c, red brow, S 268, , FARM SCENE\, ONTARIO, )
+  STAMP_ADD(, 38, 26, 3, , 10c, olive, S 269, ,GREAT BEAR LAKE\, NORTHWEST TERRITORIES, )
+ROW_END
+
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 14c, black brown, S 270, , HYDROELECTRIC POWER PLANT\, QUEBEC, )
+  STAMP_ADD(, 38, 26, 3, , 20c, slate black, S 271, , COMBINE\, CANADIAN PRAIRIES, )
+  STAMP_ADD(, 38, 26, 3, , 50c, dark blue green, S 272, , LOGGING\, BRITISH COLUMBIA, )
+ROW_END
+
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , $1, red violet, S 273, , TRAIN FERRY\, PRINCE EDWARD ISLAND, )
+ROW_END
+
+SPACE (10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Special Delivery Stamps)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 47, 31, 3, , 10c, green, S E11, , COAT OF ARMS AND FLAGS, )
+  STAMP_ADD(, 47, 31, 3, , 16c, bright ultra, S CE3, , TRANSATLANTIC MAIL PLANE OVER QUEBEQ\,\nAIR POST\, "E" CIRCUMFLEX, )
+  STAMP_ADD(, 47, 31, 3, , 17c, bright ultra, S CE4, , "E" GRAVE, )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 23 - Pictorials, Peace Issue, Officials (1946)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, italic)
+PAGE_TEXT_CENTRE (1949-50)
+
+SPACE (3)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Official Stamps)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 7c, deep blue, S CO1, , CANADA GEESE IN FLIGHT\, AIR POST, )
+  STAMP_ADD(, 38, 26, 3, , 10c, olive, S O6, , GREAT BEAR LAKE\, NORTHWEST TERRITORIES, )
+  STAMP_ADD(, 38, 26, 3, , 14c, black brown, S O7, , HYDROELECTRIC POWER PLANT\, QUEBEC, )
+ROW_END
+
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 20c, slate black, S O8, , COMBINE\, CANADIAN PRAIRIES, )
+  STAMP_ADD(, 38, 26, 3, images\O9.jpg, 50c, dark blue green, S O9, , LOGGING\, BRITISH COLUMBIA, )
+  STAMP_ADD(, 38, 26, 3, , $1, red violet, S O10, , TRAIN FERRY\, PRINCE EDWARD ISLAND, )
+ROW_END
+
+
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 7c, deep blue, S CO2, , CANADA GEESE IN FLIGHT\, AIR POST, )
+  STAMP_ADD(, 38, 26, 3, , 10c, olive, S O21, , GREAT BEAR LAKE\, NORTHWEST TERRITORIES, )
+  STAMP_ADD(, 38, 26, 3, , 14c, black brown, S O22, , HYDROELECTRIC POWER PLANT\, QUEBEC, )
+ROW_END
+
+SPACE(2)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 38, 26, 3, , 20c, slate black, S O23, , COMBINE\, CANADIAN PRAIRIES, )
+  STAMP_ADD(, 38, 26, 3, , $1, red violet, S O25, , TRAIN FERRY\, PRINCE EDWARD ISLAND, )
+ROW_END
+
+
+SPACE (10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Special Delivery Stamps)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 47, 31, 3, , 10c, green, S EO1, , COAT OF ARMS AND FLAGS, )
+  STAMP_ADD(, 47, 31, 3, , 10c, green, S EO2, , , )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 24 - King George VI (1949 - 1951)
+# ---------------------------------------------------------------------------------
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, regular)
+PAGE_TEXT_CENTRE (1949-51)
+
+SPACE (5)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, images\0284.jpg, 1c, green, Sc 284, , KING GEORGE VI, )
+  STAMP_ADD(, 22, 26, 3, images\0285.jpg, 2c, sepia, Sc 285, , , )
+  STAMP_ADD(, 22, 26, 3, images\0286.jpg, 3c, rose violet, Sc 286, , , )
+  STAMP_ADD(, 22, 26, 3, images\0287.jpg, 4c, dark carmine, Sc 287, , , )
+  STAMP_ADD(, 22, 26, 3, images\0288.jpg, 5c, deep blue, Sc 288, , , )
+ROW_END
+
+SPACE(0)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, images\0289.jpg, 1c, green, Sc 289, , , )
+  STAMP_ADD(, 22, 26, 3, images\0290.jpg, 2c, sepia, Sc 290, , , )
+  STAMP_ADD(, 22, 26, 3, images\0291.jpg, 3c, rose violet, Sc 291, , , )
+  STAMP_ADD(, 22, 26, 3, images\0292.jpg, 4c, dark carmine, Sc 292, , , )
+  STAMP_ADD(, 22, 26, 3, images\0293.jpg, 5c, deep blue, Sc 293, , , )
+ROW_END
+
+SPACE(3)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, images\0305.jpg, 1c, olive green, Sc 305, , , )
+  STAMP_ADD(, 22, 26, 3, images\0306.jpg, 2c, orange vermillion, Sc 306, , , )
+ROW_END
+
+
+SPACE (5)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Official Stamps)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, images\O12.jpg, 1c, green, Sc O12, , , )
+  STAMP_ADD(, 22, 26, 3, images\O13.jpg, 2c, sepia, Sc O13, , , )
+  STAMP_ADD(, 22, 26, 3, images\O14.jpg, 3c, rose violet, Sc O14, , , )
+  STAMP_ADD(, 22, 26, 3, images\O15.jpg, 4c, dark carmine, Sc O15, , , )
+  STAMP_ADD(, 22, 26, 3, images\O15A.jpg, 5c, deep blue, Sc O15A, , , )
+ROW_END
+
+SPACE(3)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, images\O16.jpg, 1c, green, Sc O16, , , )
+  STAMP_ADD(, 22, 26, 3, images\O17.jpg, 2c, sepia, Sc O17, , , )
+  STAMP_ADD(, 22, 26, 3, images\O18.jpg, 3c, rose violet, Sc O18, , , )
+  STAMP_ADD(, 22, 26, 3, images\O19.jpg, 4c, dark carmine, Sc O19, , , )
+  STAMP_ADD(, 22, 26, 3, images\O20.jpg, 5c, deep blue, Sc O20, , , )
+ROW_END
+
+SPACE(3)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
+  STAMP_ADD(, 22, 26, 3, images\O28.jpg, 1c, olive green, Sc O28, , , )
+  STAMP_ADD(, 22, 26, 3, images\O29.jpg, 2c, orange vermilion, Sc O29, , , )
+ROW_END
+
+
+
+# ---------------------------------------------------------------------------------
+# Page 25 - King George VI (1949 - 1951)
+# ---------------------------------------------------------------------------------
+
+
+PAGE_START
+
+SPACE (10)
+FONT (Century Gothic, 14, regular)
+PAGE_TEXT_CENTRE (1949-51)
+
+SPACE (10)
+FONT (Century Gothic, 10,  normal)
+PAGE_TEXT_CENTRE (Coil Stamps: Perforated 9 1/2 Vertically)
+
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 44, 25, 3, , 1c, green, Sc 297pa, , , )
+  STAMP_ADD(, 44, 25, 3, , 2c, sepia, Sc 298pa, , , )
+ROW_END
+
+SPACE(3)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 44, 25, 3, , 3c, rose violet, Sc 299pa, , , )
+  STAMP_ADD(, 44, 25, 3, , 4c, dark carmine, Sc 300pa, , , )
+ROW_END
+
+SPACE (3)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 44, 25, 3, , 1c, green, S 295pa, , , )
+  STAMP_ADD(, 44, 25, 3, , 3c, rose violet, S 296pa, , , )
+ROW_END
+
+SPACE(3)
+ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, italic, Century Gothic, 6, regular)
+  STAMP_ADD(, 44, 25, 3, , 2c, olive green, Sc 309pa, , , )
+  STAMP_ADD(, 44, 25, 3, , 4c, dark carmine, Sc 310pa, , , )
+ROW_END
+
+
+
+
+
+
+
+
+
+
+

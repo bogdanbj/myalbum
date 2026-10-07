@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "MyAlbum",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/v8.0/src/MyAlbum/bin/Debug/net10.0/MyAlbum.dll",
+            "args": ["--input", "Test.album", "--page", "1-2"],
+            "cwd": "${workspaceFolder}/v8.0",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        }
+    ]
+}
