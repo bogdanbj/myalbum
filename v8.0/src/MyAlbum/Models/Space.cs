@@ -57,7 +57,7 @@ namespace MyAlbum.Models
         internal override void Draw(XGraphics gfx)
         {
             base.Draw(gfx);
-            gfx.DrawRectangle(new XSolidBrush(BgColor), 0, 0, W.Point, H.Point);
+            //gfx.DrawRectangle(new XSolidBrush(BgColor), 0, 0, W.Point, H.Point);
 
             //base.Draw(gfx);
         }

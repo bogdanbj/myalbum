@@ -120,7 +120,7 @@ namespace MyAlbum.Models
             {
                 h += XUnit.FromPoint(this.Font.Height);
             }
-            h += MarginTop + MarginBottom;
+            //h += MarginTop + MarginBottom;
             return h;
         }
 
@@ -131,7 +131,7 @@ namespace MyAlbum.Models
             {
                 w = Math.Max(w, gfx.MeasureString(lines[i], this.Font).Width);
             }
-            w += MarginLeft + MarginRight;
+            //w += MarginLeft + MarginRight;
             return w;
         }
 

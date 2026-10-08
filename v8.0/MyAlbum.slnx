@@ -6,6 +6,7 @@
   </Folder>
   <Folder Name="/Templates/">
     <File Path="../Templates/Canada.styles" />
+    <File Path="../Templates/Canada6.album" />
     <File Path="../Templates/Test.album" />
   </Folder>
 </Solution>

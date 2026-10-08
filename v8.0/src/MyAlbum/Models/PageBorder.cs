@@ -31,7 +31,7 @@ namespace MyAlbum.Models
                 W = parentCanvas.W - (MarginLeft + MarginRight);
                 H = parentCanvas.H - (MarginTop + MarginBottom);
             }
-            CalculateFrameWidths();
+            CalculateFrameSidesWidth();
 
             //this.Canvas.X = parentCanvas.X + MarginLeft + WidthLeft + PaddingLeft;
             //this.Canvas.Y = parentCanvas.Y + MarginTop + WidthTop + PaddingTop;

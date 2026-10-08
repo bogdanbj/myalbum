@@ -84,20 +84,20 @@ namespace MyAlbum.Models
         internal override void Calculate(XGraphics gfx, Canvas parentCanvas)
         {
             base.Calculate(gfx, parentCanvas);
-            CalculateFrameWidths();
+            CalculateFrameSidesWidth();
             //WidthTop = CalculateFrameWidth(TypeTop, LineWidth1, Offset, LineWidth2);
             //WidthRight = CalculateFrameWidth(TypeRight, LineWidth1, Offset, LineWidth2);
             //WidthBottom = CalculateFrameWidth(TypeBottom, LineWidth1, Offset, LineWidth2);
             //WidthLeft = CalculateFrameWidth(TypeLeft, LineWidth1, Offset, LineWidth2);
         }
-        internal void CalculateFrameWidths()
+        internal void CalculateFrameSidesWidth()
         {
-            WidthTop = CalculateFrameWidth(TypeTop);
-            WidthRight = CalculateFrameWidth(TypeRight);
-            WidthBottom = CalculateFrameWidth(TypeBottom);
-            WidthLeft = CalculateFrameWidth(TypeLeft);
+            WidthTop = CalculateSideWidth(TypeTop);
+            WidthRight = CalculateSideWidth(TypeRight);
+            WidthBottom = CalculateSideWidth(TypeBottom);
+            WidthLeft = CalculateSideWidth(TypeLeft);
         }
-        private XUnit CalculateFrameWidth(FrameType type) => type switch
+        private XUnit CalculateSideWidth(FrameType type) => type switch
         {
             FrameType.None => XUnit.Zero,
             FrameType.Single => LineWidth1,
@@ -124,7 +124,7 @@ namespace MyAlbum.Models
         internal override void Draw(XGraphics gfx)
         {
             base.Draw(gfx);
-            gfx.DrawRectangle(new XSolidBrush(BgColor), 0, 0, W.Point, H.Point);
+            //gfx.DrawRectangle(new XSolidBrush(BgColor), 0, 0, W.Point, H.Point);
 
             XUnit X1 = XUnit.Zero, 
                   Y1 = XUnit.Zero, 

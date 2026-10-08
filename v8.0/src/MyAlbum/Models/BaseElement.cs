@@ -108,6 +108,7 @@ namespace MyAlbum.Models
         public XUnit TopAlign { get; set; }
         public XUnit MiddleAlign { get; set; }
         public XUnit BottomAlign { get; set; }
+        public string Indent { get; set; }
         #endregion
 
         #region Constructors
@@ -133,6 +134,7 @@ namespace MyAlbum.Models
             PageNo = parent.PageNo;
             _parentColor = parent.Color;
             _parentBgColor = parent.BgColor;
+            Indent = parent.Indent + "  ";
         }
         internal virtual void Calculate(XGraphics gfx, Canvas parentCanvas)
         {
@@ -184,11 +186,11 @@ namespace MyAlbum.Models
         internal virtual void Draw(XGraphics gfx)
         {
             LogDraw();
-            gfx.DrawRectangle(new XPen(Color, 0.5), new XSolidBrush(BgColor), 0, 0, W.Point, H.Point);
+            //gfx.DrawRectangle(new XPen(Color, 0.5), new XSolidBrush(BgColor), 0, 0, W.Point, H.Point);
         }
         internal virtual void LogDraw()
         {
-            Console.WriteLine($"Drawing {this.GetType().Name} at ({X.Millimeter:F1}, {Y.Millimeter:F1}) with width {W.Millimeter:F1} and height {H.Millimeter:F1}.");
+            Console.WriteLine($"{Indent}Drawing {this.GetType().Name} at ({X.Millimeter:F1}, {Y.Millimeter:F1}) with width {W.Millimeter:F1} and height {H.Millimeter:F1}.");
         }
 
         protected BaseElement? CreateElement(string elementName)

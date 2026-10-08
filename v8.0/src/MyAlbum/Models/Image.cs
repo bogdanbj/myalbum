@@ -57,6 +57,7 @@ namespace MyAlbum.Models
             }
 
         }
+
         internal override void Calculate(XGraphics gfx, Canvas parentCanvas)
         {
             /*
@@ -131,7 +132,7 @@ namespace MyAlbum.Models
         #endregion
 
         #region Private Methods
-        private XImage? Load(string? fileName)
+        internal XImage? Load(string? fileName)
         {
             if (string.IsNullOrEmpty(fileName))
             {

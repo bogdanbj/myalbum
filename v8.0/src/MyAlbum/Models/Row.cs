@@ -234,7 +234,6 @@ namespace MyAlbum.Models
             // Draw the row's elements.
             foreach (BaseElement element in Elements)
             {
-                Console.Write("  ");
                 DrawElement(gfx, element);
             }
         }

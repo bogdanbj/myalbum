@@ -153,12 +153,6 @@ namespace MyAlbum.Models
                 element.Calculate(gfx, Canvas);
 
                 bool rotate = element is Row { Rotate: true } or Space { Rotate: true};
-
-                //if (element is Text)
-                //{
-                //    var a = element as Text;
-                //}
-
                 if (rotate)
                 {
                     element.X = Canvas.X + Canvas.W - element.MarginTop;
@@ -176,7 +170,7 @@ namespace MyAlbum.Models
 
 
         }
-        internal void Draw(XGraphics gfx)
+        internal override void Draw(XGraphics gfx)
         {
             Console.WriteLine();
             Console.WriteLine($"Page {this.PageNo} - {this.Title}.");
@@ -184,13 +178,11 @@ namespace MyAlbum.Models
 
             if (PageBanner != null)
             {
-                Console.Write("  ");
                 DrawElement(gfx, PageBanner, PageBanner.Rotate);
             }
 
             if (PageBorder != null)
             {
-                Console.Write("  ");
                 //PageBorder.Draw(gfx);
                 DrawElement(gfx, PageBorder, PageBorder.Rotate);
             }
@@ -201,61 +193,22 @@ namespace MyAlbum.Models
                 // A rotated Row needs the transform applied.
                 bool rotate = element is Row { Rotate: true } or Space { Rotate: true };
 
-                Console.Write("  ");
                 DrawElement(gfx, element, rotate);
-
-                //// rotate
-                //if (rotate)
-                //{
-                //    //gfx.TranslateTransform(pdfPage.Width / 2, pdfPage.Height / 2);
-                //    //gfx.RotateTransform(90);
-                //    //gfx.TranslateTransform(-pdfPage.Height / 2, -pdfPage.Width / 2);
-                //    gfx.TranslateTransform(element.Pivot.X, element.Pivot.Y);
-                //    gfx.RotateTransform(90);
-                //    gfx.TranslateTransform(-element.Pivot.Y, -element.Pivot.X);
-                //}
-                //// draw
-                //Console.Write("  ");
-                //element.Draw(gfx);
-                //// rotate back
-                //if (rotate)
-                //{
-                //    //gfx.TranslateTransform(pdfPage.Height / 2, pdfPage.Width / 2);
-                //    //gfx.RotateTransform(-90);
-                //    //gfx.TranslateTransform(-pdfPage.Width / 2, -pdfPage.Height / 2);
-                //    gfx.TranslateTransform(element.Pivot.Y, element.Pivot.X);
-                //    gfx.RotateTransform(-90);
-                //    gfx.TranslateTransform(-element.Pivot.X, -element.Pivot.Y);
-                //}
-
-
-                // If maore than one element has Rotate
-                //bool shouldRotate = element switch
-                //{
-                //    Row r => r.Rotate,
-                //    Column c => c.Rotate,  // if Column also has Rotate
-                //    _ => false
-                //};
-
-                //if (shouldRotate)
-                //{
-                //    // rotation logic
-                //}
             }
 
-            // Draw remaining canvas
-            //gfx.DrawRectangle(new XPen(Color, 0.5), new XSolidBrush(XColors.MistyRose), Canvas.X, Canvas.Y, Canvas.W, Canvas.H);
-            gfx.DrawRectangle(new XSolidBrush(XColors.MistyRose), Canvas.X, Canvas.Y, Canvas.W, Canvas.H);
+            //// Draw remaining canvas
+            ////gfx.DrawRectangle(new XPen(Color, 0.5), new XSolidBrush(XColors.MistyRose), Canvas.X, Canvas.Y, Canvas.W, Canvas.H);
+            //gfx.DrawRectangle(new XSolidBrush(XColors.MistyRose), Canvas.X, Canvas.Y, Canvas.W, Canvas.H);
 
-            // Label the canvas interior in the top-left corner
-            XFont canvasFont = new XFont("Verdana", 12);
-            XRect canvasLabelRect = new XRect(
-                Canvas.X + XUnit.FromMillimeter(2),
-                Canvas.Y + XUnit.FromMillimeter(1),
-                Canvas.W - XUnit.FromMillimeter(2),
-                Canvas.H - XUnit.FromMillimeter(1));
-            gfx.DrawString($"Canvas - Page {this.PageNo} - {this.Title}.", canvasFont, XBrushes.Black, canvasLabelRect, XStringFormats.TopLeft);
-            //Console.WriteLine($"Page {this.PageNo} - {this.Title}.");
+            //// Label the canvas interior in the top-left corner
+            //XFont canvasFont = new XFont("Verdana", 12);
+            //XRect canvasLabelRect = new XRect(
+            //    Canvas.X + XUnit.FromMillimeter(2),
+            //    Canvas.Y + XUnit.FromMillimeter(1),
+            //    Canvas.W - XUnit.FromMillimeter(2),
+            //    Canvas.H - XUnit.FromMillimeter(1));
+            //gfx.DrawString($"Canvas - Page {this.PageNo} - {this.Title}.", canvasFont, XBrushes.Black, canvasLabelRect, XStringFormats.TopLeft);
+            ////Console.WriteLine($"Page {this.PageNo} - {this.Title}.");
         }
         #endregion
 
