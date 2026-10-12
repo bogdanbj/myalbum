@@ -47,7 +47,27 @@
     <text style="headline">60th year of Queen Victoria’s reign</text>
     <paragraph style="headline">60th year of Queen Victoria’s reign</paragraph>
     <p>The Diamond Jubilee issue of 1897 commemorated the sixtieth anniversary of Queen Victoria's accession to the throne. The set comprises sixteen values, ranging from one-half cent to five dollars, and remains one of the most celebrated series in Canadian philately.</p>
-    <stamp width="34" height="25" title="Diamond jubilee" image="50.jpg" i1="1/2c" i2="black" i3="S 50" f1="" f2="Two portraits of Queen Victoria 1837 and 1867" f3="" />
+    <row valign="top">
+      <stamp width="34" height="25" title="Diamond jubilee" image="50.jpg" i1="1/2c" i2="black" i3="S 50" f1="" f2="Two portraits of Queen Victoria 1837 and 1867" f3="" />
+      <stamp width="25" height="34" title="" image="" i1="1c" i2="orange" i3="S 51" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="2c" i2="green" i3="S 52" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="3c" i2="bright rose" i3="S 53" f1="" f2="" f3="" />
+    </row>
+
+    <row valign="center" spacing-mode="ES">
+      <stamp width="34" height="25" title="Diamond jubilee" image="50.jpg" i1="1/2c" i2="black" i3="S 50" f1="" f2="Two portraits of Queen Victoria 1837 and 1867" f3="" />
+      <stamp width="25" height="34" title="" image="" i1="1c" i2="orange" i3="S 51" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="2c" i2="green" i3="S 52" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="3c" i2="bright rose" i3="S 53" f1="" f2="" f3="" />
+    </row>
+
+    <row valign="bottom" spacing-mode="JS">
+      <stamp width="34" height="25" title="Diamond jubilee" image="50.jpg" i1="1/2c" i2="black" i3="S 50" f1="" f2="Two portraits of Queen Victoria 1837 and 1867" f3="" />
+      <stamp width="25" height="34" title="" image="" i1="1c" i2="orange" i3="S 51" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="2c" i2="green" i3="S 52" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="3c" i2="bright rose" i3="S 53" f1="" f2="" f3="" />
+    </row>
+
     <!--
     <stamp width="96" height="60" title="Peace" image="" i1="4x43c" i2="" i3="S 1544a" f1="" f2="" f3="" />
     <image align="left" valign="top" file-name="Canada-Post-Logo.png" height="32" width="32"></image>
@@ -60,6 +80,30 @@
   </page>
   .
   <page rem="Page 2" style="landscape">
+    <text style="date">1897</text>
+    <text style="headline">60th year of Queen Victoria’s reign</text>
+    <paragraph style="headline">60th year of Queen Victoria’s reign</paragraph>
+    <p>The Diamond Jubilee issue of 1897 commemorated the sixtieth anniversary of Queen Victoria's accession to the throne. The set comprises sixteen values, ranging from one-half cent to five dollars, and remains one of the most celebrated series in Canadian philately.</p>
+    <row valign="top">
+      <stamp width="34" height="25" title="Diamond jubilee" image="50.jpg" i1="1/2c" i2="black" i3="S 50" f1="" f2="Two portraits of Queen Victoria 1837 and 1867" f3="" />
+      <stamp width="25" height="34" title="" image="" i1="1c" i2="orange" i3="S 51" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="2c" i2="green" i3="S 52" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="3c" i2="bright rose" i3="S 53" f1="" f2="" f3="" />
+    </row>
+
+    <row valign="center" spacing-mode="ES">
+      <stamp width="34" height="25" title="Diamond jubilee" image="50.jpg" i1="1/2c" i2="black" i3="S 50" f1="" f2="Two portraits of Queen Victoria 1837 and 1867" f3="" />
+      <stamp width="25" height="34" title="" image="" i1="1c" i2="orange" i3="S 51" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="2c" i2="green" i3="S 52" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="3c" i2="bright rose" i3="S 53" f1="" f2="" f3="" />
+    </row>
+
+    <row valign="bottom" spacing-mode="JS">
+      <stamp width="34" height="25" title="Diamond jubilee" image="50.jpg" i1="1/2c" i2="black" i3="S 50" f1="" f2="Two portraits of Queen Victoria 1837 and 1867" f3="" />
+      <stamp width="25" height="34" title="" image="" i1="1c" i2="orange" i3="S 51" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="2c" i2="green" i3="S 52" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="3c" i2="bright rose" i3="S 53" f1="" f2="" f3="" />
+    </row>
   </page>
   .
   <!--

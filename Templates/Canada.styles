@@ -115,9 +115,9 @@
     <text style="date" align="center" font-name="Century Gothic" font-size="24" bgcolor="DarkSeaGreen"/>
     <text style="chapter" align="center" font-name="Century Gothic" font-size="36"/>
     <text style="headline" align="center" font-name="Century Gothic" font-size="10" bgcolor="CadetBlue" margin="0,0,1,0"/>
-    <text style="title" align="center" font-name="Century Gothic" font-size="10"/>
-    <text style="inside" align="center" font-name="Century Gothic" font-size="6"/>
-    <text style="footer" font-name="Century Gothic" font-size="6"/>
+    <text style="title" align="center" font-name="Century Gothic" font-size="10" bgcolor ="MediumAquamarine" />
+    <text style="inside" align="center" font-name="Century Gothic" font-size="6" bgcolor="MediumAquamarine" />
+    <text style="footer" font-name="Century Gothic" font-size="6" bgcolor="MediumAquamarine"/>
     <!--
     <text style="inside" align="center" font-name="Century Gothic" font-size="6" font-style="regular" width="80%"/>
     <text style="footer_left" align="left" font-name="Century Gothic" font-size="6" font-style="regular" margin="0,0,2,0" />
@@ -144,7 +144,7 @@
       If image exists, it is pictured instead of inside text.
       There is no margin for a stamp.
 			-->
-		<stamp style="stamp_default" default="true" vspace="1">
+		<stamp style="stamp_default" default="true" vspace="1" bgcolor ="SkyBlue">
 			<frame style="stamp_frame" />
 			<image style="image_default" />
 			<title style="title" />

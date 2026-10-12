@@ -129,29 +129,52 @@ namespace MyAlbum.Models
                     $"Invalid 'width' and 'height' attributes. (Page {PageNo})");
             }
 
-
             // Starts with Frame to have the total width.
+            #region Frame
             Frame.CalculateThickness();
-            //Frame.W = Frame.MarginLeft + Frame.WidthLeft + Frame.PaddingLeft + StampWidth + Frame.PaddingRight + Frame.WidthRight + Frame.MarginRight;
-            //Frame.H = Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + StampHeight + Frame.PaddingBottom + Frame.WidthBottom + Frame.MarginBottom;
             Frame.W = Frame.WidthLeft + Frame.MarginLeft + StampWidth + Frame.MarginRight + Frame.WidthRight;
             Frame.H = Frame.WidthTop + Frame.MarginTop + StampHeight + Frame.MarginBottom + Frame.WidthBottom;
-            Frame.X = XUnit.Zero;
+            Frame.X = XUnit.Zero;   // to be overwritten after calculation Title
             Frame.Y = XUnit.Zero;
+            #endregion
             this.Canvas.W = Frame.W;
 
             // Calculate Title
+            #region Tiltle
             Title.Calculate(gfx, Canvas);
             Title.X = (Frame.W - Title.W) / 2;
             Title.Y = Title.MarginTop;
-            Canvas.Y += Title.H > XUnit.Zero
+            #endregion
+
+            // Move frame lower, under the title.
+            this.Canvas.Y += Title.H > XUnit.Zero
                 ? Title.H + Title.MarginTop + Title.MarginBottom + VSpace
                 : XUnit.Zero;
-            
-            // Move frame lower, under the title.
             Frame.Y = Canvas.Y;
 
+            // Calculate Inside text (I1, I2, I3)
+            #region Inside
+            I1.Calculate(gfx, Canvas);
+            I2.Calculate(gfx, Canvas);
+            I3.Calculate(gfx, Canvas);
+
+            I1.X = (Frame.W - I1.W) / 2;
+            I2.X = (Frame.W - I2.W) / 2;
+            I3.X = (Frame.W - I3.W) / 2;
+
+            XUnit insiderHeight =
+                (string.IsNullOrEmpty(I1.Value) ? XUnit.Zero : I1.H + VSpace)
+                + (string.IsNullOrEmpty(I2.Value) ? XUnit.Zero : I2.H + VSpace)
+                + (string.IsNullOrEmpty(I3.Value) ? XUnit.Zero : I3.H + VSpace);
+            insiderHeight -= insiderHeight > XUnit.Zero ? VSpace : XUnit.Zero;
+
+            I1.Y = Canvas.Y + Frame.WidthTop + Frame.MarginTop + StampHeight / 2 - insiderHeight / 2;
+            I2.Y = I1.H > XUnit.Zero ? I1.Y + I1.H + VSpace : I1.Y;
+            I3.Y = I2.H > XUnit.Zero ? I2.Y + I2.H + VSpace : I2.Y;
+            #endregion
+
             // Calculate Image
+            #region Image
             Image.Calculate(gfx, new Canvas(XUnit.Zero, XUnit.Zero, StampWidth, StampHeight));
             Image.MarginLeft = Image.MarginRight = StampWidth * 0.1;
             Image.MarginTop = Image.MarginBottom = StampHeight * 0.1;
@@ -165,45 +188,17 @@ namespace MyAlbum.Models
             Image.Canvas.Y = Image.Y + Image.MarginTop;
             Image.Canvas.W = Image.W - (Image.MarginLeft + Image.MarginRight);
             Image.Canvas.H = Image.H - (Image.MarginTop + Image.MarginBottom);
+            #endregion
 
-
-            // Calculate Insiders (I1, I2, I3)
-            Text I = new Text();
-            I.Value = string.Join("\n",
-                new[] { I1.Value, I2.Value, I3.Value }
-                    .Where(v => !string.IsNullOrEmpty(v)));
-            I.Calculate(gfx, Canvas);
-            I1.Calculate(gfx, Canvas);
-            I2.Calculate(gfx, Canvas);
-            I3.Calculate(gfx, Canvas);
-
-            I1.X = (Frame.W - I1.W) / 2;
-            I2.X = (Frame.W - I2.W) / 2;
-            I3.X = (Frame.W - I3.W) / 2;
-
-            XUnit insiderHeight = 
-                (string.IsNullOrEmpty(I1.Value) ? XUnit.Zero : I1.H + VSpace)
-                + (string.IsNullOrEmpty(I2.Value) ? XUnit.Zero : I2.H + VSpace)
-                + (string.IsNullOrEmpty(I3.Value) ? XUnit.Zero : I3.H + VSpace);
-            insiderHeight -= insiderHeight > XUnit.Zero ? VSpace : XUnit.Zero;
-
-            I1.Y = Canvas.Y + Frame.WidthTop + Frame.MarginTop + StampHeight / 2 - insiderHeight / 2;
-            I2.Y = I1.H > XUnit.Zero ? I1.Y + I1.H + VSpace : I1.Y;
-            I3.Y = I2.H > XUnit.Zero ? I2.Y + I2.H + VSpace : I2.Y;
-
-            //I.X = (Frame.W - I.W) / 2; // center the insiders relative to the frame
-            //I.Y = Canvas.Y + Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + StampHeight / 2 - I.H / 2;
-
+            // Move the y pointer down under the frame
             this.Canvas.Y += Frame.H;
 
             // Calculate Footers (F1, F2, F3)
+            #region Footer
             F1.Calculate(gfx, Canvas);
             F2.Calculate(gfx, Canvas);
             F3.Calculate(gfx, Canvas);
 
-            XUnit h1 = F1.MarginTop + F1.H + F1.MarginBottom;
-            XUnit h2 = F2.MarginTop + F2.H + F2.MarginBottom;
-            XUnit h3 = F3.MarginTop + F3.H + F3.MarginBottom;
             XUnit footerHeight = XUnit.FromPoint(Math.Max(F1.H.Point, Math.Max(F2.H.Point, F3.H.Point)));
             F1.X = XUnit.Zero;
             F2.X = (Frame.W - F2.W) / 2; 
@@ -211,36 +206,43 @@ namespace MyAlbum.Models
             F1.Y = F2.Y = F3.Y = footerHeight > XUnit.Zero
                 ? Canvas.Y + VSpace
                 : XUnit.Zero;
-            //F2.Y = footerHeight > XUnit.Zero
-            //    ? Canvas.Y + VSpace
-            //    : XUnit.Zero;
-            //F3.Y = footerHeight > XUnit.Zero
-            //    ? Canvas.Y + VSpace
-            //    : XUnit.Zero;
-
+            #endregion
             this.Canvas.Y += footerHeight > XUnit.Zero
                 ? VSpace + footerHeight
                 : XUnit.Zero;
 
-
-
             this.H = Canvas.Y;
+            this.W = Canvas.W;
+            TopAlign = Frame.Y;
+            MiddleAlign = Frame.Y + Frame.H / 2;
+            BottomAlign = Frame.Y + Frame.H;
         }
 
         internal override void Draw(XGraphics gfx)
         {
-            LogDraw();
+            base.Draw(gfx);
 
             // Frame first so the content is drawn on top of it.
             DrawElement(gfx, Title);
             DrawElement(gfx, Frame);
-            DrawElement(gfx, Image);
             DrawElement(gfx, I1);
             DrawElement(gfx, I2);
             DrawElement(gfx, I3);
+            DrawElement(gfx, Image);
             DrawElement(gfx, F1);
             DrawElement(gfx, F2);
             DrawElement(gfx, F3);
+
+            XUnit over = XUnit.FromMillimeter(2);
+
+            XPen dottedPen = new XPen(XColors.Red, 0.5)
+            {
+                DashStyle = XDashStyle.Dash
+            };
+
+            gfx.DrawLine(dottedPen, -over.Point, TopAlign.Point, (W + over).Point, TopAlign.Point);
+            gfx.DrawLine(dottedPen, -over.Point, MiddleAlign.Point, (W + over).Point, MiddleAlign.Point);
+            gfx.DrawLine(dottedPen, -over.Point, BottomAlign.Point, (W + over).Point, BottomAlign.Point);
         }
         #endregion
     }

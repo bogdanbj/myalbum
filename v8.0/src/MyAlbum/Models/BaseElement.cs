@@ -34,10 +34,10 @@ namespace MyAlbum.Models
         public Canvas Canvas { get; set; }
         #endregion
 
-        #region Hooks: IsOutboundSize → YES
-        // Overridable hooks: subclasses can disable padding/margin entirely.
-        protected virtual bool IsOutboundSize => true;
-        #endregion
+        //#region Hooks: IsOutboundSize → YES
+        //// Overridable hooks: subclasses can disable padding/margin entirely.
+        //protected virtual bool IsOutboundSize => true;
+        //#endregion
 
         #region Properties accepting Styles
         public BaseElementStyle Style { get; set; }

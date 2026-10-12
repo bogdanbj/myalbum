@@ -95,20 +95,45 @@ namespace MyAlbum.Models
                 };
             }
 
-            foreach (var element in Elements)
-            {
-                element.Calculate(gfx, Canvas);
-            }
+            //foreach (var element in Elements)
+            //{
+            //    element.Calculate(gfx, Canvas);
+            //}
 
             // At this point, we should have the calculated width and height of all elements in the row.
             // We can then adjust the row's height based on the tallest element and apply spacing if needed.
 
-            // Calculate the maximum height of the elements in the row
-            H = XUnit.Zero;
+            // Calculate the top and bottom height and get the maximum.
+            //H = XUnit.Zero;
+            XUnit 
+                topHeight = XUnit.Zero, 
+                bottomHeight = XUnit.Zero;
             foreach (var element in Elements)
-            {     
-                H = Math.Max(H, element.H);
+            {
+                element.Calculate(gfx, Canvas);
+
+                switch (VAlign)
+                {
+                    case VerticalAlignment.Top:
+                        TopAlign = XUnit.FromPoint(Math.Max(TopAlign.Point, element.TopAlign.Point));
+                        topHeight = XUnit.FromPoint(Math.Max(topHeight.Point, (element.TopAlign).Point));
+                        bottomHeight = XUnit.FromPoint(Math.Max(bottomHeight.Point, (element.H - element.TopAlign).Point));
+                        break;
+                    case VerticalAlignment.Center:
+                        MiddleAlign = XUnit.FromPoint(Math.Max(MiddleAlign.Point, element.MiddleAlign.Point));
+                        topHeight = XUnit.FromPoint(Math.Max(topHeight.Point, (element.MiddleAlign).Point));
+                        bottomHeight = XUnit.FromPoint(Math.Max(bottomHeight.Point, (element.H - element.MiddleAlign).Point));
+                        break;
+                    case VerticalAlignment.Bottom:
+                        BottomAlign = XUnit.FromPoint(Math.Max(BottomAlign.Point, element.BottomAlign.Point));
+                        topHeight = XUnit.FromPoint(Math.Max(topHeight.Point, (element.BottomAlign).Point));
+                        bottomHeight = XUnit.FromPoint(Math.Max(bottomHeight.Point, (element.H - element.BottomAlign).Point));
+                        break;
+                    default:
+                        break;
+                }
             }
+            this.H = topHeight + bottomHeight;
 
             // Calculate the position of the elements based on the row's alignment and spacing mode
             #region Vertical Alignment
@@ -132,6 +157,35 @@ namespace MyAlbum.Models
             #endregion
 
             #region Horizontal Alignment
+            XUnit 
+                contentWidth = XUnit.Zero,
+                leadWidth = XUnit.Zero;
+            foreach (BaseElement element in Elements)
+            {
+                contentWidth += element.W;
+            }
+            switch (SpacingMode)
+            {   
+                case SpacingMode.FS:
+                    contentWidth += XUnit.FromPoint((Elements.Count - 1) * Space.Point);
+                    leadWidth = (Canvas.W - contentWidth) / 2;
+                    break;
+                case SpacingMode.ES:
+                    leadWidth = Space = XUnit.FromPoint( (Canvas.W - contentWidth).Point / (Elements.Count + 1) );
+                    break;
+                case SpacingMode.JS:
+                    leadWidth = Elements.Count > 1 ? XUnit.Zero : (Canvas.W - contentWidth) / 2;
+                    Space = Elements.Count > 1 ? XUnit.FromPoint((Canvas.W - contentWidth).Point / (Elements.Count - 1)) : XUnit.Zero;
+                    break;
+                default:
+                    break;
+            }
+            foreach (BaseElement element in Elements)
+            {
+                element.X = leadWidth;
+                leadWidth += element.W + Space;
+            }
+
             if (Elements.Count == 1)
             {
                 switch (Align)
