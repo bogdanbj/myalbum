@@ -2,11 +2,17 @@ using PdfSharp.Drawing;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Linq;
 
 namespace MyAlbum.Models
 {
     internal class Paragraph : Text
     {
+        internal override void ParseXml(XElement xElem)
+        {
+            base.ParseXml(xElem);
+            Width = "100%";
+        }
         protected override string[] Split(XGraphics gfx)
         {
             if (string.IsNullOrEmpty(Value))
@@ -53,6 +59,5 @@ namespace MyAlbum.Models
         // Paragraph fills the available width, so keep W rather than shrinking
         // it to the widest wrapped line (the base behavior).
         protected override XUnit CalculateWidth(XGraphics gfx) => W;
-
     }
 }

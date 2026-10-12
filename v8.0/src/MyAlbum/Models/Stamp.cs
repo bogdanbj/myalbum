@@ -123,37 +123,49 @@ namespace MyAlbum.Models
 
             StampWidth = XmlParser.ParseXUnit(Width) ?? XUnit.Zero;
             StampHeight = XmlParser.ParseXUnit(Height) ?? XUnit.Zero;
-            if (StampWidth == XUnit.Zero || StampHeight == XUnit.Zero)
+            if (StampWidth <= XUnit.Zero || StampHeight <= XUnit.Zero)
             {
                 throw new InvalidOperationException(
                     $"Invalid 'width' and 'height' attributes. (Page {PageNo})");
             }
 
 
+            // Starts with Frame to have the total width.
+            Frame.CalculateThickness();
+            //Frame.W = Frame.MarginLeft + Frame.WidthLeft + Frame.PaddingLeft + StampWidth + Frame.PaddingRight + Frame.WidthRight + Frame.MarginRight;
+            //Frame.H = Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + StampHeight + Frame.PaddingBottom + Frame.WidthBottom + Frame.MarginBottom;
+            Frame.W = Frame.WidthLeft + Frame.MarginLeft + StampWidth + Frame.MarginRight + Frame.WidthRight;
+            Frame.H = Frame.WidthTop + Frame.MarginTop + StampHeight + Frame.MarginBottom + Frame.WidthBottom;
+            Frame.X = XUnit.Zero;
+            Frame.Y = XUnit.Zero;
+            this.Canvas.W = Frame.W;
+
             // Calculate Title
             Title.Calculate(gfx, Canvas);
-            Title.X = XUnit.Zero; // will be centered after the Frame is calculated
+            Title.X = (Frame.W - Title.W) / 2;
             Title.Y = Title.MarginTop;
             Canvas.Y += Title.H > XUnit.Zero
                 ? Title.H + Title.MarginTop + Title.MarginBottom + VSpace
                 : XUnit.Zero;
-
-            // Calculate Frame
-            Frame.CalculateFrameSidesWidth();
-            Frame.W = Frame.MarginLeft + Frame.WidthLeft + Frame.PaddingLeft + StampWidth + Frame.PaddingRight + Frame.WidthRight + Frame.MarginRight;
-            Frame.H = Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + StampHeight + Frame.PaddingBottom + Frame.WidthBottom + Frame.MarginBottom;
-            Frame.X = XUnit.Zero; 
+            
+            // Move frame lower, under the title.
             Frame.Y = Canvas.Y;
-            this.Canvas.W = Frame.W;
-
-            Title.X = (Frame.W - Title.W) / 2; // center the title relative to the frame
 
             // Calculate Image
-            Image.Calculate(gfx, Canvas);
-            Image.W = this.W - Image.MarginLeft - Image.MarginRight;
-            Image.H = this.H - Image.MarginTop - Image.MarginBottom;
-            Image.X = (Frame.W - Image.W) / 2; // center the insiders relative to the frame
-            Image.Y = Canvas.Y + Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + StampHeight / 2 - Image.H / 2;
+            Image.Calculate(gfx, new Canvas(XUnit.Zero, XUnit.Zero, StampWidth, StampHeight));
+            Image.MarginLeft = Image.MarginRight = StampWidth * 0.1;
+            Image.MarginTop = Image.MarginBottom = StampHeight * 0.1;
+
+            Image.W = StampWidth;
+            Image.H = StampHeight;
+            Image.X = (Frame.W - Image.W) / 2; 
+            Image.Y = Frame.Y + (Frame.H - Image.H) / 2;
+
+            Image.Canvas.X = Image.X + Image.MarginLeft;
+            Image.Canvas.Y = Image.Y + Image.MarginTop;
+            Image.Canvas.W = Image.W - (Image.MarginLeft + Image.MarginRight);
+            Image.Canvas.H = Image.H - (Image.MarginTop + Image.MarginBottom);
+
 
             // Calculate Insiders (I1, I2, I3)
             Text I = new Text();
@@ -175,7 +187,7 @@ namespace MyAlbum.Models
                 + (string.IsNullOrEmpty(I3.Value) ? XUnit.Zero : I3.H + VSpace);
             insiderHeight -= insiderHeight > XUnit.Zero ? VSpace : XUnit.Zero;
 
-            I1.Y = Canvas.Y + Frame.MarginTop + Frame.WidthTop + Frame.PaddingTop + StampHeight / 2 - insiderHeight / 2;
+            I1.Y = Canvas.Y + Frame.WidthTop + Frame.MarginTop + StampHeight / 2 - insiderHeight / 2;
             I2.Y = I1.H > XUnit.Zero ? I1.Y + I1.H + VSpace : I1.Y;
             I3.Y = I2.H > XUnit.Zero ? I2.Y + I2.H + VSpace : I2.Y;
 
@@ -212,7 +224,7 @@ namespace MyAlbum.Models
 
 
 
-            this.H = Canvas.Y + this.PaddingBottom;
+            this.H = Canvas.Y;
         }
 
         internal override void Draw(XGraphics gfx)

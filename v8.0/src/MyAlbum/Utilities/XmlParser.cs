@@ -3,6 +3,7 @@ using PdfSharp.Drawing;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using YamlDotNet.Core.Tokens;
 
 namespace MyAlbum.Utilities
 {
@@ -63,23 +64,15 @@ namespace MyAlbum.Utilities
         }
         internal static (XUnit? marginTop, XUnit? marginRight, XUnit? marginBottom, XUnit? marginLeft) ParseMargin(string? margin)
         {
-            return ParseSpacing(margin);
-        }
-        internal static (XUnit? paddingTop, XUnit? paddingRight, XUnit? paddingBottom, XUnit? paddingLeft) ParsePadding(string? padding)
-        {
-            return ParseSpacing(padding);
-        }
-        private static (XUnit? top, XUnit? right, XUnit? bottom, XUnit? left) ParseSpacing(string? value)
-        {
             XUnit? top = null;
             XUnit? right = null;
             XUnit? bottom = null;
             XUnit? left = null;
 
-            if (!string.IsNullOrWhiteSpace(value))
+            if (!string.IsNullOrWhiteSpace(margin))
             {
 
-                string[] arr = value.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+                string[] arr = margin.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
                 switch (arr.Length)
                 {
                     case 1:
@@ -99,6 +92,40 @@ namespace MyAlbum.Utilities
             }
             return (top, right, bottom, left);
         }
+        //internal static (XUnit? paddingTop, XUnit? paddingRight, XUnit? paddingBottom, XUnit? paddingLeft) ParsePadding(string? padding)
+        //{
+        //    return ParseSpacing(padding);
+        //}
+        //private static (XUnit? top, XUnit? right, XUnit? bottom, XUnit? left) ParseSpacing(string? value)
+        //{
+        //    XUnit? top = null;
+        //    XUnit? right = null;
+        //    XUnit? bottom = null;
+        //    XUnit? left = null;
+
+        //    if (!string.IsNullOrWhiteSpace(value))
+        //    {
+
+        //        string[] arr = value.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+        //        switch (arr.Length)
+        //        {
+        //            case 1:
+        //                top = right = bottom = left = ParseXUnit(arr[0]);
+        //                break;
+        //            case 2:
+        //                top = bottom = ParseXUnit(arr[0]);
+        //                left = right = ParseXUnit(arr[1]);
+        //                break;
+        //            case 4:
+        //                top = ParseXUnit(arr[0]);
+        //                right = ParseXUnit(arr[1]);
+        //                bottom = ParseXUnit(arr[2]);
+        //                left = ParseXUnit(arr[3]);
+        //                break;
+        //        }
+        //    }
+        //    return (top, right, bottom, left);
+        //}
         internal static XUnit? ParseXUnit(string? value)
         {
             if (!string.IsNullOrWhiteSpace(value) && double.TryParse(value, out double result))

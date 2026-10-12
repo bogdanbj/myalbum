@@ -1,4 +1,8 @@
 <Solution>
+  <Folder Name="/Docs/">
+    <File Path="Notes.md" />
+  </Folder>
+  <Folder Name="/Docs/NewFolder1/" />
   <Folder Name="/src/">
     <Project Path="src/FontManager/FontManager.csproj" />
     <Project Path="src/MyAlbum.Common/MyAlbum.Common.csproj" />

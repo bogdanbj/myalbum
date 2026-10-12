@@ -34,6 +34,11 @@ namespace MyAlbum.Models
         public Canvas Canvas { get; set; }
         #endregion
 
+        #region Hooks: IsOutboundSize → YES
+        // Overridable hooks: subclasses can disable padding/margin entirely.
+        protected virtual bool IsOutboundSize => true;
+        #endregion
+
         #region Properties accepting Styles
         public BaseElementStyle Style { get; set; }
         public XColor Color
@@ -66,26 +71,26 @@ namespace MyAlbum.Models
             get => _marginLeft ?? Style.MarginLeft ?? XUnit.Zero;
             set => _marginLeft = value;
         }
-        public XUnit PaddingTop
-        {
-            get => _paddingTop ?? Style.PaddingTop ?? XUnit.Zero;
-            set => _paddingTop = value;
-        }
-        public XUnit PaddingRight
-        {
-            get => _paddingRight ?? Style.PaddingRight ?? XUnit.Zero;
-            set => _paddingRight = value;
-        }
-        public XUnit PaddingBottom
-        {
-            get => _paddingBottom ?? Style.PaddingBottom ?? XUnit.Zero;
-            set => _paddingBottom = value;
-        }
-        public XUnit PaddingLeft
-        {
-            get => _paddingLeft ?? Style.PaddingLeft ?? XUnit.Zero;
-            set => _paddingLeft = value;
-        }
+        //public XUnit PaddingTop
+        //{
+        //    get => HasPadding ? (_paddingTop ?? Style.PaddingTop ?? XUnit.Zero) : XUnit.Zero;
+        //    set => _paddingTop = value;
+        //}
+        //public XUnit PaddingRight
+        //{
+        //    get => HasPadding ? (_paddingRight ?? Style.PaddingRight ?? XUnit.Zero) : XUnit.Zero;
+        //    set => _paddingRight = value;
+        //}
+        //public XUnit PaddingBottom
+        //{
+        //    get => HasPadding ? (_paddingBottom ?? Style.PaddingBottom ?? XUnit.Zero) : XUnit.Zero;
+        //    set => _paddingBottom = value;
+        //}
+        //public XUnit PaddingLeft
+        //{
+        //    get => HasPadding ? (_paddingLeft ?? Style.PaddingLeft ?? XUnit.Zero) : XUnit.Zero;
+        //    set => _paddingLeft = value;
+        //}
         public string Height
         {
             get => _height ?? Style.Height ?? "";
@@ -119,12 +124,13 @@ namespace MyAlbum.Models
         }
         #endregion
 
+        #region Virtual methods
         internal virtual void ParseXml(XElement element)
         {
             _color = XmlParser.ParseColor(element.Attribute("color")?.Value);
             _bgColor = XmlParser.ParseColor(element.Attribute("bgcolor")?.Value);
             (_marginTop, _marginRight, _marginBottom, _marginLeft) = XmlParser.ParseMargin(element.Attribute("margin")?.Value);
-            (_paddingTop, _paddingRight, _paddingBottom, _paddingLeft) = XmlParser.ParsePadding(element.Attribute("padding")?.Value);
+            //(_paddingTop, _paddingRight, _paddingBottom, _paddingLeft) = XmlParser.ParsePadding(element.Attribute("padding")?.Value);
             _height = element.Attribute("height")?.Value;
             _width = element.Attribute("width")?.Value;
             _rotate = XmlParser.ParseBool(element.Attribute("rotate")?.Value);
@@ -138,60 +144,56 @@ namespace MyAlbum.Models
         }
         internal virtual void Calculate(XGraphics gfx, Canvas parentCanvas)
         {
+            // BaseElement assumes that width and height is total w/h, including margins.
+            // This fits Page and Border behavior. The rest will need to override.
+
             X = Y = XUnit.Zero;
 
-            // Width
-            if (!string.IsNullOrEmpty(Width))
+            W = CalculateWidth(parentCanvas.W);
+
+            H = CalculateHeight();
+
+            // Canvas
+            Canvas.X = MarginLeft;
+            Canvas.Y = MarginTop;
+            Canvas.W = W - (MarginLeft + MarginRight);
+            Canvas.H = H - (MarginTop + MarginBottom);
+        }
+        internal virtual XUnit CalculateWidth(XUnit parentWidth)
+        {
+            if (string.IsNullOrEmpty(Width))
+                return XUnit.Zero;
+
+            // Percentage width (e.g. "50%") → relative to parent width
+            if (Width.Contains('%'))
             {
-                if (Width.Contains('%'))
+                if (!double.TryParse(Width.TrimEnd('%', ' '), out double widthPercent))
                 {
-                    double widthPercent;
-                    try
-                    {
-                        widthPercent = double.Parse(Width.TrimEnd(new char[] { '%', ' ' }));
-                    }
-                    catch
-                    {
-                        Console.WriteLine($"Invalid width percentage: {Width}. Defaulting to 100%.");
-                        widthPercent = 100;
-                    }
-                    W = parentCanvas.W * widthPercent / 100 - (MarginLeft + MarginRight);
+                    Console.WriteLine($"Invalid width percentage: {Width}. Defaulting to 100%.");
+                    widthPercent = 100;
                 }
-                else
-                    W = XmlParser.ParseXUnit(Width) ?? XUnit.Zero;
-            }
-            else
-            {
-                W = parentCanvas.W - (MarginLeft + MarginRight);
-            }
+                return parentWidth * widthPercent / 100;
+            } 
 
-            // Height
-            if (!string.IsNullOrEmpty(Height))
-            {
-                H = XmlParser.ParseXUnit(Height) ?? XUnit.Zero;
-            }
-            else
-            {
-                H = XUnit.Zero;
-            }
-
-            this.Canvas = new Canvas
-            {
-                X = X + PaddingLeft,
-                Y = Y + PaddingTop,
-                W = W - (PaddingLeft + PaddingRight),
-                H = H - (PaddingTop + PaddingBottom)
-            };
+            // Return width
+            return XmlParser.ParseXUnit(Width) ?? XUnit.Zero;
+        }
+        internal virtual XUnit CalculateHeight()
+        {
+            return string.IsNullOrEmpty(Height)
+                ? XUnit.Zero
+                : XmlParser.ParseXUnit(Height) ?? XUnit.Zero;
         }
         internal virtual void Draw(XGraphics gfx)
         {
             LogDraw();
-            //gfx.DrawRectangle(new XPen(Color, 0.5), new XSolidBrush(BgColor), 0, 0, W.Point, H.Point);
+            gfx.DrawRectangle(new XPen(Color, 0.5), new XSolidBrush(BgColor), 0, 0, W.Point, H.Point);
         }
         internal virtual void LogDraw()
         {
             Console.WriteLine($"{Indent}Drawing {this.GetType().Name} at ({X.Millimeter:F1}, {Y.Millimeter:F1}) with width {W.Millimeter:F1} and height {H.Millimeter:F1}.");
         }
+        #endregion
 
         protected BaseElement? CreateElement(string elementName)
         {
@@ -210,7 +212,6 @@ namespace MyAlbum.Models
                 _ => null
             };
         }
-
         // Draws a child in its own local coordinate space.
         // The child renders itself at (0,0); we translate (and optionally rotate) here.
         protected void DrawElement(XGraphics gfx, BaseElement elem, bool rotate = false)

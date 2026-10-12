@@ -9,18 +9,6 @@ namespace MyAlbum.Models
 {
     internal class Space : BaseElement<SpaceStyle>
     {
-        #region Fields
-        protected bool? _rotate;
-        #endregion
-
-        #region Style properties
-        public bool Rotate
-        {
-            get => _rotate ?? Style?.Rotate ?? false;
-            set => _rotate = value;
-        }
-        #endregion
-
         #region Constructors
         public Space()
         {
@@ -34,6 +22,7 @@ namespace MyAlbum.Models
             Style = Styles.Space.GetStyle(xElem.Attribute("style")?.Value) ?? new SpaceStyle();
             base.ParseXml(xElem);
 
+            (_marginTop, _marginRight, _marginBottom, _marginLeft) = XmlParser.ParseMargin("0");
             _rotate = XmlParser.ParseBool(xElem.Attribute("rotate")?.Value);
         }
         internal override void Calculate(XGraphics gfx, Canvas parentCanvas)
@@ -45,13 +34,13 @@ namespace MyAlbum.Models
                 X = parentCanvas.Y + MarginLeft;
                 Y = parentCanvas.X + MarginTop;
                 W = parentCanvas.H - (MarginLeft + MarginRight);
-                this.Canvas = new Canvas
-                {
-                    X = PaddingLeft,
-                    Y = PaddingTop,
-                    W = W - (PaddingLeft + PaddingRight),
-                    H = H - (PaddingTop + PaddingBottom)
-                };
+                //this.Canvas = new Canvas
+                //{
+                //    X = PaddingLeft,
+                //    Y = PaddingTop,
+                //    W = W - (PaddingLeft + PaddingRight),
+                //    H = H - (PaddingTop + PaddingBottom)
+                //};
             }
         }
         internal override void Draw(XGraphics gfx)

@@ -43,14 +43,14 @@
     </page>
   </styles-->
   <page rem="Page 1">
-    <stamp width="34" height="25" title="Diamond jubilee" image="50.jpg" i1="1/2c" i2="black" i3="S 50" f1="" f2="Two portraits of Queen Victoria 1837 and 1867" f3="" />
-    <!--
-    <stamp width="96" height="60" title="Peace" image="" i1="4x43c" i2="" i3="S 1544a" f1="" f2="" f3="" />
-    <image align="left" valign="top" file-name="Canada-Post-Logo.png" height="32" width="32"></image>
     <text style="date">1897</text>
     <text style="headline">60th year of Queen Victoria’s reign</text>
     <paragraph style="headline">60th year of Queen Victoria’s reign</paragraph>
     <p>The Diamond Jubilee issue of 1897 commemorated the sixtieth anniversary of Queen Victoria's accession to the throne. The set comprises sixteen values, ranging from one-half cent to five dollars, and remains one of the most celebrated series in Canadian philately.</p>
+    <stamp width="34" height="25" title="Diamond jubilee" image="50.jpg" i1="1/2c" i2="black" i3="S 50" f1="" f2="Two portraits of Queen Victoria 1837 and 1867" f3="" />
+    <!--
+    <stamp width="96" height="60" title="Peace" image="" i1="4x43c" i2="" i3="S 1544a" f1="" f2="" f3="" />
+    <image align="left" valign="top" file-name="Canada-Post-Logo.png" height="32" width="32"></image>
     <row />
     <column />
     <image absolute="true" align="left" valign="top" file-name="Canada-Post-Logo.png" x="20" y="20" height="32" width="32" stretched="true"></image>

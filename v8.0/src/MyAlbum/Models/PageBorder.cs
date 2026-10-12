@@ -10,91 +10,35 @@ namespace MyAlbum.Models
 {
     internal class PageBorder : Frame
     {
-
         #region Override methods
         internal override void ParseXml(XElement xElem)
         {
             base.ParseXml(xElem);
+            Width = "100%";
         }
         internal override void Calculate(XGraphics gfx, Canvas parentCanvas)
         {
-            // Adjust the border X, Y, W, H with the exterior line width
-            //X = parentCanvas.X + MarginLeft;
-            //Y = parentCanvas.Y + MarginTop;
+            base.Calculate(gfx, parentCanvas);
+
             if (Rotate)
             {
-                W = parentCanvas.H - (MarginLeft + MarginRight);
-                H = parentCanvas.W - (MarginTop + MarginBottom);
+                W = parentCanvas.H;
+                H = parentCanvas.W;
+                Canvas.W = H - (WidthTop + MarginTop + MarginBottom + WidthBottom);
+                Canvas.H = W - (WidthLeft + MarginLeft + MarginRight + WidthRight);
             }
             else
             {
-                W = parentCanvas.W - (MarginLeft + MarginRight);
-                H = parentCanvas.H - (MarginTop + MarginBottom);
+                W = parentCanvas.W;
+                H = parentCanvas.H;
+                Canvas.W = W - (WidthLeft + MarginLeft + MarginRight + WidthRight);
+                Canvas.H = H - (WidthTop + MarginTop + MarginBottom + WidthBottom);
             }
-            CalculateFrameSidesWidth();
-
-            //this.Canvas.X = parentCanvas.X + MarginLeft + WidthLeft + PaddingLeft;
-            //this.Canvas.Y = parentCanvas.Y + MarginTop + WidthTop + PaddingTop;
-            this.Canvas.X = MarginLeft + WidthLeft + PaddingLeft;
-            this.Canvas.Y = MarginTop + WidthTop + PaddingTop;
-            this.Canvas.W = parentCanvas.W - MarginLeft - WidthLeft - PaddingLeft - MarginRight - WidthRight - PaddingRight;
-            this.Canvas.H = parentCanvas.H - MarginTop - WidthTop - PaddingTop - MarginBottom - WidthBottom - PaddingBottom;
-            //Helper.DrawCorner(gfx, Canvas.X, Canvas.Y, XColors.Green);
-            //Console.WriteLine($"Calculated {this.GetType().Name}: X=({X.Millimeter:F1}, Y={Y.Millimeter:F1}, W={W.Millimeter:F1}, H={H.Millimeter:F1}.");
         }
-        //internal void Calculate(XGraphics gfx, Canvas parentCanvas, PageOrientation orientation)
-        //{
-        //    // If Landscape, shift attributes 90 degrees counterclockwise
-        //    if (orientation == PageOrientation.Landscape)
-        //    {
-        //        // border types
-        //        FrameType t = TypeTop;
-        //        TypeTop = TypeLeft;
-        //        TypeLeft = TypeBottom;
-        //        TypeBottom = TypeRight;
-        //        TypeRight = t;
-
-        //        // margins
-        //        XUnit m = MarginTop;
-        //        MarginTop = MarginLeft;
-        //        MarginLeft = MarginBottom;
-        //        MarginBottom = MarginRight;
-        //        MarginRight = m;
-
-        //        // paddings
-        //        XUnit p = PaddingTop;
-        //        PaddingTop = PaddingLeft;
-        //        PaddingLeft = PaddingBottom;
-        //        PaddingBottom = PaddingRight;
-        //        PaddingRight = p;
-        //    }
-
-        //    Calculate (gfx, parentCanvas);
-        //}
         internal override void Draw(XGraphics gfx)
         {
-            //BgColor = XColors.Bisque; 
-            //Console.WriteLine($"Drawing {this.GetType().Name}: X={X.Millimeter:F1}, Y={Y.Millimeter:F1}, W={W.Millimeter:F1}, H={H.Millimeter:F1}, BgColor={BgColor.ToString()}");
-            //Console.WriteLine($"  BgColor ARGB: A={BgColor.A}, R={BgColor.R}, G={BgColor.G}, B={BgColor.B}, IsEmpty={BgColor.IsEmpty}");
             base.Draw(gfx);
         }
-        #endregion
-
-        #region Private Methods
-        //private void CalculateBorderWidths()
-        //{
-        //    WidthTop = CalculateLineWidth(TypeTop);
-        //    WidthRight = CalculateLineWidth(TypeRight);
-        //    WidthBottom = CalculateLineWidth(TypeBottom);
-        //    WidthLeft = CalculateLineWidth(TypeLeft);
-        //}
-        //private XUnit CalculateLineWidth(FrameType type) => type switch
-        //{
-        //    FrameType.None => XUnit.Zero,
-        //    FrameType.Single => LineWidth1,
-        //    FrameType.Double => LineWidth1 + Offset + LineWidth2,
-        //    _ => XUnit.Zero
-        //};
         #endregion
     }
 }

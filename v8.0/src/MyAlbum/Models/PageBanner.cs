@@ -14,7 +14,7 @@ namespace MyAlbum.Models
         internal override void ParseXml(XElement xElem)
         {
             base.ParseXml(xElem);
-            _absolute = false;
+            Absolute = false;
             Width = "100%";
         }
         internal override void Calculate(XGraphics gfx, Canvas parentCanvas)
@@ -23,25 +23,15 @@ namespace MyAlbum.Models
 
             if (Rotate)
             {
-                //X = parentCanvas.Y + MarginLeft;
-                //Y = parentCanvas.X + MarginTop;
-                W = parentCanvas.H - (MarginLeft + MarginRight);
+                W = parentCanvas.H;
+                Canvas.W = W - (MarginLeft + MarginRight);
 
-                // W now spans the page height, so  if H is not specified, recompute from the aspect ratio.
+                // W changed - recompute H (if not explicitly set)
                 if (string.IsNullOrEmpty(Height))
                 {
-                    double aspectRatio = (XImg != null && XImg.PixelHeight != 0)
-                        ? (double)XImg.PixelWidth / XImg.PixelHeight
-                        : 1.0;
-                    H = XUnit.FromPoint(W.Point / aspectRatio);
+                    Canvas.H = XUnit.FromPoint(Canvas.W.Point / AspectRatio);
+                    H = Canvas.H + (MarginTop + MarginBottom);
                 }
-                this.Canvas = new Canvas
-                {
-                    X = X + PaddingLeft,
-                    Y = Y + PaddingTop,
-                    W = W - (PaddingLeft + PaddingRight),
-                    H = H - (PaddingTop + PaddingBottom)
-                };
             }
         }
         #endregion

@@ -14,7 +14,6 @@ namespace MyAlbum.Models
         protected Alignment? _align;
         protected VerticalAlignment? _vAlign;
         protected SpacingMode? _spacingMode;
-        protected bool? _rotate;
         protected XUnit? _space;
         #endregion
 
@@ -39,11 +38,6 @@ namespace MyAlbum.Models
             get => _space ?? Style.Space ?? XUnit.Zero;
             set => _space = value;
         }
-        public bool Rotate
-        {
-            get => _rotate ?? Style.Rotate ?? false;
-            set => _rotate = value;
-        }
         #endregion
 
         #region Other properties
@@ -64,6 +58,7 @@ namespace MyAlbum.Models
         internal override void ParseXml(XElement xElem)
         {
             base.ParseXml(xElem);
+            Width = "100%";
             Style = Styles.Row.GetStyle(xElem.Attribute("style")?.Value);
 
             _align = XmlParser.ParseAlignment(xElem.Attribute("align")?.Value);
@@ -93,10 +88,10 @@ namespace MyAlbum.Models
                 W = parentCanvas.H - (MarginLeft + MarginRight);
                 this.Canvas = new Canvas
                 {
-                    X = PaddingLeft,
-                    Y = PaddingTop,
-                    W = W - (PaddingLeft + PaddingRight),
-                    H = H - (PaddingTop + PaddingBottom)
+                    X = MarginLeft,
+                    Y = MarginTop,
+                    W = W - (MarginLeft + MarginRight),
+                    H = H - (MarginTop + MarginBottom)
                 };
             }
 

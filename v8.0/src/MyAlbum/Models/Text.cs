@@ -15,7 +15,7 @@ namespace MyAlbum.Models
         protected string? _fontName;
         protected double? _fontSize;
         protected XFontStyleEx? _fontStyle;
-        private XFont _font;
+        private XFont? _font;
         protected string[] lines = Array.Empty<string>();
         protected string[] sep = { "\\n" };
         #endregion
@@ -84,22 +84,29 @@ namespace MyAlbum.Models
             Font = new XFont(FontName, FontSize, FontStyle);
 
             Value = xElem.Value;
-            
-
-            //PageNumber = int.Parse(pageElement.Attribute("no")?.Value ?? "0");
         }
         internal override void Calculate(XGraphics gfx, Canvas parentCanvas)
         {
+            // base.Calculate initializes the X, Y, W, H and the Canvas. 
+            // It is important if Text has explicit width or height.
             base.Calculate(gfx, parentCanvas);
-
-            // Text does not wrap. Only Paragraph does. For the text element, the user might break the line with \n.
+            
+            // Text does not wrap. Only Paragraph does.
+            // For the text element, the user could break the line with "\n".
             if (!string.IsNullOrEmpty(Value))
             {
                 lines = Split(gfx);
-                H = CalculateHeight(gfx);
-                W = CalculateWidth(gfx);
             }
+
+            // Calculate the actual text size and get the larger between explicit and calculated.
+            Canvas.W = XUnit.FromPoint( Math.Max(Canvas.W.Point, CalculateWidth(gfx).Point) ); 
+            Canvas.H = XUnit.FromPoint( Math.Max(Canvas.H.Point, CalculateHeight(gfx).Point) );
+
+            // Reset the total W and H.
+            W = Canvas.W + (MarginLeft + MarginRight);
+            H = Canvas.H + (MarginTop + MarginBottom);
         }
+
         /* 
          * XGraphics gfx parameter is not used here. this is intentional 
          * The Split method is designed to be overridden in derived classes, 
@@ -112,29 +119,24 @@ namespace MyAlbum.Models
 
             return Value.Split(sep, StringSplitOptions.None);
         }
-
         protected virtual XUnit CalculateHeight(XGraphics gfx)
         {
-            XUnit h = XUnit.Zero;
+            double h = 0;
             for (int i = 0; i < lines.Length; i++)
             {
-                h += XUnit.FromPoint(this.Font.Height);
+                h += this.Font.Height;
             }
-            //h += MarginTop + MarginBottom;
-            return h;
+            return XUnit.FromPoint(h);
         }
-
         protected virtual XUnit CalculateWidth(XGraphics gfx)
         {
-            XUnit w = XUnit.Zero;
+            double w = 0;
             for (int i = 0; i < lines.Length; i++)
             {
                 w = Math.Max(w, gfx.MeasureString(lines[i], this.Font).Width);
             }
-            //w += MarginLeft + MarginRight;
-            return w;
+            return XUnit.FromPoint(w);
         }
-
         internal override void Draw(XGraphics gfx)
         {
             base.Draw(gfx);
@@ -174,54 +176,7 @@ namespace MyAlbum.Models
             }
         }
         #endregion
-        //private string[][] SplitText(XGraphics gfx)
-        //{
-        //    try
-        //    {
-        //        //needsProcess = false;
-        //        string[][] result = { };
 
-        //        //string[] arr = Value.Split(sep, StringSplitOptions.RemoveEmptyEntries);
-        //        string[] arr = Value.Split(sep, StringSplitOptions.None);
-        //        //string[] words;
-        //        string line;
-        //        for (int i = 0; i < arr.Length; i++)
-        //        {
-        //            if (result.Length > 0)
-        //            {
-        //                result[result.Length - 1][0] = "LAST";
-        //            }
-        //            //words = arr[i].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-        //            words = arr[i].Split(new char[] { ' ' }, StringSplitOptions.None);
-        //            line = words[0];
-        //            for (int j = 1; j < words.Length; j++)
-        //            {
-        //                if (gfx.MeasureString(line + " " + words[j], Font).Width < this.W)
-        //                {
-        //                    line += (" " + words[j]);
-        //                }
-        //                else
-        //                {
-        //                    Array.Resize(ref result, result.Length + 1);
-        //                    //result.SetValue(line, result.Length - 1);
-        //                    result.SetValue(new String[2] { "MID", line }, result.Length - 1);
-        //                    line = words[j];
-        //                }
-        //            }
-        //            Array.Resize(ref result, result.Length + 1);
-        //            result.SetValue(new String[2] { "MID", line }, result.Length - 1);
-        //        }
-
-        //        result[result.Length - 1][0] = "LAST";
-        //        this.arr = result;
-
-        //        return result;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
         private XPoint RowStartPoint(int index, bool isJustified = false)
         {
             XPoint point = new XPoint();
@@ -231,8 +186,6 @@ namespace MyAlbum.Models
                     switch (Align)
                     {
                         case Alignment.Left:
-                            //point = new XPoint(this.X,
-                            //                   this.Y + this.MarginTop + index * this.Font.Height);
                             point = new XPoint(0,
                                                this.MarginTop.Point + index * this.Font.Height);
                             break;
