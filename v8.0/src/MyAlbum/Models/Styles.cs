@@ -10,21 +10,23 @@ namespace MyAlbum.Models
         public static Dictionary<string, PageStyle> Page { get; } = new();
         public static Dictionary<string, FrameStyle> Frame { get; } = new();
         public static Dictionary<string, RowStyle> Row { get; } = new();
+        public static Dictionary<string, ColumnStyle> Column { get; } = new();
         public static Dictionary<string, TextStyle> Text { get; } = new();
-        //public static Dictionary<string, ColumnStyle> Column { get; } = new();
         public static Dictionary<string, ImageStyle> Image { get; } = new();
         public static Dictionary<string, SpaceStyle> Space { get; } = new();
         public static Dictionary<string, StampStyle> Stamp { get; } = new();
 
         // Helper method to get style or default
-        public static T GetStyle<T>(this Dictionary<string, T> styles, string? styleName) where T : class
+        public static T GetStyle<T>(this Dictionary<string, T> styles, string? styleName) where T : class, new()
         {
             if (!string.IsNullOrEmpty(styleName) && styles.TryGetValue(styleName, out T? style))
                 return style;
 
             // Return default style if exists
-            styles.TryGetValue("default", out T? defaultStyle);
-            return defaultStyle;
+            if(styles.TryGetValue("default", out T? defaultStyle))
+                return defaultStyle;
+
+            return new T();
         }
     }
 }

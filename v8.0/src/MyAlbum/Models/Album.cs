@@ -32,6 +32,7 @@ namespace MyAlbum.Models
             ParseStyleElements<PageStyle>(styles, "page", Styles.Page);
             ParseStyleElements<FrameStyle>(styles, "frame", Styles.Frame);
             ParseStyleElements<RowStyle>(styles, "row", Styles.Row);
+            ParseStyleElements<ColumnStyle>(styles, "column", Styles.Column);
             ParseStyleElements<TextStyle>(styles, "text", Styles.Text);
             ParseStyleElements<ImageStyle>(styles, "image", Styles.Image);
             ParseStyleElements<SpaceStyle>(styles, "space", Styles.Space);

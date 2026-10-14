@@ -233,16 +233,16 @@ namespace MyAlbum.Models
             DrawElement(gfx, F2);
             DrawElement(gfx, F3);
 
-            XUnit over = XUnit.FromMillimeter(2);
+            //XUnit over = XUnit.FromMillimeter(2);
 
-            XPen dottedPen = new XPen(XColors.Red, 0.5)
-            {
-                DashStyle = XDashStyle.Dash
-            };
+            //XPen dottedPen = new XPen(XColors.Red, 0.5)
+            //{
+            //    DashStyle = XDashStyle.Dash
+            //};
 
-            gfx.DrawLine(dottedPen, -over.Point, TopAlign.Point, (W + over).Point, TopAlign.Point);
-            gfx.DrawLine(dottedPen, -over.Point, MiddleAlign.Point, (W + over).Point, MiddleAlign.Point);
-            gfx.DrawLine(dottedPen, -over.Point, BottomAlign.Point, (W + over).Point, BottomAlign.Point);
+            //gfx.DrawLine(dottedPen, -over.Point, TopAlign.Point, (W + over).Point, TopAlign.Point);
+            //gfx.DrawLine(dottedPen, -over.Point, MiddleAlign.Point, (W + over).Point, MiddleAlign.Point);
+            //gfx.DrawLine(dottedPen, -over.Point, BottomAlign.Point, (W + over).Point, BottomAlign.Point);
         }
         #endregion
     }

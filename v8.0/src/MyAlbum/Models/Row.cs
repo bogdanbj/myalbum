@@ -50,7 +50,8 @@ namespace MyAlbum.Models
             Style = Styles.Row.GetStyle("default") ?? new RowStyle();
             Elements = new List<BaseElement>();
 
-            this.H = XUnit.FromMillimeter(20);
+            //this.H = XUnit.FromMillimeter(20);
+            this.H = XUnit.Zero;
         }
         #endregion
 
@@ -95,15 +96,7 @@ namespace MyAlbum.Models
                 };
             }
 
-            //foreach (var element in Elements)
-            //{
-            //    element.Calculate(gfx, Canvas);
-            //}
-
-            // At this point, we should have the calculated width and height of all elements in the row.
-            // We can then adjust the row's height based on the tallest element and apply spacing if needed.
-
-            // Calculate the top and bottom height and get the maximum.
+            // Calculate the top and bottom height and get the max.
             //H = XUnit.Zero;
             XUnit 
                 topHeight = XUnit.Zero, 

@@ -81,12 +81,12 @@
       <row style="page_header">
         <text align="center" font-name="Century Gothic" font-size="12" font-style="bolditalic" bgcolor="LightSkyBlue">C   A   N   A   D   A</text>
       </row>
-      <space height="5" width="100%" />
+      <!--space height="5" width="100%" /-->
     </page>
 
     <page style="landscape" default="false" orientation="landscape" size="letter" margin="20,7,7,7" color="black" bgcolor="Silver" vspace="1">
       <banner file-name="banner.jpg" rotate="true" height="20"  />
-      <border style="page_border" rotate="true"/>
+      <border style="page_border" rotate="true" margin="0,6,6,6"/>
       <row style="page_header" rotate="true">
         <text align="center" font-name="Century Gothic" font-size="12" font-style="bolditalic" bgcolor="LightSkyBlue">C   A   N   A   D   A</text>
       </row>
@@ -133,7 +133,7 @@
     <!-- SPACE
 			Has no margin. Any margin attribute is ignored.
 			-->
-		<space style="default_space" default="true" width="0" height="0" bgcolor_2="Transparent" bgcolor="LavenderBlush" />
+		<space style="default_space" default="true" width="0" height="0" bgcolor="Transparent" bgcolor_2="LavenderBlush" />
 
     <!-- STAMP
 			Width and height are the dimensions of the physical stamp. 
