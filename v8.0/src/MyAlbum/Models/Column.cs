@@ -65,19 +65,22 @@ namespace MyAlbum.Models
         {
             base.Calculate(gfx, parentCanvas);
 
+            XUnit contentHeight = XUnit.Zero;
             // Measure children and derive column size (main axis = vertical).
             foreach (BaseElement element in Elements)
             {
                 element.Calculate(gfx, Canvas);
-                this.Canvas.H += element.H;
+                //this.Canvas.H += element.H;
+                contentHeight += element.H;
                 this.Canvas.W = XUnit.FromPoint(Math.Max(this.Canvas.W.Point, element.W.Point));
             }
 
             if (Elements.Count > 1)
-                this.Canvas.H += XUnit.FromPoint((Elements.Count - 1) * VSpace.Point);
+                contentHeight = XUnit.FromPoint(  (Elements.Count - 1) * VSpace.Point  );
+            this.Canvas.H = XUnit.FromPoint(Math.Max(this.Canvas.H.Point, contentHeight.Point));
 
             // Column occupies the full canvas width; height is driven by its children.
-            H = Canvas.H + MarginTop + MarginBottom;
+            H = XUnit.FromPoint(Math.Max( this.H.Point, (Canvas.H + MarginTop + MarginBottom).Point));
             W = Canvas.W + MarginLeft + MarginRight;
             TopAlign = XUnit.Zero;
             MiddleAlign = H / 2;
@@ -109,23 +112,23 @@ namespace MyAlbum.Models
         }
         internal override XUnit CalculateHeight(XUnit parentHeight)
         {
-            return string.IsNullOrEmpty(Height)
-                ? XUnit.Zero
-                : XmlParser.ParseXUnit(Height) ?? XUnit.Zero;
+            //return string.IsNullOrEmpty(Height)
+            //    ? XUnit.Zero
+            //    : XmlParser.ParseXUnit(Height) ?? XUnit.Zero;
 
 
             if (string.IsNullOrEmpty(Height))
                 return XUnit.Zero;
 
-            // Percentage width (e.g. "50%") → relative to parent width
-            if (Width.Contains('%'))
+            // Percentage height (e.g. "50%") → relative to parent height
+            if (Height.Contains('%'))
             {
-                if (!double.TryParse(Width.TrimEnd('%', ' '), out double widthPercent))
+                if (!double.TryParse(Height.TrimEnd('%', ' '), out double heightPercent))
                 {
-                    Console.WriteLine($"Invalid width percentage: {Width}. Defaulting to 100%.");
-                    widthPercent = 100;
+                    Console.WriteLine($"Invalid height percentage: {Height}. Defaulting to 100%.");
+                    heightPercent = 100;
                 }
-                return parentHeight * widthPercent / 100;
+                return parentHeight * heightPercent / 100;
             }
 
             // Return height
