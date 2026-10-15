@@ -151,7 +151,7 @@ namespace MyAlbum.Models
 
             W = CalculateWidth(parentCanvas.W);
 
-            H = CalculateHeight();
+            H = CalculateHeight(parentCanvas.H);
 
             // Canvas
             Canvas.X = MarginLeft;
@@ -178,7 +178,7 @@ namespace MyAlbum.Models
             // Return width
             return XmlParser.ParseXUnit(Width) ?? XUnit.Zero;
         }
-        internal virtual XUnit CalculateHeight()
+        internal virtual XUnit CalculateHeight(XUnit parentHeight)
         {
             return string.IsNullOrEmpty(Height)
                 ? XUnit.Zero

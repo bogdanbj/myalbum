@@ -115,6 +115,7 @@
     <text style="date" align="center" font-name="Century Gothic" font-size="24" bgcolor="DarkSeaGreen"/>
     <text style="chapter" align="center" font-name="Century Gothic" font-size="36"/>
     <text style="headline" align="center" font-name="Century Gothic" font-size="10" bgcolor="CadetBlue" margin="0,0,1,0"/>
+    <text style="story" align="center" font-name="Folio" font-size="7" wrap="true" bgcolor ="MediumAquamarine" />
     <text style="title" align="center" font-name="Century Gothic" font-size="10" bgcolor ="MediumAquamarine" />
     <text style="inside" align="center" font-name="Century Gothic" font-size="6" bgcolor="MediumAquamarine" />
     <text style="footer" font-name="Century Gothic" font-size="6" bgcolor="MediumAquamarine"/>

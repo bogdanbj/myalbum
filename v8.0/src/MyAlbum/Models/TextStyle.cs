@@ -13,6 +13,8 @@ namespace MyAlbum.Models
         public string? FontName { get; set; }
         public double? FontSize { get; set; }
         public XFontStyleEx? FontStyle { get; set; }
+        public bool? Wrap { get; set; }
+        //public bool? Justify { get; set; }
         internal override void ParseXml(XElement xText)
         {
             base.ParseXml(xText);
@@ -21,6 +23,8 @@ namespace MyAlbum.Models
             FontName = xText.Attribute("font-name")?.Value;
             FontSize = XmlParser.ParseDouble(xText.Attribute("font-size")?.Value);
             FontStyle = XmlParser.ParseFontStyle(xText.Attribute("font-style")?.Value);
+            Wrap = XmlParser.ParseBool(xText.Attribute("wrap")?.Value);
+            //Justify = XmlParser.ParseBool(xText.Attribute("justify")?.Value);
         }
     }
 }

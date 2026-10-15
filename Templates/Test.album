@@ -53,27 +53,31 @@
       <stamp width="34" height="25" title="" image="" i1="2c" i2="green" i3="S 52" f1="" f2="" f3="" />
       <stamp width="34" height="25" title="" image="" i1="3c" i2="bright rose" i3="S 53" f1="" f2="" f3="" />
     </row>
-    <row space="20" valign="bottom">
-      <column width="36" rem="Yellowknife" >
+      <column width="36" height ="100%" rem="Yellowknife" >
         <text style="headline">YELLOWKNIFE</text>
         <text style="date">1984</text>
         <stamp width="30" height="36" title="" image="" i1="32c" i2="" i3="S 1009" f1="" f2="Gold mine head frame in pan" f3="" />
-        <text style="story" width="40">The stamp issued on 15 May 1984, commemorates the 50th anniversary of the gold mining community living in the city of Yellowknife, capital of Northwest Territories.</text>
+        <text style="story" width="50">The stamp issued on 15 May 1984, commemorates the 50th anniversary of the gold mining community living in the city of Yellowknife, capital of Northwest Territories.\n</text>
       </column>
-      <column width="36" rem="Tall Ships">
+    <space width="5" />
+    <column width="36" height ="100%" rem="Tall Ships">
         <text style="headline">TALL SHIPS</text>
         <text style="date">1984</text>
         <stamp width="30" height="40" title="" image="" i1="32c" i2="" i3="S 1012" f1="" f2="Tall Ships regatta" f3="" />
-        <text style="story" width="40">Over 85 of majestic two, three and four-masted ships dropped anchor in St. Lawrence River in Quebec City honouring the 450th anniversary of Jacques Cartier's first voyage to North America.</text>
+        <text style="story" width="50">Over 85 of majestic two, three and four-masted ships dropped anchor in St. Lawrence River in Quebec City honouring the 450th anniversary of Jacques Cartier's first voyage to North America.</text>
       </column>
-      <column width="36" rem="Canadian Red Cross">
+    <space width="5" />
+    <column width="36" height ="100%" rem="Canadian Red Cross">
         <text style="headline">RED CROSS</text>
         <text style="date">1984</text>
         <stamp width="30" height="36" title="" image="" i1="32c" i2="" i3="S 1013" f1="" f2="Meritorious Service Medal" f3="" />
-        <text style="story" width="40">In recognition of their invaluable contribution, Canada Post issued this stamp featuring the medal awarded by The Canadian Red Cross Society for long-standing and meritorious voluntary service.</text>
+        <text style="story" width="50">In recognition of their invaluable contribution, Canada Post issued this stamp featuring the medal awarded by The Canadian Red Cross Society for long-standing and meritorious voluntary service.</text>
       </column>
-    </row>
     <!--
+    <row space="15" valign="bottom">
+    </row>
+    <space width="5" />
+    <space width="5" />
     <column width="30%">
       <stamp width="34" height="25" title="Diamond jubilee" image="50.jpg" i1="1/2c" i2="black" i3="S 50" f1="" f2="Two portraits of Queen Victoria 1837 and 1867" f3="" />
     </column>

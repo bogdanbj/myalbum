@@ -153,8 +153,23 @@ namespace MyAlbum.Models
                 {
                     element.X = Canvas.X + element.MarginLeft;
                     element.Y = Canvas.Y + element.MarginTop;
-                    Canvas.Y += element.H + element.MarginTop + element.MarginBottom + VSpace;
-                    Canvas.H -= element.H + element.MarginTop + element.MarginBottom + VSpace;
+                    if (element is Column)
+                    {
+                        Canvas.X += element.W + element.MarginLeft + element.MarginRight;
+                        Canvas.W -= element.W + element.MarginLeft + element.MarginRight;
+                    }
+                    else if (element is Space)
+                    {
+                        Canvas.X += element.W + element.MarginLeft + element.MarginRight;
+                        Canvas.W -= element.W + element.MarginLeft + element.MarginRight;
+                        Canvas.Y += element.H + element.MarginTop + element.MarginBottom;
+                        Canvas.H -= element.H + element.MarginTop + element.MarginBottom;
+                    }
+                    else
+                    {
+                        Canvas.Y += element.H + element.MarginTop + element.MarginBottom + VSpace;
+                        Canvas.H -= element.H + element.MarginTop + element.MarginBottom + VSpace;
+                    }
                 }
             }
         }
@@ -163,7 +178,7 @@ namespace MyAlbum.Models
         {
             return pdfPage.Width;
         }
-        internal override XUnit CalculateHeight()
+        internal override XUnit CalculateHeight(XUnit parentHeight)
         {
             return pdfPage.Height;
         }
@@ -199,15 +214,15 @@ namespace MyAlbum.Models
                 Canvas.W.Point,
                 Canvas.H.Point);
 
-            // Label the canvas interior in the top-left corner
-            XFont canvasFont = new XFont("Verdana", 12);
-            XRect canvasLabelRect = new XRect(
-                (Canvas.X + XUnit.FromMillimeter(2)).Point,
-                (Canvas.Y + XUnit.FromMillimeter(1)).Point,
-                (Canvas.W - XUnit.FromMillimeter(2)).Point,
-                (Canvas.H - XUnit.FromMillimeter(1)).Point);
-            gfx.DrawString($"Canvas - Page {this.PageNo} - {this.Title}.", canvasFont, XBrushes.Black, canvasLabelRect, XStringFormats.TopLeft);
-            //Console.WriteLine($"Page {this.PageNo} - {this.Title}.");
+            //// Label the canvas interior in the top-left corner
+            //XFont canvasFont = new XFont("Verdana", 12);
+            //XRect canvasLabelRect = new XRect(
+            //    (Canvas.X + XUnit.FromMillimeter(2)).Point,
+            //    (Canvas.Y + XUnit.FromMillimeter(1)).Point,
+            //    (Canvas.W - XUnit.FromMillimeter(2)).Point,
+            //    (Canvas.H - XUnit.FromMillimeter(1)).Point);
+            //gfx.DrawString($"Canvas - Page {this.PageNo} - {this.Title}.", canvasFont, XBrushes.Black, canvasLabelRect, XStringFormats.TopLeft);
+            ////Console.WriteLine($"Page {this.PageNo} - {this.Title}.");
         }
         #endregion
 

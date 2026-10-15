@@ -16,6 +16,8 @@ namespace MyAlbum.Models
         protected double? _fontSize;
         protected XFontStyleEx? _fontStyle;
         private XFont? _font;
+        private bool? _wrap;
+        //private bool? _justify;
         protected string[] lines = Array.Empty<string>();
         protected string[] sep = { "\\n" };
         #endregion
@@ -62,6 +64,16 @@ namespace MyAlbum.Models
             }
         }
         public string? Value { get; set; }
+        public bool Wrap
+        {
+            get => _wrap ?? Style.Wrap ?? false;
+            set => _wrap = value;
+        }
+        //public bool Justify
+        //{
+        //    get => _justify ?? Style.Justify ?? false;
+        //    set => _justify = value;
+        //}
         #endregion
 
         #region Constructors
@@ -82,6 +94,8 @@ namespace MyAlbum.Models
             _fontSize = XmlParser.ParseDouble(xElem.Attribute("font-size")?.Value);
             _fontStyle = XmlParser.ParseFontStyle(xElem.Attribute("font-style")?.Value);
             Font = new XFont(FontName, FontSize, FontStyle);
+            _wrap = XmlParser.ParseBool(xElem.Attribute("wrap")?.Value);
+            //_justify = XmlParser.ParseBool(xElem.Attribute("justify")?.Value);
 
             Value = xElem.Value;
         }
@@ -112,13 +126,59 @@ namespace MyAlbum.Models
          * The Split method is designed to be overridden in derived classes, 
          * where the gfx parameter will be used for word wrapping
          */
-        protected virtual string[] Split(XGraphics gfx)
+        //protected virtual string[] Split(XGraphics gfx)
+        //{
+        //    if (string.IsNullOrEmpty(Value))
+        //        return new string[] { "" };
+
+        //    return Value.Split(sep, StringSplitOptions.None);
+        //}
+        protected string[] Split(XGraphics gfx)
         {
             if (string.IsNullOrEmpty(Value))
-                return new string[] { "" };
+                return [""];
 
-            return Value.Split(sep, StringSplitOptions.None);
+            if (!Wrap)
+                return Value.Split(sep, StringSplitOptions.None);
+
+            var result = new List<string>();
+
+            // Explicit line breaks
+            string[] longLines = Value.Split(sep, StringSplitOptions.None);
+            
+            // Try to wrap if needed
+            foreach (string longLine in longLines)
+            {
+
+                // If the line fits, just add it to the result.
+                if (gfx.MeasureString(longLine, Font).Width <= Canvas.W)
+                {
+                    result.Add(longLine);
+                    continue;
+                }
+
+                // If the line is longer than Width, wrap it.
+                string shortLine = string.Empty;
+                foreach (string word in longLine.Split(' '))
+                {
+                    string candidate = shortLine.Length == 0 ? word : $"{shortLine} {word}";
+
+                    if (gfx.MeasureString(candidate, Font).Width <= Canvas.W)
+                    {
+                        // Fits on the current line.
+                        shortLine = candidate;
+                    }
+                    else
+                    {
+                        result.Add(shortLine);
+                        shortLine = word;
+                    }
+                }
+                result.Add(shortLine);
+            }
+            return result.ToArray();
         }
+
         protected virtual XUnit CalculateHeight(XGraphics gfx)
         {
             double h = 0;

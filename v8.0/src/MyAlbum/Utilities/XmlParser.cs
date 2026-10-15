@@ -1,4 +1,5 @@
 using PdfSharp;
+using PdfSharp.Charting;
 using PdfSharp.Drawing;
 using System;
 using System.Collections.Generic;
@@ -260,9 +261,14 @@ namespace MyAlbum.Utilities
             }
             return null;
         }
-        internal static bool ParseBool(string? value)
+        internal static bool? ParseBool(string? value)
         {
-            return bool.TryParse(value, out bool result) && result;
+            if (!string.IsNullOrWhiteSpace(value) && bool.TryParse(value, out bool result))
+            {
+                return result;
+            }
+            return null;
+            //return bool.TryParse(value, out bool result) && result;
         }
         internal static double? ParseDouble(string? value)
         {

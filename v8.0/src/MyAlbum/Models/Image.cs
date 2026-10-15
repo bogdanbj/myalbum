@@ -88,7 +88,7 @@ namespace MyAlbum.Models
             if (hasWidth && hasHeight)
             {
                 Canvas.W = CalculateWidth(parentCanvas.W);
-                Canvas.H = CalculateHeight();
+                Canvas.H = CalculateHeight(parentCanvas.H);
                 W = Canvas.W + (MarginLeft + MarginRight);
                 H = Canvas.H + (MarginTop + MarginBottom);
             }
@@ -103,7 +103,7 @@ namespace MyAlbum.Models
             else if (hasHeight)
             {
                 // Only height provided: infer width from aspect ratio.
-                Canvas.H = CalculateHeight();
+                Canvas.H = CalculateHeight(parentCanvas.H);
                 Canvas.W = XUnit.FromPoint(Canvas.H.Point * AspectRatio);
                 W = Canvas.W + (MarginLeft + MarginRight);
                 H = Canvas.H + (MarginTop + MarginBottom);

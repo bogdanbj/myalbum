@@ -49,14 +49,14 @@ namespace MyAlbum.Models
             _vSpace = XmlParser.ParseXUnit(xElem.Attribute("vspace")?.Value);
 
             // Parse child elements
-            foreach (XElement xInnerElem in xElem.Elements())
+            foreach (XElement xElement in xElem.Elements())
             {
-                var inner = CreateElement(xInnerElem.Name.LocalName);
-                if (inner != null)
+                var elem = CreateElement(xElement.Name.LocalName);
+                if (elem != null)
                 {
-                    inner.Inherit(this);
-                    inner.ParseXml(xInnerElem);
-                    Elements.Add(inner);
+                    elem.Inherit(this);
+                    elem.ParseXml(xElement);
+                    Elements.Add(elem);
                 }
             }
         }
@@ -79,6 +79,9 @@ namespace MyAlbum.Models
             // Column occupies the full canvas width; height is driven by its children.
             H = Canvas.H + MarginTop + MarginBottom;
             W = Canvas.W + MarginLeft + MarginRight;
+            TopAlign = XUnit.Zero;
+            MiddleAlign = H / 2;
+            BottomAlign = H;
 
             // Stack children top-to-bottom (main axis = Y).
             XUnit y = MarginTop;
@@ -104,7 +107,45 @@ namespace MyAlbum.Models
                 }
             }
         }
+        internal override XUnit CalculateHeight(XUnit parentHeight)
+        {
+            return string.IsNullOrEmpty(Height)
+                ? XUnit.Zero
+                : XmlParser.ParseXUnit(Height) ?? XUnit.Zero;
 
+
+            if (string.IsNullOrEmpty(Height))
+                return XUnit.Zero;
+
+            // Percentage width (e.g. "50%") → relative to parent width
+            if (Width.Contains('%'))
+            {
+                if (!double.TryParse(Width.TrimEnd('%', ' '), out double widthPercent))
+                {
+                    Console.WriteLine($"Invalid width percentage: {Width}. Defaulting to 100%.");
+                    widthPercent = 100;
+                }
+                return parentHeight * widthPercent / 100;
+            }
+
+            // Return height
+            return XmlParser.ParseXUnit(Height) ?? XUnit.Zero;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
         internal override void Draw(XGraphics gfx)
         {
             base.Draw(gfx);
