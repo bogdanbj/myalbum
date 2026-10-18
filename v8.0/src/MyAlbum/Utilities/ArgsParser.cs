@@ -33,6 +33,9 @@ namespace MyAlbum.Utilities
                         case 't':
                             key = "test";
                             break;
+                        case 'd':
+                            key = "debug";
+                            break;
                     }
                 }
                 if (key != null)

@@ -93,40 +93,6 @@ namespace MyAlbum.Utilities
             }
             return (top, right, bottom, left);
         }
-        //internal static (XUnit? paddingTop, XUnit? paddingRight, XUnit? paddingBottom, XUnit? paddingLeft) ParsePadding(string? padding)
-        //{
-        //    return ParseSpacing(padding);
-        //}
-        //private static (XUnit? top, XUnit? right, XUnit? bottom, XUnit? left) ParseSpacing(string? value)
-        //{
-        //    XUnit? top = null;
-        //    XUnit? right = null;
-        //    XUnit? bottom = null;
-        //    XUnit? left = null;
-
-        //    if (!string.IsNullOrWhiteSpace(value))
-        //    {
-
-        //        string[] arr = value.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
-        //        switch (arr.Length)
-        //        {
-        //            case 1:
-        //                top = right = bottom = left = ParseXUnit(arr[0]);
-        //                break;
-        //            case 2:
-        //                top = bottom = ParseXUnit(arr[0]);
-        //                left = right = ParseXUnit(arr[1]);
-        //                break;
-        //            case 4:
-        //                top = ParseXUnit(arr[0]);
-        //                right = ParseXUnit(arr[1]);
-        //                bottom = ParseXUnit(arr[2]);
-        //                left = ParseXUnit(arr[3]);
-        //                break;
-        //        }
-        //    }
-        //    return (top, right, bottom, left);
-        //}
         internal static XUnit? ParseXUnit(string? value)
         {
             if (!string.IsNullOrWhiteSpace(value) && double.TryParse(value, out double result))
@@ -286,5 +252,14 @@ namespace MyAlbum.Utilities
             }
             return null;
         }
+        internal static FrameAlignment? ParseFrameAlignment(string? value)
+        {
+            if (!string.IsNullOrWhiteSpace(value) && Enum.TryParse(value, true, out FrameAlignment align))
+            {
+                return align;
+            }
+            return null;
+        }
+
     }
 }

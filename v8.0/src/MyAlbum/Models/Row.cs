@@ -126,7 +126,7 @@ namespace MyAlbum.Models
                         break;
                 }
             }
-            this.H = topHeight + bottomHeight;
+            this.H = topHeight + bottomHeight + MarginTop + MarginBottom;
 
             // Calculate the position of the elements based on the row's alignment and spacing mode
             #region Vertical Alignment
@@ -135,13 +135,13 @@ namespace MyAlbum.Models
                 switch (VAlign)
                 {
                     case VerticalAlignment.Top:
-                        element.Y = Y + TopAlign - element.TopAlign;
+                        element.Y = Y + MarginTop + TopAlign - element.TopAlign;
                         break;
                     case VerticalAlignment.Center:
-                        element.Y = Y + MiddleAlign - element.MiddleAlign;
+                        element.Y = Y + MarginTop + MiddleAlign - element.MiddleAlign;
                         break;
                     case VerticalAlignment.Bottom:
-                        element.Y = Y + BottomAlign - element.BottomAlign;
+                        element.Y = Y + MarginTop + BottomAlign - element.BottomAlign;
                         break;
                     default:
                         break;

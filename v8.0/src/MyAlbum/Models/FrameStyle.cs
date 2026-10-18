@@ -18,6 +18,7 @@ namespace MyAlbum.Models
         public XUnit? LineWidth1 { get; set; }
         public XUnit? LineWidth2 { get; set; }
         public XUnit? Offset { get; set; }
+        public FrameAlignment? Alignment { get; set; }
         #endregion
 
         #region Methods
@@ -27,9 +28,7 @@ namespace MyAlbum.Models
 
             (TypeTop, TypeRight, TypeBottom, TypeLeft) = XmlParser.ParseFrameType(xFrame.Attribute("frame-type")?.Value);
             (LineWidth1, Offset, LineWidth2) = XmlParser.ParseFrameWidth(xFrame.Attribute("frame-width")?.Value);
-
-            //FrameType = xFrame.Attribute("frame-type")?.Value;
-            //FrameWidth = xFrame.Attribute("frame-width")?.Value;
+            Alignment = XmlParser.ParseFrameAlignment(xFrame.Attribute("frame-alignment")?.Value);
         }
         #endregion
     }

@@ -22,6 +22,7 @@ namespace MyAlbum.Models
         protected string? _height;
         protected string? _width;
         protected bool? _rotate;
+        protected string? _rem;
 
         #endregion
 
@@ -114,6 +115,12 @@ namespace MyAlbum.Models
         public XUnit MiddleAlign { get; set; }
         public XUnit BottomAlign { get; set; }
         public string Indent { get; set; }
+        public string Rem
+        {
+            get => _rem ?? "";
+            set => _rem = value;
+        }
+        internal static bool IsDebug { get; set; }
         #endregion
 
         #region Constructors
@@ -134,6 +141,7 @@ namespace MyAlbum.Models
             _height = element.Attribute("height")?.Value;
             _width = element.Attribute("width")?.Value;
             _rotate = XmlParser.ParseBool(element.Attribute("rotate")?.Value);
+            _rem = element.Attribute("rem")?.Value;
         }
         internal virtual void Inherit(BaseElement parent)
         {
@@ -180,14 +188,35 @@ namespace MyAlbum.Models
         }
         internal virtual XUnit CalculateHeight(XUnit parentHeight)
         {
-            return string.IsNullOrEmpty(Height)
-                ? XUnit.Zero
-                : XmlParser.ParseXUnit(Height) ?? XUnit.Zero;
+            //return string.IsNullOrEmpty(Height)
+            //    ? XUnit.Zero
+            //    : XmlParser.ParseXUnit(Height) ?? XUnit.Zero;
+
+
+            if (string.IsNullOrEmpty(Height))
+                return XUnit.Zero;
+
+            // Percentage height (e.g. "50%") → relative to parent height
+            if (Height.Contains('%'))
+            {
+                if (!double.TryParse(Height.TrimEnd('%', ' '), out double heightPercent))
+                {
+                    Console.WriteLine($"Invalid height percentage: {Height}. Defaulting to 100%.");
+                    heightPercent = 100;
+                }
+                return parentHeight * heightPercent / 100;
+            }
+
+            // Return height
+            return XmlParser.ParseXUnit(Height) ?? XUnit.Zero;
         }
         internal virtual void Draw(XGraphics gfx)
         {
-            LogDraw();
-            gfx.DrawRectangle(new XPen(Color, 0.5), new XSolidBrush(BgColor), 0, 0, W.Point, H.Point);
+            if (IsDebug)
+            {
+                LogDraw();
+                gfx.DrawRectangle(new XPen(Color, 0.5), new XSolidBrush(BgColor), 0, 0, W.Point, H.Point);
+            }
         }
         internal virtual void LogDraw()
         {
@@ -212,8 +241,6 @@ namespace MyAlbum.Models
                 _ => null
             };
         }
-        // Draws a child in its own local coordinate space.
-        // The child renders itself at (0,0); we translate (and optionally rotate) here.
         protected void DrawElement(XGraphics gfx, BaseElement elem, bool rotate = false)
         {
             XGraphicsState state = gfx.Save();

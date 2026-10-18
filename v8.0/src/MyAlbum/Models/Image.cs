@@ -54,17 +54,20 @@ namespace MyAlbum.Models
         internal override void Calculate(XGraphics gfx, Canvas parentCanvas)
         {
             /*
-             W and H are always calculated here from the "width" and "height" attributes:
-             - If neither width nor height is provided, we use the image's original dimensions.
-             - If only width is provided, we infer height from the image's aspect ratio.
-             - If only height is provided, we infer width from the image's aspect ratio.
-             - If both are provided, the image is stretched to cover the whole defined area.
-             width may be expressed as a percentage relative to the parent canvas width.
-             At the end, both W and H hold valid XUnit values greater than XUnit.Zero.
-
-             X and Y:
-             - If Absolute is true, we keep the X, Y values parsed from the "x", "y" attributes.
-             - Otherwise they are calculated relative to the parent canvas.
+             * Image Width and Height set the printed image sizes - which is the object Canvas.
+             * W and H are calculated by adding the MArgins.
+             *
+             * Canvas W and H are always calculated here from the "width" and "height" attributes:
+             * - If neither width nor height is provided, we use the image's original dimensions.
+             * - If only width is provided, we infer height from the image's aspect ratio.
+             * - If only height is provided, we infer width from the image's aspect ratio.
+             * - If both are provided, the image is stretched to cover the whole defined area.
+             * Width may be expressed as a percentage relative to the parent canvas width.
+             * At the end, both W and H hold valid XUnit values greater than XUnit.Zero.
+             * 
+             * X and Y:
+             * - If Absolute is true, we keep the X, Y values parsed from the "x", "y" attributes.
+             * - Otherwise they are calculated relative to the parent canvas.
              */
 
             XUnit absoluteX = X, absoluteY = Y;

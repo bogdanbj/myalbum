@@ -71,26 +71,28 @@
       you need the "CANADA" header to be in a <row> element
 			-->
     <page style="cover" default="false" orientation="portrait" size="letter" margin="7" color="black" bgcolor="Ivory" vspace="1">
-      <banner file-name="flag_of_canada.jpg" />
-      <frame style="page_border" />
+      <!--banner file-name="flag_of_canada.jpg" /-->
+      <border style="page_border" />
     </page>
 
-    <page style="portrait" default="true" orientation="portrait" size="letter" margin="7,7,7,20" color="black" bgcolor="Silver" vspace="1">
-      <banner file-name="banner.jpg" height="20"  />
+    <page style="portrait" default="true" orientation="portrait" size="letter" margin="7,7,7,22" color="black" bgcolor="Silver" vspace="1">
+      <!--banner file-name="banner.jpg" height="20"  /-->
       <border style="page_border" />
       <row style="page_header">
         <text align="center" font-name="Century Gothic" font-size="12" font-style="bolditalic" bgcolor="LightSkyBlue">C   A   N   A   D   A</text>
       </row>
+      <space height="10" />
       <!--space height="5" width="100%" /-->
     </page>
 
-    <page style="landscape" default="false" orientation="landscape" size="letter" margin="20,7,7,7" color="black" bgcolor="Silver" vspace="1">
-      <banner file-name="banner.jpg" rotate="true" height="20"  />
+    <page style="landscape" default="false" orientation="landscape" size="letter" margin="22,7,7,7" color="black" bgcolor="Silver" vspace="1">
+      <!--banner file-name="banner.jpg" rotate="true" height="20"  /-->
       <border style="page_border" rotate="true" margin="0,6,6,6"/>
       <row style="page_header" rotate="true">
         <text align="center" font-name="Century Gothic" font-size="12" font-style="bolditalic" bgcolor="LightSkyBlue">C   A   N   A   D   A</text>
       </row>
-      <space height="5" width="100%" rotate="true"></space>
+      <!--space height="5" width="100%" rotate="true"></space-->
+      <space height="10"></space>
     </page>
     
     <!-- FRAME
@@ -100,9 +102,11 @@
 						  2 values: top-bottom, left-right
               1 value: all equal
       Margin is interior to the frame.
+      alignment: inside, outside, //center 
 			-->
-		<frame style="stamp_frame" default="true" frame-type="double" frame-width="0.4, 0.4, 0.1" margin="2" color="48,48,48" bgcolor="255,255,255" />
-    <frame style="page_border" default="false" frame-type="double" frame-width="0.5, 0.5, 0.2" margin="0,6" bgcolor="Ivory"/>
+		<frame style="stamp_frame" default="true" frame-type="double" frame-alignment="outside" frame-width="0.4, 0.4, 0.1" margin="2" color="48,48,48" bgcolor="255,255,255" />
+    <frame style="page_border" default="false" frame-type="double" frame-alignment="outside" frame-width="0.5, 0.5, 0.2" margin="0,6" bgcolor="Ivory"/>
+    <frame style="stamp_black_bg" default="false" frame-type="single" frame-alignment="inside" frame-width="3" margin="2" color="48,48,48" />
 
     <!-- TEXT
 			font-size: double
@@ -112,10 +116,10 @@
       Margin is exterior to the text.
 			-->
     <text style="text_default" default="true" align="left" font-name="Century Gothic" font-size="8" font-style="regular" />
-    <text style="date" align="center" font-name="Century Gothic" font-size="24" bgcolor="DarkSeaGreen"/>
-    <text style="chapter" align="center" font-name="Century Gothic" font-size="36"/>
+    <text style="date" align="center" font-name="Century Gothic" font-size="14" bgcolor="DarkSeaGreen"/>
+    <text style="chapter" width ="100%" align="center" font-name="Century Gothic" font-style="italic" font-size="36"/>
     <text style="headline" align="center" font-name="Century Gothic" font-size="10" bgcolor="CadetBlue" margin="0,0,1,0"/>
-    <text style="story" align="center" font-name="Folio" font-size="7" wrap="true" bgcolor ="MediumAquamarine" />
+    <text style="story" align="left" font-name="Century Gothic" font-size="8" wrap="true" bgcolor ="MediumAquamarine" />
     <text style="title" align="center" font-name="Century Gothic" font-size="10" bgcolor ="MediumAquamarine" />
     <text style="inside" align="center" font-name="Century Gothic" font-size="6" bgcolor="MediumAquamarine" />
     <text style="footer" font-name="Century Gothic" font-size="6" bgcolor="MediumAquamarine"/>
@@ -173,6 +177,6 @@
       Column height is always 100% of the parent canvas.
       If columns are held in a Row without an height, then the row and the inside columns span vertically to the whole remaining page height. 
 			-->
-		<column style="default_column" default="true" align="center" space="1" bgcolor="SandyBrown"/>
+		<column style="default_column" default="true" align="center" vspace="1" bgcolor="SandyBrown"/>
 		
   </styles>

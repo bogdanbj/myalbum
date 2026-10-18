@@ -15,6 +15,8 @@ namespace MyAlbum.Models
         {
             base.ParseXml(xElem);
             Width = "100%";
+            Height= "100%";
+            Alignment = FrameAlignment.Outside;
         }
         internal override void Calculate(XGraphics gfx, Canvas parentCanvas)
         {
@@ -24,15 +26,14 @@ namespace MyAlbum.Models
             {
                 W = parentCanvas.H;
                 H = parentCanvas.W;
+                Canvas.X = WidthBottom + MarginBottom;
+                Canvas.Y = WidthLeft + MarginLeft;
                 Canvas.W = H - (WidthTop + MarginTop + MarginBottom + WidthBottom);
                 Canvas.H = W - (WidthLeft + MarginLeft + MarginRight + WidthRight);
             }
             else
             {
-                W = parentCanvas.W;
-                H = parentCanvas.H;
-                Canvas.W = W - (WidthLeft + MarginLeft + MarginRight + WidthRight);
-                Canvas.H = H - (WidthTop + MarginTop + MarginBottom + WidthBottom);
+                // This is taken care of in Frame.
             }
         }
         internal override void Draw(XGraphics gfx)

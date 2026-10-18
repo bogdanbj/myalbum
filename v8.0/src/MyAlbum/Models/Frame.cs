@@ -17,6 +17,7 @@ namespace MyAlbum.Models
         protected XUnit? _lineWidth1;// = XUnit.Zero;
         protected XUnit? _lineWidth2;// = XUnit.Zero;
         protected XUnit? _offset;// = XUnit.Zero;
+        protected FrameAlignment? _alignment;
         #endregion
 
         #region Style properties
@@ -55,6 +56,11 @@ namespace MyAlbum.Models
             get => _offset ?? Style.Offset ?? XUnit.Zero;
             set => _offset = value;
         }
+        public FrameAlignment Alignment
+        {
+            get => _alignment ?? Style.Alignment ?? FrameAlignment.Outside;
+            set => _alignment = value;
+        }
         #endregion
 
         #region Other properties
@@ -79,16 +85,21 @@ namespace MyAlbum.Models
 
             (_typeTop, _typeRight, _typeBottom, _typeLeft) = XmlParser.ParseFrameType(xElem.Attribute("frame-type")?.Value);
             (_lineWidth1, _offset, _lineWidth2) = XmlParser.ParseFrameWidth(xElem.Attribute("frame-width")?.Value);
+            _alignment = XmlParser.ParseFrameAlignment(xElem.Attribute("frame-alignment")?.Value);
         }
         internal override void Calculate(XGraphics gfx, Canvas parentCanvas)
         {
             base.Calculate(gfx, parentCanvas);
             CalculateThickness();
-
-            Canvas.X += WidthLeft;
-            Canvas.Y += WidthTop;
-            Canvas.W -= WidthLeft + WidthRight;
-            Canvas.H -= WidthTop + WidthBottom;
+            
+            // This really does not matter because it will be overwritten by page/stamp border.
+            if (Alignment == FrameAlignment.Outside)
+            {   // Frame thickness does not take space from canvas.
+                Canvas.X += WidthLeft;
+                Canvas.Y += WidthTop;
+                Canvas.W -= WidthLeft + WidthRight;
+                Canvas.H -= WidthTop + WidthBottom;
+            }
         }
         internal void CalculateThickness()
         {
@@ -106,6 +117,8 @@ namespace MyAlbum.Models
         };
         internal override void Draw(XGraphics gfx)
         {
+            // Draws inward from Frame's X and Y
+
             base.Draw(gfx);
             //gfx.DrawRectangle(new XSolidBrush(BgColor), 0, 0, W.Point, H.Point);
 

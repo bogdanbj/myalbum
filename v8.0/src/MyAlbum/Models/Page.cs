@@ -207,22 +207,24 @@ namespace MyAlbum.Models
 
             // Draw remaining canvas
             //gfx.DrawRectangle(new XPen(Color, 0.5), new XSolidBrush(XColors.MistyRose), Canvas.X, Canvas.Y, Canvas.W, Canvas.H);
-            gfx.DrawRectangle(
-                new XSolidBrush(XColors.MistyRose),
-                Canvas.X.Point,
-                Canvas.Y.Point,
-                Canvas.W.Point,
-                Canvas.H.Point);
+            if (IsDebug)
+            {
+                gfx.DrawRectangle(
+                    new XSolidBrush(XColors.MistyRose),
+                    Canvas.X.Point,
+                    Canvas.Y.Point,
+                    Canvas.W.Point,
+                    Canvas.H.Point);
 
-            //// Label the canvas interior in the top-left corner
-            //XFont canvasFont = new XFont("Verdana", 12);
-            //XRect canvasLabelRect = new XRect(
-            //    (Canvas.X + XUnit.FromMillimeter(2)).Point,
-            //    (Canvas.Y + XUnit.FromMillimeter(1)).Point,
-            //    (Canvas.W - XUnit.FromMillimeter(2)).Point,
-            //    (Canvas.H - XUnit.FromMillimeter(1)).Point);
-            //gfx.DrawString($"Canvas - Page {this.PageNo} - {this.Title}.", canvasFont, XBrushes.Black, canvasLabelRect, XStringFormats.TopLeft);
-            ////Console.WriteLine($"Page {this.PageNo} - {this.Title}.");
+                //// Label the canvas interior in the top-left corner
+                //XFont canvasFont = new XFont("Verdana", 12);
+                //XRect canvasLabelRect = new XRect(
+                //    (Canvas.X + XUnit.FromMillimeter(2)).Point,
+                //    (Canvas.Y + XUnit.FromMillimeter(1)).Point,
+                //    (Canvas.W - XUnit.FromMillimeter(2)).Point,
+                //    (Canvas.H - XUnit.FromMillimeter(1)).Point);
+                //gfx.DrawString($"Canvas - Page {this.PageNo} - {this.Title}.", canvasFont, XBrushes.Black, canvasLabelRect, XStringFormats.TopLeft);
+            }
         }
         #endregion
 

@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/Docs/">
+    <File Path="Deploy.md" />
     <File Path="Notes.md" />
   </Folder>
   <Folder Name="/Docs/NewFolder1/" />
@@ -9,6 +10,7 @@
     <Project Path="src/MyAlbum/MyAlbum.csproj" />
   </Folder>
   <Folder Name="/Templates/">
+    <File Path="../Templates/Canada.album" />
     <File Path="../Templates/Canada.styles" />
     <File Path="../Templates/Canada6.album" />
     <File Path="../Templates/myAlbum3.album" />

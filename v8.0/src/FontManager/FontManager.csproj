@@ -7,12 +7,14 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>FontManager</RootNamespace>
+    <AppConfig>App.$(Configuration).config</AppConfig>
+    <!-- add this line -->
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="App.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <!-- Show both config sources under their real names in all configurations -->
+    <None Include="App.Debug.config" />
+    <None Include="App.Release.config" />
   </ItemGroup>
 
   <ItemGroup>

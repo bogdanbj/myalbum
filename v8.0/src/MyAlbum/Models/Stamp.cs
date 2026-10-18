@@ -132,10 +132,17 @@ namespace MyAlbum.Models
             // Starts with Frame to have the total width.
             #region Frame
             Frame.CalculateThickness();
-            Frame.W = Frame.WidthLeft + Frame.MarginLeft + StampWidth + Frame.MarginRight + Frame.WidthRight;
-            Frame.H = Frame.WidthTop + Frame.MarginTop + StampHeight + Frame.MarginBottom + Frame.WidthBottom;
-            Frame.X = XUnit.Zero;   // to be overwritten after calculation Title
-            Frame.Y = XUnit.Zero;
+
+            Frame.X = XUnit.Zero;
+            Frame.Y = XUnit.Zero;   // to be overwritten after calculation Title
+            Frame.W = Frame.MarginLeft + StampWidth + Frame.MarginRight;
+            Frame.H = Frame.MarginTop + StampHeight + Frame.MarginBottom;
+
+            if (Frame.Alignment == FrameAlignment.Outside)
+            {
+                Frame.W += Frame.WidthLeft + Frame.WidthRight;
+                Frame.H += Frame.WidthTop + Frame.WidthBottom;
+            }
             #endregion
             this.Canvas.W = Frame.W;
 

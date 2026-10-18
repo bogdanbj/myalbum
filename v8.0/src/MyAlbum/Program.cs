@@ -46,6 +46,12 @@ namespace MyAlbum
                     pageSelection = ArgsParser.ParsePageSelection(pages);
                 }
 
+                // Option : -d, --debug
+                if (options.ContainsKey("debug"))
+                { 
+                    BaseElement.IsDebug = true;
+                }
+
                 /********************************/
                 /*  Parse the XML album file    */
                 /********************************/
@@ -109,7 +115,8 @@ namespace MyAlbum
             var configPath = ConfigurationManager.AppSettings[configKey] ?? defaultValue;
             return Path.IsPathFullyQualified(configPath)
                 ? configPath
-                : Path.Combine(Directory.GetCurrentDirectory(), configPath);
+                //: Path.Combine(Directory.GetCurrentDirectory(), configPath);
+                : Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, configPath));
         }
 
         /// <summary>

@@ -76,7 +76,7 @@ namespace MyAlbum.Models
             }
 
             if (Elements.Count > 1)
-                contentHeight = XUnit.FromPoint(  (Elements.Count - 1) * VSpace.Point  );
+                contentHeight += XUnit.FromPoint(  (Elements.Count - 1) * VSpace.Point  );
             this.Canvas.H = XUnit.FromPoint(Math.Max(this.Canvas.H.Point, contentHeight.Point));
 
             // Column occupies the full canvas width; height is driven by its children.
@@ -110,32 +110,29 @@ namespace MyAlbum.Models
                 }
             }
         }
-        internal override XUnit CalculateHeight(XUnit parentHeight)
-        {
-            //return string.IsNullOrEmpty(Height)
-            //    ? XUnit.Zero
-            //    : XmlParser.ParseXUnit(Height) ?? XUnit.Zero;
+        //internal override XUnit CalculateHeight(XUnit parentHeight)
+        //{
+        //    //return string.IsNullOrEmpty(Height)
+        //    //    ? XUnit.Zero
+        //    //    : XmlParser.ParseXUnit(Height) ?? XUnit.Zero;
 
 
-            if (string.IsNullOrEmpty(Height))
-                return XUnit.Zero;
+        //    if (string.IsNullOrEmpty(Height))
+        //        return XUnit.Zero;
 
-            // Percentage height (e.g. "50%") → relative to parent height
-            if (Height.Contains('%'))
-            {
-                if (!double.TryParse(Height.TrimEnd('%', ' '), out double heightPercent))
-                {
-                    Console.WriteLine($"Invalid height percentage: {Height}. Defaulting to 100%.");
-                    heightPercent = 100;
-                }
-                return parentHeight * heightPercent / 100;
-            }
+        //    // Percentage height (e.g. "50%") → relative to parent height
+        //    if (Height.Contains('%'))
+        //    {
+        //        if (!double.TryParse(Height.TrimEnd('%', ' '), out double heightPercent))
+        //        {
+        //            Console.WriteLine($"Invalid height percentage: {Height}. Defaulting to 100%.");
+        //            heightPercent = 100;
+        //        }
+        //        return parentHeight * heightPercent / 100;
+        //    }
 
-            // Return height
-            return XmlParser.ParseXUnit(Height) ?? XUnit.Zero;
-
-
-
+        //    // Return height
+        //    return XmlParser.ParseXUnit(Height) ?? XUnit.Zero;
 
 
 
@@ -148,7 +145,10 @@ namespace MyAlbum.Models
 
 
 
-        }
+
+
+
+        //}
         internal override void Draw(XGraphics gfx)
         {
             base.Draw(gfx);

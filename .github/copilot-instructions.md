@@ -16,6 +16,7 @@
 - Follow standard .NET naming: `PascalCase` for types/methods/properties, `camelCase` for locals/parameters, `_camelCase` for private fields.
 - Keep code null-safe; avoid `!` (null-forgiving) unless a null value is genuinely impossible and document why.
 - Use `async`/`await` for I/O-bound work and return `Task`/`Task<T>` rather than blocking.
+- Apply the path-resolution fix in `Program.cs`: replace `Directory.GetCurrentDirectory()` with `AppContext.BaseDirectory` (wrapped in `Path.GetFullPath`) so relative config paths like `../Fonts` anchor to the exe folder regardless of launch directory.
 
 ## Building & running
 - Build: `dotnet build v7.0/MyAlbum/MyAlbum.csproj`

@@ -6,12 +6,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>MyAlbum</RootNamespace>
+    <AppConfig>App.$(Configuration).config</AppConfig>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="App.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <!-- Show both config sources under their real names in all configurations.
+         The AppConfig property selects which one becomes MyAlbum.dll.config. -->
+    <None Include="App.Debug.config" />
+    <None Include="App.Release.config" />
   </ItemGroup>
 
   <ItemGroup>
