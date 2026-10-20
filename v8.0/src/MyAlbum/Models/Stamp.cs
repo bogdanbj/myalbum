@@ -175,7 +175,7 @@ namespace MyAlbum.Models
                 + (string.IsNullOrEmpty(I3.Value) ? XUnit.Zero : I3.H + VSpace);
             insiderHeight -= insiderHeight > XUnit.Zero ? VSpace : XUnit.Zero;
 
-            I1.Y = Canvas.Y + Frame.WidthTop + Frame.MarginTop + StampHeight / 2 - insiderHeight / 2;
+            I1.Y = (Frame.H - insiderHeight) / 2;
             I2.Y = I1.H > XUnit.Zero ? I1.Y + I1.H + VSpace : I1.Y;
             I3.Y = I2.H > XUnit.Zero ? I2.Y + I2.H + VSpace : I2.Y;
             #endregion

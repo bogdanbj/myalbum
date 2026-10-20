@@ -22,17 +22,17 @@
 
     <row space="4">
       <stamp width="34" height="25" title="" image="" i1="1/2c" i2="black" i3="S 50" f1="" f2="QUEEN VICTORIA &quot;1837&quot; and &quot;1867&quot;" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="1c" i2="orange" i3="S 51" f1="" f2="" f3="" />
+      <stamp width="34" height="25" style="stamp_black_bg" title="" image="" i1="1c" i2="orange" i3="S 51" f1="" f2="" f3="" />
       <stamp width="34" height="25" title="" image="" i1="2c" i2="green" i3="S 52" f1="" f2="" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="3c" i2="bright rose" i3="S 53" f1="" f2="" f3="" />
+      <stamp width="34" height="25" style="stamp_black_bg" title="" image="" i1="3c" i2="bright rose" i3="S 53" f1="" f2="" f3="" />
     </row>
     
     <space height="1" />
 
     <row space="4">
-      <stamp width="34" height="25" title="" image="" i1="5c" i2="deep blue" i3="S 54" f1="" f2="" f3="" />
+      <stamp width="34" height="25" style="stamp_black_bg" title="" image="" i1="5c" i2="deep blue" i3="S 54" f1="" f2="" f3="" />
       <stamp width="34" height="25" title="" image="" i1="6c" i2="yellow brown" i3="S 55" f1="" f2="" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="8c" i2="dark violet" i3="S 56" f1="" f2="" f3="" />
+      <stamp width="34" height="25" style="stamp_black_bg" title="" image="" i1="8c" i2="dark violet" i3="S 56" f1="" f2="" f3="" />
       <stamp width="34" height="25" title="" image="" i1="10c" i2="brown violet" i3="S 57" f1="" f2="" f3="" />
     </row>
 

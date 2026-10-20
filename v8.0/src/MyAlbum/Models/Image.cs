@@ -136,26 +136,14 @@ namespace MyAlbum.Models
         {
             if (string.IsNullOrEmpty(fileName))
             {
-                Console.WriteLine("Image's FileName is null or empty.");
+                //Console.WriteLine("Image's FileName is null or empty.");
                 return null;
             }
 
             //XImage? result = null;
             try
             {
-                string? imagePath = ConfigurationManager.AppSettings["ImagesFolder"];
-
-                if (!string.IsNullOrWhiteSpace(imagePath))
-                {
-                    if (!Path.IsPathRooted(imagePath))
-                    {
-                        imagePath = Path.Combine(Directory.GetCurrentDirectory(), imagePath);
-                    }
-                }
-                else
-                {
-                    imagePath = Path.Combine(Environment.CurrentDirectory, "Images");
-                }
+                string imagePath = IOHelper.ResolvePath("ImagesFolder", "Images");
 
                 if (!Directory.Exists(imagePath))
                     throw new DirectoryNotFoundException($"Error: Image directory not found: {imagePath}");

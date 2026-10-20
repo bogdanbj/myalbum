@@ -1,5 +1,6 @@
 using System.Configuration;
 using System.Diagnostics;
+using System.Reflection;
 using System.Xml.Linq;
 using MyAlbum.Models;
 using MyAlbum.Utilities;
@@ -10,7 +11,12 @@ namespace MyAlbum
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("MyAlbum v8.0");
+            var informational = Assembly.GetExecutingAssembly()
+                .GetCustomAttribute<AssemblyInformationalVersionAttribute>()
+                ?.InformationalVersion ?? "unknown";
+            // Strip any build-metadata suffix the SDK may append (e.g. "8.0.1+abc1234").
+            var version = informational.Split('+')[0];
+            Console.WriteLine($"MyAlbum v{version}");
             Console.WriteLine();
 
             try
@@ -107,26 +113,13 @@ namespace MyAlbum
         }
 
         /// <summary>
-        /// Resolve a path from App.config, making it absolute against the app base directory
-        /// when the configured value is relative.
-        /// </summary>
-        private static string ResolvePath(string configKey, string defaultValue)
-        {
-            var configPath = ConfigurationManager.AppSettings[configKey] ?? defaultValue;
-            return Path.IsPathFullyQualified(configPath)
-                ? configPath
-                //: Path.Combine(Directory.GetCurrentDirectory(), configPath);
-                : Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, configPath));
-        }
-
-        /// <summary>
         /// Initializes the font system by loading custom fonts from the configured fonts folder.
         /// Fonts are registered with PdfSharp's GlobalFontSettings via the FontHandler class,
         /// driven by the fonts.json map produced by the FontManager app.
         /// </summary>
         private static void InitializeFonts()
         {
-            var fontsFolder = ResolvePath("FontsFolder", "Fonts");
+            var fontsFolder = IOHelper.ResolvePath("FontsFolder", "Fonts");
 
             if (!Directory.Exists(fontsFolder))
             {

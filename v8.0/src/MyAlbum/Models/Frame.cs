@@ -126,7 +126,7 @@ namespace MyAlbum.Models
                   Y1 = XUnit.Zero, 
                   X2 = XUnit.Zero, 
                   Y2 = XUnit.Zero;
-            XPen pen = new XPen(Color) { LineCap = XLineCap.Round };
+            XPen pen = new XPen(Color) { LineCap = XLineCap.Square };
             
             // Draw TOP frame
             if (TypeTop == FrameType.Single || TypeTop == FrameType.Double)

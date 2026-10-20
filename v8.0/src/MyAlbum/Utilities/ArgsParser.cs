@@ -112,19 +112,11 @@ namespace MyAlbum.Utilities
                 throw new ArgumentNullException("input", "The '--input' argument cannot be empty.");
             }
 
-            // Get input folder from app.config. It might be null (not set)
-            string? configFolder = ConfigurationManager.AppSettings["InputFolder"];
-
-            // Get current directory
-            string currentDirectory = Directory.GetCurrentDirectory();
+            // Resolve the input folder from app.config, anchored to the executable.
+            string inputFolder = IOHelper.ResolvePath("InputFolder", "Templates");
 
             // Build the input file path.
-            // Note: Path.Combine starts from the rightmost rooted path.
-            string fullPath = Path.Combine(
-                currentDirectory,
-                configFolder ?? string.Empty,
-                fileName
-                );
+            string fullPath = Path.GetFullPath(Path.Combine(inputFolder, fileName));
 
             // Check if the directory exists
             string directoryPath = Path.GetDirectoryName(fullPath) ?? "";
@@ -162,11 +154,10 @@ namespace MyAlbum.Utilities
             }
 
             // Check if the app.config has an output folder specified
-            string? outputFolder = ConfigurationManager.AppSettings["OutputFolder"];
-            if (string.IsNullOrWhiteSpace(outputFolder))
-            {
-                outputFolder = (Path.GetDirectoryName(inputFileName) ?? "").Replace("Templates", "Output");
-            }
+            string? outputFolderCfg = ConfigurationManager.AppSettings["OutputFolder"];
+            string outputFolder = string.IsNullOrWhiteSpace(outputFolderCfg)
+                ? (Path.GetDirectoryName(inputFileName) ?? "").Replace("Templates", "Output")
+                : IOHelper.ResolvePath("OutputFolder", "Output");
 
             // Combine output path with output file name
             string fullPath = Path.Combine(outputFolder, outputFileName);

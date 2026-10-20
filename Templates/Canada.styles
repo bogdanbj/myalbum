@@ -149,17 +149,29 @@
       If image exists, it is pictured instead of inside text.
       There is no margin for a stamp.
 			-->
-		<stamp style="stamp_default" default="true" vspace="1" bgcolor ="SkyBlue">
-			<frame style="stamp_frame" />
-			<image style="image_default" />
-			<title style="title" />
-			<inside1 style="inside" />
-			<inside2 style="inside" />
-			<inside3 style="inside" />
-			<footer1 style="footer" align="left" />
-			<footer2 style="footer" align="center" />
-			<footer3 style="footer" align="right" />
-		</stamp>
+    <stamp style="stamp_default" default="true" vspace="1" bgcolor ="SkyBlue">
+      <frame style="stamp_frame" />
+      <image style="image_default" />
+      <title style="title" />
+      <inside1 style="inside" />
+      <inside2 style="inside" />
+      <inside3 style="inside" />
+      <footer1 style="footer" align="left" />
+      <footer2 style="footer" align="center" />
+      <footer3 style="footer" align="right" />
+    </stamp>
+
+    <stamp style="stamp_black_bg" default="false" vspace="1" bgcolor ="SkyBlue">
+      <frame style="stamp_black_bg" />
+      <image style="image_default" />
+      <title style="title" />
+      <inside1 style="inside" />
+      <inside2 style="inside" />
+      <inside3 style="inside" />
+      <footer1 style="footer" align="left" />
+      <footer2 style="footer" align="center" />
+      <footer3 style="footer" align="right" />
+    </stamp>
 
     <!-- ROW
 			spacing: FS (fixed space), ES (equal spacing), JS (justified spacing)
