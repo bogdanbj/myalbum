@@ -1,9 +1,9 @@
-﻿<MyAlbum ver="4.0" styles="Canada.styles">
+﻿<MyAlbum ver="8.0" styles="Canada_modern.styles">
 
 
 	<!-- Cover -->	
 		<page style="cover" no="1" title="Cover">
-			<row height="110" />
+			<space height="110" />
 			<row>
 				<text style="headline" font_size="36" font_style="italic">1 9 8 4  -  2 0 1 0</text>
 			</row>
@@ -11,14 +11,14 @@
 			.
 	<!-- 1984 -->
 		<page no="2" title="Commemorative 1984">
-			<row height="10" />
+			<space height="10" />
 
 			<row space="20" valign="bottom">
 				<column width="36" rem="Yellowknife" >
 					<text style="headline">YELLOWKNIFE</text>
 					<text style="date">1984</text>
 					<stamp width="30" height="36" title="" image="" i1="32c" i2="" i3="S 1009" f1="" f2="Gold mine head frame in pan" f3="" />
-					<text style="story" width="40">The stamp issued on 15 May 1984, commemorates the 50th anniversary of the gold mining community living in the city of Yellowknife, capital of Northwest Territories.</text>
+					<text rem="stop" style="story" width="40">The stamp issued on 15 May 1984, commemorates the 50th anniversary of the gold mining community living in the city of Yellowknife, capital of Northwest Territories.</text>
 				</column>
 				<column width="36" rem="Tall Ships">
 					<text style="headline">TALL SHIPS</text>

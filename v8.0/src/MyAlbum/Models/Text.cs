@@ -17,8 +17,9 @@ namespace MyAlbum.Models
         protected XFontStyleEx? _fontStyle;
         private XFont? _font;
         private bool? _wrap;
-        //private bool? _justify;
-        protected string[] lines = Array.Empty<string>();
+        private bool? _justify;
+        protected readonly record struct TextLine(string Text, bool Justify);
+        protected TextLine[] lines = Array.Empty<TextLine>();
         protected string[] sep = { "\\n" };
         #endregion
 
@@ -69,11 +70,11 @@ namespace MyAlbum.Models
             get => _wrap ?? Style.Wrap ?? false;
             set => _wrap = value;
         }
-        //public bool Justify
-        //{
-        //    get => _justify ?? Style.Justify ?? false;
-        //    set => _justify = value;
-        //}
+        public bool Justify
+        {
+            get => _justify ?? Style.Justify ?? false;
+            set => _justify = value;
+        }
         #endregion
 
         #region Constructors
@@ -95,7 +96,7 @@ namespace MyAlbum.Models
             _fontStyle = XmlParser.ParseFontStyle(xElem.Attribute("font-style")?.Value);
             Font = new XFont(FontName, FontSize, FontStyle);
             _wrap = XmlParser.ParseBool(xElem.Attribute("wrap")?.Value);
-            //_justify = XmlParser.ParseBool(xElem.Attribute("justify")?.Value);
+            _justify = XmlParser.ParseBool(xElem.Attribute("justify")?.Value);
 
             Value = xElem.Value;
         }
@@ -105,7 +106,6 @@ namespace MyAlbum.Models
             // It is important if Text has explicit width or height.
             base.Calculate(gfx, parentCanvas);
             
-            // Text does not wrap. Only Paragraph does.
             // For the text element, the user could break the line with "\n".
             if (!string.IsNullOrEmpty(Value))
             {
@@ -133,15 +133,17 @@ namespace MyAlbum.Models
 
         //    return Value.Split(sep, StringSplitOptions.None);
         //}
-        protected string[] Split(XGraphics gfx)
+        protected TextLine[] Split(XGraphics gfx)
         {
             if (string.IsNullOrEmpty(Value))
-                return [""];
+                return [new TextLine("", false)];
 
             if (!Wrap)
-                return Value.Split(sep, StringSplitOptions.None);
+                return Value.Split(sep, StringSplitOptions.None)
+                            .Select(l => new TextLine(l, false))
+                            .ToArray();
 
-            var result = new List<string>();
+            var result = new List<TextLine>();
 
             // Explicit line breaks
             string[] longLines = Value.Split(sep, StringSplitOptions.None);
@@ -149,11 +151,10 @@ namespace MyAlbum.Models
             // Try to wrap if needed
             foreach (string longLine in longLines)
             {
-
-                // If the line fits, just add it to the result.
+                // If the line fits, it's a segment-end line -> don't justify.
                 if (gfx.MeasureString(longLine, Font).Width <= Canvas.W)
                 {
-                    result.Add(longLine);
+                    result.Add(new TextLine(longLine, false));
                     continue;
                 }
 
@@ -170,11 +171,11 @@ namespace MyAlbum.Models
                     }
                     else
                     {
-                        result.Add(shortLine);
+                        result.Add(new TextLine(shortLine, Justify && shortLine.Contains(' ')));
                         shortLine = word;
                     }
                 }
-                result.Add(shortLine);
+                result.Add(new TextLine(shortLine, false));
             }
             return result.ToArray();
         }
@@ -193,7 +194,7 @@ namespace MyAlbum.Models
             double w = 0;
             for (int i = 0; i < lines.Length; i++)
             {
-                w = Math.Max(w, gfx.MeasureString(lines[i], this.Font).Width);
+                w = Math.Max(w, gfx.MeasureString(lines[i].Text, this.Font).Width);
             }
             return XUnit.FromPoint(w);
         }
@@ -210,6 +211,12 @@ namespace MyAlbum.Models
                     {
                         for (int i = 0; i < lines.Length; i++)
                         {
+                            if (lines[i].Justify)
+                            {
+                                DrawJustifiedLine(gfx, lines[i].Text, RowStartPoint(i, true).Y);
+                                continue;
+                            }
+                            //TODO: not "else"?
                             XStringFormat format = new XStringFormat();
                             format.LineAlignment = XLineAlignment.Near;
                             startPoint = RowStartPoint(i, false);
@@ -225,7 +232,7 @@ namespace MyAlbum.Models
                                     format.Alignment = XStringAlignment.Far;
                                     break;
                             }
-                            gfx.DrawString(lines[i], Font, this.Brush, startPoint, format);
+                            gfx.DrawString(lines[i].Text, Font, this.Brush, startPoint, format);
                         }
                     }
                 }
@@ -237,64 +244,55 @@ namespace MyAlbum.Models
         }
         #endregion
 
+        private void DrawJustifiedLine(XGraphics gfx, string line, double y)
+        {
+            string[] words = line.Split(' ');
+
+            double wordsWidth = 0;
+            foreach (string word in words)
+                wordsWidth += gfx.MeasureString(word, Font).Width;
+
+            int gaps = words.Length - 1;
+            double gapWidth = (Canvas.W.Point - wordsWidth) / gaps;
+
+            var format = new XStringFormat
+            {
+                Alignment = XStringAlignment.Near,
+                LineAlignment = XLineAlignment.Near
+            };
+
+            double x = 0;
+            foreach (string word in words)
+            {
+                gfx.DrawString(word, Font, this.Brush, new XPoint(x, y), format);
+                x += gfx.MeasureString(word, Font).Width + gapWidth;
+            }
+        }
         private XPoint RowStartPoint(int index, bool isJustified = false)
         {
-            XPoint point = new XPoint();
-            switch (VAlign)
+            // X depends only on horizontal alignment.
+            double x = Align switch
             {
-                case VerticalAlignment.Top:
-                    switch (Align)
-                    {
-                        case Alignment.Left:
-                            point = new XPoint(0,
-                                               this.MarginTop.Point + index * this.Font.Height);
-                            break;
-                        case Alignment.Center:
-                            point = new XPoint(this.W.Point / 2,
-                                               this.MarginTop.Point + index * this.Font.Height);
-                            break;
-                        case Alignment.Right:
-                            point = new XPoint(this.W.Point ,
-                                               this.MarginTop.Point + index * this.Font.Height);
-                            break;
-                    }
-                    break;
-                case VerticalAlignment.Center:
-                    switch (Align)
-                    {
-                        case Alignment.Left:
-                            point = new XPoint(0,
-                                               this.MarginTop.Point - this.H.Point / 2 + (index + 0.5) * this.Font.Height);
-                            break;
-                        case Alignment.Center:
-                            point = new XPoint(this.W.Point / 2,
-                                               this.MarginTop.Point - this.H.Point / 2 + (index + 0.5) * this.Font.Height);
-                            break;
-                        case Alignment.Right:
-                            point = new XPoint(this.W.Point,
-                                               this.MarginTop.Point - this.H.Point / 2 + (index + 0.5) * this.Font.Height);
-                            break;
-                    }
-                    break;
-                case VerticalAlignment.Bottom:
-                    switch (Align)
-                    {
-                        case Alignment.Left:
-                            point = new XPoint(0,
-                                               this.MarginTop.Point - this.H.Point + (index + 1) * this.Font.Height);
-                            break;
-                        case Alignment.Center:
-                            point = new XPoint(this.W.Point / 2,
-                                               this.MarginTop.Point - this.H.Point + (index + 1) * this.Font.Height);
-                            break;
-                        case Alignment.Right:
-                            point = new XPoint(this.W.Point,
-                                               this.MarginTop.Point - this.H.Point + (index + 1) * this.Font.Height);
-                            break;
-                    }
-                    break;
-            }
-            return point;
+                Alignment.Left => 0,
+                Alignment.Center => this.W.Point / 2,
+                Alignment.Right => this.W.Point,
+                _ => 0
+            };
+
+            // Y depends only on vertical alignment (and the line index).
+            double y = VAlign switch
+            {
+                VerticalAlignment.Top => this.MarginTop.Point + index * this.Font.Height,
+                VerticalAlignment.Center => this.MarginTop.Point - this.H.Point / 2 + (index + 0.5) * this.Font.Height,
+                VerticalAlignment.Bottom => this.MarginTop.Point - this.H.Point + (index + 1) * this.Font.Height,
+                _ => this.MarginTop.Point + index * this.Font.Height
+            };
+
+            // Justified lines always start at the content's left edge.
+            if (isJustified)
+                x = 0;
+
+            return new XPoint(x, y);
         }
     }
 }

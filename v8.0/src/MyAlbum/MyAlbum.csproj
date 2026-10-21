@@ -11,7 +11,7 @@
     <!-- Versioning: Major.Minor fixed; bump BuildNumber by hand before each publish -->
     <MajorVersion>8</MajorVersion>
     <MinorVersion>0</MinorVersion>
-    <BuildNumber>3</BuildNumber>
+    <BuildNumber>4</BuildNumber>
     <FileVersion>$(MajorVersion).$(MinorVersion).$(BuildNumber).0</FileVersion>
     <AssemblyVersion>$(MajorVersion).$(MinorVersion).0.0</AssemblyVersion>
     <Version>$(MajorVersion).$(MinorVersion).$(BuildNumber)</Version>

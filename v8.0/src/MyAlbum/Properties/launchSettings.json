@@ -2,7 +2,7 @@
   "profiles": {
     "MyAlbum": {
       "commandName": "Project",
-      "commandLineArgs": "-i Canada.album\r\n-p 3+\r\n\r\n",
+      "commandLineArgs": "-i Canada6.album\r\n-p 2\r\n\r\n",
       "workingDirectory": "..\\..\\..\\"
     }
   }

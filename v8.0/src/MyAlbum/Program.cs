@@ -107,9 +107,11 @@ namespace MyAlbum
                 Console.WriteLine($"Error: {ex.Message}");
             }
 
+#if DEBUG
             Console.WriteLine();
             Console.WriteLine("Press any key to close...");
             Console.ReadKey();
+#endif
         }
 
         /// <summary>
