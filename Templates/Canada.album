@@ -22,17 +22,17 @@
 
     <row space="4">
       <stamp width="34" height="25" title="" image="" i1="1/2c" i2="black" i3="S 50" f1="" f2="QUEEN VICTORIA &quot;1837&quot; and &quot;1867&quot;" f3="" />
-      <stamp width="34" height="25" style="stamp_black_bg" title="" image="" i1="1c" i2="orange" i3="S 51" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="1c" i2="orange" i3="S 51" f1="" f2="" f3="" />
       <stamp width="34" height="25" title="" image="" i1="2c" i2="green" i3="S 52" f1="" f2="" f3="" />
-      <stamp width="34" height="25" style="stamp_black_bg" title="" image="" i1="3c" i2="bright rose" i3="S 53" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="3c" i2="bright rose" i3="S 53" f1="" f2="" f3="" />
     </row>
     
     <space height="1" />
 
     <row space="4">
-      <stamp width="34" height="25" style="stamp_black_bg" title="" image="" i1="5c" i2="deep blue" i3="S 54" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="5c" i2="deep blue" i3="S 54" f1="" f2="" f3="" />
       <stamp width="34" height="25" title="" image="" i1="6c" i2="yellow brown" i3="S 55" f1="" f2="" f3="" />
-      <stamp width="34" height="25" style="stamp_black_bg" title="" image="" i1="8c" i2="dark violet" i3="S 56" f1="" f2="" f3="" />
+      <stamp width="34" height="25" title="" image="" i1="8c" i2="dark violet" i3="S 56" f1="" f2="" f3="" />
       <stamp width="34" height="25" title="" image="" i1="10c" i2="brown violet" i3="S 57" f1="" f2="" f3="" />
     </row>
 
@@ -75,75 +75,12 @@
     </row>
   </page>
 
-  <!--page no="1003" title="QV Diamond Jubilee Issue">
-    <row>
-      <text style="date">1897</text>
-    </row>
-    <text style="headline">DIAMOND JUBILEE ISSUE</text>
-
-    <row>
-      <stamp width="34" height="25" title="" image="" i1="1/2c" i2="black" i3="S 50" f1="" f2="Two portraits of Queen Victoria 1837 and 1867" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="1c" i2="orange" i3="S 51" f1="" f2="" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="2c" i2="green" i3="S 52" f1="" f2="" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="3c" i2="bright rose" i3="S 53" f1="" f2="" f3="" />
-    </row>
-
-    <row>
-      <stamp width="34" height="25" title="" image="" i1="5c" i2="deep blue" i3="S 54" f1="" f2="" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="6c" i2="yellow brown" i3="S 55" f1="" f2="" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="8c" i2="dark violet" i3="S 56" f1="" f2="" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="10c" i2="brown violet" i3="S 57" f1="" f2="" f3="" />
-    </row>
-
-    <space height="4" />
-    <row>
-      <stamp width="34" height="25" title="" image="" i1="15c" i2="steel blue" i3="S 58" f1="" f2="" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="20c" i2="vermilion" i3="S 59" f1="" f2="" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="50c" i2="ultramarine" i3="S 60" f1="" f2="" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="$1" i2="lake" i3="S 61" f1="" f2="" f3="" />
-    </row>
-
-    <space height="4" />
-    <row>
-      <stamp width="34" height="25" title="" image="" i1="$2" i2="dark purple" i3="S 62" f1="" f2="" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="$3" i2="yellow bistre" i3="S 63" f1="" f2="" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="$4" i2="purple" i3="S 64" f1="" f2="" f3="" />
-      <stamp width="34" height="25" title="" image="" i1="$5" i2="olive green" i3="S 65" f1="" f2="" f3="" />
-    </row>
-
-    <space height="5" />
-	  
-    <p width="160" align="center">Issued to commemorate the 60th anniversary of the reign of Queen Victoria. The portrait on the left is from a painting by Alfred Edward Chalon, R. A., and portrays Her Majesty on the occasion of the prorogation of Parliament on 17th July, 1837. This is the same portrait reproduced on the 12-pence Canadian stamp of 1851. The portrait at the right is from a painting by Professor von Angelo of Vienna, which now hangs in Buckingham Palace. It was painted by Royal Command on the occasion of Her Majesty's assumption of the title "Emprtess of India." Between the portraits on the stamps, the initials V.R.I. signify Victoria, Queen and Empress, and below are dates 1837 and 1897, the years of the Queen's accession and her Diamond Jubilee.</p>
-
-    <row height="15" />
-    <text style="date">1898</text>
-    
-    <space height="5" />
-    <row valign="top" space="25">
-      <column width="90">
-        <text style="headline">Imperial Penny Postage</text>
-
-        <row>
-          <stamp width="35" height="26" title="" image="" i1="2c" i2="black, lavender, carmine" i3="S 85" f1="" f2="MAP OF BRITISH EMPIRE ON\nMERCATOR PROJECTION" f3="" />
-          <stamp width="35" height="26" title="" image="" i1="2c" i2="black, blue, carmine" i3="S 86" f1="" f2="" f3="" />
-        </row>
-      </column>
-
-      <column width="41">
-        <text style="headline" width="80">Special Delivery</text>
-        <row>
-          <stamp width="35" height="26" title="" image="" i1="10c" i2="green" i3="S E1" f1="" f2="" f3="" />
-        </row>
-      </column>
-    </row>
-  </page-->
-  
   <page no="4" title="QV Leaf &amp; Numeral Issue">
-    <row>
-      <text style="date">1897-98</text>
-    </row>
+		<p style="date">1897-98</p>
 
-    <space height="8" />
+    <space height="5" />
+    <p style="headline">Queen Victoria, "Maple Leaf" Issue</p>
+
     <row>
       <stamp width="21" height="25" title="" image="" i1="1/2c" i2="black" i3="S 66" f1="" f2="QUEEN VICTORIA" f3="" />
       <stamp width="21" height="25" title="" image="" i1="1c" i2="blue green" i3="S 67" f1="" f2="" f3="" />
@@ -156,15 +93,15 @@
       <stamp width="21" height="25" title="" image="" i1="6c" i2="brown" i3="S 71" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="8c" i2="orange" i3="S 72" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="10c" i2="brown violet" i3="S 73" f1="" f2="" f3="" />
-      <stamp width="21" height="25" title="" image="" i1="2c/3c" i2="carmine, surcharged" i3="S 87" f1="" f2="" f3="" />
+      <stamp width="21" height="25" title="" image="" i1="2c/3c" i2="carmine,\nsurcharged" i3="S 87" f1="" f2="" f3="" />
     </row>
 
     <space height="15" />
-    <row>
-      <text style="date">1898-02</text>
-    </row>
+		<p style="date">1898-02</p>
 
-    <space height="8" />
+    <space height="5" />
+    <p style="headline">Queen Victoria, "Numeral" Issue</p>
+
     <row>
       <stamp width="21" height="25" title="" image="" i1="1/2c" i2="black" i3="S 74" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="1c" i2="gray green" i3="S 75" f1="" f2="" f3="" />
@@ -185,16 +122,16 @@
     <row>
       <stamp width="21" height="25" title="" image="" i1="10c" i2="brown violet" i3="S 83" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="20c" i2="olive green" i3="S 84" f1="" f2="" f3="" />
-      <stamp width="21" height="25" title="" image="" i1="2c/3c" i2="carmine, surcharged" i3="S 88" f1="" f2="" f3="" />
+      <stamp width="21" height="25" title="" image="" i1="2c/3c" i2="carmine,\nsurcharged" i3="S 88" f1="" f2="" f3="" />
     </row>
   </page>
 
   <page no="5" title="King Edward VII &amp; Quebec Tercentenary">
-    <row>
-      <text style="date">1903-08</text>
-    </row>
+		<p style="date">1903-08</p>
 
     <space height="5" />
+    <p style="headline">King Eduard VII</p>
+
     <row>
       <stamp width="20" height="25" title="" image="" i1="1c" i2="green" i3="S 89" f1="" f2="KING EDWARD VII" f3="" />
       <stamp width="20" height="25" title="" image="" i1="2c" i2="carmine" i3="S 90" f1="" f2="" f3="" />
@@ -207,7 +144,7 @@
     <row>
       <stamp width="20" height="25" title="" image="" i1="20c" i2="olove green" i3="S 94" f1="" f2="" f3="" />
       <stamp width="20" height="25" title="" image="" i1="50c" i2="purple" i3="S 95" f1="" f2="" f3="" />
-      <stamp width="41" height="25" title="Imperforated" image="" i1="2c" i2="carmine, imperforated, pair" i3="S 90A" f1="" f2="" f3="" />
+      <stamp width="41" height="25" title="Imperforated" image="" i1="2c" i2="carmine, imperf., pair" i3="S 90A" f1="" f2="" f3="" />
     </row>
 
     <space height="13" />
@@ -232,25 +169,27 @@
       </column>
     </row>
 
+		<space height="2" />
     <row space="6">
       <stamp width="37" height="26" title="" image="" i1="5c" i2="daark blue" i3="S 99" f1="" f2="CHAMPLAIN’S HOME IN QUEBEC" f3="" />
       <stamp width="37" height="26" title="" image="" i1="7c" i2="olive green" i3="S 100" f1="" f2="GENERALS MONTCALM AND WOLFE" f3="" />
     </row>
 
+		<space height="2" />
     <row space="6">
       <stamp width="37" height="26" title="" image="" i1="10c" i2="dark violet" i3="S 101" f1="" f2="VIEW OF QUEBEC IN 1700" f3="" />
       <stamp width="37" height="26" title="" image="" i1="15c" i2="red orange" i3="S 102" f1="" f2="CHAMPLAIN’S DEPARTURE FOR WEST" f3="" />
       <stamp width="37" height="26" title="" image="" i1="20c" i2="yellow brown" i3="S 103" f1="" f2="ARRIVAL OF CARTIER AT QUEBEC" f3="" />
     </row>
-
   </page>
 
   <page no="6" title="KGV Admiral Issue">
-    <row>
-      <text style="date">1911-25</text>
-    </row>
+		<p style="date">1911-25</p>
 
     <space height="15" />
+    <space height="5" />
+    <p style="headline">King George V "Admiral" Issue</p>
+
     <row>
       <stamp width="21" height="25" title="" image="" i1="1c" i2="green" i3="S 104" f1="" f2="KING GEORGE V" f3="" />
       <stamp width="21" height="25" title="" image="" i1="1c" i2="orange yellow" i3="S 105" f1="" f2="" f3="" />
@@ -296,10 +235,10 @@
   </page>
 
   <page no="7" title="KGV Admiral Issue">
-    <text style="date">1911-25</text>
-    <space height="10" />
+    <p style="date">1911-25</p>
 
-    <text style="headline">Perforated 8 Vertically</text>
+		<space height="10" />
+    <p style="headline">Perforated 8 Vertically</p>
 
     <row>
       <stamp width="42" height="24" title="" image="" i1="1c" i2="green" i3="S 125pa" f1="" f2="" f3="" />
@@ -315,29 +254,28 @@
     </row>
 
     <space height="12" />
-    <row space="10">
-      <column width="58">
-        <text style="headline">Perforated 8 Horizontally</text>
-        <row space="4">
+    <row space="8">
+      <column width="54">
+        <p style="headline">Perforated 8 Horizontally</p>
+        <row space="3">
           <stamp width="21" height="50" title="" image="" i1="1c" i2="dark green" i3="S 123pa" f1="" f2="" f3="" />
           <stamp width="21" height="50" title="" image="" i1="2c" i2="carmine" i3="S 124pa" f1="" f2="" f3="" />
         </row>
 
       </column>
-      <column width="120">
-        <text style="headline">Perforated 12 Horizontally</text>
-        <row space="4">
+      <column width="112">
+        <p style="headline">Perforated 12 Horizontally</p>
+        <row space="3">
           <stamp width="21" height="50" title="" image="" i1="1c" i2="dark green" i3="S 131pa" f1="" f2="" f3="" />
           <stamp width="21" height="50" title="" image="" i1="2c" i2="carmine" i3="S 132pa" f1="" f2="" f3="" />
           <stamp width="21" height="50" title="" image="" i1="2c" i2="yellow green" i3="S 133pa" f1="" f2="" f3="" />
           <stamp width="21" height="50" title="" image="" i1="3c" i2="brown" i3="S 134pa" f1="" f2="" f3="" />
         </row>
-
       </column>
     </row>
 
     <space height="12" />
-    <text style="headline">Imperforated</text>
+    <p style="headline">Imperforated</p>
     <row>
       <stamp width="21" height="25" title="" image="" i1="1c" i2="orange yellow" i3="S 136" f1="" f2="" f3="" />
       <stamp width="21" height="25" title="" image="" i1="2c" i2="green" i3="S 137" f1="" f2="" f3="" />
