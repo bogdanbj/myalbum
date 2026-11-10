@@ -52,6 +52,8 @@
 			ampersand (&) is escaped to &amp; 
 			double quotes (") are escaped to &quot; 
 			single quotes (') are escaped to &apos; 
+			typographic quotes() are escaped to &#8220; and &#8221; or &#x201C; and &#x201D;
+			typographyc apostrophy (’) is excaped to &#8217; or &#x2019;
 			less than (<) is escaped to &lt; 
 			greater than (>) is escaped to &gt;
 			-->
@@ -169,7 +171,7 @@
       Row's height is determined by the height of the content plus the margin. 
       If height is given as an attribute, then the largest of the explicit value and the content is used.
 			-->
-		<row style="stamp_FS" default="true" align="center" valign="center" spacing-mode="FS" space="6" bgcolor="PaleGoldenrod"/>
+		<row style="stamp_FS" default="true" align="center" valign="center" spacing-mode="FS" space="5" bgcolor="PaleGoldenrod"/>
 		<row style="page_header" default="false" align="center" valign="top" spacing-mode="FS" space="8"  bgcolor="PaleGreen"/>
 
     <!-- COLUMN

@@ -682,7 +682,7 @@ PAGE_TEXT_CENTRE (Pictorials)
 ROW_START (FS, CEN, 6, 1, 0.4, 0.1, 0.3, Century Gothic, 8, regular, Century Gothic, 6, regular)
   STAMP_ADD(, 38, 26, 3, , 6c, red brown, S C5, , DAEDALUS IN FLIGHT\, AIR POST, )
   STAMP_ADD(, 38, 26, 3, , 10c, carmine rose, S 223, , R.C.M.P., )
-  STAMP_ADD(, 38, 26, 3, , 13c, violet, S 224, , CONFEDERATION CONFERENCE\nCHARLOTTETOWN - 1964, )
+  STAMP_ADD(, 38, 26, 3, , 13c, violet, S 224, , CONFEDERATION CONFERENCE\nCHARLOTTETOWN - 1864, )
 ROW_END
 
 SPACE(0)
