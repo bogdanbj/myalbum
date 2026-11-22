@@ -36,6 +36,9 @@ namespace MyAlbum.Models
         public Text F3 { get; set; } = new Text();
         public XUnit StampWidth { get; set; }
         public XUnit StampHeight { get; set; }
+        public Canvas InnerBox { get; } = new();
+        // Stamp.cs (properties)
+        public List<BaseElement> Decorations { get; } = new();
         #endregion
 
         #region Constructors
@@ -115,6 +118,22 @@ namespace MyAlbum.Models
                         break;
                 }
             }
+
+            foreach (XElement xElement in xElem.Elements())
+            { 
+                switch(xElement.Name.LocalName)
+                {
+                    case "line":
+                        Line line = new Line();
+                        line.Inherit(this);
+                        line.ParseXml(xElement);
+                        Decorations.Add(line);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
         }
 
         internal override void Calculate(XGraphics gfx, Canvas parentCanvas)
@@ -134,7 +153,7 @@ namespace MyAlbum.Models
             Frame.CalculateThickness();
 
             Frame.X = XUnit.Zero;
-            Frame.Y = XUnit.Zero;   // to be overwritten after calculation Title
+            Frame.Y = XUnit.Zero;   // to be overwritten after calculating Title
             Frame.W = Frame.MarginLeft + StampWidth + Frame.MarginRight;
             Frame.H = Frame.MarginTop + StampHeight + Frame.MarginBottom;
 
@@ -158,6 +177,14 @@ namespace MyAlbum.Models
                 ? Title.H + Title.MarginTop + Title.MarginBottom + VSpace
                 : XUnit.Zero;
             Frame.Y = Canvas.Y;
+
+            // Calculate the InnerBox (physical stamp rectangle)
+            #region InnerBox
+            InnerBox.W = StampWidth;
+            InnerBox.H = StampHeight;
+            InnerBox.X = Frame.X + (Frame.W - InnerBox.W) / 2;
+            InnerBox.Y = Frame.Y + (Frame.H - InnerBox.H) / 2;
+            #endregion
 
             // Calculate Inside text (I1, I2, I3)
             #region Inside
@@ -186,15 +213,29 @@ namespace MyAlbum.Models
             Image.MarginLeft = Image.MarginRight = StampWidth * 0.1;
             Image.MarginTop = Image.MarginBottom = StampHeight * 0.1;
 
-            Image.W = StampWidth;
-            Image.H = StampHeight;
-            Image.X = (Frame.W - Image.W) / 2; 
-            Image.Y = Frame.Y + (Frame.H - Image.H) / 2;
+            //Image.W = StampWidth;
+            //Image.H = StampHeight;
+            //Image.X = Frame.X + (Frame.W - Image.W) / 2; 
+            //Image.Y = Frame.Y + (Frame.H - Image.H) / 2;
+            Image.W = InnerBox.W;
+            Image.H = InnerBox.H;
+            Image.X = InnerBox.X;
+            Image.Y = InnerBox.Y;
 
             Image.Canvas.X = Image.X + Image.MarginLeft;
             Image.Canvas.Y = Image.Y + Image.MarginTop;
             Image.Canvas.W = Image.W - (Image.MarginLeft + Image.MarginRight);
             Image.Canvas.H = Image.H - (Image.MarginTop + Image.MarginBottom);
+            #endregion
+
+            // Calculate Decorations
+            #region Decorations 
+            foreach (var element in Decorations)
+            {
+                element.Calculate(gfx, InnerBox);
+                element.X += InnerBox.X;
+                element.Y += InnerBox.Y;
+            }
             #endregion
 
             // Move the y pointer down under the frame
@@ -239,6 +280,13 @@ namespace MyAlbum.Models
             DrawElement(gfx, F1);
             DrawElement(gfx, F2);
             DrawElement(gfx, F3);
+
+            #region Decorations 
+            foreach (var element in Decorations)
+            {
+                DrawElement(gfx, element);
+            }
+            #endregion
 
             //XUnit over = XUnit.FromMillimeter(2);
 

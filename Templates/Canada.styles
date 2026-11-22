@@ -36,24 +36,24 @@
 						DarkOrange					Lavender						MediumVioletRed					SeaGreen
     -->
     <!-- FRENCH CHARACTERS
-			l'accent aigu (acute accent) – é
-			l'accent grave (grave accent) – à, è, ù
-			la cédille (cedilla) – ç
-			l'accent circonflexe (circumflex) – â, ê, î, ô, û
-			l'accent tréma (trema) – ë, ï, ü
+			l'accent aigu (acute accent) â€“ Ã©
+			l'accent grave (grave accent) â€“ Ã , Ã¨, Ã¹
+			la cÃ©dille (cedilla) â€“ Ã§
+			l'accent circonflexe (circumflex) â€“ Ã¢, Ãª, Ã®, Ã´, Ã»
+			l'accent trÃ©ma (trema) â€“ Ã«, Ã¯, Ã¼
 			
-			L'ACCENT AIGU (ACUTE ACCENT) – É
-			L'ACCENT GRAVE (GRAVE ACCENT) – À, È, Ù
-			LA CÉDILLE (CEDILLA) – Ç
-			L'ACCENT CIRCONFLEXE (CIRCUMFLEX) – Â, Ê, Î, Ô, Û
-			L'ACCENT TRÉMA (TREMA) – Ë, Ï, Ü
+			L'ACCENT AIGU (ACUTE ACCENT) â€“ Ã‰
+			L'ACCENT GRAVE (GRAVE ACCENT) â€“ Ã€, Ãˆ, Ã™
+			LA CÃ‰DILLE (CEDILLA) â€“ Ã‡
+			L'ACCENT CIRCONFLEXE (CIRCUMFLEX) â€“ Ã‚, ÃŠ, ÃŽ, Ã”, Ã›
+			L'ACCENT TRÃ‰MA (TREMA) â€“ Ã‹, Ã, Ãœ
 			-->
     <!-- ESCAPE CHARACTERS
 			ampersand (&) is escaped to &amp; 
 			double quotes (") are escaped to &quot; 
 			single quotes (') are escaped to &apos; 
-			typographic quotes() are escaped to &#8220; and &#8221; or &#x201C; and &#x201D;
-			typographyc apostrophy (�) is excaped to &#8217; or &#x2019;
+			typographic quotes are escaped to &#8220; and &#8221; or &#x201C; and &#x201D;
+			typographyc apostrophy is excaped to &#8217; or &#x2019;
 			less than (<) is escaped to &lt; 
 			greater than (>) is escaped to &gt;
 			-->

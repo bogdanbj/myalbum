@@ -43,22 +43,22 @@ namespace MyAlbum.Models
         }
         public XUnit LineWidth1 
         { 
-            get => _lineWidth1 ?? Style.LineWidth1 ?? XUnit.Zero; 
+            get => _lineWidth1 ?? Style?.LineWidth1 ?? XUnit.Zero; 
             set => _lineWidth1 = value; 
         }
         public XUnit LineWidth2 
         { 
-            get => _lineWidth2 ?? Style.LineWidth2 ?? XUnit.Zero;
+            get => _lineWidth2 ?? Style?.LineWidth2 ?? XUnit.Zero;
             set => _lineWidth2 = value; 
         }
         public XUnit Offset 
         { 
-            get => _offset ?? Style.Offset ?? XUnit.Zero;
+            get => _offset ?? Style?.Offset ?? XUnit.Zero;
             set => _offset = value;
         }
         public FrameAlignment Alignment
         {
-            get => _alignment ?? Style.Alignment ?? FrameAlignment.Outside;
+            get => _alignment ?? Style?.Alignment ?? FrameAlignment.Outside;
             set => _alignment = value;
         }
         #endregion

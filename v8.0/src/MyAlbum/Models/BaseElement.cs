@@ -168,48 +168,29 @@ namespace MyAlbum.Models
             Canvas.H = H - (MarginTop + MarginBottom);
         }
         internal virtual XUnit CalculateWidth(XUnit parentWidth)
-        {
-            if (string.IsNullOrEmpty(Width))
-                return XUnit.Zero;
-
-            // Percentage width (e.g. "50%") → relative to parent width
-            if (Width.Contains('%'))
-            {
-                if (!double.TryParse(Width.TrimEnd('%', ' '), out double widthPercent))
-                {
-                    Console.WriteLine($"Invalid width percentage: {Width}. Defaulting to 100%.");
-                    widthPercent = 100;
-                }
-                return parentWidth * widthPercent / 100;
-            } 
-
-            // Return width
-            return XmlParser.ParseXUnit(Width) ?? XUnit.Zero;
-        }
+            => CalculateMeasure(Width, parentWidth);
         internal virtual XUnit CalculateHeight(XUnit parentHeight)
+            => CalculateMeasure(Height, parentHeight);
+        internal XUnit CalculateMeasure(string? value, XUnit total)
         {
-            //return string.IsNullOrEmpty(Height)
-            //    ? XUnit.Zero
-            //    : XmlParser.ParseXUnit(Height) ?? XUnit.Zero;
-
-
-            if (string.IsNullOrEmpty(Height))
+            if (string.IsNullOrWhiteSpace(value))
                 return XUnit.Zero;
 
-            // Percentage height (e.g. "50%") → relative to parent height
-            if (Height.Contains('%'))
+            string s = value.Trim();
+
+            if (s.EndsWith('%'))
             {
-                if (!double.TryParse(Height.TrimEnd('%', ' '), out double heightPercent))
+                if (!double.TryParse(s.TrimEnd('%', ' '), out double p))
                 {
-                    Console.WriteLine($"Invalid height percentage: {Height}. Defaulting to 100%.");
-                    heightPercent = 100;
+                    Console.WriteLine($"Invalid percentage value: {s}. Defaulting to 100%.");
+                    p = 100;
                 }
-                return parentHeight * heightPercent / 100;
+                return total * p / 100;
             }
 
-            // Return height
-            return XmlParser.ParseXUnit(Height) ?? XUnit.Zero;
+            return XmlParser.ParseXUnit(s) ?? XUnit.Zero;
         }
+
         internal virtual void Draw(XGraphics gfx)
         {
             if (IsDebug)

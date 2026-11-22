@@ -17,6 +17,9 @@
 - Keep code null-safe; avoid `!` (null-forgiving) unless a null value is genuinely impossible and document why.
 - Use `async`/`await` for I/O-bound work and return `Task`/`Task<T>` rather than blocking.
 - Apply the path-resolution fix in `Program.cs`: replace `Directory.GetCurrentDirectory()` with `AppContext.BaseDirectory` (wrapped in `Path.GetFullPath`) so relative config paths like `../Fonts` anchor to the exe folder regardless of launch directory.
+- Design with minimal complexity; avoid duplicating BaseElement hierarchies. For stamp child elements, ensure coordinates are anchored to the real stamp box for accurate physical measurements.
+- Ensure suggested implementations follow existing project philosophy and patterns closely, avoiding generic placeholder-heavy code.
+- Respond only to explicit requests without suggesting next steps or proactive offers.
 
 ## Building & running
 - Build: `dotnet build v7.0/MyAlbum/MyAlbum.csproj`
@@ -26,3 +29,4 @@
 - Keep changes minimal and focused; match the existing style of surrounding code.
 - When adding new files, place them within the `v7.0/MyAlbum/` project directory.
 - Prefer standard library APIs; discuss before adding new NuGet dependencies.
+- Receive suggested code in chat and apply edits manually; do not modify files unless explicitly requested.
