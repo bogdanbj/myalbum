@@ -11,6 +11,8 @@ namespace MyAlbum.Models
     {
         #region Fields
         protected XUnit? _vSpace;
+        protected string? _xOffsetRaw;
+        protected string? _yOffsetRaw;
         #endregion
 
         #region Style properties
@@ -19,6 +21,8 @@ namespace MyAlbum.Models
             get => _vSpace ?? Style?.VSpace ?? XUnit.Zero;
             set => _vSpace = value;
         }
+        public XUnit XTextOffset { get; set;  }
+        public XUnit YTextOffset { get; set;  }
         #endregion
 
         #region Other properties
@@ -129,6 +133,16 @@ namespace MyAlbum.Models
                         line.ParseXml(xElement);
                         Decorations.Add(line);
                         break;
+                    case "rect":
+                        Rect rect = new Rect();
+                        rect.Inherit(this);
+                        rect.ParseXml(xElement);
+                        Decorations.Add(rect);
+                        break;
+                    case "text-offset":
+                        _xOffsetRaw = xElement.Attribute("x")?.Value;
+                        _yOffsetRaw = xElement.Attribute("y")?.Value;
+                        break;
 
                     default:
                         break;
@@ -186,6 +200,12 @@ namespace MyAlbum.Models
             InnerBox.Y = Frame.Y + (Frame.H - InnerBox.H) / 2;
             #endregion
 
+            // Calculate the inner text offset relative to the center of the InnerBox.
+            if (!string.IsNullOrEmpty(_xOffsetRaw))
+                XTextOffset = CalculateMeasure(_xOffsetRaw, InnerBox.W);
+            if (!string.IsNullOrEmpty(_yOffsetRaw))
+                YTextOffset = CalculateMeasure(_yOffsetRaw, InnerBox.H);
+
             // Calculate Inside text (I1, I2, I3)
             #region Inside
             I1.Calculate(gfx, Canvas);
@@ -195,6 +215,9 @@ namespace MyAlbum.Models
             I1.X = (Frame.W - I1.W) / 2;
             I2.X = (Frame.W - I2.W) / 2;
             I3.X = (Frame.W - I3.W) / 2;
+            I1.X += XTextOffset;
+            I2.X += XTextOffset;
+            I3.X += XTextOffset;
 
             XUnit insiderHeight =
                 (string.IsNullOrEmpty(I1.Value) ? XUnit.Zero : I1.H + VSpace)
@@ -205,11 +228,15 @@ namespace MyAlbum.Models
             I1.Y = Frame.Y + (Frame.H - insiderHeight) / 2;
             I2.Y = I1.H > XUnit.Zero ? I1.Y + I1.H + VSpace : I1.Y;
             I3.Y = I2.H > XUnit.Zero ? I2.Y + I2.H + VSpace : I2.Y;
+            I1.Y += YTextOffset;
+            I2.Y += YTextOffset;
+            I3.Y += YTextOffset;
             #endregion
 
             // Calculate Image
             #region Image
-            Image.Calculate(gfx, new Canvas(XUnit.Zero, XUnit.Zero, StampWidth, StampHeight));
+            //Image.Calculate(gfx, new Canvas(XUnit.Zero, XUnit.Zero, StampWidth, StampHeight));
+            Image.Calculate(gfx, InnerBox);
             Image.MarginLeft = Image.MarginRight = StampWidth * 0.1;
             Image.MarginTop = Image.MarginBottom = StampHeight * 0.1;
 

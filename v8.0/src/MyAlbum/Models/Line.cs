@@ -15,7 +15,6 @@ namespace MyAlbum.Models
         private string? _y1Raw;
         private string? _x2Raw;
         private string? _y2Raw;
-
         #endregion
 
         #region Core properties
@@ -23,7 +22,6 @@ namespace MyAlbum.Models
         XUnit Y1 { get; set; }
         XUnit X2 { get; set; }
         XUnit Y2 { get; set; }
-
         #endregion
 
         #region Style properties
@@ -52,7 +50,7 @@ namespace MyAlbum.Models
             _x2Raw = xElem.Attribute("x2")?.Value;
             _y2Raw = xElem.Attribute("y2")?.Value;
 
-            _lineWidth = XmlParser.ParseXUnit(xElem.Attribute("width")?.Value);
+            _lineWidth = XmlParser.ParseXUnit(xElem.Attribute("line-width")?.Value);
         }
 
         internal override void Calculate(XGraphics gfx, Canvas parentCanvas)

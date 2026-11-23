@@ -2,7 +2,7 @@
   "profiles": {
     "MyAlbum": {
       "commandName": "Project",
-      "commandLineArgs": "-i test.album\r\n-p 1\r\n\r\n",
+      "commandLineArgs": "-i test.album\r\n-p 3\r\n\r\n",
       "workingDirectory": "..\\..\\..\\"
     }
   }

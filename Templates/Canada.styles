@@ -108,8 +108,8 @@
 			-->
 		<frame style="stamp_frame" default="true" frame-type="double" frame-alignment="outside" frame-width="0.4, 0.4, 0.1" margin="2" bgcolor="255,255,255" />
     <frame style="page_border" default="false" frame-type="double" frame-alignment="outside" frame-width="0.5, 0.5, 0.2" margin="0,6" bgcolor="Ivory"/>
-    <frame style="stamp_frame_2" default="false" frame-type="single" frame-alignment="inside" frame-width="3" margin="2" />
-    <frame style="stamp_frame_3" default="false" frame-type="double" frame-alignment="inside" frame-width="0.4, 0.5, 2.1" margin="2.2" />
+    <frame style="stamp_frame_2" default="false" frame-type="double" frame-alignment="inside" frame-width="0.4, 0.5, 2.1" margin="2.2" />
+    <!--frame style="stamp_frame_3" default="false" frame-type="single" frame-alignment="inside" frame-width="3" margin="2" /-->
 
     <!-- TEXT
 			font-size: double
@@ -153,7 +153,7 @@
       There is no margin for a stamp.
 			-->
     <stamp style="stamp_default" default="true" vspace="1" bgcolor ="SkyBlue">
-      <frame style="stamp_frame_3" />
+      <frame style="stamp_frame_2" />
       <image style="image_default" />
       <title style="title" />
       <inside1 style="inside" />

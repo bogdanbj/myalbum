@@ -42,59 +42,7 @@
       <frame style="test10" />
     </page>
   </styles-->
-  <page rem="Page 1" title="KGV Admiral Issue - coils">
-    <p style="date">1911-25</p>
-
-    <space height="10" />
-    <p style="headline">Coil Stamps: Perforated 8 Vertically</p>
-
-    <row>
-      <stamp width="42" height="24" title="" image="" i1="1c" i2="green" i3="S 125pa" f1="" f2="" f3="" >
-        <line x1="50%" y1="0" x2="50%" y2="100%" color="red" width="2" />
-      </stamp>
-      <stamp width="42" height="24" title="" image="" i1="1c" i2="orange yellow" i3="S 126pa" f1="" f2="" f3="" />
-      <stamp width="42" height="24" title="" image="" i1="2c" i2="carmine" i3="S 127pa" f1="" f2="" f3="" />
-    </row>
-
-    <space height="5" />
-    <row>
-      <stamp width="42" height="24" title="" image="" i1="2c" i2="green" i3="S 128pa" f1="" f2="" f3="" />
-      <stamp width="42" height="24" title="" image="" i1="3c" i2="brown" i3="S 129pa" f1="" f2="" f3="" />
-      <stamp width="42" height="24" title="" image="" i1="4c" i2="carmine" i3="S 130pa" f1="" f2="" f3="" />
-    </row>
-
-    <space height="12" />
-    <row space="10">
-      <column width="53">
-        <p style="headline">Perforated 8 Horizontally</p>
-        <row space="3">
-          <stamp width="21" height="50" title="" image="" i1="1c" i2="dark green" i3="S 123pa" f1="" f2="" f3="" />
-          <stamp width="21" height="50" title="" image="" i1="2c" i2="carmine" i3="S 124pa" f1="" f2="" f3="" />
-        </row>
-
-      </column>
-      <column width="109">
-        <p style="headline">Perforated 12 Horizontally</p>
-        <row space="3">
-          <stamp width="21" height="50" title="" image="" i1="1c" i2="dark green" i3="S 131pa" f1="" f2="" f3="" />
-          <stamp width="21" height="50" title="" image="" i1="2c" i2="carmine" i3="S 132pa" f1="" f2="" f3="" />
-          <stamp width="21" height="50" title="" image="" i1="2c" i2="yellow green" i3="S 133pa" f1="" f2="" f3="" />
-          <stamp width="21" height="50" title="" image="" i1="3c" i2="brown" i3="S 134pa" f1="" f2="" f3="" />
-        </row>
-      </column>
-    </row>
-
-    <space height="12" />
-    <p style="headline">Imperforated</p>
-    <row>
-      <stamp width="21" height="25" title="" image="" i1="1c" i2="orange yellow" i3="S 136" f1="" f2="" f3="" />
-      <stamp width="21" height="25" title="" image="" i1="2c" i2="green" i3="S 137" f1="" f2="" f3="" />
-      <stamp width="21" height="25" title="" image="" i1="3c" i2="carmine" i3="S 138" f1="" f2="" f3="" />
-    </row>
-  </page>
-
-
-  <page rem="Page 2">
+  <page rem="Page 1">
     <text style="date">1897</text>
     <text style="headline">60th year of Queen Victoria’s reign</text>
     <paragraph style="headline">60th year of Queen Victoria’s reign</paragraph>
@@ -167,7 +115,7 @@
     -->
   </page>
   .
-  <page rem="Page 3" style="landscape">
+  <page rem="Page 2" style="landscape">
     <text style="date">1897</text>
     <text style="headline">60th year of Queen Victoria’s reign</text>
     <paragraph style="headline">60th year of Queen Victoria’s reign</paragraph>
@@ -195,7 +143,85 @@
     -->
   </page>
   .
-  <!--
+  <page rem="Page 3" title="KGV Admiral Issue - coils">
+    <p style="date">1911-25</p>
+
+    <space height="10" />
+    <p style="headline">Coil Stamps: Perforated 8 Vertically</p>
+
+    <row>
+      <stamp width="42" height="24" title="" image="" i1="1c" i2="green" i3="S 125pa" f1="" f2="" f3="" >
+        <line x1="50%" y1="0" x2="50%" y2="100%" line-width="2.1" />
+        <text-offset x="-25%" y="0" />
+      </stamp>
+      <stamp width="42" height="24" title="" image="" i1="1c" i2="orange yellow" i3="S 126pa" f1="" f2="" f3="" />
+      <stamp width="42" height="24" title="" image="" i1="2c" i2="carmine" i3="S 127pa" f1="" f2="" f3="" />
+    </row>
+
+    <space height="5" />
+    <row>
+      <stamp width="42" height="24" title="" image="" i1="2c" i2="green" i3="S 128pa" f1="" f2="" f3="" />
+      <stamp width="42" height="24" title="" image="" i1="3c" i2="brown" i3="S 129pa" f1="" f2="" f3="" />
+      <stamp width="42" height="24" title="" image="" i1="4c" i2="carmine" i3="S 130pa" f1="" f2="" f3="" />
+    </row>
+
+    <space height="12" />
+    <row space="10">
+      <column width="53">
+        <p style="headline">Perforated 8 Horizontally</p>
+        <row space="3">
+          <stamp width="21" height="50" title="" image="" i1="1c" i2="dark green" i3="S 123pa" f1="" f2="" f3="">
+            <line x1="0" y1="50%" x2="100%" y2="50%" line-width="2.1" />
+            <text-offset x="0" y="-25%" />
+          </stamp>
+          <stamp width="21" height="50" title="" image="" i1="2c" i2="carmine" i3="S 124pa" f1="" f2="" f3="">
+            <line x1="0" y1="50%" x2="100%" y2="50%" line-width="2.1" />
+            <text-offset x="0" y="-25%" />
+          </stamp>
+        </row>
+
+      </column>
+      <column width="109">
+        <p style="headline">Perforated 12 Horizontally</p>
+        <row space="3">
+          <stamp width="21" height="50" title="" image="" i1="1c" i2="dark green" i3="S 131pa" f1="" f2="" f3="" />
+          <stamp width="21" height="50" title="" image="" i1="2c" i2="carmine" i3="S 132pa" f1="" f2="" f3="" />
+          <stamp width="21" height="50" title="" image="" i1="2c" i2="yellow green" i3="S 133pa" f1="" f2="" f3="" />
+          <stamp width="21" height="50" title="" image="" i1="3c" i2="brown" i3="S 134pa" f1="" f2="" f3="" />
+        </row>
+      </column>
+    </row>
+
+    <space height="12" />
+    <p style="headline">Imperforated</p>
+    <row>
+      <stamp width="21" height="25" title="" image="" i1="1c" i2="orange yellow" i3="S 136" f1="" f2="" f3="" />
+      <stamp width="21" height="25" title="" image="" i1="2c" i2="green" i3="S 137" f1="" f2="" f3="" />
+      <stamp width="21" height="25" title="" image="" i1="3c" i2="carmine" i3="S 138" f1="" f2="" f3="" />
+    </row>
+  </page>
+  .
+  <page rem="Page 4" title="Souvenir sheet">
+    <p style="date">1911-25</p>
+
+    <space height="10" />
+    <p style="headline">Coil Stamps: Perforated 8 Vertically</p>
+
+    <row>
+      <stamp width="120" height="84.5" title="" image="" i1="flowers" i2="" i3="" f1="" f2="" f3="" >
+        <rect x="80" y="25" width="32" height="26" color="red" line-width="2" />
+        <rect x="80" y="51" width="32" height="26" color="red" line-width="2" />
+      </stamp>
+    </row>
+    <row>
+      <stamp width="120" height="84.5" title="" image="" i1="flowers" i2="" i3="" f1="" f2="" f3="" >
+        <rect x="80" y="25" width="32" height="52" color="red" line-width="2" />
+        <line x1="80" y1="51" x2="112" y2="51" color="blue" line-width="2" />
+      </stamp>
+    </row>
+  </page>
+      .
+      <!--
   <page rem="Page 3" style="test1">
   </page>
   .

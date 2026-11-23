@@ -16,7 +16,7 @@ namespace MyAlbum.Models
         public static Dictionary<string, SpaceStyle> Space { get; } = new();
         public static Dictionary<string, StampStyle> Stamp { get; } = new();
         public static Dictionary<string, LineStyle> Line { get; } = new();
-        //public static Dictionary<string, RectStyle> Rect { get; } = new();
+        public static Dictionary<string, RectStyle> Rect { get; } = new();
 
         // Helper method to get style or default
         public static T GetStyle<T>(this Dictionary<string, T> styles, string? styleName) where T : class, new()
